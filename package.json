@@ -1,0 +1,81 @@
+{
+  "name": "functional-types",
+  "version": "0.0.1",
+  "description": "Functional Types for Entities' functions",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run clean && tsc && tsc -m es6 --outDir es6",
+    "clean": "shx rm -rf lib es6",
+    "test": "npm run unit-test && npm run integration-test",
+    "docs": "shx rm -rf temp-docs README.md && typedoc --plugin typedoc-plugin-markdown --theme markdown --excludeNotExported --target ES6 --out temp-docs && concat-md --decrease-title-levels --dir-name-as-title temp-docs > README.md && shx rm -rf temp-docs",
+    "integration-test": "cross-env FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 mocha -r ts-node/register tests/Integration/**/*.spec.ts",
+    "unit-test": "mocha -r ts-node/register tests/Unit/**/*.spec.ts"
+  },
+  "files": [
+    "/lib",
+    "/es6"
+  ],
+  "types": "lib/index.d.ts",
+  "author": "carneyc",
+  "license": "MIT",
+  "keywords": [
+    "firestore",
+    "typescript",
+    "functional-programming"
+  ],
+  "dependencies": {
+    "fp-ts": "^2.5.3",
+    "ramda": "^0.27.0",
+    "reflect-metadata": "^0.1.13",
+    "source-map-support": "^0.5.18",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/chai-datetime": "0.0.33",
+    "@types/chai-string": "^1.4.2",
+    "@types/chai-uuid": "^1.0.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.13.2",
+    "@types/ramda": "^0.27.3",
+    "@types/sinon": "^9.0.0",
+    "@types/sinon-chai": "^3.2.4",
+    "@types/uuid": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
+    "chai": "^4.2.0",
+    "chai-datetime": "^1.5.0",
+    "concat-md": "^0.3.2",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.0",
+    "eslint-plugin-mocha": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "fast-check": "^1.24.1",
+    "husky": "^4.2.5",
+    "json-loader": "^0.5.7",
+    "lint-staged": "^10.1.7",
+    "mocha": "^7.1.1",
+    "prettier": "^2.0.5",
+    "showdown": "^1.9.1",
+    "shx": "^0.3.2",
+    "sinon": "^9.0.2",
+    "sinon-chai": "^3.5.0",
+    "ts-loader": "^7.0.1",
+    "ts-node": "^8.9.0",
+    "typedoc": "^0.17.4",
+    "typedoc-plugin-markdown": "^2.2.17",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
+  }
+}

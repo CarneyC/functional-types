@@ -1,0 +1,27 @@
+image: node:10.15.3
+
+pipelines:
+  default:
+    - step:
+        name: Build and Unit Test
+        caches:
+          - node
+        script:
+          - npm install
+          - npm audit fix
+          - npm run unit-test
+    - step:
+        name: Publish
+        deployment: production
+        trigger: manual
+        caches:
+          - node
+        script:
+          - npm install
+          - npm run build
+          - npm version patch -m "Upgrade to %s [skip ci]"
+          - git push && git push --tags
+          - pipe: atlassian/npm-publish:0.2.6
+            variables:
+              NPM_TOKEN: $NPM_TOKEN
+
