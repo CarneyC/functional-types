@@ -15,7 +15,7 @@
 * ["Folder"](#modules_folder_md)
 * ["Label"](#modules_label_md)
 * ["String"](#modules_string_md)
-* ["TableAnnotations"](#modules_tableannotations_md)
+* ["TableAnnotation"](#modules_tableannotation_md)
 * ["Vertex"](#modules_vertex_md)
 * ["index"](#modules_index_md)
 
@@ -283,15 +283,15 @@ ___
 Defined in Label.ts:4
 
 
-<a name="interfaces_tableannotations_tableannotationsmd"></a>
+<a name="interfaces_tableannotation_tableannotationmd"></a>
 
-[functional-types](#globalsmd) › ["TableAnnotations"](#modules_tableannotations_md) › [TableAnnotations](#interfaces_tableannotations_tableannotationsmd)
+[functional-types](#globalsmd) › ["TableAnnotation"](#modules_tableannotation_md) › [TableAnnotation](#interfaces_tableannotation_tableannotationmd)
 
-## Interface: TableAnnotations
+## Interface: TableAnnotation
 
 ### Hierarchy
 
-* **TableAnnotations**
+* **TableAnnotation**
 
 ### Index
 
@@ -309,7 +309,7 @@ Defined in Label.ts:4
 
 • **boundingBoxesByPageId**: *[BoundingBoxByPageId](#boundingboxbypageid)*
 
-Defined in TableAnnotations.ts:11
+Defined in TableAnnotation.ts:11
 
 ___
 
@@ -317,7 +317,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in TableAnnotations.ts:12
+Defined in TableAnnotation.ts:12
 
 ___
 
@@ -325,7 +325,7 @@ ___
 
 • **file**: *string*
 
-Defined in TableAnnotations.ts:10
+Defined in TableAnnotation.ts:10
 
 ___
 
@@ -333,7 +333,7 @@ ___
 
 • **id**: *string*
 
-Defined in TableAnnotations.ts:9
+Defined in TableAnnotation.ts:9
 
 ___
 
@@ -341,7 +341,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in TableAnnotations.ts:13
+Defined in TableAnnotation.ts:13
 
 
 <a name="interfaces_vertex_boundingboxmd"></a>
@@ -1387,28 +1387,28 @@ Name | Type |
 Defined in String.ts:5
 
 
-<a name="modules_tableannotations_md"></a>
+<a name="modules_tableannotation_md"></a>
 
-[functional-types](#globalsmd) › ["TableAnnotations"](#modules_tableannotations_md)
+[functional-types](#globalsmd) › ["TableAnnotation"](#modules_tableannotation_md)
 
-## Module: "TableAnnotations"
+## Module: "TableAnnotation"
 
 ### Index
 
 #### Interfaces
 
-* [TableAnnotations](#interfaces_tableannotations_tableannotationsmd)
+* [TableAnnotation](#interfaces_tableannotation_tableannotationmd)
 
 #### Type aliases
 
 * [BoundingBoxByPageId](#boundingboxbypageid)
-* [TableAnnotationsBase](#tableannotationsbase)
+* [TableAnnotationBase](#tableannotationbase)
 
 #### Functions
 
 * [isBoundingBoxByPageId](#const-isboundingboxbypageid)
-* [isTableAnnotations](#const-istableannotations)
-* [isTableAnnotationsBase](#const-istableannotationsbase)
+* [isTableAnnotation](#const-istableannotation)
+* [isTableAnnotationBase](#const-istableannotationbase)
 * [make](#const-make)
 
 ### Type aliases
@@ -1417,15 +1417,15 @@ Defined in String.ts:5
 
 Ƭ **BoundingBoxByPageId**: *Record‹string, [LabeledBoundingBox](#interfaces_vertex_labeledboundingboxmd)[]›*
 
-Defined in TableAnnotations.ts:6
+Defined in TableAnnotation.ts:6
 
 ___
 
-####  TableAnnotationsBase
+####  TableAnnotationBase
 
-Ƭ **TableAnnotationsBase**: *Pick‹[TableAnnotations](#interfaces_tableannotations_tableannotationsmd), "file" | "boundingBoxesByPageId"›*
+Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPageId"›*
 
-Defined in TableAnnotations.ts:16
+Defined in TableAnnotation.ts:16
 
 ### Functions
 
@@ -1433,7 +1433,7 @@ Defined in TableAnnotations.ts:16
 
 ▸ **isBoundingBoxByPageId**(`a`: unknown): *a is BoundingBoxByPageId*
 
-Defined in TableAnnotations.ts:22
+Defined in TableAnnotation.ts:22
 
 **Parameters:**
 
@@ -1445,11 +1445,11 @@ Name | Type |
 
 ___
 
-#### `Const` isTableAnnotations
+#### `Const` isTableAnnotation
 
-▸ **isTableAnnotations**(`a`: unknown): *a is TableAnnotations*
+▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in TableAnnotations.ts:36
+Defined in TableAnnotation.ts:36
 
 **Parameters:**
 
@@ -1457,15 +1457,15 @@ Name | Type |
 ------ | ------ |
 `a` | unknown |
 
-**Returns:** *a is TableAnnotations*
+**Returns:** *a is TableAnnotation*
 
 ___
 
-#### `Const` isTableAnnotationsBase
+#### `Const` isTableAnnotationBase
 
-▸ **isTableAnnotationsBase**(`a`: unknown): *a is TableAnnotationsBase*
+▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in TableAnnotations.ts:28
+Defined in TableAnnotation.ts:28
 
 **Parameters:**
 
@@ -1473,7 +1473,7 @@ Name | Type |
 ------ | ------ |
 `a` | unknown |
 
-**Returns:** *a is TableAnnotationsBase*
+**Returns:** *a is TableAnnotationBase*
 
 ___
 
@@ -1481,7 +1481,7 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in TableAnnotations.ts:47
+Defined in TableAnnotation.ts:47
 
 **Parameters:**
 

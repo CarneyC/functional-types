@@ -5,7 +5,7 @@ import { getRandomId } from './String';
 
 export type BoundingBoxByPageId = Record<string, LabeledBoundingBox[]>;
 
-export interface TableAnnotations {
+export interface TableAnnotation {
   id: string;
   file: string;
   boundingBoxesByPageId: BoundingBoxByPageId;
@@ -13,8 +13,8 @@ export interface TableAnnotations {
   updated_at: string;
 }
 
-export type TableAnnotationsBase = Pick<
-  TableAnnotations,
+export type TableAnnotationBase = Pick<
+  TableAnnotation,
   'file' | 'boundingBoxesByPageId'
 >;
 
@@ -24,30 +24,30 @@ export const isBoundingBoxByPageId = (a: unknown): a is BoundingBoxByPageId =>
     a
   );
 
-// isTableAnnotationsBase :: a -> bool
-export const isTableAnnotationsBase = (a: unknown): a is TableAnnotationsBase =>
+// isTableAnnotationBase :: a -> bool
+export const isTableAnnotationBase = (a: unknown): a is TableAnnotationBase =>
   allPass([
     is(Object),
     propIs(String, 'file'),
     propSatisfies(isBoundingBoxByPageId, 'boundingBoxByPageId'),
   ])(a);
 
-// isTableAnnotations :: a -> bool
-export const isTableAnnotations = (a: unknown): a is TableAnnotations =>
+// isTableAnnotation :: a -> bool
+export const isTableAnnotation = (a: unknown): a is TableAnnotation =>
   allPass([
-    isTableAnnotationsBase,
+    isTableAnnotationBase,
     propIs(String, 'id'),
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
   ])(a);
 
-// make :: (String, BoundingBoxByPageId) -> IO TableAnnotations
+// make :: (String, BoundingBoxByPageId) -> IO TableAnnotation
 export const make: (
-  annotations: TableAnnotationsBase
-) => IO.IO<TableAnnotations> = ({
+  annotations: TableAnnotationBase
+) => IO.IO<TableAnnotation> = ({
   file,
   boundingBoxesByPageId,
-}) => (): TableAnnotations => {
+}) => (): TableAnnotation => {
   const timestamp = new Date().toISOString();
   return {
     id: getRandomId(),
