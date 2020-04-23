@@ -5,6 +5,10 @@ export interface Label {
   color: string;
 }
 
-// isLabel :: a -> bool
+/**
+ * ```haskell
+ * isLabel :: a -> bool
+ * ```
+ */
 export const isLabel = (a: unknown): a is Label =>
   allPass([is(Object), propIs(String, 'id'), propIs(String, 'color')])(a);

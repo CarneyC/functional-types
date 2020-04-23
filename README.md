@@ -517,7 +517,7 @@ Defined in Vertex.ts:21
 
 ▸ **file**(): *Arbitrary‹[File](#file)›*
 
-Defined in Arbitraries.ts:47
+Defined in Arbitraries.ts:55
 
 **Returns:** *Arbitrary‹[File](#file)›*
 
@@ -527,7 +527,7 @@ ___
 
 ▸ **filesByType**(): *Arbitrary‹[FilesByType](#filesbytype)›*
 
-Defined in Arbitraries.ts:57
+Defined in Arbitraries.ts:65
 
 **Returns:** *Arbitrary‹[FilesByType](#filesbytype)›*
 
@@ -537,7 +537,7 @@ ___
 
 ▸ **folder**(): *Arbitrary‹[Folder](#interfaces_folder_foldermd)›*
 
-Defined in Arbitraries.ts:29
+Defined in Arbitraries.ts:37
 
 **Returns:** *Arbitrary‹[Folder](#interfaces_folder_foldermd)›*
 
@@ -557,7 +557,7 @@ ___
 
 ▸ **metadata**(): *Arbitrary‹[Metadata](#interfaces_folder_metadatamd)›*
 
-Defined in Arbitraries.ts:32
+Defined in Arbitraries.ts:40
 
 **Returns:** *Arbitrary‹[Metadata](#interfaces_folder_metadatamd)›*
 
@@ -567,7 +567,7 @@ ___
 
 ▸ **nonFolderObject**(): *Arbitrary‹unknown›*
 
-Defined in Arbitraries.ts:16
+Defined in Arbitraries.ts:20
 
 **Returns:** *Arbitrary‹unknown›*
 
@@ -1355,7 +1355,11 @@ ___
 
 ▸ **isLabel**(`a`: unknown): *a is Label*
 
-Defined in Label.ts:9
+Defined in Label.ts:13
+
+```haskell
+isLabel :: a -> bool
+```
 
 **Parameters:**
 
@@ -1384,7 +1388,11 @@ Name | Type |
 
 • **getRandomId**: *IO‹string›* = uuid
 
-Defined in String.ts:5
+Defined in String.ts:9
+
+```haskell
+getRandomId: IO String
+```
 
 
 <a name="modules_tableannotation_md"></a>
@@ -1433,7 +1441,11 @@ Defined in TableAnnotation.ts:16
 
 ▸ **isBoundingBoxByPageId**(`a`: unknown): *a is BoundingBoxByPageId*
 
-Defined in TableAnnotation.ts:22
+Defined in TableAnnotation.ts:26
+
+```haskell
+isBoundingBoxByPageId :: a -> bool
+```
 
 **Parameters:**
 
@@ -1449,7 +1461,11 @@ ___
 
 ▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in TableAnnotation.ts:36
+Defined in TableAnnotation.ts:48
+
+```haskell
+isTableAnnotation :: a -> bool
+```
 
 **Parameters:**
 
@@ -1465,7 +1481,11 @@ ___
 
 ▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in TableAnnotation.ts:28
+Defined in TableAnnotation.ts:36
+
+```haskell
+isTableAnnotationBase :: a -> bool
+```
 
 **Parameters:**
 
@@ -1481,7 +1501,11 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in TableAnnotation.ts:47
+Defined in TableAnnotation.ts:63
+
+```haskell
+make :: (String, BoundingBoxByPageId) -> IO TableAnnotation
+```
 
 **Parameters:**
 
@@ -1555,7 +1579,11 @@ Defined in Vertex.ts:26
 
 • **getX**: *function* = pipe(head, prop<'x', number>('x'))
 
-Defined in Vertex.ts:157
+Defined in Vertex.ts:229
+
+```haskell
+getX :: Line -> Int
+```
 
 ##### Type declaration:
 
@@ -1573,7 +1601,11 @@ ___
 
 • **getY**: *function* = pipe(head, prop<'y', number>('y'))
 
-Defined in Vertex.ts:154
+Defined in Vertex.ts:222
+
+```haskell
+getY :: Line -> Int
+```
 
 ##### Type declaration:
 
@@ -1591,7 +1623,11 @@ Name | Type |
 
 ▸ **append**<**A**>(`boundingBox`: A): *(Anonymous function)*
 
-Defined in Vertex.ts:183
+Defined in Vertex.ts:267
+
+```haskell
+append :: ([Int], [Int]) -> BoundingBox
+```
 
 **Type parameters:**
 
@@ -1611,7 +1647,11 @@ ___
 
 ▸ **isBoundingBox**(`a`: unknown): *a is BoundingBox*
 
-Defined in Vertex.ts:61
+Defined in Vertex.ts:81
+
+```haskell
+isBoundingBox :: a -> bool
+```
 
 **Parameters:**
 
@@ -1627,7 +1667,11 @@ ___
 
 ▸ **isLabeledBoundingBox**(`a`: unknown): *a is LabeledBoundingBox*
 
-Defined in Vertex.ts:160
+Defined in Vertex.ts:236
+
+```haskell
+isLabeledBoundingBox :: a -> bool
+```
 
 **Parameters:**
 
@@ -1643,7 +1687,11 @@ ___
 
 ▸ **isLine**(`a`: unknown): *a is Line*
 
-Defined in Vertex.ts:49
+Defined in Vertex.ts:57
+
+```haskell
+isLine :: a -> bool
+```
 
 **Parameters:**
 
@@ -1659,7 +1707,11 @@ ___
 
 ▸ **isPoly**(`a`: unknown): *a is Poly*
 
-Defined in Vertex.ts:53
+Defined in Vertex.ts:65
+
+```haskell
+isPoly :: a -> bool
+```
 
 **Parameters:**
 
@@ -1675,7 +1727,11 @@ ___
 
 ▸ **isVertex**(`a`: unknown): *a is Vertex*
 
-Defined in Vertex.ts:45
+Defined in Vertex.ts:49
+
+```haskell
+isVertex :: a -> bool
+```
 
 **Parameters:**
 
@@ -1691,7 +1747,11 @@ ___
 
 ▸ **makeBoundingBox**(`boundingPoly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[BoundingBox](#interfaces_vertex_boundingboxmd)*
 
-Defined in Vertex.ts:139
+Defined in Vertex.ts:203
+
+```haskell
+makeBoundingBox :: (Poly, [Int], [Int]) -> BoundingBox
+```
 
 **Parameters:**
 
@@ -1709,7 +1769,11 @@ ___
 
 ▸ **makeLabeledBoundingBox**(`id`: string, `label`: string, `boundingPoly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[LabeledBoundingBox](#interfaces_vertex_labeledboundingboxmd)*
 
-Defined in Vertex.ts:164
+Defined in Vertex.ts:244
+
+```haskell
+makeLabeledBoundingBox :: (String, String, Poly, [Int], [Int]) -> LabeledBoundingBox
+```
 
 **Parameters:**
 
@@ -1729,7 +1793,11 @@ ___
 
 ▸ **makeLine**(`x0`: number, `y0`: number, `x1`: number, `y1`: number): *[Line](#line)*
 
-Defined in Vertex.ts:72
+Defined in Vertex.ts:100
+
+```haskell
+makeVertex :: (Int, Int, Int, Int) -> Line
+```
 
 **Parameters:**
 
@@ -1748,7 +1816,11 @@ ___
 
 ▸ **makePoly**(...`coords`: [number, number, number, number]): *[Poly](#poly)*
 
-Defined in Vertex.ts:117
+Defined in Vertex.ts:165
+
+```haskell
+makePoly :: (Int, Int, Int, Int) -> Poly
+```
 
 **Parameters:**
 
@@ -1764,7 +1836,11 @@ ___
 
 ▸ **makeVertex**(`x`: number, `y`: number): *[Vertex](#interfaces_vertex_vertexmd)*
 
-Defined in Vertex.ts:69
+Defined in Vertex.ts:93
+
+```haskell
+makeVertex :: (Int, Int) -> Vertex
+```
 
 **Parameters:**
 

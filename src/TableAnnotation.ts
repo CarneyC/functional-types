@@ -18,13 +18,21 @@ export type TableAnnotationBase = Pick<
   'file' | 'boundingBoxesByPageId'
 >;
 
-// isBoundingBoxByPageId :: a -> bool
+/**
+ * ```haskell
+ * isBoundingBoxByPageId :: a -> bool
+ * ```
+ */
 export const isBoundingBoxByPageId = (a: unknown): a is BoundingBoxByPageId =>
   allPass([is(Object), pipe(values, allPass([is(Array), all(isBoundingBox)]))])(
     a
   );
 
-// isTableAnnotationBase :: a -> bool
+/**
+ * ```haskell
+ * isTableAnnotationBase :: a -> bool
+ * ```
+ */
 export const isTableAnnotationBase = (a: unknown): a is TableAnnotationBase =>
   allPass([
     is(Object),
@@ -32,7 +40,11 @@ export const isTableAnnotationBase = (a: unknown): a is TableAnnotationBase =>
     propSatisfies(isBoundingBoxByPageId, 'boundingBoxByPageId'),
   ])(a);
 
-// isTableAnnotation :: a -> bool
+/**
+ * ```haskell
+ * isTableAnnotation :: a -> bool
+ * ```
+ */
 export const isTableAnnotation = (a: unknown): a is TableAnnotation =>
   allPass([
     isTableAnnotationBase,
@@ -41,7 +53,11 @@ export const isTableAnnotation = (a: unknown): a is TableAnnotation =>
     propIs(String, 'updated_at'),
   ])(a);
 
-// make :: (String, BoundingBoxByPageId) -> IO TableAnnotation
+/**
+ * ```haskell
+ * make :: (String, BoundingBoxByPageId) -> IO TableAnnotation
+ * ```
+ */
 export const make: (
   annotations: TableAnnotationBase
 ) => IO.IO<TableAnnotation> = ({

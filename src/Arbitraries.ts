@@ -5,7 +5,11 @@ import { fileTypes } from './FileType';
 export const invalidFolderObject = (): Arbitrary<Record<string, any>> =>
   fc
     .tuple(fc.anything(), fc.anything(), fc.anything(), fc.anything())
-    // eslint-disable-next-line @typescript-eslint/camelcase
+    /**
+ * ```haskell
+ * eslint-disable-next-line @typescript-eslint/camelcase
+ * ```
+ */
     .map(([id, name, created_at, updated_at]) => ({
       id,
       name,
@@ -15,7 +19,11 @@ export const invalidFolderObject = (): Arbitrary<Record<string, any>> =>
 
 export const nonFolderObject = (): Arbitrary<unknown> =>
   fc.anything().filter(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    /**
+ * ```haskell
+ * eslint-disable-next-line @typescript-eslint/no-explicit-any
+ * ```
+ */
     (object: any) =>
       !object ||
       !object.id ||

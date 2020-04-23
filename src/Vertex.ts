@@ -41,23 +41,43 @@ interface Corners {
   end: Vertex;
 }
 
-// isVertex :: a -> bool
+/**
+ * ```haskell
+ * isVertex :: a -> bool
+ * ```
+ */
 export const isVertex = (a: unknown): a is Vertex =>
   allPass([propIs(Number, 'x'), propIs(Number, 'y')])(a);
 
-// isLine :: a -> bool
+/**
+ * ```haskell
+ * isLine :: a -> bool
+ * ```
+ */
 export const isLine = (a: unknown): a is Line =>
   allPass([is(Array), propEq(2, 'length'), all(isVertex)])(a);
 
-// isPoly :: a -> bool
+/**
+ * ```haskell
+ * isPoly :: a -> bool
+ * ```
+ */
 export const isPoly = (a: unknown): a is Poly =>
-  allPass([is(Array), all(isVertex)])(a);
+  allPass([is(Array), propEq(4, 'length'), all(isVertex)])(a);
 
-// isLineArray :: a -> bool
+/**
+ * ```haskell
+ * isLineArray :: a -> bool
+ * ```
+ */
 const isLineArray = (a: unknown): a is Line[] =>
   allPass([is(Array), all(isLine)])(a);
 
-// isBoundingBox :: a -> bool
+/**
+ * ```haskell
+ * isBoundingBox :: a -> bool
+ * ```
+ */
 export const isBoundingBox = (a: unknown): a is BoundingBox =>
   allPass([
     propSatisfies(isPoly, 'boundingPoly'),
@@ -65,10 +85,18 @@ export const isBoundingBox = (a: unknown): a is BoundingBox =>
     propSatisfies(isLineArray, 'columns'),
   ])(a);
 
-// makeVertex :: (Int, Int) -> Vertex
+/**
+ * ```haskell
+ * makeVertex :: (Int, Int) -> Vertex
+ * ```
+ */
 export const makeVertex = (x: number, y: number): Vertex => ({ x, y });
 
-// makeVertex :: (Int, Int, Int, Int) -> Line
+/**
+ * ```haskell
+ * makeVertex :: (Int, Int, Int, Int) -> Line
+ * ```
+ */
 export const makeLine = (
   x0: number,
   y0: number,
@@ -76,7 +104,11 @@ export const makeLine = (
   y1: number
 ): Line => [makeVertex(x0, y0), makeVertex(x1, y1)];
 
-// getTopLeftVertex :: (Int, Int, Int, Int) -> Vertex
+/**
+ * ```haskell
+ * getTopLeftVertex :: (Int, Int, Int, Int) -> Vertex
+ * ```
+ */
 const getTopLeftVertex = (
   x0: number,
   y0: number,
@@ -84,7 +116,11 @@ const getTopLeftVertex = (
   y1: number
 ): Vertex => makeVertex(min(x0, x1), min(y0, y1));
 
-// getTopRightVertex :: (Int, Int, Int, Int) -> Vertex
+/**
+ * ```haskell
+ * getTopRightVertex :: (Int, Int, Int, Int) -> Vertex
+ * ```
+ */
 const getTopRightVertex = (
   x0: number,
   y0: number,
@@ -92,7 +128,11 @@ const getTopRightVertex = (
   y1: number
 ): Vertex => makeVertex(max(x0, x1), min(y0, y1));
 
-// getBottomLeftVertex :: (Int, Int, Int, Int) -> Vertex
+/**
+ * ```haskell
+ * getBottomLeftVertex :: (Int, Int, Int, Int) -> Vertex
+ * ```
+ */
 const getBottomLeftVertex = (
   x0: number,
   y0: number,
@@ -100,7 +140,11 @@ const getBottomLeftVertex = (
   y1: number
 ): Vertex => makeVertex(min(x0, x1), max(y0, y1));
 
-// getBottomRightVertex :: (Int, Int, Int, Int) -> Vertex
+/**
+ * ```haskell
+ * getBottomRightVertex :: (Int, Int, Int, Int) -> Vertex
+ * ```
+ */
 const getBottomRightVertex = (
   x0: number,
   y0: number,
@@ -108,7 +152,11 @@ const getBottomRightVertex = (
   y1: number
 ): Vertex => makeVertex(max(x0, x1), max(y0, y1));
 
-// makePoly :: (Int, Int, Int, Int) -> Poly
+/**
+ * ```haskell
+ * makePoly :: (Int, Int, Int, Int) -> Poly
+ * ```
+ */
 export const makePoly: (
   x0: number,
   y0: number,
@@ -121,21 +169,37 @@ export const makePoly: (
   getBottomRightVertex(...coords),
 ];
 
-// getCornersFromPoly :: Poly -> Corners
+/**
+ * ```haskell
+ * getCornersFromPoly :: Poly -> Corners
+ * ```
+ */
 const getCornersFromPoly: (poly: Poly) => Corners = applySpec({
   start: head,
   end: last,
 });
 
-// makeRows :: Corners -> [Line]
+/**
+ * ```haskell
+ * makeRows :: Corners -> [Line]
+ * ```
+ */
 const makeRows = ({ start, end }: Corners) => (ys: number[]): Line[] =>
   ys.map((y) => makeLine(start.x, y, end.x, y));
 
-// makeColumns :: Corners -> [Line]
+/**
+ * ```haskell
+ * makeColumns :: Corners -> [Line]
+ * ```
+ */
 const makeColumns = ({ start, end }: Corners) => (xs: number[]): Line[] =>
   xs.map((x) => makeLine(x, start.y, x, end.y));
 
-// makeBoundingBox :: (Poly, [Int], [Int]) -> BoundingBox
+/**
+ * ```haskell
+ * makeBoundingBox :: (Poly, [Int], [Int]) -> BoundingBox
+ * ```
+ */
 export const makeBoundingBox = (
   boundingPoly: Poly,
   ys: number[],
@@ -150,17 +214,33 @@ export const makeBoundingBox = (
   };
 };
 
-// getY :: Line -> Int
+/**
+ * ```haskell
+ * getY :: Line -> Int
+ * ```
+ */
 export const getY: (line: Line) => number = pipe(head, prop<'y', number>('y'));
 
-// getX :: Line -> Int
+/**
+ * ```haskell
+ * getX :: Line -> Int
+ * ```
+ */
 export const getX: (line: Line) => number = pipe(head, prop<'x', number>('x'));
 
-// isLabeledBoundingBox :: a -> bool
+/**
+ * ```haskell
+ * isLabeledBoundingBox :: a -> bool
+ * ```
+ */
 export const isLabeledBoundingBox = (a: unknown): a is LabeledBoundingBox =>
   allPass([isBoundingBox, propIs(String, 'id'), propIs(String, 'label')])(a);
 
-// makeLabeledBoundingBox :: (String, String, Poly, [Int], [Int]) -> LabeledBoundingBox
+/**
+ * ```haskell
+ * makeLabeledBoundingBox :: (String, String, Poly, [Int], [Int]) -> LabeledBoundingBox
+ * ```
+ */
 export const makeLabeledBoundingBox = (
   id: string,
   label: string,
@@ -179,7 +259,11 @@ export const makeLabeledBoundingBox = (
   };
 };
 
-// append :: ([Int], [Int]) -> BoundingBox
+/**
+ * ```haskell
+ * append :: ([Int], [Int]) -> BoundingBox
+ * ```
+ */
 export const append = <A extends BoundingBox>(boundingBox: A) => (
   xs: number[],
   ys: number[]
