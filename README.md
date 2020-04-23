@@ -1345,9 +1345,50 @@ ___
 
 * [Label](#interfaces_label_labelmd)
 
+#### Type aliases
+
+* [ColorMappings](#colormappings)
+
+#### Variables
+
+* [toColorMappings](#const-tocolormappings)
+
 #### Functions
 
 * [isLabel](#const-islabel)
+
+### Type aliases
+
+####  ColorMappings
+
+Ƭ **ColorMappings**: *Record‹string, string›*
+
+Defined in Label.ts:8
+
+### Variables
+
+#### `Const` toColorMappings
+
+• **toColorMappings**: *function* = reduce(
+  (acc: ColorMappings, label: Label) => assoc(label.id, label.color)(acc),
+  {}
+)
+
+Defined in Label.ts:23
+
+```haskell
+toColorMappings :: [Label] -> ColorMappings
+```
+
+##### Type declaration:
+
+▸ (`labels`: [Label](#interfaces_label_labelmd)[]): *[ColorMappings](#colormappings)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`labels` | [Label](#interfaces_label_labelmd)[] |
 
 ### Functions
 
@@ -1355,7 +1396,7 @@ ___
 
 ▸ **isLabel**(`a`: unknown): *a is Label*
 
-Defined in Label.ts:13
+Defined in Label.ts:15
 
 ```haskell
 isLabel :: a -> bool
