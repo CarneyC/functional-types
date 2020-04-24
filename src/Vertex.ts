@@ -2,19 +2,23 @@ import {
   all,
   allPass,
   applySpec,
-  clone,
+  concat,
+  filter,
   head,
   is,
   last,
+  map,
   max,
   mergeDeepRight,
   min,
   pipe,
   prop,
-  propEq,
   propIs,
   propSatisfies,
+  sort,
+  uniq,
 } from 'ramda';
+import * as R from 'fp-ts/lib/Reader';
 
 export interface Vertex {
   x: number;
@@ -30,6 +34,14 @@ export interface BoundingBox {
   rows: Line[];
   columns: Line[];
 }
+
+export type WithHeaderRow<A extends BoundingBox> = A & {
+  headerRow: Poly;
+};
+
+export type WithHeaderColumn<A extends BoundingBox> = A & {
+  headerColumn: Poly;
+};
 
 export interface LabeledBoundingBox extends BoundingBox {
   id: string;
@@ -55,7 +67,11 @@ export const isVertex = (a: unknown): a is Vertex =>
  * ```
  */
 export const isLine = (a: unknown): a is Line =>
-  allPass([is(Array), propEq(2, 'length'), all(isVertex)])(a);
+  allPass([
+    is(Array),
+    (a: unknown[]): boolean => a.length === 2,
+    all(isVertex),
+  ])(a);
 
 /**
  * ```haskell
@@ -63,7 +79,11 @@ export const isLine = (a: unknown): a is Line =>
  * ```
  */
 export const isPoly = (a: unknown): a is Poly =>
-  allPass([is(Array), propEq(4, 'length'), all(isVertex)])(a);
+  allPass([
+    is(Array),
+    (a: unknown[]): boolean => a.length === 4,
+    all(isVertex),
+  ])(a);
 
 /**
  * ```haskell
@@ -84,6 +104,23 @@ export const isBoundingBox = (a: unknown): a is BoundingBox =>
     propSatisfies(isLineArray, 'rows'),
     propSatisfies(isLineArray, 'columns'),
   ])(a);
+
+/**
+ * ```haskell
+ * hasHeaderRow :: a -> bool
+ * ```
+ */
+export const hasHeaderRow = <A extends BoundingBox>(
+  a: A
+): a is WithHeaderRow<A> => propSatisfies(isPoly, 'headerRow')(a);
+/**
+ * ```haskell
+ * hasHeaderColumn :: a -> bool
+ * ```
+ */
+export const hasHeaderColumn = <A extends BoundingBox>(
+  a: A
+): a is WithHeaderRow<A> => propSatisfies(isPoly, 'headerColumn')(a);
 
 /**
  * ```haskell
@@ -181,19 +218,42 @@ const getCornersFromPoly: (poly: Poly) => Corners = applySpec({
 
 /**
  * ```haskell
- * makeRows :: Corners -> [Line]
+ * diff :: (number, number) -> number
  * ```
  */
-const makeRows = ({ start, end }: Corners) => (ys: number[]): Line[] =>
-  ys.map((y) => makeLine(start.x, y, end.x, y));
+const diff: (a: number, b: number) => number = (a, b) => a - b;
 
 /**
  * ```haskell
- * makeColumns :: Corners -> [Line]
+ * makeRows :: Corners -> Reader [Int] [Line]
  * ```
  */
-const makeColumns = ({ start, end }: Corners) => (xs: number[]): Line[] =>
-  xs.map((x) => makeLine(x, start.y, x, end.y));
+const makeRows: (corners: Corners) => R.Reader<number[], Line[]> = ({
+  start,
+  end,
+}: Corners) =>
+  pipe(
+    filter((y) => start.y < y && end.y > y),
+    uniq,
+    sort(diff),
+    map((y) => makeLine(start.x, y, end.x, y))
+  );
+
+/**
+ * ```haskell
+ * makeColumns :: Corners -> Reader [Int] [Line]
+ * ```
+ */
+const makeColumns: (corners: Corners) => R.Reader<number[], Line[]> = ({
+  start,
+  end,
+}: Corners) =>
+  pipe(
+    filter((x) => start.x < x && end.x > x),
+    uniq,
+    sort(diff),
+    map((x) => makeLine(x, start.y, x, end.y))
+  );
 
 /**
  * ```haskell
@@ -227,6 +287,20 @@ export const getY: (line: Line) => number = pipe(head, prop<'y', number>('y'));
  * ```
  */
 export const getX: (line: Line) => number = pipe(head, prop<'x', number>('x'));
+
+/**
+ * ```haskell
+ * getYs :: [Line] -> [Int]
+ * ```
+ */
+export const getYs: (lines: Line[]) => number[] = map(getY);
+
+/**
+ * ```haskell
+ * getXs :: [Line] -> [Int]
+ * ```
+ */
+export const getXs: (lines: Line[]) => number[] = map(getX);
 
 /**
  * ```haskell
@@ -271,7 +345,7 @@ export const append = <A extends BoundingBox>(boundingBox: A) => (
   const corners = getCornersFromPoly(boundingBox.boundingPoly);
 
   return mergeDeepRight<A, Pick<A, 'rows' | 'columns'>>(boundingBox, {
-    rows: [...clone(boundingBox.rows), ...makeRows(corners)(ys)],
-    columns: [...clone(boundingBox.columns), ...makeColumns(corners)(xs)],
+    rows: pipe(getYs, concat(ys), makeRows(corners))(boundingBox.rows),
+    columns: pipe(getXs, concat(xs), makeColumns(corners))(boundingBox.columns),
   }) as A;
 };

@@ -2,6 +2,7 @@ import { allPass, assoc, is, propIs, reduce } from 'ramda';
 
 export interface Label {
   id: string;
+  name: string;
   color: string;
 }
 
@@ -13,7 +14,12 @@ export type ColorMappings = Record<string, string>;
  * ```
  */
 export const isLabel = (a: unknown): a is Label =>
-  allPass([is(Object), propIs(String, 'id'), propIs(String, 'color')])(a);
+  allPass([
+    is(Object),
+    propIs(String, 'id'),
+    propIs(String, 'name'),
+    propIs(String, 'color'),
+  ])(a);
 
 /**
  * ```haskell
