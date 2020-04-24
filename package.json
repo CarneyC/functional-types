@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "npm run docs && npm run clean && tsc && tsc -m es6 --outDir es6",
-    "publish": "npm version minor -m \"Upgrade to %s\"",
+    "publish": "npm version patch -m \"Upgrade to %s\"",
     "clean": "shx rm -rf lib es6",
     "test": "npm run unit-test && npm run integration-test",
     "docs": "shx rm -rf temp-docs README.md && typedoc --plugin typedoc-plugin-markdown --theme markdown --excludeNotExported --target ES6 --out temp-docs && concat-md --decrease-title-levels --dir-name-as-title temp-docs > README.md && shx rm -rf temp-docs",
