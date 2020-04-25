@@ -1,13 +1,24 @@
 import { isBoundingBox, LabeledBoundingBox } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
-import { all, allPass, is, pipe, propIs, propSatisfies, values } from 'ramda';
+import {
+  all,
+  allPass,
+  Dictionary,
+  is,
+  pipe,
+  propIs,
+  propSatisfies,
+  values,
+} from 'ramda';
 
-export type BoundingBoxByPageId = Record<string, LabeledBoundingBox>;
+export type BoundingBoxes = Dictionary<LabeledBoundingBox>;
+
+export type BoundingBoxesByPageId = Dictionary<BoundingBoxes>;
 
 export interface TableAnnotation {
   id: string;
   file: string;
-  boundingBoxesByPageId: BoundingBoxByPageId;
+  boundingBoxesByPageId: BoundingBoxesByPageId;
   created_at: string;
   updated_at: string;
 }
@@ -22,7 +33,7 @@ export type TableAnnotationBase = Pick<
  * isBoundingBoxByPageId :: a -> bool
  * ```
  */
-export const isBoundingBoxByPageId = (a: unknown): a is BoundingBoxByPageId =>
+export const isBoundingBoxByPageId = (a: unknown): a is BoundingBoxesByPageId =>
   allPass([is(Object), pipe(values, allPass([is(Array), all(isBoundingBox)]))])(
     a
   );
@@ -54,7 +65,7 @@ export const isTableAnnotation = (a: unknown): a is TableAnnotation =>
 
 /**
  * ```haskell
- * make :: (String, BoundingBoxByPageId) -> IO TableAnnotation
+ * make :: (String, BoundingBoxesByPageId) -> IO TableAnnotation
  * ```
  */
 export const make: (

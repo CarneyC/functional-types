@@ -317,9 +317,9 @@ Defined in Label.ts:5
 
 ####  boundingBoxesByPageId
 
-• **boundingBoxesByPageId**: *[BoundingBoxByPageId](#boundingboxbypageid)*
+• **boundingBoxesByPageId**: *[BoundingBoxesByPageId](#boundingboxesbypageid)*
 
-Defined in TableAnnotation.ts:10
+Defined in TableAnnotation.ts:21
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in TableAnnotation.ts:11
+Defined in TableAnnotation.ts:22
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 • **file**: *string*
 
-Defined in TableAnnotation.ts:9
+Defined in TableAnnotation.ts:20
 
 ___
 
@@ -343,7 +343,7 @@ ___
 
 • **id**: *string*
 
-Defined in TableAnnotation.ts:8
+Defined in TableAnnotation.ts:19
 
 ___
 
@@ -351,7 +351,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in TableAnnotation.ts:12
+Defined in TableAnnotation.ts:23
 
 
 <a name="interfaces_vertex_index_boundingboxmd"></a>
@@ -1494,7 +1494,8 @@ getRandomId: IO String
 
 #### Type aliases
 
-* [BoundingBoxByPageId](#boundingboxbypageid)
+* [BoundingBoxes](#boundingboxes)
+* [BoundingBoxesByPageId](#boundingboxesbypageid)
 * [TableAnnotationBase](#tableannotationbase)
 
 #### Functions
@@ -1506,11 +1507,19 @@ getRandomId: IO String
 
 ### Type aliases
 
-####  BoundingBoxByPageId
+####  BoundingBoxes
 
-Ƭ **BoundingBoxByPageId**: *Record‹string, [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›*
+Ƭ **BoundingBoxes**: *Dictionary‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›*
 
-Defined in TableAnnotation.ts:5
+Defined in TableAnnotation.ts:14
+
+___
+
+####  BoundingBoxesByPageId
+
+Ƭ **BoundingBoxesByPageId**: *Dictionary‹[BoundingBoxes](#boundingboxes)›*
+
+Defined in TableAnnotation.ts:16
 
 ___
 
@@ -1518,15 +1527,15 @@ ___
 
 Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPageId"›*
 
-Defined in TableAnnotation.ts:15
+Defined in TableAnnotation.ts:26
 
 ### Functions
 
 #### `Const` isBoundingBoxByPageId
 
-▸ **isBoundingBoxByPageId**(`a`: unknown): *a is BoundingBoxByPageId*
+▸ **isBoundingBoxByPageId**(`a`: unknown): *a is BoundingBoxesByPageId*
 
-Defined in TableAnnotation.ts:25
+Defined in TableAnnotation.ts:36
 
 ```haskell
 isBoundingBoxByPageId :: a -> bool
@@ -1538,7 +1547,7 @@ Name | Type |
 ------ | ------ |
 `a` | unknown |
 
-**Returns:** *a is BoundingBoxByPageId*
+**Returns:** *a is BoundingBoxesByPageId*
 
 ___
 
@@ -1546,7 +1555,7 @@ ___
 
 ▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in TableAnnotation.ts:47
+Defined in TableAnnotation.ts:58
 
 ```haskell
 isTableAnnotation :: a -> bool
@@ -1566,7 +1575,7 @@ ___
 
 ▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in TableAnnotation.ts:35
+Defined in TableAnnotation.ts:46
 
 ```haskell
 isTableAnnotationBase :: a -> bool
@@ -1586,10 +1595,10 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in TableAnnotation.ts:62
+Defined in TableAnnotation.ts:73
 
 ```haskell
-make :: (String, BoundingBoxByPageId) -> IO TableAnnotation
+make :: (String, BoundingBoxesByPageId) -> IO TableAnnotation
 ```
 
 **Parameters:**
@@ -1598,7 +1607,7 @@ make :: (String, BoundingBoxByPageId) -> IO TableAnnotation
 
 Name | Type |
 ------ | ------ |
-`boundingBoxesByPageId` | object |
+`boundingBoxesByPageId` | Dictionary‹Dictionary‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›› |
 `file` | string |
 
 **Returns:** *(Anonymous function)*
