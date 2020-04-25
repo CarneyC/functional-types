@@ -380,7 +380,7 @@ Defined in TableAnnotation.ts:13
 
 • **boundingPoly**: *[Poly](#poly)*
 
-Defined in Vertex/index.ts:45
+Defined in Vertex/index.ts:47
 
 ___
 
@@ -388,7 +388,7 @@ ___
 
 • **columns**: *[Line](#line)[]*
 
-Defined in Vertex/index.ts:47
+Defined in Vertex/index.ts:49
 
 ___
 
@@ -396,7 +396,7 @@ ___
 
 • **rows**: *[Line](#line)[]*
 
-Defined in Vertex/index.ts:46
+Defined in Vertex/index.ts:48
 
 
 <a name="interfaces_vertex_index_cornersmd"></a>
@@ -422,7 +422,7 @@ Defined in Vertex/index.ts:46
 
 • **end**: *[Vertex](#interfaces_vertex_index_vertexmd)*
 
-Defined in Vertex/index.ts:69
+Defined in Vertex/index.ts:71
 
 ___
 
@@ -430,7 +430,7 @@ ___
 
 • **start**: *[Vertex](#interfaces_vertex_index_vertexmd)*
 
-Defined in Vertex/index.ts:68
+Defined in Vertex/index.ts:70
 
 
 <a name="interfaces_vertex_index_labeledboundingboxmd"></a>
@@ -463,7 +463,7 @@ Defined in Vertex/index.ts:68
 
 *Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[boundingPoly](#boundingpoly)*
 
-Defined in Vertex/index.ts:45
+Defined in Vertex/index.ts:47
 
 ___
 
@@ -473,7 +473,7 @@ ___
 
 *Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[columns](#columns)*
 
-Defined in Vertex/index.ts:47
+Defined in Vertex/index.ts:49
 
 ___
 
@@ -481,7 +481,7 @@ ___
 
 • **id**: *string*
 
-Defined in Vertex/index.ts:63
+Defined in Vertex/index.ts:65
 
 ___
 
@@ -489,7 +489,7 @@ ___
 
 • **label**: *string*
 
-Defined in Vertex/index.ts:64
+Defined in Vertex/index.ts:66
 
 ___
 
@@ -499,7 +499,7 @@ ___
 
 *Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[rows](#rows)*
 
-Defined in Vertex/index.ts:46
+Defined in Vertex/index.ts:48
 
 
 <a name="interfaces_vertex_index_vertexmd"></a>
@@ -525,7 +525,7 @@ Defined in Vertex/index.ts:46
 
 • **x**: *number*
 
-Defined in Vertex/index.ts:33
+Defined in Vertex/index.ts:35
 
 ___
 
@@ -533,7 +533,7 @@ ___
 
 • **y**: *number*
 
-Defined in Vertex/index.ts:34
+Defined in Vertex/index.ts:36
 
 # Modules
 
@@ -1694,6 +1694,8 @@ Defined in Vertex/Arbitraries.ts:35
 * [getXs](#const-getxs)
 * [getY](#const-gety)
 * [getYs](#const-getys)
+* [heightOf](#const-heightof)
+* [widthOf](#const-widthof)
 
 #### Functions
 
@@ -1706,6 +1708,7 @@ Defined in Vertex/Arbitraries.ts:35
 * [isLine](#const-isline)
 * [isPoly](#const-ispoly)
 * [isVertex](#const-isvertex)
+* [lengthOf](#const-lengthof)
 * [makeBoundingBox](#const-makeboundingbox)
 * [makeLabeledBoundingBox](#const-makelabeledboundingbox)
 * [makeLine](#const-makeline)
@@ -1721,7 +1724,7 @@ Defined in Vertex/Arbitraries.ts:35
 
 Ƭ **Line**: *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in Vertex/index.ts:37
+Defined in Vertex/index.ts:39
 
 ___
 
@@ -1729,7 +1732,7 @@ ___
 
 Ƭ **Poly**: *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in Vertex/index.ts:42
+Defined in Vertex/index.ts:44
 
 [TopLeft, TopRight, BottomLeft, BottomRight]
 
@@ -1739,7 +1742,7 @@ ___
 
 Ƭ **WithHeader**: *[WithHeaderRow](#withheaderrow)‹A› | [WithHeaderColumn](#withheadercolumn)‹A›*
 
-Defined in Vertex/index.ts:58
+Defined in Vertex/index.ts:60
 
 ___
 
@@ -1747,7 +1750,7 @@ ___
 
 Ƭ **WithHeaderColumn**: *A & object*
 
-Defined in Vertex/index.ts:54
+Defined in Vertex/index.ts:56
 
 ___
 
@@ -1755,7 +1758,7 @@ ___
 
 Ƭ **WithHeaderRow**: *A & object*
 
-Defined in Vertex/index.ts:50
+Defined in Vertex/index.ts:52
 
 ### Variables
 
@@ -1763,7 +1766,7 @@ Defined in Vertex/index.ts:50
 
 • **getBottomLeft**: *function* = nth(2)
 
-Defined in Vertex/index.ts:397
+Defined in Vertex/index.ts:392
 
 ```haskell
 getBottomLeft :: Poly -> Vertex
@@ -1785,7 +1788,7 @@ ___
 
 • **getBottomRight**: *function* = nth(3)
 
-Defined in Vertex/index.ts:404
+Defined in Vertex/index.ts:399
 
 ```haskell
 getBottomRight :: Poly -> Vertex
@@ -1810,7 +1813,7 @@ ___
   end: last,
 })
 
-Defined in Vertex/index.ts:239
+Defined in Vertex/index.ts:241
 
 ```haskell
 getCornersFromPoly :: Poly -> Corners
@@ -1832,7 +1835,7 @@ ___
 
 • **getTopLeft**: *function* = nth(0)
 
-Defined in Vertex/index.ts:383
+Defined in Vertex/index.ts:378
 
 ```haskell
 getTopLeft :: Poly -> Vertex
@@ -1854,7 +1857,7 @@ ___
 
 • **getTopRight**: *function* = nth(1)
 
-Defined in Vertex/index.ts:390
+Defined in Vertex/index.ts:385
 
 ```haskell
 getTopRight :: Poly -> Vertex
@@ -1876,7 +1879,7 @@ ___
 
 • **getX**: *function* = pipe(head, prop<'x', number>('x'))
 
-Defined in Vertex/index.ts:314
+Defined in Vertex/index.ts:309
 
 ```haskell
 getX :: Line -> Int
@@ -1898,7 +1901,7 @@ ___
 
 • **getXs**: *function* = map(getX)
 
-Defined in Vertex/index.ts:328
+Defined in Vertex/index.ts:323
 
 ```haskell
 getXs :: [Line] -> [Int]
@@ -1920,7 +1923,7 @@ ___
 
 • **getY**: *function* = pipe(head, prop<'y', number>('y'))
 
-Defined in Vertex/index.ts:307
+Defined in Vertex/index.ts:302
 
 ```haskell
 getY :: Line -> Int
@@ -1942,7 +1945,7 @@ ___
 
 • **getYs**: *function* = map(getY)
 
-Defined in Vertex/index.ts:321
+Defined in Vertex/index.ts:316
 
 ```haskell
 getYs :: [Line] -> [Int]
@@ -1958,13 +1961,63 @@ Name | Type |
 ------ | ------ |
 `lines` | [Line](#line)[] |
 
+___
+
+#### `Const` heightOf
+
+• **heightOf**: *function* = converge(subtract, [
+  pipe(getBottomLeft, prop('y')),
+  pipe(getTopLeft, prop('y')),
+])
+
+Defined in Vertex/index.ts:508
+
+```haskell
+heightOf :: Poly -> Int
+```
+
+##### Type declaration:
+
+▸ (`poly`: [Poly](#poly)): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`poly` | [Poly](#poly) |
+
+___
+
+#### `Const` widthOf
+
+• **widthOf**: *function* = converge(subtract, [
+  pipe(getTopRight, prop('x')),
+  pipe(getTopLeft, prop('x')),
+])
+
+Defined in Vertex/index.ts:498
+
+```haskell
+widthOf :: Poly -> Int
+```
+
+##### Type declaration:
+
+▸ (`poly`: [Poly](#poly)): *number*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`poly` | [Poly](#poly) |
+
 ### Functions
 
 #### `Const` append
 
 ▸ **append**<**A**>(`boundingBox`: A): *(Anonymous function)*
 
-Defined in Vertex/index.ts:366
+Defined in Vertex/index.ts:361
 
 ```haskell
 append :: BoundingBox -> ([Int], [Int]) -> BoundingBox
@@ -1988,7 +2041,7 @@ ___
 
 ▸ **hasHeader**<**A**>(`a`: A): *a is WithHeader<A>*
 
-Defined in Vertex/index.ts:147
+Defined in Vertex/index.ts:149
 
 ```haskell
 hasHeader :: a -> bool
@@ -2012,7 +2065,7 @@ ___
 
 ▸ **hasHeaderColumn**<**A**>(`a`: A): *a is WithHeaderRow<A>*
 
-Defined in Vertex/index.ts:138
+Defined in Vertex/index.ts:140
 
 ```haskell
 hasHeaderColumn :: a -> bool
@@ -2036,7 +2089,7 @@ ___
 
 ▸ **hasHeaderRow**<**A**>(`a`: A): *a is WithHeaderRow<A>*
 
-Defined in Vertex/index.ts:129
+Defined in Vertex/index.ts:131
 
 ```haskell
 hasHeaderRow :: a -> bool
@@ -2060,7 +2113,7 @@ ___
 
 ▸ **isBoundingBox**(`a`: unknown): *a is BoundingBox*
 
-Defined in Vertex/index.ts:117
+Defined in Vertex/index.ts:119
 
 ```haskell
 isBoundingBox :: a -> bool
@@ -2080,7 +2133,7 @@ ___
 
 ▸ **isLabeledBoundingBox**(`a`: unknown): *a is LabeledBoundingBox*
 
-Defined in Vertex/index.ts:335
+Defined in Vertex/index.ts:330
 
 ```haskell
 isLabeledBoundingBox :: a -> bool
@@ -2100,7 +2153,7 @@ ___
 
 ▸ **isLine**(`a`: unknown): *a is Line*
 
-Defined in Vertex/index.ts:85
+Defined in Vertex/index.ts:87
 
 ```haskell
 isLine :: a -> bool
@@ -2120,7 +2173,7 @@ ___
 
 ▸ **isPoly**(`a`: unknown): *a is Poly*
 
-Defined in Vertex/index.ts:97
+Defined in Vertex/index.ts:99
 
 ```haskell
 isPoly :: a -> bool
@@ -2140,7 +2193,7 @@ ___
 
 ▸ **isVertex**(`a`: unknown): *a is Vertex*
 
-Defined in Vertex/index.ts:77
+Defined in Vertex/index.ts:79
 
 ```haskell
 isVertex :: a -> bool
@@ -2156,11 +2209,31 @@ Name | Type |
 
 ___
 
+#### `Const` lengthOf
+
+▸ **lengthOf**(`__namedParameters`: [any, any]): *number*
+
+Defined in Vertex/index.ts:518
+
+```haskell
+lengthOf :: Line -> Int
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`__namedParameters` | [any, any] |
+
+**Returns:** *number*
+
+___
+
 #### `Const` makeBoundingBox
 
 ▸ **makeBoundingBox**(`boundingPoly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
 
-Defined in Vertex/index.ts:288
+Defined in Vertex/index.ts:283
 
 ```haskell
 makeBoundingBox :: (Poly, [Int], [Int]) -> BoundingBox
@@ -2182,7 +2255,7 @@ ___
 
 ▸ **makeLabeledBoundingBox**(`id`: string, `label`: string, `boundingPoly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
 
-Defined in Vertex/index.ts:343
+Defined in Vertex/index.ts:338
 
 ```haskell
 makeLabeledBoundingBox :: (String, String, Poly, [Int], [Int]) -> LabeledBoundingBox
@@ -2206,7 +2279,7 @@ ___
 
 ▸ **makeLine**(`x0`: number, `y0`: number, `x1`: number, `y1`: number): *[Line](#line)*
 
-Defined in Vertex/index.ts:162
+Defined in Vertex/index.ts:164
 
 ```haskell
 makeVertex :: (Int, Int, Int, Int) -> Line
@@ -2229,7 +2302,7 @@ ___
 
 ▸ **makePoly**(...`coords`: [number, number, number, number]): *[Poly](#poly)*
 
-Defined in Vertex/index.ts:227
+Defined in Vertex/index.ts:229
 
 ```haskell
 makePoly :: (Int, Int, Int, Int) -> Poly
@@ -2249,7 +2322,7 @@ ___
 
 ▸ **makeVertex**(`x`: number, `y`: number): *[Vertex](#interfaces_vertex_index_vertexmd)*
 
-Defined in Vertex/index.ts:155
+Defined in Vertex/index.ts:157
 
 ```haskell
 makeVertex :: (Int, Int) -> Vertex
@@ -2270,9 +2343,11 @@ ___
 
 ▸ **withHeader**(`vertex`: [Vertex](#interfaces_vertex_index_vertexmd)): *(Anonymous function)*
 
-Defined in Vertex/index.ts:478
+Defined in Vertex/index.ts:483
 
+```haskell
 withHeader :: Vertex -> ReaderEither BoundingBox (WithHeader BoundingBox) BoundingBox
+```
 
 **Parameters:**
 
@@ -2288,7 +2363,7 @@ ___
 
 ▸ **withHeaderColumn**(`x`: number): *(Anonymous function)*
 
-Defined in Vertex/index.ts:447
+Defined in Vertex/index.ts:446
 
 ```haskell
 withHeaderColumn :: Int -> ReaderEither BoundingBox BoundingBox (WithHeaderColumn BoundingBox)
@@ -2308,7 +2383,7 @@ ___
 
 ▸ **withHeaderRow**(`y`: number): *(Anonymous function)*
 
-Defined in Vertex/index.ts:413
+Defined in Vertex/index.ts:408
 
 ```haskell
 withHeaderRow :: Int -> ReaderEither BoundingBox BoundingBox (WithHeaderRow BoundingBox)

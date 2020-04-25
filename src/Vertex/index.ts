@@ -6,6 +6,7 @@ import {
   applySpec,
   clone,
   concat,
+  converge,
   filter,
   find,
   head,
@@ -23,6 +24,7 @@ import {
   propIs,
   propSatisfies,
   sort,
+  subtract,
   uniq,
 } from 'ramda';
 import * as R from 'fp-ts/lib/Reader';
@@ -243,13 +245,6 @@ export const getCornersFromPoly: (poly: Poly) => Corners = applySpec({
 
 /**
  * ```haskell
- * diff :: (number, number) -> number
- * ```
- */
-const diff = (a: number, b: number): number => a - b;
-
-/**
- * ```haskell
  * makeRows :: Corners -> Reader [Int] [Line]
  * ```
  */
@@ -260,7 +255,7 @@ const makeRows: (corners: Corners) => R.Reader<number[], Line[]> = ({
   pipe(
     filter((y) => start.y < y && end.y > y),
     uniq,
-    sort(diff),
+    sort(subtract),
     map((y) => makeLine(start.x, y, end.x, y))
   );
 
@@ -276,7 +271,7 @@ const makeColumns: (corners: Corners) => R.Reader<number[], Line[]> = ({
   pipe(
     filter((x) => start.x < x && end.x > x),
     uniq,
-    sort(diff),
+    sort(subtract),
     map((x) => makeLine(x, start.y, x, end.y))
   );
 
@@ -414,7 +409,11 @@ export const withHeaderRow: <A extends BoundingBox>(
   boundingBox: A
 ): E.Either<A, WithHeaderRow<A>> => {
   const [topLeft, topRight, bottomLeft] = boundingBox.boundingPoly;
-  // Out of bound
+  /**
+ * ```haskell
+ * Out of bound
+ * ```
+ */
   if (y < topLeft.y || y > bottomLeft.y) {
     return E.left(clone(boundingBox));
   }
@@ -450,7 +449,11 @@ export const withHeaderColumn: <A extends BoundingBox>(
   boundingBox: A
 ): E.Either<A, WithHeaderColumn<A>> => {
   const [topLeft, topRight, bottomLeft] = boundingBox.boundingPoly;
-  // Out of bound
+  /**
+ * ```haskell
+ * Out of bound
+ * ```
+ */
   if (x < topLeft.x || x > topRight.x) return E.left(clone(boundingBox));
 
   const xs = [topLeft.x, ...getXs(boundingBox.columns), topRight.x];
@@ -470,8 +473,10 @@ export const withHeaderColumn: <A extends BoundingBox>(
   )(boundingBox) as E.Right<WithHeaderColumn<A>>;
 };
 
-/***
+/**
+ * ```haskell
  * withHeader :: Vertex -> ReaderEither BoundingBox (WithHeader BoundingBox) BoundingBox
+ * ```
  */
 export const withHeader: <A extends BoundingBox>(
   vertex: Vertex
@@ -484,3 +489,33 @@ export const withHeader: <A extends BoundingBox>(
     withHeaderColumn(vertex.x),
     E.orElse(E.fromPredicate(hasHeader, identity))
   )(boundingBox);
+
+/**
+ * ```haskell
+ * widthOf :: Poly -> Int
+ * ```
+ */
+export const widthOf: (poly: Poly) => number = converge(subtract, [
+  pipe(getTopRight, prop('x')),
+  pipe(getTopLeft, prop('x')),
+]);
+
+/**
+ * ```haskell
+ * heightOf :: Poly -> Int
+ * ```
+ */
+export const heightOf: (poly: Poly) => number = converge(subtract, [
+  pipe(getBottomLeft, prop('y')),
+  pipe(getTopLeft, prop('y')),
+]);
+
+/**
+ * ```haskell
+ * lengthOf :: Line -> Int
+ * ```
+ */
+export const lengthOf: (line: Line) => number = ([
+  { x: x0, y: y0 },
+  { x: x1, y: y1 },
+]) => Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 1));
