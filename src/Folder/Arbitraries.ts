@@ -1,36 +1,28 @@
 import fc, { Arbitrary } from 'fast-check';
-import { File, FilesByType, Folder, make, Metadata } from './Folder';
-import { fileTypes } from './FileType';
+import { File, FilesByType, Folder, make, Metadata } from './index';
+import { fileTypes } from '../FileType';
 
 export const invalidFolderObject = (): Arbitrary<Record<string, any>> =>
   fc
     .tuple(fc.anything(), fc.anything(), fc.anything(), fc.anything())
-    /**
- * ```haskell
- * eslint-disable-next-line @typescript-eslint/camelcase
- * ```
- */
-    .map(([id, name, created_at, updated_at]) => ({
+    .map(([id, name, createdAt, updatedAt]) => ({
       id,
       name,
-      created_at,
-      updated_at,
+      created_at: createdAt,
+      updated_at: updatedAt,
     }));
 
 export const nonFolderObject = (): Arbitrary<unknown> =>
-  fc.anything().filter(
-    /**
- * ```haskell
- * eslint-disable-next-line @typescript-eslint/no-explicit-any
- * ```
- */
-    (object: any) =>
-      !object ||
-      !object.id ||
-      !object.name ||
-      !object.created_at ||
-      !object.updated_at
-  );
+  fc
+    .anything()
+    .filter(
+      (object: any) =>
+        !object ||
+        !object.id ||
+        !object.name ||
+        !object.created_at ||
+        !object.updated_at
+    );
 
 const nonEmptyString = (): Arbitrary<string> => fc.hexaString(2, 16);
 

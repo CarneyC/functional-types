@@ -1,5 +1,5 @@
-import { getRandomId } from './String';
-import { getCurrentDate } from './DateTime';
+import { getRandomId } from '../String';
+import { getCurrentDate } from '../DateTime';
 import * as IO from 'fp-ts/lib/IO';
 import {
   all,
@@ -13,7 +13,7 @@ import {
   propSatisfies,
   split,
 } from 'ramda';
-import * as FT from './FileType';
+import * as FT from '../FileType';
 import * as R from 'fp-ts/lib/Reader';
 import * as E from 'fp-ts/lib/Either';
 

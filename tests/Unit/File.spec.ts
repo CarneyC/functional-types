@@ -1,6 +1,6 @@
 import chai from 'chai';
 import fc from 'fast-check';
-import * as Arb from '../../src/Arbitraries';
+import * as Arb from '../../src/Folder/Arbitraries';
 import { isFile, isFilesByType } from '../../src/Folder';
 
 const { expect } = chai;

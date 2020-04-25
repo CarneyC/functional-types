@@ -1,12 +1,15 @@
 import {
   all,
   allPass,
+  anyPass,
   aperture,
   applySpec,
+  clone,
   concat,
   filter,
   find,
   head,
+  identity,
   is,
   last,
   map,
@@ -23,7 +26,6 @@ import {
   uniq,
 } from 'ramda';
 import * as R from 'fp-ts/lib/Reader';
-import * as O from 'fp-ts/lib/Option';
 import * as RE from 'fp-ts/lib/ReaderEither';
 import * as E from 'fp-ts/lib/Either';
 
@@ -62,7 +64,7 @@ export interface LabeledBoundingBox extends BoundingBox {
   label: string;
 }
 
-interface Corners {
+export interface Corners {
   start: Vertex;
   end: Vertex;
 }
@@ -127,6 +129,7 @@ export const isBoundingBox = (a: unknown): a is BoundingBox =>
 export const hasHeaderRow = <A extends BoundingBox>(
   a: A
 ): a is WithHeaderRow<A> => propSatisfies(isPoly, 'headerRow')(a);
+
 /**
  * ```haskell
  * hasHeaderColumn :: a -> bool
@@ -135,6 +138,14 @@ export const hasHeaderRow = <A extends BoundingBox>(
 export const hasHeaderColumn = <A extends BoundingBox>(
   a: A
 ): a is WithHeaderRow<A> => propSatisfies(isPoly, 'headerColumn')(a);
+
+/**
+ * ```haskell
+ * hasHeader :: a -> bool
+ * ```
+ */
+export const hasHeader = <A extends BoundingBox>(a: A): a is WithHeader<A> =>
+  anyPass([hasHeaderRow, hasHeaderColumn])(a);
 
 /**
  * ```haskell
@@ -225,10 +236,17 @@ export const makePoly: (
  * getCornersFromPoly :: Poly -> Corners
  * ```
  */
-const getCornersFromPoly: (poly: Poly) => Corners = applySpec({
+export const getCornersFromPoly: (poly: Poly) => Corners = applySpec({
   start: head,
   end: last,
 });
+
+/**
+ * ```haskell
+ * diff :: (number, number) -> number
+ * ```
+ */
+const diff = (a: number, b: number): number => a - b;
 
 /**
  * ```haskell
@@ -242,7 +260,7 @@ const makeRows: (corners: Corners) => R.Reader<number[], Line[]> = ({
   pipe(
     filter((y) => start.y < y && end.y > y),
     uniq,
-    sort((a: number, b: number) => b - a),
+    sort(diff),
     map((y) => makeLine(start.x, y, end.x, y))
   );
 
@@ -258,7 +276,7 @@ const makeColumns: (corners: Corners) => R.Reader<number[], Line[]> = ({
   pipe(
     filter((x) => start.x < x && end.x > x),
     uniq,
-    sort((a: number, b: number) => a - b),
+    sort(diff),
     map((x) => makeLine(x, start.y, x, end.y))
   );
 
@@ -387,15 +405,19 @@ export const getBottomRight: (poly: Poly) => Vertex = nth(3);
 
 /**
  * ```haskell
- * getHeaderRow ::  Int -> Reader BoundingBox (Option Poly)
+ * withHeaderRow :: Int -> ReaderEither BoundingBox BoundingBox (WithHeaderRow BoundingBox)
  * ```
  */
-const getHeaderRow: <A extends BoundingBox>(
+export const withHeaderRow: <A extends BoundingBox>(
   y: number
-) => R.Reader<A, O.Option<Poly>> = (y) => (boundingBox): O.Option<Poly> => {
+) => RE.ReaderEither<A, A, WithHeaderRow<A>> = (y) => <A extends BoundingBox>(
+  boundingBox: A
+): E.Either<A, WithHeaderRow<A>> => {
   const [topLeft, topRight, bottomLeft] = boundingBox.boundingPoly;
   // Out of bound
-  if (y < topLeft.y || y > bottomLeft.y) return O.none;
+  if (y < topLeft.y || y > bottomLeft.y) {
+    return E.left(clone(boundingBox));
+  }
 
   const ys = [topLeft.y, ...getYs(boundingBox.rows), bottomLeft.y];
   const ranges = aperture(2, ys);
@@ -407,32 +429,45 @@ const getHeaderRow: <A extends BoundingBox>(
     ([top, bottom]: [number, number]) => top <= y && y <= bottom
   )(ranges);
 
-  return O.some(makePoly(x0, y0, x1, y1));
+  return pipe(
+    mergeLeft({
+      headerRow: makePoly(x0, y0, x1, y1),
+    }),
+    E.right
+  )(boundingBox) as E.Right<WithHeaderRow<A>>;
 };
 
 /**
  * ```haskell
- * getHeaderColumn :: Int -> Reader BoundingBox (Option Poly)
+ * withHeaderColumn :: Int -> ReaderEither BoundingBox BoundingBox (WithHeaderColumn BoundingBox)
  * ```
  */
-const getHeaderColumn: <A extends BoundingBox>(
+export const withHeaderColumn: <A extends BoundingBox>(
   x: number
-) => R.Reader<A, O.Option<Poly>> = (x) => (boundingBox): O.Option<Poly> => {
+) => RE.ReaderEither<A, A, WithHeaderColumn<A>> = (x: number) => <
+  A extends BoundingBox
+>(
+  boundingBox: A
+): E.Either<A, WithHeaderColumn<A>> => {
   const [topLeft, topRight, bottomLeft] = boundingBox.boundingPoly;
   // Out of bound
-  if (x < topLeft.x || x > bottomLeft.x) return O.none;
+  if (x < topLeft.x || x > topRight.x) return E.left(clone(boundingBox));
 
   const xs = [topLeft.x, ...getXs(boundingBox.columns), topRight.x];
   const ranges = aperture(2, xs);
 
   const y0 = topLeft.y;
   const y1 = bottomLeft.y;
-
   const [x0, x1] = find(
     ([left, right]: [number, number]) => left <= x && x <= right
   )(ranges);
 
-  return O.some(makePoly(x0, y0, x1, y1));
+  return pipe(
+    mergeLeft({
+      headerColumn: makePoly(x0, y0, x1, y1),
+    }),
+    E.right
+  )(boundingBox) as E.Right<WithHeaderColumn<A>>;
 };
 
 /***
@@ -442,25 +477,10 @@ export const withHeader: <A extends BoundingBox>(
   vertex: Vertex
 ) => RE.ReaderEither<A, A, WithHeader<A>> = (vertex) => <A extends BoundingBox>(
   boundingBox: A
-) => {
-  const headerRow = getHeaderRow(vertex.y)(boundingBox);
-  if (O.isSome(headerRow)) {
-    return pipe(
-      mergeLeft({
-        headerRow: headerRow.value,
-      }),
-      E.right
-    )(boundingBox) as E.Right<WithHeaderRow<A>>;
-  } else {
-    const headerColumn = getHeaderColumn(vertex.x)(boundingBox);
-    if (O.isSome(headerColumn)) {
-      return pipe(
-        mergeLeft({
-          headerColumn: headerColumn.value,
-        }),
-        E.right
-      )(boundingBox) as E.Right<WithHeaderColumn<A>>;
-    }
-  }
-  return E.left(boundingBox);
-};
+): E.Either<A, WithHeader<A>> =>
+  pipe(
+    withHeaderRow<A>(vertex.y),
+    E.getOrElse(identity),
+    withHeaderColumn(vertex.x),
+    E.orElse(E.fromPredicate(hasHeader, identity))
+  )(boundingBox);
