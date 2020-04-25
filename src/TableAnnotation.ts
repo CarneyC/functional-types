@@ -1,7 +1,6 @@
 import { isBoundingBox, LabeledBoundingBox } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import { all, allPass, is, pipe, propIs, propSatisfies, values } from 'ramda';
-import { getRandomId } from './String';
 
 export type BoundingBoxByPageId = Record<string, LabeledBoundingBox[]>;
 
@@ -66,7 +65,7 @@ export const make: (
 }) => (): TableAnnotation => {
   const timestamp = new Date().toISOString();
   return {
-    id: getRandomId(),
+    id: file,
     file,
     boundingBoxesByPageId,
     created_at: timestamp,

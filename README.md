@@ -319,7 +319,7 @@ Defined in Label.ts:5
 
 • **boundingBoxesByPageId**: *[BoundingBoxByPageId](#boundingboxbypageid)*
 
-Defined in TableAnnotation.ts:11
+Defined in TableAnnotation.ts:10
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in TableAnnotation.ts:12
+Defined in TableAnnotation.ts:11
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 • **file**: *string*
 
-Defined in TableAnnotation.ts:10
+Defined in TableAnnotation.ts:9
 
 ___
 
@@ -343,7 +343,7 @@ ___
 
 • **id**: *string*
 
-Defined in TableAnnotation.ts:9
+Defined in TableAnnotation.ts:8
 
 ___
 
@@ -351,7 +351,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in TableAnnotation.ts:13
+Defined in TableAnnotation.ts:12
 
 
 <a name="interfaces_vertex_index_boundingboxmd"></a>
@@ -1510,7 +1510,7 @@ getRandomId: IO String
 
 Ƭ **BoundingBoxByPageId**: *Record‹string, [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)[]›*
 
-Defined in TableAnnotation.ts:6
+Defined in TableAnnotation.ts:5
 
 ___
 
@@ -1518,7 +1518,7 @@ ___
 
 Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPageId"›*
 
-Defined in TableAnnotation.ts:16
+Defined in TableAnnotation.ts:15
 
 ### Functions
 
@@ -1526,7 +1526,7 @@ Defined in TableAnnotation.ts:16
 
 ▸ **isBoundingBoxByPageId**(`a`: unknown): *a is BoundingBoxByPageId*
 
-Defined in TableAnnotation.ts:26
+Defined in TableAnnotation.ts:25
 
 ```haskell
 isBoundingBoxByPageId :: a -> bool
@@ -1546,7 +1546,7 @@ ___
 
 ▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in TableAnnotation.ts:48
+Defined in TableAnnotation.ts:47
 
 ```haskell
 isTableAnnotation :: a -> bool
@@ -1566,7 +1566,7 @@ ___
 
 ▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in TableAnnotation.ts:36
+Defined in TableAnnotation.ts:35
 
 ```haskell
 isTableAnnotationBase :: a -> bool
@@ -1586,7 +1586,7 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in TableAnnotation.ts:63
+Defined in TableAnnotation.ts:62
 
 ```haskell
 make :: (String, BoundingBoxByPageId) -> IO TableAnnotation

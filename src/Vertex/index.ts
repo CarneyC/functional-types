@@ -410,10 +410,10 @@ export const withHeaderRow: <A extends BoundingBox>(
 ): E.Either<A, WithHeaderRow<A>> => {
   const [topLeft, topRight, bottomLeft] = boundingBox.boundingPoly;
   /**
- * ```haskell
- * Out of bound
- * ```
- */
+   * ```haskell
+   * Out of bound
+   * ```
+   */
   if (y < topLeft.y || y > bottomLeft.y) {
     return E.left(clone(boundingBox));
   }
@@ -450,10 +450,10 @@ export const withHeaderColumn: <A extends BoundingBox>(
 ): E.Either<A, WithHeaderColumn<A>> => {
   const [topLeft, topRight, bottomLeft] = boundingBox.boundingPoly;
   /**
- * ```haskell
- * Out of bound
- * ```
- */
+   * ```haskell
+   * Out of bound
+   * ```
+   */
   if (x < topLeft.x || x > topRight.x) return E.left(clone(boundingBox));
 
   const xs = [topLeft.x, ...getXs(boundingBox.columns), topRight.x];
