@@ -139,7 +139,7 @@ export const hasHeaderRow = <A extends BoundingBox>(
  */
 export const hasHeaderColumn = <A extends BoundingBox>(
   a: A
-): a is WithHeaderRow<A> => propSatisfies(isPoly, 'headerColumn')(a);
+): a is WithHeaderColumn<A> => propSatisfies(isPoly, 'headerColumn')(a);
 
 /**
  * ```haskell

@@ -2063,7 +2063,7 @@ ___
 
 #### `Const` hasHeaderColumn
 
-▸ **hasHeaderColumn**<**A**>(`a`: A): *a is WithHeaderRow<A>*
+▸ **hasHeaderColumn**<**A**>(`a`: A): *a is WithHeaderColumn<A>*
 
 Defined in Vertex/index.ts:140
 
@@ -2081,7 +2081,7 @@ Name | Type |
 ------ | ------ |
 `a` | A |
 
-**Returns:** *a is WithHeaderRow<A>*
+**Returns:** *a is WithHeaderColumn<A>*
 
 ___
 
