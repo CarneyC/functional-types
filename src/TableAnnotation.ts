@@ -2,7 +2,7 @@ import { isBoundingBox, LabeledBoundingBox } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import { all, allPass, is, pipe, propIs, propSatisfies, values } from 'ramda';
 
-export type BoundingBoxByPageId = Record<string, LabeledBoundingBox[]>;
+export type BoundingBoxByPageId = Record<string, LabeledBoundingBox>;
 
 export interface TableAnnotation {
   id: string;

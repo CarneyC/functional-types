@@ -1508,7 +1508,7 @@ getRandomId: IO String
 
 ####  BoundingBoxByPageId
 
-Ƭ **BoundingBoxByPageId**: *Record‹string, [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)[]›*
+Ƭ **BoundingBoxByPageId**: *Record‹string, [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›*
 
 Defined in TableAnnotation.ts:5
 
