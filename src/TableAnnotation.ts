@@ -1,6 +1,7 @@
 import { isBoundingBox, LabeledBoundingBox } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import { all, allPass, Dictionary, is, propIs, propSatisfies } from 'ramda';
+import { getRandomId } from './String';
 
 export type BoundingBoxes = Dictionary<LabeledBoundingBox>;
 
@@ -73,7 +74,7 @@ export const make: (
 }) => (): TableAnnotation => {
   const timestamp = new Date().toISOString();
   return {
-    id: file,
+    id: getRandomId(),
     file,
     boundingBoxesByPage,
     created_at: timestamp,
