@@ -45,7 +45,7 @@ export const isTableAnnotationBase = (a: unknown): a is TableAnnotationBase =>
   allPass([
     is(Object),
     propIs(String, 'file'),
-    propSatisfies(isBoundingBoxesByPage, 'boundingBoxByPage'),
+    propSatisfies(isBoundingBoxesByPage, 'boundingBoxesByPage'),
   ])(a);
 
 /**
