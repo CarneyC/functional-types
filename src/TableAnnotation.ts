@@ -13,27 +13,27 @@ import {
 
 export type BoundingBoxes = Dictionary<LabeledBoundingBox>;
 
-export type BoundingBoxesByPageId = Dictionary<BoundingBoxes>;
+export type BoundingBoxesByPage = Record<number, BoundingBoxes>;
 
 export interface TableAnnotation {
   id: string;
   file: string;
-  boundingBoxesByPageId: BoundingBoxesByPageId;
+  boundingBoxesByPage: BoundingBoxesByPage;
   created_at: string;
   updated_at: string;
 }
 
 export type TableAnnotationBase = Pick<
   TableAnnotation,
-  'file' | 'boundingBoxesByPageId'
+  'file' | 'boundingBoxesByPage'
 >;
 
 /**
  * ```haskell
- * isBoundingBoxByPageId :: a -> bool
+ * isBoundingBoxByPage :: a -> bool
  * ```
  */
-export const isBoundingBoxByPageId = (a: unknown): a is BoundingBoxesByPageId =>
+export const isBoundingBoxByPage = (a: unknown): a is BoundingBoxesByPage =>
   allPass([is(Object), pipe(values, allPass([is(Array), all(isBoundingBox)]))])(
     a
   );
@@ -47,7 +47,7 @@ export const isTableAnnotationBase = (a: unknown): a is TableAnnotationBase =>
   allPass([
     is(Object),
     propIs(String, 'file'),
-    propSatisfies(isBoundingBoxByPageId, 'boundingBoxByPageId'),
+    propSatisfies(isBoundingBoxByPage, 'boundingBoxByPage'),
   ])(a);
 
 /**
@@ -65,20 +65,20 @@ export const isTableAnnotation = (a: unknown): a is TableAnnotation =>
 
 /**
  * ```haskell
- * make :: (String, BoundingBoxesByPageId) -> IO TableAnnotation
+ * make :: (String, BoundingBoxesByPage) -> IO TableAnnotation
  * ```
  */
 export const make: (
   annotations: TableAnnotationBase
 ) => IO.IO<TableAnnotation> = ({
   file,
-  boundingBoxesByPageId,
+  boundingBoxesByPage,
 }) => (): TableAnnotation => {
   const timestamp = new Date().toISOString();
   return {
     id: file,
     file,
-    boundingBoxesByPageId,
+    boundingBoxesByPage,
     created_at: timestamp,
     updated_at: timestamp,
   };

@@ -307,7 +307,7 @@ Defined in Label.ts:5
 
 #### Properties
 
-* [boundingBoxesByPageId](#boundingboxesbypageid)
+* [boundingBoxesByPage](#boundingboxesbypage)
 * [created_at](#created_at)
 * [file](#file)
 * [id](#id)
@@ -315,9 +315,9 @@ Defined in Label.ts:5
 
 ### Properties
 
-####  boundingBoxesByPageId
+####  boundingBoxesByPage
 
-• **boundingBoxesByPageId**: *[BoundingBoxesByPageId](#boundingboxesbypageid)*
+• **boundingBoxesByPage**: *[BoundingBoxesByPage](#boundingboxesbypage)*
 
 Defined in TableAnnotation.ts:21
 
@@ -1495,12 +1495,12 @@ getRandomId: IO String
 #### Type aliases
 
 * [BoundingBoxes](#boundingboxes)
-* [BoundingBoxesByPageId](#boundingboxesbypageid)
+* [BoundingBoxesByPage](#boundingboxesbypage)
 * [TableAnnotationBase](#tableannotationbase)
 
 #### Functions
 
-* [isBoundingBoxByPageId](#const-isboundingboxbypageid)
+* [isBoundingBoxByPage](#const-isboundingboxbypage)
 * [isTableAnnotation](#const-istableannotation)
 * [isTableAnnotationBase](#const-istableannotationbase)
 * [make](#const-make)
@@ -1515,9 +1515,9 @@ Defined in TableAnnotation.ts:14
 
 ___
 
-####  BoundingBoxesByPageId
+####  BoundingBoxesByPage
 
-Ƭ **BoundingBoxesByPageId**: *Dictionary‹[BoundingBoxes](#boundingboxes)›*
+Ƭ **BoundingBoxesByPage**: *Record‹number, [BoundingBoxes](#boundingboxes)›*
 
 Defined in TableAnnotation.ts:16
 
@@ -1525,20 +1525,20 @@ ___
 
 ####  TableAnnotationBase
 
-Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPageId"›*
+Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPage"›*
 
 Defined in TableAnnotation.ts:26
 
 ### Functions
 
-#### `Const` isBoundingBoxByPageId
+#### `Const` isBoundingBoxByPage
 
-▸ **isBoundingBoxByPageId**(`a`: unknown): *a is BoundingBoxesByPageId*
+▸ **isBoundingBoxByPage**(`a`: unknown): *a is BoundingBoxesByPage*
 
 Defined in TableAnnotation.ts:36
 
 ```haskell
-isBoundingBoxByPageId :: a -> bool
+isBoundingBoxByPage :: a -> bool
 ```
 
 **Parameters:**
@@ -1547,7 +1547,7 @@ Name | Type |
 ------ | ------ |
 `a` | unknown |
 
-**Returns:** *a is BoundingBoxesByPageId*
+**Returns:** *a is BoundingBoxesByPage*
 
 ___
 
@@ -1598,7 +1598,7 @@ ___
 Defined in TableAnnotation.ts:73
 
 ```haskell
-make :: (String, BoundingBoxesByPageId) -> IO TableAnnotation
+make :: (String, BoundingBoxesByPage) -> IO TableAnnotation
 ```
 
 **Parameters:**
@@ -1607,7 +1607,7 @@ make :: (String, BoundingBoxesByPageId) -> IO TableAnnotation
 
 Name | Type |
 ------ | ------ |
-`boundingBoxesByPageId` | Dictionary‹Dictionary‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›› |
+`boundingBoxesByPage` | object |
 `file` | string |
 
 **Returns:** *(Anonymous function)*
