@@ -1,6 +1,15 @@
 import { isBoundingBox, LabeledBoundingBox } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
-import { all, allPass, Dictionary, is, propIs, propSatisfies } from 'ramda';
+import {
+  all,
+  allPass,
+  Dictionary,
+  is,
+  pipe,
+  propIs,
+  propSatisfies,
+  values,
+} from 'ramda';
 import { getRandomId } from './String';
 
 export type BoundingBoxes = Dictionary<LabeledBoundingBox>;
@@ -25,8 +34,10 @@ export type TableAnnotationBase = Pick<
  * isBoundingBoxes :: a -> bool
  * ```
  */
-export const isBoundingBoxes = (a: unknown): a is BoundingBoxesByPage =>
-  allPass([is(Array), all(isBoundingBox)])(a);
+export const isBoundingBoxes = (a: unknown): a is BoundingBoxes =>
+  allPass([is(Object), pipe(values, allPass([is(Array), all(isBoundingBox)]))])(
+    a
+  );
 
 /**
  * ```haskell
