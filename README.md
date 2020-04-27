@@ -319,7 +319,7 @@ Defined in Label.ts:5
 
 • **boundingBoxesByPage**: *[BoundingBoxesByPage](#boundingboxesbypage)*
 
-Defined in TableAnnotation.ts:13
+Defined in TableAnnotation.ts:22
 
 ___
 
@@ -327,7 +327,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in TableAnnotation.ts:14
+Defined in TableAnnotation.ts:23
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 • **file**: *string*
 
-Defined in TableAnnotation.ts:12
+Defined in TableAnnotation.ts:21
 
 ___
 
@@ -343,7 +343,7 @@ ___
 
 • **id**: *string*
 
-Defined in TableAnnotation.ts:11
+Defined in TableAnnotation.ts:20
 
 ___
 
@@ -351,7 +351,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in TableAnnotation.ts:15
+Defined in TableAnnotation.ts:24
 
 
 <a name="interfaces_vertex_index_boundingboxmd"></a>
@@ -1512,7 +1512,7 @@ getRandomId: IO String
 
 Ƭ **BoundingBoxes**: *Dictionary‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›*
 
-Defined in TableAnnotation.ts:6
+Defined in TableAnnotation.ts:15
 
 ___
 
@@ -1520,7 +1520,7 @@ ___
 
 Ƭ **BoundingBoxesByPage**: *[BoundingBoxes](#boundingboxes)[]*
 
-Defined in TableAnnotation.ts:8
+Defined in TableAnnotation.ts:17
 
 ___
 
@@ -1528,15 +1528,15 @@ ___
 
 Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPage"›*
 
-Defined in TableAnnotation.ts:18
+Defined in TableAnnotation.ts:27
 
 ### Functions
 
 #### `Const` isBoundingBoxes
 
-▸ **isBoundingBoxes**(`a`: unknown): *a is BoundingBoxesByPage*
+▸ **isBoundingBoxes**(`a`: unknown): *a is BoundingBoxes*
 
-Defined in TableAnnotation.ts:28
+Defined in TableAnnotation.ts:37
 
 ```haskell
 isBoundingBoxes :: a -> bool
@@ -1548,7 +1548,7 @@ Name | Type |
 ------ | ------ |
 `a` | unknown |
 
-**Returns:** *a is BoundingBoxesByPage*
+**Returns:** *a is BoundingBoxes*
 
 ___
 
@@ -1556,7 +1556,7 @@ ___
 
 ▸ **isBoundingBoxesByPage**(`a`: unknown): *a is BoundingBoxesByPage*
 
-Defined in TableAnnotation.ts:36
+Defined in TableAnnotation.ts:47
 
 ```haskell
 isBoundingBoxesByPage :: a -> bool
@@ -1576,7 +1576,7 @@ ___
 
 ▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in TableAnnotation.ts:56
+Defined in TableAnnotation.ts:67
 
 ```haskell
 isTableAnnotation :: a -> bool
@@ -1596,7 +1596,7 @@ ___
 
 ▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in TableAnnotation.ts:44
+Defined in TableAnnotation.ts:55
 
 ```haskell
 isTableAnnotationBase :: a -> bool
@@ -1616,7 +1616,7 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in TableAnnotation.ts:71
+Defined in TableAnnotation.ts:82
 
 ```haskell
 make :: (String, BoundingBoxesByPage) -> IO TableAnnotation
