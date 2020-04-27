@@ -1,19 +1,10 @@
 import { isBoundingBox, LabeledBoundingBox } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
-import {
-  all,
-  allPass,
-  Dictionary,
-  is,
-  pipe,
-  propIs,
-  propSatisfies,
-  values,
-} from 'ramda';
+import { all, allPass, Dictionary, is, propIs, propSatisfies } from 'ramda';
 
 export type BoundingBoxes = Dictionary<LabeledBoundingBox>;
 
-export type BoundingBoxesByPage = Record<number, BoundingBoxes>;
+export type BoundingBoxesByPage = BoundingBoxes[];
 
 export interface TableAnnotation {
   id: string;
@@ -30,13 +21,19 @@ export type TableAnnotationBase = Pick<
 
 /**
  * ```haskell
- * isBoundingBoxByPage :: a -> bool
+ * isBoundingBoxes :: a -> bool
  * ```
  */
-export const isBoundingBoxByPage = (a: unknown): a is BoundingBoxesByPage =>
-  allPass([is(Object), pipe(values, allPass([is(Array), all(isBoundingBox)]))])(
-    a
-  );
+export const isBoundingBoxes = (a: unknown): a is BoundingBoxesByPage =>
+  allPass([is(Array), all(isBoundingBox)])(a);
+
+/**
+ * ```haskell
+ * isBoundingBoxesByPage :: a -> bool
+ * ```
+ */
+export const isBoundingBoxesByPage = (a: unknown): a is BoundingBoxesByPage =>
+  allPass([is(Array), all(isBoundingBoxes)])(a);
 
 /**
  * ```haskell
@@ -47,7 +44,7 @@ export const isTableAnnotationBase = (a: unknown): a is TableAnnotationBase =>
   allPass([
     is(Object),
     propIs(String, 'file'),
-    propSatisfies(isBoundingBoxByPage, 'boundingBoxByPage'),
+    propSatisfies(isBoundingBoxesByPage, 'boundingBoxByPage'),
   ])(a);
 
 /**
