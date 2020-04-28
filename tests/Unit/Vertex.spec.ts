@@ -5,6 +5,8 @@ import {
   BoundingBox,
   contains,
   makePoly,
+  Poly,
+  sortPoly,
   withHeader,
   WithHeaderColumn,
   WithHeaderRow,
@@ -16,6 +18,51 @@ const { expect } = chai;
 chai.config.truncateThreshold = 0;
 
 describe('Vertex', function () {
+  describe('#sortPoly()', function () {
+    it('should return a sorted poly when given an unsorted poly', function () {
+      const poly: Poly = [
+        {
+          x: 0.7042017,
+          y: 0.009512485,
+        },
+        {
+          x: 0.74453783,
+          y: 0.009512485,
+        },
+        {
+          x: 0.74453783,
+          y: 0.01902497,
+        },
+        {
+          x: 0.7042017,
+          y: 0.01902497,
+        },
+      ];
+
+      const expectedPoly: Poly = [
+        {
+          x: 0.7042017,
+          y: 0.009512485,
+        },
+        {
+          x: 0.74453783,
+          y: 0.009512485,
+        },
+        {
+          x: 0.7042017,
+          y: 0.01902497,
+        },
+        {
+          x: 0.74453783,
+          y: 0.01902497,
+        },
+      ];
+
+      const actualPoly = sortPoly(poly);
+      expect(actualPoly).to.deep.equals(expectedPoly);
+    });
+  });
+
   describe('#withHeader()', function () {
     it('should return a new Object', function () {
       fc.assert(
@@ -74,7 +121,7 @@ describe('Vertex', function () {
   describe('#contains()', function () {
     it('should return 0 if there are not overlaps between two Poly', function () {
       fc.assert(
-        fc.property(Arb.nonIntersectingPolygons(), ([p0, p1]) => {
+        fc.property(Arb.separates(), ([p0, p1]) => {
           const actualArea = contains(p0)(p1);
           expect(actualArea).to.be.equal(0);
         }),
@@ -90,6 +137,18 @@ describe('Vertex', function () {
           const actualArea = contains(poly)(poly);
           expect(actualArea).to.be.equal(1);
         })
+      );
+    });
+
+    it('should return a value greater than 0 if there are overlaps between two Poly', function () {
+      fc.assert(
+        fc.property(Arb.overlaps(), ([p0, p1]) => {
+          const actualArea = contains(p0)(p1);
+          expect(actualArea).to.be.greaterThan(0);
+        }),
+        {
+          examples: [[[makePoly(0, 0, 0.3, 0.3), makePoly(0.1, 0.1, 0.5, 1)]]],
+        }
       );
     });
   });

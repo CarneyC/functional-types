@@ -256,6 +256,19 @@ export const makePoly: (
 
 /**
  * ```haskell
+ * sortPoly :: Poly -> Poly
+ * ```
+ */
+export const sortPoly: (poly: Poly) => Poly = ([topLeft, topRight, bottom]) => {
+  const x0 = min(topLeft.x, topRight.x);
+  const x1 = max(topLeft.x, topRight.x);
+  const y0 = min(topLeft.y, bottom.y);
+  const y1 = max(topLeft.y, bottom.y);
+  return makePoly(x0, y0, x1, y1);
+};
+
+/**
+ * ```haskell
  * getCornersFromPoly :: Poly -> Corners
  * ```
  */

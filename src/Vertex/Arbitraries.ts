@@ -21,11 +21,18 @@ export const vertex = (): Arbitrary<Vertex> =>
 export const poly = (): Arbitrary<Poly> =>
   fc.array(number(), 4, 4).map(apply(makePoly));
 
-export const nonIntersectingPolygons = (): Arbitrary<[Poly, Poly]> =>
+export const separates = (): Arbitrary<[Poly, Poly]> =>
   fc.tuple(poly(), poly()).filter(([p0, p1]) => {
     const r0 = toRectangle(p0);
     const r1 = toRectangle(p1);
     return r0.y1 < r1.y0 || r0.y0 > r1.y1 || r0.x1 < r1.x0 || r0.x0 > r1.x1;
+  });
+
+export const overlaps = (): Arbitrary<[Poly, Poly]> =>
+  fc.tuple(poly(), poly()).filter(([p0, p1]) => {
+    const r0 = toRectangle(p0);
+    const r1 = toRectangle(p1);
+    return r0.y1 >= r1.y0 && r0.y0 <= r1.y1 && r0.x1 >= r1.x0 && r0.x0 <= r1.x1;
   });
 
 export const boundingBox = (): Arbitrary<BoundingBox> =>
