@@ -3,6 +3,8 @@ import fc from 'fast-check';
 import * as Arb from '../../src/Vertex/Arbitraries';
 import {
   BoundingBox,
+  contains,
+  makePoly,
   withHeader,
   WithHeaderColumn,
   WithHeaderRow,
@@ -65,6 +67,29 @@ describe('Vertex', function () {
             expect(actualBoundingBox).to.have.property('headerColumn');
           }
         )
+      );
+    });
+  });
+
+  describe('#contains()', function () {
+    it('should return 0 if there are not overlaps between two Poly', function () {
+      fc.assert(
+        fc.property(Arb.nonIntersectingPolygons(), ([p0, p1]) => {
+          const actualArea = contains(p0)(p1);
+          expect(actualArea).to.be.equal(0);
+        }),
+        {
+          examples: [[[makePoly(0, 0, 0.3, 0.3), makePoly(0.5, 0.5, 1, 1)]]],
+        }
+      );
+    });
+
+    it('should return 1 if given two identical polygons', function () {
+      fc.assert(
+        fc.property(Arb.poly(), (poly) => {
+          const actualArea = contains(poly)(poly);
+          expect(actualArea).to.be.equal(1);
+        })
       );
     });
   });

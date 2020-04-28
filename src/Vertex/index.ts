@@ -7,6 +7,7 @@ import {
   clone,
   concat,
   converge,
+  divide,
   filter,
   find,
   head,
@@ -18,6 +19,7 @@ import {
   mergeDeepRight,
   mergeLeft,
   min,
+  multiply,
   nth,
   pipe,
   prop,
@@ -30,6 +32,7 @@ import {
 import * as R from 'fp-ts/lib/Reader';
 import * as RE from 'fp-ts/lib/ReaderEither';
 import * as E from 'fp-ts/lib/Either';
+import * as O from 'fp-ts/lib/Option';
 
 export interface Vertex {
   x: number;
@@ -69,6 +72,13 @@ export interface LabeledBoundingBox extends BoundingBox {
 export interface Corners {
   start: Vertex;
   end: Vertex;
+}
+
+export interface Rectangle {
+  x0: number;
+  y0: number;
+  x1: number;
+  y1: number;
 }
 
 /**
@@ -151,14 +161,14 @@ export const hasHeader = <A extends BoundingBox>(a: A): a is WithHeader<A> =>
 
 /**
  * ```haskell
- * makeVertex :: (Int, Int) -> Vertex
+ * makeVertex :: (Float, Float) -> Vertex
  * ```
  */
 export const makeVertex = (x: number, y: number): Vertex => ({ x, y });
 
 /**
  * ```haskell
- * makeVertex :: (Int, Int, Int, Int) -> Line
+ * makeVertex :: (Float, Float, Float, Float) -> Line
  * ```
  */
 export const makeLine = (
@@ -170,7 +180,7 @@ export const makeLine = (
 
 /**
  * ```haskell
- * getTopLeftVertex :: (Int, Int, Int, Int) -> Vertex
+ * getTopLeftVertex :: (Float, Float, Float, Float) -> Vertex
  * ```
  */
 const getTopLeftVertex = (
@@ -182,7 +192,7 @@ const getTopLeftVertex = (
 
 /**
  * ```haskell
- * getTopRightVertex :: (Int, Int, Int, Int) -> Vertex
+ * getTopRightVertex :: (Float, Float, Float, Float) -> Vertex
  * ```
  */
 const getTopRightVertex = (
@@ -194,7 +204,7 @@ const getTopRightVertex = (
 
 /**
  * ```haskell
- * getBottomLeftVertex :: (Int, Int, Int, Int) -> Vertex
+ * getBottomLeftVertex :: (Float, Float, Float, Float) -> Vertex
  * ```
  */
 const getBottomLeftVertex = (
@@ -206,7 +216,7 @@ const getBottomLeftVertex = (
 
 /**
  * ```haskell
- * getBottomRightVertex :: (Int, Int, Int, Int) -> Vertex
+ * getBottomRightVertex :: (Float, Float, Float, Float) -> Vertex
  * ```
  */
 const getBottomRightVertex = (
@@ -218,7 +228,7 @@ const getBottomRightVertex = (
 
 /**
  * ```haskell
- * makePoly :: (Int, Int, Int, Int) -> Poly
+ * makePoly :: (Float, Float, Float, Float) -> Poly
  * ```
  */
 export const makePoly: (
@@ -245,7 +255,7 @@ export const getCornersFromPoly: (poly: Poly) => Corners = applySpec({
 
 /**
  * ```haskell
- * makeRows :: Corners -> Reader [Int] [Line]
+ * makeRows :: Corners -> Reader [Float] [Line]
  * ```
  */
 const makeRows: (corners: Corners) => R.Reader<number[], Line[]> = ({
@@ -261,7 +271,7 @@ const makeRows: (corners: Corners) => R.Reader<number[], Line[]> = ({
 
 /**
  * ```haskell
- * makeColumns :: Corners -> Reader [Int] [Line]
+ * makeColumns :: Corners -> Reader [Float] [Line]
  * ```
  */
 const makeColumns: (corners: Corners) => R.Reader<number[], Line[]> = ({
@@ -277,7 +287,7 @@ const makeColumns: (corners: Corners) => R.Reader<number[], Line[]> = ({
 
 /**
  * ```haskell
- * makeBoundingBox :: (Poly, [Int], [Int]) -> BoundingBox
+ * makeBoundingBox :: (Poly, [Float], [Float]) -> BoundingBox
  * ```
  */
 export const makeBoundingBox = (
@@ -296,28 +306,28 @@ export const makeBoundingBox = (
 
 /**
  * ```haskell
- * getY :: Line -> Int
+ * getY :: Line -> Float
  * ```
  */
 export const getY: (line: Line) => number = pipe(head, prop<'y', number>('y'));
 
 /**
  * ```haskell
- * getX :: Line -> Int
+ * getX :: Line -> Float
  * ```
  */
 export const getX: (line: Line) => number = pipe(head, prop<'x', number>('x'));
 
 /**
  * ```haskell
- * getYs :: [Line] -> [Int]
+ * getYs :: [Line] -> [Float]
  * ```
  */
 export const getYs: (lines: Line[]) => number[] = map(getY);
 
 /**
  * ```haskell
- * getXs :: [Line] -> [Int]
+ * getXs :: [Line] -> [Float]
  * ```
  */
 export const getXs: (lines: Line[]) => number[] = map(getX);
@@ -332,7 +342,7 @@ export const isLabeledBoundingBox = (a: unknown): a is LabeledBoundingBox =>
 
 /**
  * ```haskell
- * makeLabeledBoundingBox :: (String, String, Poly, [Int], [Int]) -> LabeledBoundingBox
+ * makeLabeledBoundingBox :: (String, String, Poly, [Float], [Float]) -> LabeledBoundingBox
  * ```
  */
 export const makeLabeledBoundingBox = (
@@ -355,7 +365,7 @@ export const makeLabeledBoundingBox = (
 
 /**
  * ```haskell
- * append :: BoundingBox -> ([Int], [Int]) -> BoundingBox
+ * append :: BoundingBox -> ([Float], [Float]) -> BoundingBox
  * ```
  */
 export const append = <A extends BoundingBox>(boundingBox: A) => (
@@ -400,7 +410,7 @@ export const getBottomRight: (poly: Poly) => Vertex = nth(3);
 
 /**
  * ```haskell
- * withHeaderRow :: Int -> ReaderEither BoundingBox BoundingBox (WithHeaderRow BoundingBox)
+ * withHeaderRow :: Float -> ReaderEither BoundingBox BoundingBox (WithHeaderRow BoundingBox)
  * ```
  */
 export const withHeaderRow: <A extends BoundingBox>(
@@ -438,7 +448,7 @@ export const withHeaderRow: <A extends BoundingBox>(
 
 /**
  * ```haskell
- * withHeaderColumn :: Int -> ReaderEither BoundingBox BoundingBox (WithHeaderColumn BoundingBox)
+ * withHeaderColumn :: Float -> ReaderEither BoundingBox BoundingBox (WithHeaderColumn BoundingBox)
  * ```
  */
 export const withHeaderColumn: <A extends BoundingBox>(
@@ -492,7 +502,7 @@ export const withHeader: <A extends BoundingBox>(
 
 /**
  * ```haskell
- * widthOf :: Poly -> Int
+ * widthOf :: Poly -> Float
  * ```
  */
 export const widthOf: (poly: Poly) => number = converge(subtract, [
@@ -502,7 +512,7 @@ export const widthOf: (poly: Poly) => number = converge(subtract, [
 
 /**
  * ```haskell
- * heightOf :: Poly -> Int
+ * heightOf :: Poly -> Float
  * ```
  */
 export const heightOf: (poly: Poly) => number = converge(subtract, [
@@ -512,10 +522,94 @@ export const heightOf: (poly: Poly) => number = converge(subtract, [
 
 /**
  * ```haskell
- * lengthOf :: Line -> Int
+ * areaOf :: Poly -> Float
+ * ```
+ */
+export const areaOf: (poly: Poly) => number = converge(multiply, [
+  widthOf,
+  heightOf,
+]);
+
+/**
+ * ```haskell
+ * lengthOf :: Line -> Float
  * ```
  */
 export const lengthOf: (line: Line) => number = ([
   { x: x0, y: y0 },
   { x: x1, y: y1 },
 ]) => Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 1));
+
+/**
+ * ```haskell
+ * toRectangle :: Poly -> Rectangle
+ * ```
+ */
+export const toRectangle: (poly: Poly) => Rectangle = ([
+  topLeft,
+  topRight,
+  bottomLeft,
+  bottomRight,
+]) => ({
+  x0: topLeft.x,
+  y0: topRight.y,
+  x1: bottomRight.x,
+  y1: bottomLeft.y,
+});
+
+/**
+ * ```haskell
+ * toPoly :: Rectangle -> Poly
+ * ```
+ */
+export const toPoly: (rect: Rectangle) => Poly = ({ x0, y0, x1, y1 }) =>
+  makePoly(x0, y0, x1, y1);
+
+/**
+ * ```haskell
+ * intersects :: Poly -> Reader Poly Poly
+ * ```
+ */
+export const intersects: (poly: Poly) => R.Reader<Poly, O.Option<Poly>> = (
+  p0: Poly
+) => (p1: Poly): O.Option<Poly> => {
+  const r0 = toRectangle(p0);
+  const r1 = toRectangle(p1);
+  const x0 = max(r0.x0, r1.x0);
+  const y0 = max(r0.y0, r1.y0);
+  const x1 = min(r0.x1, r1.x1);
+  const y1 = min(r0.y1, r1.y1);
+  return x1 < x0 || y1 < y0
+    ? O.none
+    : O.some(
+        toPoly({
+          x0,
+          y0,
+          x1,
+          y1,
+        })
+      );
+};
+
+/**
+ * ```haskell
+ * containedBy :: Poly -> Reader Poly Float
+ * ```
+ */
+export const containedBy: (poly: Poly) => R.Reader<Poly, number> = (p0: Poly) =>
+  converge(divide, [
+    pipe(
+      intersects(p0),
+      O.fold(() => 0, areaOf)
+    ),
+    areaOf,
+  ]);
+
+/**
+ * ```haskell
+ * contains :: Poly -> Reader Poly Float
+ * ```
+ */
+export const contains: (poly: Poly) => R.Reader<Poly, number> = (p0: Poly) => (
+  p1: Poly
+): number => containedBy(p1)(p0);
