@@ -1,4 +1,4 @@
-import { isBoundingBox, LabeledBoundingBox } from './Vertex';
+import { isLabeledBoundingBox, LabeledBoundingBox } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import {
   all,
@@ -35,9 +35,10 @@ export type TableAnnotationBase = Pick<
  * ```
  */
 export const isBoundingBoxes = (a: unknown): a is BoundingBoxes =>
-  allPass([is(Object), pipe(values, allPass([is(Array), all(isBoundingBox)]))])(
-    a
-  );
+  allPass([
+    is(Object),
+    pipe(values, allPass([is(Array), all(isLabeledBoundingBox)])),
+  ])(a);
 
 /**
  * ```haskell

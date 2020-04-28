@@ -14,6 +14,8 @@
 * ["Folder/Arbitraries"](#modules_folder_arbitraries_md)
 * ["Folder/index"](#modules_folder_index_md)
 * ["Label"](#modules_label_md)
+* ["Schema/Arbitraries"](#modules_schema_arbitraries_md)
+* ["Schema/index"](#modules_schema_index_md)
 * ["String"](#modules_string_md)
 * ["TableAnnotation"](#modules_tableannotation_md)
 * ["Vertex/Arbitraries"](#modules_vertex_arbitraries_md)
@@ -291,6 +293,279 @@ ___
 • **name**: *string*
 
 Defined in Label.ts:5
+
+
+<a name="interfaces_schema_index_filematchermd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [FileMatcher](#interfaces_schema_index_filematchermd)
+
+## Interface: FileMatcher
+
+### Hierarchy
+
+* [Matcher](#interfaces_schema_index_matchermd)
+
+  ↳ **FileMatcher**
+
+### Index
+
+#### Properties
+
+* [child](#optional-child)
+* [name](#name)
+* [regex](#regex)
+* [timestamp_capture_group](#timestamp_capture_group)
+* [type](#type)
+
+### Properties
+
+#### `Optional` child
+
+• **child**? : *[FileMatcher](#interfaces_schema_index_filematchermd)*
+
+Defined in Schema/index.ts:30
+
+___
+
+####  name
+
+• **name**: *string*
+
+*Inherited from [Matcher](#interfaces_schema_index_matchermd).[name](#name)*
+
+Defined in Schema/index.ts:25
+
+___
+
+####  regex
+
+• **regex**: *string*
+
+*Inherited from [Matcher](#interfaces_schema_index_matchermd).[regex](#regex)*
+
+Defined in Schema/index.ts:24
+
+___
+
+####  timestamp_capture_group
+
+• **timestamp_capture_group**: *number*
+
+*Inherited from [Matcher](#interfaces_schema_index_matchermd).[timestamp_capture_group](#timestamp_capture_group)*
+
+Defined in Schema/index.ts:26
+
+___
+
+####  type
+
+• **type**: *[Type](#type)*
+
+Defined in Schema/index.ts:31
+
+
+<a name="interfaces_schema_index_gettablemd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Gettable](#interfaces_schema_index_gettablemd)
+
+## Interface: Gettable
+
+### Hierarchy
+
+* **Gettable**
+
+### Index
+
+#### Properties
+
+* [attributes](#attributes)
+* [file](#file)
+
+### Properties
+
+####  attributes
+
+• **attributes**: *[Matcher](#interfaces_schema_index_matchermd)[]*
+
+Defined in Schema/index.ts:36
+
+___
+
+####  file
+
+• **file**: *[FileMatcher](#interfaces_schema_index_filematchermd)*
+
+Defined in Schema/index.ts:35
+
+
+<a name="interfaces_schema_index_matchermd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Matcher](#interfaces_schema_index_matchermd)
+
+## Interface: Matcher
+
+### Hierarchy
+
+* **Matcher**
+
+  ↳ [FileMatcher](#interfaces_schema_index_filematchermd)
+
+### Index
+
+#### Properties
+
+* [name](#name)
+* [regex](#regex)
+* [timestamp_capture_group](#timestamp_capture_group)
+
+### Properties
+
+####  name
+
+• **name**: *string*
+
+Defined in Schema/index.ts:25
+
+___
+
+####  regex
+
+• **regex**: *string*
+
+Defined in Schema/index.ts:24
+
+___
+
+####  timestamp_capture_group
+
+• **timestamp_capture_group**: *number*
+
+Defined in Schema/index.ts:26
+
+
+<a name="interfaces_schema_index_schemamd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Schema](#interfaces_schema_index_schemamd)
+
+## Interface: Schema
+
+### Hierarchy
+
+* **Schema**
+
+  ↳ [VersionedSchema](#interfaces_schema_index_versionedschemamd)
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [gettables](#gettables)
+* [id](#id)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *Date*
+
+Defined in Schema/index.ts:44
+
+___
+
+####  gettables
+
+• **gettables**: *[Gettables](#gettables)*
+
+Defined in Schema/index.ts:43
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in Schema/index.ts:42
+
+___
+
+####  updated_at
+
+• **updated_at**: *Date*
+
+Defined in Schema/index.ts:45
+
+
+<a name="interfaces_schema_index_versionedschemamd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [VersionedSchema](#interfaces_schema_index_versionedschemamd)
+
+## Interface: VersionedSchema
+
+### Hierarchy
+
+* [Schema](#interfaces_schema_index_schemamd)
+
+  ↳ **VersionedSchema**
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [gettables](#gettables)
+* [id](#id)
+* [schema_id](#schema_id)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *Date*
+
+*Inherited from [Schema](#interfaces_schema_index_schemamd).[created_at](#created_at)*
+
+Defined in Schema/index.ts:44
+
+___
+
+####  gettables
+
+• **gettables**: *[Gettables](#gettables)*
+
+*Inherited from [Schema](#interfaces_schema_index_schemamd).[gettables](#gettables)*
+
+Defined in Schema/index.ts:43
+
+___
+
+####  id
+
+• **id**: *string*
+
+*Inherited from [Schema](#interfaces_schema_index_schemamd).[id](#id)*
+
+Defined in Schema/index.ts:42
+
+___
+
+####  schema_id
+
+• **schema_id**: *string*
+
+Defined in Schema/index.ts:49
+
+___
+
+####  updated_at
+
+• **updated_at**: *Date*
+
+*Inherited from [Schema](#interfaces_schema_index_schemamd).[updated_at](#updated_at)*
+
+Defined in Schema/index.ts:45
 
 
 <a name="interfaces_tableannotation_tableannotationmd"></a>
@@ -1455,6 +1730,426 @@ Name | Type |
 **Returns:** *a is Label*
 
 
+<a name="modules_schema_arbitraries_md"></a>
+
+[functional-types](#globalsmd) › ["Schema/Arbitraries"](#modules_schema_arbitraries_md)
+
+## Module: "Schema/Arbitraries"
+
+### Index
+
+#### Variables
+
+* [regex](#const-regex)
+
+#### Functions
+
+* [fileMatcher](#const-filematcher)
+* [fileType](#const-filetype)
+* [gettable](#const-gettable)
+* [gettables](#const-gettables)
+* [invalidGettableObject](#const-invalidgettableobject)
+* [invalidMatcherObject](#const-invalidmatcherobject)
+* [invalidSchemaObject](#const-invalidschemaobject)
+* [matcher](#const-matcher)
+* [nonEmptyString](#const-nonemptystring)
+* [nonGettableObject](#const-nongettableobject)
+* [nonMatcherObject](#const-nonmatcherobject)
+* [nonNumber](#const-nonnumber)
+* [nonSchemaObject](#const-nonschemaobject)
+* [nonString](#const-nonstring)
+* [schema](#const-schema)
+* [singletonFileMatcher](#const-singletonfilematcher)
+* [versionedSchema](#const-versionedschema)
+
+### Variables
+
+#### `Const` regex
+
+• **regex**: *nonEmptyString* = nonEmptyString
+
+Defined in Schema/Arbitraries.ts:85
+
+### Functions
+
+#### `Const` fileMatcher
+
+▸ **fileMatcher**(): *Arbitrary‹[FileMatcher](#interfaces_schema_index_filematchermd)›*
+
+Defined in Schema/Arbitraries.ts:100
+
+**Returns:** *Arbitrary‹[FileMatcher](#interfaces_schema_index_filematchermd)›*
+
+___
+
+#### `Const` fileType
+
+▸ **fileType**(): *Arbitrary‹[Type](#type)›*
+
+Defined in Schema/Arbitraries.ts:75
+
+**Returns:** *Arbitrary‹[Type](#type)›*
+
+___
+
+#### `Const` gettable
+
+▸ **gettable**(): *Arbitrary‹[Gettable](#interfaces_schema_index_gettablemd)›*
+
+Defined in Schema/Arbitraries.ts:105
+
+**Returns:** *Arbitrary‹[Gettable](#interfaces_schema_index_gettablemd)›*
+
+___
+
+#### `Const` gettables
+
+▸ **gettables**(): *Arbitrary‹Record‹string, [Gettable](#interfaces_schema_index_gettablemd)››*
+
+Defined in Schema/Arbitraries.ts:112
+
+**Returns:** *Arbitrary‹Record‹string, [Gettable](#interfaces_schema_index_gettablemd)››*
+
+___
+
+#### `Const` invalidGettableObject
+
+▸ **invalidGettableObject**(): *Arbitrary‹Dictionary‹unknown››*
+
+Defined in Schema/Arbitraries.ts:40
+
+**Returns:** *Arbitrary‹Dictionary‹unknown››*
+
+___
+
+#### `Const` invalidMatcherObject
+
+▸ **invalidMatcherObject**(): *Arbitrary‹Dictionary‹unknown››*
+
+Defined in Schema/Arbitraries.ts:20
+
+**Returns:** *Arbitrary‹Dictionary‹unknown››*
+
+___
+
+#### `Const` invalidSchemaObject
+
+▸ **invalidSchemaObject**(): *Arbitrary‹Dictionary‹unknown››*
+
+Defined in Schema/Arbitraries.ts:60
+
+**Returns:** *Arbitrary‹Dictionary‹unknown››*
+
+___
+
+#### `Const` matcher
+
+▸ **matcher**(): *Arbitrary‹[Matcher](#interfaces_schema_index_matchermd)›*
+
+Defined in Schema/Arbitraries.ts:87
+
+**Returns:** *Arbitrary‹[Matcher](#interfaces_schema_index_matchermd)›*
+
+___
+
+#### `Const` nonEmptyString
+
+▸ **nonEmptyString**(): *Arbitrary‹string›*
+
+Defined in Schema/Arbitraries.ts:12
+
+**Returns:** *Arbitrary‹string›*
+
+___
+
+#### `Const` nonGettableObject
+
+▸ **nonGettableObject**(): *Arbitrary‹unknown›*
+
+Defined in Schema/Arbitraries.ts:53
+
+**Returns:** *Arbitrary‹unknown›*
+
+___
+
+#### `Const` nonMatcherObject
+
+▸ **nonMatcherObject**(): *Arbitrary‹unknown›*
+
+Defined in Schema/Arbitraries.ts:29
+
+**Returns:** *Arbitrary‹unknown›*
+
+___
+
+#### `Const` nonNumber
+
+▸ **nonNumber**(): *Arbitrary‹unknown›*
+
+Defined in Schema/Arbitraries.ts:17
+
+**Returns:** *Arbitrary‹unknown›*
+
+___
+
+#### `Const` nonSchemaObject
+
+▸ **nonSchemaObject**(): *Arbitrary‹unknown›*
+
+Defined in Schema/Arbitraries.ts:68
+
+**Returns:** *Arbitrary‹unknown›*
+
+___
+
+#### `Const` nonString
+
+▸ **nonString**(): *Arbitrary‹unknown›*
+
+Defined in Schema/Arbitraries.ts:14
+
+**Returns:** *Arbitrary‹unknown›*
+
+___
+
+#### `Const` schema
+
+▸ **schema**(): *Arbitrary‹[Schema](#interfaces_schema_index_schemamd)›*
+
+Defined in Schema/Arbitraries.ts:122
+
+**Returns:** *Arbitrary‹[Schema](#interfaces_schema_index_schemamd)›*
+
+___
+
+#### `Const` singletonFileMatcher
+
+▸ **singletonFileMatcher**(): *Arbitrary‹[FileMatcher](#interfaces_schema_index_filematchermd)›*
+
+Defined in Schema/Arbitraries.ts:94
+
+**Returns:** *Arbitrary‹[FileMatcher](#interfaces_schema_index_filematchermd)›*
+
+___
+
+#### `Const` versionedSchema
+
+▸ **versionedSchema**(): *Arbitrary‹[VersionedSchema](#interfaces_schema_index_versionedschemamd)›*
+
+Defined in Schema/Arbitraries.ts:130
+
+**Returns:** *Arbitrary‹[VersionedSchema](#interfaces_schema_index_versionedschemamd)›*
+
+
+<a name="modules_schema_index_md"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md)
+
+## Module: "Schema/index"
+
+### Index
+
+#### Interfaces
+
+* [FileMatcher](#interfaces_schema_index_filematchermd)
+* [Gettable](#interfaces_schema_index_gettablemd)
+* [Matcher](#interfaces_schema_index_matchermd)
+* [Schema](#interfaces_schema_index_schemamd)
+* [VersionedSchema](#interfaces_schema_index_versionedschemamd)
+
+#### Type aliases
+
+* [Dictionary](#dictionary)
+* [Gettables](#gettables)
+* [Type](#type)
+
+#### Functions
+
+* [isGettable](#const-isgettable)
+* [isGettables](#const-isgettables)
+* [isMatcher](#const-ismatcher)
+* [isSchema](#const-isschema)
+* [isVersionedSchema](#const-isversionedschema)
+* [makeSchema](#const-makeschema)
+* [toVersionedSchema](#const-toversionedschema)
+
+### Type aliases
+
+####  Dictionary
+
+Ƭ **Dictionary**: *Record‹string, A›*
+
+Defined in Schema/index.ts:21
+
+___
+
+####  Gettables
+
+Ƭ **Gettables**: *[Dictionary](#dictionary)‹[Gettable](#interfaces_schema_index_gettablemd)›*
+
+Defined in Schema/index.ts:39
+
+___
+
+####  Type
+
+Ƭ **Type**: *"pdf" | "excel" | "json" | "pdf-region" | "excel-sheet" | "json-child"*
+
+Defined in Schema/index.ts:13
+
+### Functions
+
+#### `Const` isGettable
+
+▸ **isGettable**(`a`: unknown): *a is Gettable*
+
+Defined in Schema/index.ts:70
+
+```haskell
+isGettable -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Gettable*
+
+___
+
+#### `Const` isGettables
+
+▸ **isGettables**(`a`: unknown): *a is Gettables*
+
+Defined in Schema/index.ts:82
+
+```haskell
+isGettables -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Gettables*
+
+___
+
+#### `Const` isMatcher
+
+▸ **isMatcher**(`a`: unknown): *a is Matcher*
+
+Defined in Schema/index.ts:57
+
+```haskell
+isMatcher -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Matcher*
+
+___
+
+#### `Const` isSchema
+
+▸ **isSchema**(`a`: unknown): *a is Schema*
+
+Defined in Schema/index.ts:90
+
+```haskell
+isSchema -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Schema*
+
+___
+
+#### `Const` isVersionedSchema
+
+▸ **isVersionedSchema**(`a`: unknown): *a is VersionedSchema*
+
+Defined in Schema/index.ts:130
+
+```haskell
+isVersionedSchema :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is VersionedSchema*
+
+___
+
+#### `Const` makeSchema
+
+▸ **makeSchema**(`gettables`: object): *object*
+
+Defined in Schema/index.ts:102
+
+```haskell
+makeSchema :: Gettables -> Schema
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`gettables` | object |
+
+**Returns:** *object*
+
+* **created_at**: *Date* = date
+
+* **gettables**(): *object*
+
+* **id**: *string* = getRandomId()
+
+* **updated_at**: *Date* = date
+
+___
+
+#### `Const` toVersionedSchema
+
+▸ **toVersionedSchema**(`schema`: [Schema](#interfaces_schema_index_schemamd)): *object*
+
+Defined in Schema/index.ts:117
+
+```haskell
+toVersionedSchema :: Schema -> VersionedSchema
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`schema` | [Schema](#interfaces_schema_index_schemamd) |
+
+**Returns:** *object*
+
+* **id**: *string* = getRandomId()
+
+* **schema_id**: *string* = schema.id
+
+
 <a name="modules_string_md"></a>
 
 [functional-types](#globalsmd) › ["String"](#modules_string_md)
@@ -1556,7 +2251,7 @@ ___
 
 ▸ **isBoundingBoxesByPage**(`a`: unknown): *a is BoundingBoxesByPage*
 
-Defined in TableAnnotation.ts:47
+Defined in TableAnnotation.ts:48
 
 ```haskell
 isBoundingBoxesByPage :: a -> bool
@@ -1576,7 +2271,7 @@ ___
 
 ▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in TableAnnotation.ts:67
+Defined in TableAnnotation.ts:68
 
 ```haskell
 isTableAnnotation :: a -> bool
@@ -1596,7 +2291,7 @@ ___
 
 ▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in TableAnnotation.ts:55
+Defined in TableAnnotation.ts:56
 
 ```haskell
 isTableAnnotationBase :: a -> bool
@@ -1616,7 +2311,7 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in TableAnnotation.ts:82
+Defined in TableAnnotation.ts:83
 
 ```haskell
 make :: (String, BoundingBoxesByPage) -> IO TableAnnotation
