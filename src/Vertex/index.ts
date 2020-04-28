@@ -64,6 +64,9 @@ export type WithHeader<A extends BoundingBox> =
   | WithHeaderRow<A>
   | WithHeaderColumn<A>;
 
+export type WithHeaders<A extends BoundingBox> = WithHeaderRow<A> &
+  WithHeaderColumn<A>;
+
 export interface LabeledBoundingBox extends BoundingBox {
   id: string;
   label: string;
@@ -158,6 +161,14 @@ export const hasHeaderColumn = <A extends BoundingBox>(
  */
 export const hasHeader = <A extends BoundingBox>(a: A): a is WithHeader<A> =>
   anyPass([hasHeaderRow, hasHeaderColumn])(a);
+
+/**
+ * ```haskell
+ * hasHeaders :: a -> bool
+ * ```
+ */
+export const hasHeaders = <A extends BoundingBox>(a: A): a is WithHeaders<A> =>
+  allPass([hasHeaderRow, hasHeaderColumn])(a);
 
 /**
  * ```haskell
