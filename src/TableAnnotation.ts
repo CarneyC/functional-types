@@ -1,4 +1,4 @@
-import { isLabeledBoundingBox, LabeledBoundingBox } from './Vertex';
+import { isLabeledBoundingBox, LabeledBoundingBox, WithHeader } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import {
   all,
@@ -12,7 +12,9 @@ import {
 } from 'ramda';
 import { getRandomId } from './String';
 
-export type BoundingBoxes = Dictionary<LabeledBoundingBox>;
+export type BoundingBoxes = Dictionary<
+  WithHeader<LabeledBoundingBox> | LabeledBoundingBox
+>;
 
 export type BoundingBoxesByPage = BoundingBoxes[];
 
