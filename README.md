@@ -594,7 +594,7 @@ Defined in src/Schema/index.ts:45
 
 • **boundingBoxesByPage**: *[BoundingBoxesByPage](#boundingboxesbypage)*
 
-Defined in src/TableAnnotation.ts:24
+Defined in src/TableAnnotation.ts:25
 
 ___
 
@@ -602,7 +602,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in src/TableAnnotation.ts:25
+Defined in src/TableAnnotation.ts:26
 
 ___
 
@@ -610,7 +610,7 @@ ___
 
 • **file**: *string*
 
-Defined in src/TableAnnotation.ts:23
+Defined in src/TableAnnotation.ts:24
 
 ___
 
@@ -618,7 +618,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/TableAnnotation.ts:22
+Defined in src/TableAnnotation.ts:23
 
 ___
 
@@ -626,7 +626,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/TableAnnotation.ts:26
+Defined in src/TableAnnotation.ts:27
 
 
 <a name="interfaces_vertex_index_boundingboxmd"></a>
@@ -880,6 +880,7 @@ Defined in src/Vertex/index.ts:39
 #### Functions
 
 * [getCurrentDate](#const-getcurrentdate)
+* [getCurrentISOString](#const-getcurrentisostring)
 * [getUnixTimestamp](#const-getunixtimestamp)
 
 ### Variables
@@ -904,9 +905,27 @@ getCurrentUnixTimestamp :: () -> Int
 
 ▸ **getCurrentDate**(): *Date*
 
-Defined in src/DateTime.ts:16
+Defined in src/DateTime.ts:21
+
+```haskell
+getCurrentDate :: () -> Date
+```
 
 **Returns:** *Date*
+
+___
+
+#### `Const` getCurrentISOString
+
+▸ **getCurrentISOString**(): *string*
+
+Defined in src/DateTime.ts:28
+
+```haskell
+getCurrentISOString :: () -> string
+```
+
+**Returns:** *string*
 
 ___
 
@@ -2259,7 +2278,7 @@ getRandomId: IO String
 
 Ƭ **BoundingBoxes**: *Dictionary‹[WithHeader](#withheader)‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)› | [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›*
 
-Defined in src/TableAnnotation.ts:15
+Defined in src/TableAnnotation.ts:16
 
 ___
 
@@ -2267,7 +2286,7 @@ ___
 
 Ƭ **BoundingBoxesByPage**: *[BoundingBoxes](#boundingboxes)[]*
 
-Defined in src/TableAnnotation.ts:19
+Defined in src/TableAnnotation.ts:20
 
 ___
 
@@ -2275,7 +2294,7 @@ ___
 
 Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPage"›*
 
-Defined in src/TableAnnotation.ts:29
+Defined in src/TableAnnotation.ts:30
 
 ### Functions
 
@@ -2283,7 +2302,7 @@ Defined in src/TableAnnotation.ts:29
 
 ▸ **isBoundingBoxes**(`a`: unknown): *a is BoundingBoxes*
 
-Defined in src/TableAnnotation.ts:39
+Defined in src/TableAnnotation.ts:40
 
 ```haskell
 isBoundingBoxes :: a -> bool
@@ -2303,7 +2322,7 @@ ___
 
 ▸ **isBoundingBoxesByPage**(`a`: unknown): *a is BoundingBoxesByPage*
 
-Defined in src/TableAnnotation.ts:50
+Defined in src/TableAnnotation.ts:51
 
 ```haskell
 isBoundingBoxesByPage :: a -> bool
@@ -2323,7 +2342,7 @@ ___
 
 ▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in src/TableAnnotation.ts:70
+Defined in src/TableAnnotation.ts:71
 
 ```haskell
 isTableAnnotation :: a -> bool
@@ -2343,7 +2362,7 @@ ___
 
 ▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in src/TableAnnotation.ts:58
+Defined in src/TableAnnotation.ts:59
 
 ```haskell
 isTableAnnotationBase :: a -> bool
@@ -2363,7 +2382,7 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in src/TableAnnotation.ts:85
+Defined in src/TableAnnotation.ts:86
 
 ```haskell
 make :: (String, BoundingBoxesByPage) -> IO TableAnnotation
@@ -3165,7 +3184,7 @@ ___
 
 #### `Const` makeBoundingBox
 
-▸ **makeBoundingBox**(`boundingPoly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+▸ **makeBoundingBox**(`poly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
 
 Defined in src/Vertex/index.ts:317
 
@@ -3177,7 +3196,7 @@ makeBoundingBox :: (Poly, [Float], [Float]) -> BoundingBox
 
 Name | Type |
 ------ | ------ |
-`boundingPoly` | [Poly](#poly) |
+`poly` | [Poly](#poly) |
 `ys` | number[] |
 `xs` | number[] |
 
@@ -3187,7 +3206,7 @@ ___
 
 #### `Const` makeLabeledBoundingBox
 
-▸ **makeLabeledBoundingBox**(`id`: string, `label`: string, `boundingPoly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
+▸ **makeLabeledBoundingBox**(`id`: string, `label`: string, `poly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
 
 Defined in src/Vertex/index.ts:372
 
@@ -3201,7 +3220,7 @@ Name | Type |
 ------ | ------ |
 `id` | string |
 `label` | string |
-`boundingPoly` | [Poly](#poly) |
+`poly` | [Poly](#poly) |
 `ys` | number[] |
 `xs` | number[] |
 

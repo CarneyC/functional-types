@@ -131,7 +131,7 @@ const isLineArray = (a: unknown): a is Line[] =>
  */
 export const isBoundingBox = (a: unknown): a is BoundingBox =>
   allPass([
-    propSatisfies(isPoly, 'boundingPoly'),
+    propSatisfies(isPoly, 'poly'),
     propSatisfies(isLineArray, 'rows'),
     propSatisfies(isLineArray, 'columns'),
   ])(a);
@@ -315,14 +315,14 @@ const makeColumns: (corners: Corners) => R.Reader<number[], Line[]> = ({
  * ```
  */
 export const makeBoundingBox = (
-  boundingPoly: Poly,
+  poly: Poly,
   ys: number[],
   xs: number[]
 ): BoundingBox => {
-  const corners = getCornersFromPoly(boundingPoly);
+  const corners = getCornersFromPoly(poly);
 
   return {
-    boundingPoly,
+    boundingPoly: poly,
     rows: makeRows(corners)(ys),
     columns: makeColumns(corners)(xs),
   };
@@ -372,16 +372,16 @@ export const isLabeledBoundingBox = (a: unknown): a is LabeledBoundingBox =>
 export const makeLabeledBoundingBox = (
   id: string,
   label: string,
-  boundingPoly: Poly,
+  poly: Poly,
   ys: number[],
   xs: number[]
 ): LabeledBoundingBox => {
-  const corners = getCornersFromPoly(boundingPoly);
+  const corners = getCornersFromPoly(poly);
 
   return {
     id,
     label,
-    boundingPoly,
+    boundingPoly: poly,
     rows: makeRows(corners)(ys),
     columns: makeColumns(corners)(xs),
   };

@@ -1,5 +1,5 @@
 import { getRandomId } from '../String';
-import { getCurrentDate } from '../DateTime';
+import { getCurrentISOString } from '../DateTime';
 import * as IO from 'fp-ts/lib/IO';
 import {
   all,
@@ -69,7 +69,7 @@ export const isFolder = (a: unknown): a is Folder =>
  * ```
  */
 export const make: (name: string) => IO.IO<Folder> = (name) => (): Folder => {
-  const dateStr = getCurrentDate().toISOString();
+  const dateStr = getCurrentISOString();
   return {
     id: getRandomId(),
     name: name,

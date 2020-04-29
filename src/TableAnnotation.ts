@@ -11,6 +11,7 @@ import {
   values,
 } from 'ramda';
 import { getRandomId } from './String';
+import { getCurrentISOString } from './DateTime';
 
 export type BoundingBoxes = Dictionary<
   WithHeader<LabeledBoundingBox> | LabeledBoundingBox
@@ -86,7 +87,7 @@ export const make: (
   file,
   boundingBoxesByPage,
 }) => (): TableAnnotation => {
-  const timestamp = new Date().toISOString();
+  const timestamp = getCurrentISOString();
   return {
     id: getRandomId(),
     file,
