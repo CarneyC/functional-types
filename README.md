@@ -18,8 +18,10 @@
 * ["Schema/index"](#modules_schema_index_md)
 * ["String"](#modules_string_md)
 * ["TableAnnotation"](#modules_tableannotation_md)
+* ["TextAnnotation"](#modules_textannotation_md)
 * ["Vertex/Arbitraries"](#modules_vertex_arbitraries_md)
 * ["Vertex/index"](#modules_vertex_index_md)
+* ["Vision"](#modules_vision_md)
 * ["index"](#modules_index_md)
 
 
@@ -629,6 +631,214 @@ ___
 Defined in src/TableAnnotation.ts:27
 
 
+<a name="interfaces_textannotation_pagemd"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Page](#interfaces_textannotation_pagemd)
+
+## Interface: Page
+
+### Hierarchy
+
+* **Page**
+
+### Index
+
+#### Properties
+
+* [paragraphsById](#paragraphsbyid)
+* [wordsById](#wordsbyid)
+
+### Properties
+
+####  paragraphsById
+
+• **paragraphsById**: *[ParagraphsById](#paragraphsbyid)*
+
+Defined in src/TextAnnotation.ts:68
+
+___
+
+####  wordsById
+
+• **wordsById**: *[WordsById](#wordsbyid)*
+
+Defined in src/TextAnnotation.ts:67
+
+
+<a name="interfaces_textannotation_paragraphmd"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Paragraph](#interfaces_textannotation_paragraphmd)
+
+## Interface: Paragraph
+
+### Hierarchy
+
+* **Paragraph**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [confidence](#confidence)
+* [id](#id)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+Defined in src/TextAnnotation.ts:58
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/TextAnnotation.ts:59
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/TextAnnotation.ts:57
+
+
+<a name="interfaces_textannotation_textannotationmd"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [TextAnnotation](#interfaces_textannotation_textannotationmd)
+
+## Interface: TextAnnotation
+
+### Hierarchy
+
+* **TextAnnotation**
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [file](#file)
+* [id](#id)
+* [pages](#pages)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *string*
+
+Defined in src/TextAnnotation.ts:75
+
+___
+
+####  file
+
+• **file**: *string*
+
+Defined in src/TextAnnotation.ts:73
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/TextAnnotation.ts:72
+
+___
+
+####  pages
+
+• **pages**: *[Page](#interfaces_textannotation_pagemd)[]*
+
+Defined in src/TextAnnotation.ts:74
+
+___
+
+####  updated_at
+
+• **updated_at**: *string*
+
+Defined in src/TextAnnotation.ts:76
+
+
+<a name="interfaces_textannotation_wordmd"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Word](#interfaces_textannotation_wordmd)
+
+## Interface: Word
+
+### Hierarchy
+
+* **Word**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [breakType](#breaktype)
+* [confidence](#confidence)
+* [id](#id)
+* [paragraph](#paragraph)
+* [text](#text)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+Defined in src/TextAnnotation.ts:51
+
+___
+
+####  breakType
+
+• **breakType**: *[BreakType](#breaktype)*
+
+Defined in src/TextAnnotation.ts:50
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/TextAnnotation.ts:53
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/TextAnnotation.ts:48
+
+___
+
+####  paragraph
+
+• **paragraph**: *string*
+
+Defined in src/TextAnnotation.ts:49
+
+___
+
+####  text
+
+• **text**: *string*
+
+Defined in src/TextAnnotation.ts:52
+
+
 <a name="interfaces_vertex_index_boundingboxmd"></a>
 
 [functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [BoundingBox](#interfaces_vertex_index_boundingboxmd)
@@ -861,6 +1071,1175 @@ ___
 • **y**: *number*
 
 Defined in src/Vertex/index.ts:39
+
+
+<a name="interfaces_vision_annotateimagerequestmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AnnotateImageRequest](#interfaces_vision_annotateimagerequestmd)
+
+## Interface: AnnotateImageRequest
+
+### Hierarchy
+
+* **AnnotateImageRequest**
+
+### Index
+
+#### Properties
+
+* [features](#optional-features)
+* [image](#image)
+* [imageContext](#optional-imagecontext)
+
+### Properties
+
+#### `Optional` features
+
+• **features**? : *[Feature](#interfaces_vision_featuremd)[]*
+
+Defined in src/Vision.ts:48
+
+___
+
+####  image
+
+• **image**: *[Image](#interfaces_vision_imagemd)*
+
+Defined in src/Vision.ts:47
+
+___
+
+#### `Optional` imageContext
+
+• **imageContext**? : *[ImageContext](#interfaces_vision_imagecontextmd)*
+
+Defined in src/Vision.ts:49
+
+
+<a name="interfaces_vision_annotateimageresponsemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)
+
+## Interface: AnnotateImageResponse
+
+### Hierarchy
+
+* **AnnotateImageResponse**
+
+### Index
+
+#### Properties
+
+* [fullTextAnnotation](#optional-fulltextannotation)
+* [labelAnnotations](#optional-labelannotations)
+* [textAnnotations](#optional-textannotations)
+
+### Properties
+
+#### `Optional` fullTextAnnotation
+
+• **fullTextAnnotation**? : *[TextAnnotation](#interfaces_vision_textannotationmd)*
+
+Defined in src/Vision.ts:63
+
+___
+
+#### `Optional` labelAnnotations
+
+• **labelAnnotations**? : *[EntityAnnotation](#interfaces_vision_entityannotationmd)[]*
+
+Defined in src/Vision.ts:54
+
+___
+
+#### `Optional` textAnnotations
+
+• **textAnnotations**? : *[EntityAnnotation](#interfaces_vision_entityannotationmd)[]*
+
+Defined in src/Vision.ts:57
+
+
+<a name="interfaces_vision_asyncannotatefilerequestmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)
+
+## Interface: AsyncAnnotateFileRequest
+
+### Hierarchy
+
+* **AsyncAnnotateFileRequest**
+
+### Index
+
+#### Properties
+
+* [features](#features)
+* [imageContext](#optional-imagecontext)
+* [inputConfig](#inputconfig)
+* [outputConfig](#outputconfig)
+* [responses](#optional-responses)
+
+### Properties
+
+####  features
+
+• **features**: *[Feature](#interfaces_vision_featuremd)[]*
+
+Defined in src/Vision.ts:16
+
+___
+
+#### `Optional` imageContext
+
+• **imageContext**? : *[ImageContext](#interfaces_vision_imagecontextmd)*
+
+Defined in src/Vision.ts:17
+
+___
+
+####  inputConfig
+
+• **inputConfig**: *[InputConfig](#interfaces_vision_inputconfigmd)*
+
+Defined in src/Vision.ts:15
+
+___
+
+####  outputConfig
+
+• **outputConfig**: *[OutputConfig](#interfaces_vision_outputconfigmd)*
+
+Defined in src/Vision.ts:18
+
+___
+
+#### `Optional` responses
+
+• **responses**? : *[AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)[]*
+
+Defined in src/Vision.ts:19
+
+
+<a name="interfaces_vision_blockmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Block](#interfaces_vision_blockmd)
+
+## Interface: Block
+
+### Hierarchy
+
+* **Block**
+
+### Index
+
+#### Properties
+
+* [blockType](#blocktype)
+* [boundingBox](#boundingbox)
+* [confidence](#optional-confidence)
+* [paragraphs](#paragraphs)
+* [property](#optional-property)
+
+### Properties
+
+####  blockType
+
+• **blockType**: *[BlockType](#blocktype)*
+
+Defined in src/Vision.ts:152
+
+___
+
+####  boundingBox
+
+• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:150
+
+___
+
+#### `Optional` confidence
+
+• **confidence**? : *number*
+
+Defined in src/Vision.ts:153
+
+___
+
+####  paragraphs
+
+• **paragraphs**: *[Paragraph](#interfaces_vision_paragraphmd)[]*
+
+Defined in src/Vision.ts:151
+
+___
+
+#### `Optional` property
+
+• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:139
+
+
+<a name="interfaces_vision_boundingpolymd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [BoundingPoly](#interfaces_vision_boundingpolymd)
+
+## Interface: BoundingPoly
+
+### Hierarchy
+
+* **BoundingPoly**
+
+### Index
+
+#### Properties
+
+* [normalizedVertices](#optional-normalizedvertices)
+* [vertices](#optional-vertices)
+
+### Properties
+
+#### `Optional` normalizedVertices
+
+• **normalizedVertices**? : *[NormalizedVertex](#interfaces_vision_normalizedvertexmd)[]*
+
+Defined in src/Vision.ts:212
+
+___
+
+#### `Optional` vertices
+
+• **vertices**? : *[Vertex](#interfaces_vision_vertexmd)[]*
+
+Defined in src/Vision.ts:211
+
+
+<a name="interfaces_vision_detectedbreakmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [DetectedBreak](#interfaces_vision_detectedbreakmd)
+
+## Interface: DetectedBreak
+
+### Hierarchy
+
+* **DetectedBreak**
+
+### Index
+
+#### Properties
+
+* [isPrefix](#optional-isprefix)
+* [type](#type)
+
+### Properties
+
+#### `Optional` isPrefix
+
+• **isPrefix**? : *boolean*
+
+Defined in src/Vision.ts:199
+
+___
+
+####  type
+
+• **type**: *[BreakType](#breaktype)*
+
+Defined in src/Vision.ts:196
+
+
+<a name="interfaces_vision_detectedlanguagemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [DetectedLanguage](#interfaces_vision_detectedlanguagemd)
+
+## Interface: DetectedLanguage
+
+### Hierarchy
+
+* **DetectedLanguage**
+
+### Index
+
+#### Properties
+
+* [confidence](#optional-confidence)
+* [languageCode](#languagecode)
+
+### Properties
+
+#### `Optional` confidence
+
+• **confidence**? : *number*
+
+Defined in src/Vision.ts:192
+
+___
+
+####  languageCode
+
+• **languageCode**: *string*
+
+Defined in src/Vision.ts:191
+
+
+<a name="interfaces_vision_entityannotationmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [EntityAnnotation](#interfaces_vision_entityannotationmd)
+
+## Interface: EntityAnnotation
+
+### Hierarchy
+
+* **EntityAnnotation**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#optional-boundingpoly)
+* [confidence](#confidence)
+* [description](#description)
+* [locale](#locale)
+* [locations](#locations)
+* [mid](#mid)
+* [properties](#properties)
+* [score](#score)
+* [topicality](#topicality)
+
+### Properties
+
+#### `Optional` boundingPoly
+
+• **boundingPoly**? : *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:99
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/Vision.ts:97
+
+___
+
+####  description
+
+• **description**: *string*
+
+Defined in src/Vision.ts:95
+
+___
+
+####  locale
+
+• **locale**: *string*
+
+Defined in src/Vision.ts:94
+
+___
+
+####  locations
+
+• **locations**: *[LocationInfo](#interfaces_vision_locationinfomd)[]*
+
+Defined in src/Vision.ts:100
+
+___
+
+####  mid
+
+• **mid**: *string*
+
+Defined in src/Vision.ts:93
+
+___
+
+####  properties
+
+• **properties**: *[Property](#interfaces_vision_propertymd)[]*
+
+Defined in src/Vision.ts:101
+
+___
+
+####  score
+
+• **score**: *number*
+
+Defined in src/Vision.ts:96
+
+___
+
+####  topicality
+
+• **topicality**: *number*
+
+Defined in src/Vision.ts:98
+
+
+<a name="interfaces_vision_featuremd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Feature](#interfaces_vision_featuremd)
+
+## Interface: Feature
+
+### Hierarchy
+
+* **Feature**
+
+### Index
+
+#### Properties
+
+* [maxResult](#optional-maxresult)
+* [model](#optional-model)
+* [type](#type)
+
+### Properties
+
+#### `Optional` maxResult
+
+• **maxResult**? : *number*
+
+Defined in src/Vision.ts:78
+
+___
+
+#### `Optional` model
+
+• **model**? : *"builtin/stable" | "builtin/latest"*
+
+Defined in src/Vision.ts:79
+
+___
+
+####  type
+
+• **type**: *[Type](#type)*
+
+Defined in src/Vision.ts:77
+
+
+<a name="interfaces_vision_gcsdestinationmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [GcsDestination](#interfaces_vision_gcsdestinationmd)
+
+## Interface: GcsDestination
+
+### Hierarchy
+
+* **GcsDestination**
+
+### Index
+
+#### Properties
+
+* [uri](#uri)
+
+### Properties
+
+####  uri
+
+• **uri**: *string*
+
+Defined in src/Vision.ts:43
+
+
+<a name="interfaces_vision_gcssourcemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [GcsSource](#interfaces_vision_gcssourcemd)
+
+## Interface: GcsSource
+
+### Hierarchy
+
+* **GcsSource**
+
+### Index
+
+#### Properties
+
+* [uri](#uri)
+
+### Properties
+
+####  uri
+
+• **uri**: *string*
+
+Defined in src/Vision.ts:29
+
+
+<a name="interfaces_vision_imagemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Image](#interfaces_vision_imagemd)
+
+## Interface: Image
+
+### Hierarchy
+
+* **Image**
+
+### Index
+
+#### Properties
+
+* [content](#optional-content)
+* [source](#optional-source)
+
+### Properties
+
+#### `Optional` content
+
+• **content**? : *Buffer*
+
+Defined in src/Vision.ts:67
+
+___
+
+#### `Optional` source
+
+• **source**? : *[ImageSource](#interfaces_vision_imagesourcemd)*
+
+Defined in src/Vision.ts:68
+
+
+<a name="interfaces_vision_imagecontextmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [ImageContext](#interfaces_vision_imagecontextmd)
+
+## Interface: ImageContext
+
+### Hierarchy
+
+* **ImageContext**
+
+### Index
+
+#### Properties
+
+* [cropHintsParams](#crophintsparams)
+* [languageHints](#languagehints)
+* [latLongRect](#latlongrect)
+* [productSearchParams](#productsearchparams)
+* [webDetectionParams](#webdetectionparams)
+
+### Properties
+
+####  cropHintsParams
+
+• **cropHintsParams**: *unknown*
+
+Defined in src/Vision.ts:87
+
+___
+
+####  languageHints
+
+• **languageHints**: *string[]*
+
+Defined in src/Vision.ts:86
+
+___
+
+####  latLongRect
+
+• **latLongRect**: *unknown*
+
+Defined in src/Vision.ts:85
+
+___
+
+####  productSearchParams
+
+• **productSearchParams**: *unknown*
+
+Defined in src/Vision.ts:88
+
+___
+
+####  webDetectionParams
+
+• **webDetectionParams**: *unknown*
+
+Defined in src/Vision.ts:89
+
+
+<a name="interfaces_vision_imagesourcemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [ImageSource](#interfaces_vision_imagesourcemd)
+
+## Interface: ImageSource
+
+### Hierarchy
+
+* **ImageSource**
+
+### Index
+
+#### Properties
+
+* [gcsImageUri](#optional-gcsimageuri)
+* [imageUri](#optional-imageuri)
+
+### Properties
+
+#### `Optional` gcsImageUri
+
+• **gcsImageUri**? : *string*
+
+Defined in src/Vision.ts:72
+
+___
+
+#### `Optional` imageUri
+
+• **imageUri**? : *string*
+
+Defined in src/Vision.ts:73
+
+
+<a name="interfaces_vision_inputconfigmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [InputConfig](#interfaces_vision_inputconfigmd)
+
+## Interface: InputConfig
+
+### Hierarchy
+
+* **InputConfig**
+
+### Index
+
+#### Properties
+
+* [content](#optional-content)
+* [gcsSource](#gcssource)
+* [mimeType](#mimetype)
+
+### Properties
+
+#### `Optional` content
+
+• **content**? : *Buffer*
+
+Defined in src/Vision.ts:24
+
+___
+
+####  gcsSource
+
+• **gcsSource**: *[GcsSource](#interfaces_vision_gcssourcemd)*
+
+Defined in src/Vision.ts:23
+
+___
+
+####  mimeType
+
+• **mimeType**: *string*
+
+Defined in src/Vision.ts:25
+
+
+<a name="interfaces_vision_latlngmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [LatLng](#interfaces_vision_latlngmd)
+
+## Interface: LatLng
+
+### Hierarchy
+
+* **LatLng**
+
+### Index
+
+#### Properties
+
+* [latitude](#latitude)
+* [longitude](#longitude)
+
+### Properties
+
+####  latitude
+
+• **latitude**: *number*
+
+Defined in src/Vision.ts:250
+
+___
+
+####  longitude
+
+• **longitude**: *number*
+
+Defined in src/Vision.ts:252
+
+
+<a name="interfaces_vision_locationinfomd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [LocationInfo](#interfaces_vision_locationinfomd)
+
+## Interface: LocationInfo
+
+### Hierarchy
+
+* **LocationInfo**
+
+### Index
+
+#### Properties
+
+* [latLng](#latlng)
+
+### Properties
+
+####  latLng
+
+• **latLng**: *[LatLng](#interfaces_vision_latlngmd)*
+
+Defined in src/Vision.ts:216
+
+
+<a name="interfaces_vision_normalizedvertexmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [NormalizedVertex](#interfaces_vision_normalizedvertexmd)
+
+## Interface: NormalizedVertex
+
+### Hierarchy
+
+* [Vertex](#interfaces_vision_vertexmd)
+
+  ↳ **NormalizedVertex**
+
+### Index
+
+#### Properties
+
+* [x](#x)
+* [y](#y)
+
+### Properties
+
+####  x
+
+• **x**: *number*
+
+*Overrides [Vertex](#interfaces_vision_vertexmd).[x](#x)*
+
+Defined in src/Vision.ts:239
+
+___
+
+####  y
+
+• **y**: *number*
+
+*Overrides [Vertex](#interfaces_vision_vertexmd).[y](#y)*
+
+Defined in src/Vision.ts:240
+
+
+<a name="interfaces_vision_outputconfigmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [OutputConfig](#interfaces_vision_outputconfigmd)
+
+## Interface: OutputConfig
+
+### Hierarchy
+
+* **OutputConfig**
+
+### Index
+
+#### Properties
+
+* [batchSize](#optional-batchsize)
+* [gcsDestination](#gcsdestination)
+
+### Properties
+
+#### `Optional` batchSize
+
+• **batchSize**? : *number*
+
+Defined in src/Vision.ts:38
+
+___
+
+####  gcsDestination
+
+• **gcsDestination**: *[GcsDestination](#interfaces_vision_gcsdestinationmd)*
+
+Defined in src/Vision.ts:39
+
+
+<a name="interfaces_vision_pagemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Page](#interfaces_vision_pagemd)
+
+## Interface: Page
+
+### Hierarchy
+
+* **Page**
+
+### Index
+
+#### Properties
+
+* [blocks](#blocks)
+* [confidence](#optional-confidence)
+* [height](#height)
+* [property](#property)
+* [width](#width)
+
+### Properties
+
+####  blocks
+
+• **blocks**: *[Block](#interfaces_vision_blockmd)[]*
+
+Defined in src/Vision.ts:127
+
+___
+
+#### `Optional` confidence
+
+• **confidence**? : *number*
+
+Defined in src/Vision.ts:130
+
+___
+
+####  height
+
+• **height**: *number*
+
+Defined in src/Vision.ts:125
+
+___
+
+####  property
+
+• **property**: *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:118
+
+___
+
+####  width
+
+• **width**: *number*
+
+Defined in src/Vision.ts:124
+
+
+<a name="interfaces_vision_paragraphmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Paragraph](#interfaces_vision_paragraphmd)
+
+## Interface: Paragraph
+
+### Hierarchy
+
+* **Paragraph**
+
+### Index
+
+#### Properties
+
+* [boundingBox](#boundingbox)
+* [confidence](#confidence)
+* [property](#optional-property)
+* [words](#words)
+
+### Properties
+
+####  boundingBox
+
+• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:158
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/Vision.ts:160
+
+___
+
+#### `Optional` property
+
+• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:157
+
+___
+
+####  words
+
+• **words**: *[Word](#interfaces_vision_wordmd)[]*
+
+Defined in src/Vision.ts:159
+
+
+<a name="interfaces_vision_propertymd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Property](#interfaces_vision_propertymd)
+
+## Interface: Property
+
+### Hierarchy
+
+* **Property**
+
+### Index
+
+#### Properties
+
+* [name](#name)
+* [uint64Value](#uint64value)
+* [value](#value)
+
+### Properties
+
+####  name
+
+• **name**: *string*
+
+Defined in src/Vision.ts:220
+
+___
+
+####  uint64Value
+
+• **uint64Value**: *number*
+
+Defined in src/Vision.ts:222
+
+___
+
+####  value
+
+• **value**: *string*
+
+Defined in src/Vision.ts:221
+
+
+<a name="interfaces_vision_textannotationmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextAnnotation](#interfaces_vision_textannotationmd)
+
+## Interface: TextAnnotation
+
+### Hierarchy
+
+* **TextAnnotation**
+
+### Index
+
+#### Properties
+
+* [pages](#pages)
+* [text](#text)
+
+### Properties
+
+####  pages
+
+• **pages**: *[Page](#interfaces_vision_pagemd)[]*
+
+Defined in src/Vision.ts:110
+
+___
+
+####  text
+
+• **text**: *string*
+
+Defined in src/Vision.ts:113
+
+
+<a name="interfaces_vision_textpropertymd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextProperty](#interfaces_vision_textpropertymd)
+
+## Interface: TextProperty
+
+### Hierarchy
+
+* **TextProperty**
+
+### Index
+
+#### Properties
+
+* [detectedBreak](#optional-detectedbreak)
+* [detectedLanguages](#detectedlanguages)
+
+### Properties
+
+#### `Optional` detectedBreak
+
+• **detectedBreak**? : *[DetectedBreak](#interfaces_vision_detectedbreakmd)*
+
+Defined in src/Vision.ts:135
+
+___
+
+####  detectedLanguages
+
+• **detectedLanguages**: *[DetectedLanguage](#interfaces_vision_detectedlanguagemd)[]*
+
+Defined in src/Vision.ts:134
+
+
+<a name="interfaces_vision_textsymbolmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextSymbol](#interfaces_vision_textsymbolmd)
+
+## Interface: TextSymbol
+
+### Hierarchy
+
+* **TextSymbol**
+
+### Index
+
+#### Properties
+
+* [boundingBox](#optional-boundingbox)
+* [confidence](#confidence)
+* [property](#property)
+* [text](#text)
+
+### Properties
+
+#### `Optional` boundingBox
+
+• **boundingBox**? : *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:181
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/Vision.ts:183
+
+___
+
+####  property
+
+• **property**: *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:180
+
+___
+
+####  text
+
+• **text**: *string*
+
+Defined in src/Vision.ts:182
+
+
+<a name="interfaces_vision_vertexmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Vertex](#interfaces_vision_vertexmd)
+
+## Interface: Vertex
+
+### Hierarchy
+
+* **Vertex**
+
+  ↳ [NormalizedVertex](#interfaces_vision_normalizedvertexmd)
+
+### Index
+
+#### Properties
+
+* [x](#x)
+* [y](#y)
+
+### Properties
+
+####  x
+
+• **x**: *number*
+
+Defined in src/Vision.ts:230
+
+___
+
+####  y
+
+• **y**: *number*
+
+Defined in src/Vision.ts:231
+
+
+<a name="interfaces_vision_wordmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Word](#interfaces_vision_wordmd)
+
+## Interface: Word
+
+### Hierarchy
+
+* **Word**
+
+### Index
+
+#### Properties
+
+* [boundingBox](#boundingbox)
+* [confidence](#confidence)
+* [property](#optional-property)
+* [symbols](#symbols)
+
+### Properties
+
+####  boundingBox
+
+• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:174
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/Vision.ts:176
+
+___
+
+#### `Optional` property
+
+• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:173
+
+___
+
+####  symbols
+
+• **symbols**: *[TextSymbol](#interfaces_vision_textsymbolmd)[]*
+
+Defined in src/Vision.ts:175
 
 # Modules
 
@@ -2400,6 +3779,393 @@ Name | Type |
 **Returns:** *(Anonymous function)*
 
 
+<a name="modules_textannotation_md"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md)
+
+## Module: "TextAnnotation"
+
+### Index
+
+#### Interfaces
+
+* [Page](#interfaces_textannotation_pagemd)
+* [Paragraph](#interfaces_textannotation_paragraphmd)
+* [TextAnnotation](#interfaces_textannotation_textannotationmd)
+* [Word](#interfaces_textannotation_wordmd)
+
+#### Type aliases
+
+* [BreakType](#breaktype)
+* [ParagraphsById](#paragraphsbyid)
+* [WordsById](#wordsbyid)
+
+#### Variables
+
+* [breakTypes](#const-breaktypes)
+* [fromAnnotateImageResponse](#const-fromannotateimageresponse)
+* [fromVisionPage](#const-fromvisionpage)
+* [getBreakTypeFromSymbols](#const-getbreaktypefromsymbols)
+
+#### Functions
+
+* [fromAnnotateImageRequest](#const-fromannotateimagerequest)
+* [fromVisionParagraph](#const-fromvisionparagraph)
+* [fromVisionWord](#const-fromvisionword)
+* [isBreakType](#const-isbreaktype)
+* [isPage](#const-ispage)
+* [isPages](#const-ispages)
+* [isParagraph](#const-isparagraph)
+* [isParagraphsById](#const-isparagraphsbyid)
+* [isTextAnnotation](#const-istextannotation)
+* [isWord](#const-isword)
+* [isWordsById](#const-iswordsbyid)
+
+### Type aliases
+
+####  BreakType
+
+Ƭ **BreakType**: *"UNKNOWN" | "SPACE" | "SURE_SPACE" | "EOL_SURE_SPACE" | "HYPHEN" | "LINE_BREAK"*
+
+Defined in src/TextAnnotation.ts:30
+
+___
+
+####  ParagraphsById
+
+Ƭ **ParagraphsById**: *Dictionary‹[Paragraph](#interfaces_textannotation_paragraphmd)›*
+
+Defined in src/TextAnnotation.ts:64
+
+___
+
+####  WordsById
+
+Ƭ **WordsById**: *Dictionary‹[Word](#interfaces_textannotation_wordmd)›*
+
+Defined in src/TextAnnotation.ts:62
+
+### Variables
+
+#### `Const` breakTypes
+
+• **breakTypes**: *[BreakType](#breaktype)[]* = [
+  'UNKNOWN',
+  'SPACE',
+  'SURE_SPACE', // Sure space (very wide)
+  'EOL_SURE_SPACE', // Line-wrapping break
+  'HYPHEN', // End-line hyphen that is not present in text
+  'LINE_BREAK',
+]
+
+Defined in src/TextAnnotation.ts:38
+
+___
+
+#### `Const` fromAnnotateImageResponse
+
+• **fromAnnotateImageResponse**: *function* = pipe(
+  Vision.getPagesFromAnnotateImageResponse,
+  map(fromVisionPage),
+  A.array.sequence(IO.io)
+)
+
+Defined in src/TextAnnotation.ts:276
+
+```haskell
+fromAnnotateImageResponse :: AnnotateImageResponse -> IO [Page]
+```
+
+##### Type declaration:
+
+▸ (`response`: [AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)): *IO‹[Page](#interfaces_textannotation_pagemd)[]›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`response` | [AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd) |
+
+___
+
+#### `Const` fromVisionPage
+
+• **fromVisionPage**: *function* = pipe(
+  Vision.getParagraphsFromPage,
+  map(fromVisionParagraph),
+  A.array.sequence(IO.io),
+  IO.map(
+    reduce<Page, Page>((acc: Page, page: Page) => mergeDeepLeft(acc, page), {
+      wordsById: {},
+      paragraphsById: {},
+    })
+  )
+)
+
+Defined in src/TextAnnotation.ts:259
+
+```haskell
+fromVisionPage :: VisionPage -> IO Page
+```
+
+##### Type declaration:
+
+▸ (`page`: [Page](#interfaces_vision_pagemd)): *IO‹[Page](#interfaces_textannotation_pagemd)›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`page` | [Page](#interfaces_vision_pagemd) |
+
+___
+
+#### `Const` getBreakTypeFromSymbols
+
+• **getBreakTypeFromSymbols**: *function* = pipe(
+  last,
+  path(['property', 'detectedBreak', 'type']),
+  O.fromPredicate(isBreakType),
+  O.getOrElse(() => 'UNKNOWN')
+)
+
+Defined in src/TextAnnotation.ts:168
+
+```haskell
+getBreakTypeFromSymbols :: [VisionSymbol] -> DetectedBreak
+```
+
+##### Type declaration:
+
+▸ (`symbols`: [TextSymbol](#interfaces_vision_textsymbolmd)[]): *[BreakType](#breaktype)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`symbols` | [TextSymbol](#interfaces_vision_textsymbolmd)[] |
+
+### Functions
+
+#### `Const` fromAnnotateImageRequest
+
+▸ **fromAnnotateImageRequest**(`request`: [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)): *(Anonymous function)*
+
+Defined in src/TextAnnotation.ts:290
+
+```haskell
+fromAnnotateImageRequest :: AsyncAnnotateFileRequest -> IO [Page]
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`request` | [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd) |
+
+**Returns:** *(Anonymous function)*
+
+___
+
+#### `Const` fromVisionParagraph
+
+▸ **fromVisionParagraph**(`visionParagraph`: [Paragraph](#interfaces_vision_paragraphmd)): *(Anonymous function)*
+
+Defined in src/TextAnnotation.ts:222
+
+```haskell
+fromVisionParagraph :: VisionParagraph -> IO Page
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`visionParagraph` | [Paragraph](#interfaces_vision_paragraphmd) |
+
+**Returns:** *(Anonymous function)*
+
+___
+
+#### `Const` fromVisionWord
+
+▸ **fromVisionWord**(`word`: [Word](#interfaces_vision_wordmd)): *(Anonymous function)*
+
+Defined in src/TextAnnotation.ts:203
+
+```haskell
+fromVisionWord :: VisionWord -> Word
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`word` | [Word](#interfaces_vision_wordmd) |
+
+**Returns:** *(Anonymous function)*
+
+___
+
+#### `Const` isBreakType
+
+▸ **isBreakType**(`a`: unknown): *a is BreakType*
+
+Defined in src/TextAnnotation.ts:84
+
+```haskell
+isBreakType :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is BreakType*
+
+___
+
+#### `Const` isPage
+
+▸ **isPage**(`a`: unknown): *a is Page*
+
+Defined in src/TextAnnotation.ts:135
+
+```haskell
+isPage :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Page*
+
+___
+
+#### `Const` isPages
+
+▸ **isPages**(`a`: unknown): *a is Page*
+
+Defined in src/TextAnnotation.ts:146
+
+```haskell
+isPages :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Page*
+
+___
+
+#### `Const` isParagraph
+
+▸ **isParagraph**(`a`: unknown): *a is Paragraph*
+
+Defined in src/TextAnnotation.ts:107
+
+```haskell
+isParagraph :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Paragraph*
+
+___
+
+#### `Const` isParagraphsById
+
+▸ **isParagraphsById**(`a`: unknown): *a is ParagraphsById*
+
+Defined in src/TextAnnotation.ts:127
+
+```haskell
+isWordsById :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is ParagraphsById*
+
+___
+
+#### `Const` isTextAnnotation
+
+▸ **isTextAnnotation**(`a`: unknown): *a is TextAnnotation*
+
+Defined in src/TextAnnotation.ts:154
+
+```haskell
+isTextAnnotation :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is TextAnnotation*
+
+___
+
+#### `Const` isWord
+
+▸ **isWord**(`a`: unknown): *a is Word*
+
+Defined in src/TextAnnotation.ts:92
+
+```haskell
+isWord :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Word*
+
+___
+
+#### `Const` isWordsById
+
+▸ **isWordsById**(`a`: unknown): *a is WordsById*
+
+Defined in src/TextAnnotation.ts:119
+
+```haskell
+isWordsById :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is WordsById*
+
+
 <a name="modules_vertex_arbitraries_md"></a>
 
 [functional-types](#globalsmd) › ["Vertex/Arbitraries"](#modules_vertex_arbitraries_md)
@@ -3422,3 +5188,359 @@ Name | Type |
 `y` | number |
 
 **Returns:** *(Anonymous function)*
+
+
+<a name="modules_vision_md"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md)
+
+## Module: "Vision"
+
+### Index
+
+#### Interfaces
+
+* [AnnotateImageRequest](#interfaces_vision_annotateimagerequestmd)
+* [AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)
+* [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)
+* [Block](#interfaces_vision_blockmd)
+* [BoundingPoly](#interfaces_vision_boundingpolymd)
+* [DetectedBreak](#interfaces_vision_detectedbreakmd)
+* [DetectedLanguage](#interfaces_vision_detectedlanguagemd)
+* [EntityAnnotation](#interfaces_vision_entityannotationmd)
+* [Feature](#interfaces_vision_featuremd)
+* [GcsDestination](#interfaces_vision_gcsdestinationmd)
+* [GcsSource](#interfaces_vision_gcssourcemd)
+* [Image](#interfaces_vision_imagemd)
+* [ImageContext](#interfaces_vision_imagecontextmd)
+* [ImageSource](#interfaces_vision_imagesourcemd)
+* [InputConfig](#interfaces_vision_inputconfigmd)
+* [LatLng](#interfaces_vision_latlngmd)
+* [LocationInfo](#interfaces_vision_locationinfomd)
+* [NormalizedVertex](#interfaces_vision_normalizedvertexmd)
+* [OutputConfig](#interfaces_vision_outputconfigmd)
+* [Page](#interfaces_vision_pagemd)
+* [Paragraph](#interfaces_vision_paragraphmd)
+* [Property](#interfaces_vision_propertymd)
+* [TextAnnotation](#interfaces_vision_textannotationmd)
+* [TextProperty](#interfaces_vision_textpropertymd)
+* [TextSymbol](#interfaces_vision_textsymbolmd)
+* [Vertex](#interfaces_vision_vertexmd)
+* [Word](#interfaces_vision_wordmd)
+
+#### Type aliases
+
+* [BlockType](#blocktype)
+* [BreakType](#breaktype)
+* [Type](#type)
+
+#### Variables
+
+* [getBlocksFromPage](#const-getblocksfrompage)
+* [getFileIdFromAnnotateImageRequest](#const-getfileidfromannotateimagerequest)
+* [getPagesFromAnnotateImageRequest](#const-getpagesfromannotateimagerequest)
+* [getPagesFromAnnotateImageResponse](#const-getpagesfromannotateimageresponse)
+* [getParagraphsFromBlock](#const-getparagraphsfromblock)
+* [getParagraphsFromPage](#const-getparagraphsfrompage)
+* [getSymbolsFromWord](#const-getsymbolsfromword)
+* [getTextFromSymbol](#const-gettextfromsymbol)
+* [getTextFromWord](#const-gettextfromword)
+* [getWordsFromPage](#const-getwordsfrompage)
+* [getWordsFromParagraph](#const-getwordsfromparagraph)
+
+### Type aliases
+
+####  BlockType
+
+Ƭ **BlockType**: *"UNKNOWN" | "TEXT" | "TABLE" | "PICTURE" | "RULER" | "BARCODE" | string*
+
+Defined in src/Vision.ts:163
+
+___
+
+####  BreakType
+
+Ƭ **BreakType**: *"UNKNOWN" | "SPACE" | "SURE_SPACE" | "EOL_SURE_SPACE" | "HYPHEN" | "LINE_BREAK"*
+
+Defined in src/Vision.ts:202
+
+___
+
+####  Type
+
+Ƭ **Type**: *string*
+
+Defined in src/Vision.ts:82
+
+### Variables
+
+#### `Const` getBlocksFromPage
+
+• **getBlocksFromPage**: *function* = R.prop('blocks')
+
+Defined in src/Vision.ts:305
+
+```haskell
+getBlocksFromPage :: Page -> [Block]
+```
+
+##### Type declaration:
+
+▸ (`page`: [Page](#interfaces_vision_pagemd)): *[Block](#interfaces_vision_blockmd)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`page` | [Page](#interfaces_vision_pagemd) |
+
+___
+
+#### `Const` getFileIdFromAnnotateImageRequest
+
+• **getFileIdFromAnnotateImageRequest**: *function* = pipe(
+  path<string>(['inputConfig', 'gcsSource', 'uri']),
+  split('/'),
+  takeLast(2) as (segments: string[]) => string[],
+  join('/')
+)
+
+Defined in src/Vision.ts:360
+
+```haskell
+getFileIdFromAnnotateImageRequest :: AnnotateImageRequest -> String
+```
+
+##### Type declaration:
+
+▸ (`request`: [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`request` | [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd) |
+
+___
+
+#### `Const` getPagesFromAnnotateImageRequest
+
+• **getPagesFromAnnotateImageRequest**: *function* = pipe(
+  prop('responses') as (
+    request: AsyncAnnotateFileRequest
+  ) => AsyncAnnotateFileRequest['responses'],
+  defaultTo([]),
+  map(getPagesFromAnnotateImageResponse),
+  unnest
+)
+
+Defined in src/Vision.ts:344
+
+```haskell
+getPagesFromAnnotateImageRequest :: AnnotateImageRequest -> [Page]
+```
+
+##### Type declaration:
+
+▸ (`request`: [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)): *[Page](#interfaces_vision_pagemd)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`request` | [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd) |
+
+___
+
+#### `Const` getPagesFromAnnotateImageResponse
+
+• **getPagesFromAnnotateImageResponse**: *function* = pipe(
+  path(['fullTextAnnotation', 'pages']),
+  defaultTo([]) as (pages: Page[] | undefined) => Page[]
+)
+
+Defined in src/Vision.ts:332
+
+```haskell
+getPagesFromAnnotateImageResponse :: AnnotateImageResponse -> [Page]
+```
+
+##### Type declaration:
+
+▸ (`response`: [AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)): *[Page](#interfaces_vision_pagemd)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`response` | [AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd) |
+
+___
+
+#### `Const` getParagraphsFromBlock
+
+• **getParagraphsFromBlock**: *function* = R.prop(
+  'paragraphs'
+)
+
+Defined in src/Vision.ts:296
+
+```haskell
+getParagraphsFromBlock :: Block -> [Paragraph]
+```
+
+##### Type declaration:
+
+▸ (`block`: [Block](#interfaces_vision_blockmd)): *[Paragraph](#interfaces_vision_paragraphmd)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`block` | [Block](#interfaces_vision_blockmd) |
+
+___
+
+#### `Const` getParagraphsFromPage
+
+• **getParagraphsFromPage**: *function* = R.pipe(
+  getBlocksFromPage,
+  R.chain(getParagraphsFromBlock)
+)
+
+Defined in src/Vision.ts:312
+
+```haskell
+getParagraphsFromPage :: Page -> [Paragraph]
+```
+
+##### Type declaration:
+
+▸ (`page`: [Page](#interfaces_vision_pagemd)): *[Paragraph](#interfaces_vision_paragraphmd)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`page` | [Page](#interfaces_vision_pagemd) |
+
+___
+
+#### `Const` getSymbolsFromWord
+
+• **getSymbolsFromWord**: *function* = R.prop(
+  'symbols'
+)
+
+Defined in src/Vision.ts:267
+
+```haskell
+getSymbolsFromWord :: Word -> [TextSymbol]
+```
+
+##### Type declaration:
+
+▸ (`word`: [Word](#interfaces_vision_wordmd)): *[TextSymbol](#interfaces_vision_textsymbolmd)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`word` | [Word](#interfaces_vision_wordmd) |
+
+___
+
+#### `Const` getTextFromSymbol
+
+• **getTextFromSymbol**: *function* = R.prop('text')
+
+Defined in src/Vision.ts:260
+
+```haskell
+getTextFromSymbol :: TextSymbol -> String
+```
+
+##### Type declaration:
+
+▸ (`symbol`: [TextSymbol](#interfaces_vision_textsymbolmd)): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`symbol` | [TextSymbol](#interfaces_vision_textsymbolmd) |
+
+___
+
+#### `Const` getTextFromWord
+
+• **getTextFromWord**: *function* = R.pipe(
+  getSymbolsFromWord,
+  R.map(getTextFromSymbol),
+  R.join('')
+)
+
+Defined in src/Vision.ts:276
+
+```haskell
+getTextFromWord :: Word -> String
+```
+
+##### Type declaration:
+
+▸ (`word`: [Word](#interfaces_vision_wordmd)): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`word` | [Word](#interfaces_vision_wordmd) |
+
+___
+
+#### `Const` getWordsFromPage
+
+• **getWordsFromPage**: *function* = R.pipe(
+  getParagraphsFromPage,
+  R.chain(getWordsFromParagraph)
+)
+
+Defined in src/Vision.ts:322
+
+```haskell
+getWordsFromPage :: Page -> [Word]
+```
+
+##### Type declaration:
+
+▸ (`page`: [Page](#interfaces_vision_pagemd)): *[Word](#interfaces_vision_wordmd)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`page` | [Page](#interfaces_vision_pagemd) |
+
+___
+
+#### `Const` getWordsFromParagraph
+
+• **getWordsFromParagraph**: *function* = R.prop(
+  'words'
+)
+
+Defined in src/Vision.ts:287
+
+```haskell
+getWordsFromParagraph :: Paragraph -> [Word]
+```
+
+##### Type declaration:
+
+▸ (`paragraph`: [Paragraph](#interfaces_vision_paragraphmd)): *[Word](#interfaces_vision_wordmd)[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`paragraph` | [Paragraph](#interfaces_vision_paragraphmd) |
