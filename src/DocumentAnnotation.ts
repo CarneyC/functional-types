@@ -4,6 +4,7 @@ import { Poly } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import { getCurrentISOString } from './DateTime';
 import { getRandomId } from './String';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 
 export interface Node {
   id: string;
@@ -35,8 +36,7 @@ export interface Table extends Node {
 
 export interface Leaf extends Node {
   parent?: Leaf;
-  children?: Leaf[];
-  node: Table | Cell;
+  children?: NonEmptyArray<Leaf | Cell | Table>;
 }
 
 export type Tree = Dictionary<Leaf>;
@@ -55,6 +55,8 @@ export type DocumentAnnotationBase = Pick<
   DocumentAnnotation,
   'file' | 'treeByPage'
 >;
+
+// fromBoundingBox :: BoundingBox -> Cell | Table
 
 /**
  * ```haskell
