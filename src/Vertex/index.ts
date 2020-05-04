@@ -13,6 +13,7 @@ import {
   head,
   identity,
   is,
+  isEmpty,
   last,
   map,
   max,
@@ -20,6 +21,7 @@ import {
   mergeLeft,
   min,
   multiply,
+  not,
   nth,
   pipe,
   prop,
@@ -33,6 +35,7 @@ import * as R from 'fp-ts/lib/Reader';
 import * as RE from 'fp-ts/lib/ReaderEither';
 import * as E from 'fp-ts/lib/Either';
 import * as O from 'fp-ts/lib/Option';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 
 export interface Vertex {
   x: number;
@@ -51,6 +54,14 @@ export interface BoundingBox {
   rows: Line[];
   columns: Line[];
 }
+
+export type WithRows<A extends BoundingBox> = A & {
+  rows: NonEmptyArray<Line>;
+};
+
+export type WithColumns<A extends BoundingBox> = A & {
+  columns: NonEmptyArray<Line>;
+};
 
 export type WithHeaderRow<A extends BoundingBox> = A & {
   headerRow: Poly;
@@ -126,6 +137,14 @@ const isLineArray = (a: unknown): a is Line[] =>
 
 /**
  * ```haskell
+ * isNonEmptyLineArray :: a -> bool
+ * ```
+ */
+const isNonEmptyLineArray = (a: unknown): a is NonEmptyArray<Line> =>
+  allPass([isLineArray, pipe(isEmpty, not)])(a);
+
+/**
+ * ```haskell
  * isBoundingBox :: a -> bool
  * ```
  */
@@ -135,6 +154,22 @@ export const isBoundingBox = (a: unknown): a is BoundingBox =>
     propSatisfies(isLineArray, 'rows'),
     propSatisfies(isLineArray, 'columns'),
   ])(a);
+
+/**
+ * ```haskell
+ * hasRows :: a -> bool
+ * ```
+ */
+export const hasRows = <A extends BoundingBox>(a: A): a is WithRows<A> =>
+  propSatisfies(isNonEmptyLineArray, 'rows')(a);
+
+/**
+ * ```haskell
+ * hasColumns :: a -> bool
+ * ```
+ */
+export const hasColumns = <A extends BoundingBox>(a: A): a is WithColumns<A> =>
+  propSatisfies(isNonEmptyLineArray, 'columns')(a);
 
 /**
  * ```haskell
