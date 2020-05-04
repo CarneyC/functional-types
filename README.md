@@ -10,9 +10,11 @@
 ### Modules
 
 * ["DateTime"](#modules_datetime_md)
+* ["Excel"](#modules_excel_md)
 * ["FileType"](#modules_filetype_md)
 * ["Folder/Arbitraries"](#modules_folder_arbitraries_md)
 * ["Folder/index"](#modules_folder_index_md)
+* ["Json"](#modules_json_md)
 * ["Label"](#modules_label_md)
 * ["Schema/Arbitraries"](#modules_schema_arbitraries_md)
 * ["Schema/index"](#modules_schema_index_md)
@@ -2352,6 +2354,141 @@ Name | Type |
 **Returns:** *number*
 
 
+<a name="modules_excel_md"></a>
+
+[functional-types](#globalsmd) › ["Excel"](#modules_excel_md)
+
+## Module: "Excel"
+
+### Index
+
+#### Type aliases
+
+* [Cell](#cell)
+* [Excel](#excel)
+* [Row](#row)
+* [Sheet](#sheet)
+
+#### Functions
+
+* [isCell](#const-iscell)
+* [isExcel](#const-isexcel)
+* [isRow](#const-isrow)
+* [isSheet](#const-issheet)
+
+### Type aliases
+
+####  Cell
+
+Ƭ **Cell**: *string*
+
+Defined in src/Excel.ts:13
+
+___
+
+####  Excel
+
+Ƭ **Excel**: *Dictionary‹[Sheet](#sheet)›*
+
+Defined in src/Excel.ts:16
+
+___
+
+####  Row
+
+Ƭ **Row**: *Dictionary‹[Cell](#cell)›*
+
+Defined in src/Excel.ts:14
+
+___
+
+####  Sheet
+
+Ƭ **Sheet**: *[Row](#row)[]*
+
+Defined in src/Excel.ts:15
+
+### Functions
+
+#### `Const` isCell
+
+▸ **isCell**(`a`: unknown): *a is Row*
+
+Defined in src/Excel.ts:23
+
+```haskell
+isCell :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Row*
+
+___
+
+#### `Const` isExcel
+
+▸ **isExcel**(`a`: unknown): *a is Excel*
+
+Defined in src/Excel.ts:47
+
+```haskell
+isExcel :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Excel*
+
+___
+
+#### `Const` isRow
+
+▸ **isRow**(`a`: unknown): *a is Row*
+
+Defined in src/Excel.ts:31
+
+```haskell
+isRow :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Row*
+
+___
+
+#### `Const` isSheet
+
+▸ **isSheet**(`a`: unknown): *a is Row*
+
+Defined in src/Excel.ts:39
+
+```haskell
+isSheet :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Row*
+
+
 <a name="modules_filetype_md"></a>
 
 [functional-types](#globalsmd) › ["FileType"](#modules_filetype_md)
@@ -3147,6 +3284,47 @@ ___
 ####  V
 
 • **V**:
+
+
+<a name="modules_json_md"></a>
+
+[functional-types](#globalsmd) › ["Json"](#modules_json_md)
+
+## Module: "Json"
+
+### Index
+
+#### Type aliases
+
+* [Json](#json)
+
+#### Functions
+
+* [isJson](#const-isjson)
+
+### Type aliases
+
+####  Json
+
+Ƭ **Json**: *Dictionary‹unknown›*
+
+Defined in src/Json.ts:3
+
+### Functions
+
+#### `Const` isJson
+
+▸ **isJson**(`a`: unknown): *a is Json*
+
+Defined in src/Json.ts:6
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Json*
 
 
 <a name="modules_label_md"></a>
