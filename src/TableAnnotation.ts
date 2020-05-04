@@ -78,7 +78,7 @@ export const isTableAnnotation = (a: unknown): a is TableAnnotation =>
 
 /**
  * ```haskell
- * make :: (String, BoundingBoxesByPage) -> IO TableAnnotation
+ * make :: TableAnnotationBase -> IO TableAnnotation
  * ```
  */
 export const make: (

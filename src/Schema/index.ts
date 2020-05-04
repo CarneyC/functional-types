@@ -7,6 +7,7 @@ import {
   all,
   values,
   clone,
+  Dictionary,
 } from 'ramda';
 import { getRandomId } from '../String';
 
@@ -17,8 +18,6 @@ export type Type =
   | 'pdf-region'
   | 'excel-sheet'
   | 'json-child';
-
-export type Dictionary<A> = Record<string, A>;
 
 export interface Matcher {
   regex: string;

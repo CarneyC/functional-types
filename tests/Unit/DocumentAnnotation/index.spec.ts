@@ -1,0 +1,3 @@
+describe('DocumentAnnotation', function () {
+  describe('');
+});
