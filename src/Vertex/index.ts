@@ -131,7 +131,7 @@ const isLineArray = (a: unknown): a is Line[] =>
  */
 export const isBoundingBox = (a: unknown): a is BoundingBox =>
   allPass([
-    propSatisfies(isPoly, 'poly'),
+    propSatisfies(isPoly, 'boundingPoly'),
     propSatisfies(isLineArray, 'rows'),
     propSatisfies(isLineArray, 'columns'),
   ])(a);
