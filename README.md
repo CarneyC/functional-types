@@ -254,6 +254,31 @@ ___
 Defined in src/Folder/index.ts:45
 
 
+<a name="interfaces_folder_index_referencemd"></a>
+
+[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Reference](#interfaces_folder_index_referencemd)
+
+## Interface: Reference
+
+### Hierarchy
+
+* **Reference**
+
+### Index
+
+#### Properties
+
+* [file](#file)
+
+### Properties
+
+####  file
+
+• **file**: *string*
+
+Defined in src/Folder/index.ts:49
+
+
 <a name="interfaces_label_labelmd"></a>
 
 [functional-types](#globalsmd) › ["Label"](#modules_label_md) › [Label](#interfaces_label_labelmd)
@@ -2842,6 +2867,7 @@ Defined in src/Folder/Arbitraries.ts:15
 * [Attributes](#interfaces_folder_index_attributesmd)
 * [Folder](#interfaces_folder_index_foldermd)
 * [Metadata](#interfaces_folder_index_metadatamd)
+* [Reference](#interfaces_folder_index_referencemd)
 
 #### Type aliases
 
@@ -2860,6 +2886,7 @@ Defined in src/Folder/Arbitraries.ts:15
 * [isFilesByType](#const-isfilesbytype)
 * [isFolder](#const-isfolder)
 * [isMetadata](#const-ismetadata)
+* [isReference](#const-isreference)
 * [make](#const-make)
 
 ### Type aliases
@@ -2868,7 +2895,7 @@ Defined in src/Folder/Arbitraries.ts:15
 
 Ƭ **File**: *[Attributes](#interfaces_folder_index_attributesmd) & object*
 
-Defined in src/Folder/index.ts:48
+Defined in src/Folder/index.ts:52
 
 ___
 
@@ -2876,7 +2903,7 @@ ___
 
 Ƭ **FilesByType**: *Record‹FT.DocumentType, [File](#file)[]›*
 
-Defined in src/Folder/index.ts:50
+Defined in src/Folder/index.ts:54
 
 ### Variables
 
@@ -2898,7 +2925,7 @@ Defined in src/Folder/index.ts:50
   })
 )
 
-Defined in src/Folder/index.ts:157
+Defined in src/Folder/index.ts:161
 
 ```haskell
 getAttributesFromName :: String -> Either Attributes Error
@@ -2920,7 +2947,7 @@ Name | Type |
 
 ▸ **fromMetadata**(`metadata`: [Metadata](#interfaces_folder_index_metadatamd)): *Left‹Error› | Right‹object›*
 
-Defined in src/Folder/index.ts:180
+Defined in src/Folder/index.ts:184
 
 ```haskell
 fromMetadata :: Metadata -> Either
@@ -2940,7 +2967,7 @@ ___
 
 ▸ **isFile**(`a`: unknown): *a is File*
 
-Defined in src/Folder/index.ts:130
+Defined in src/Folder/index.ts:134
 
 ```haskell
 isFile :: a -> bool
@@ -2960,7 +2987,7 @@ ___
 
 ▸ **isFileArray**(`a`: unknown): *a is File[]*
 
-Defined in src/Folder/index.ts:138
+Defined in src/Folder/index.ts:142
 
 ```haskell
 isFileArray :: a -> bool
@@ -2980,7 +3007,7 @@ ___
 
 ▸ **isFilesByType**(`a`: unknown): *a is FilesByType*
 
-Defined in src/Folder/index.ts:146
+Defined in src/Folder/index.ts:150
 
 ```haskell
 isFilesByType :: a -> bool
@@ -3000,7 +3027,7 @@ ___
 
 ▸ **isFolder**(`a`: unknown): *a is Folder*
 
-Defined in src/Folder/index.ts:57
+Defined in src/Folder/index.ts:61
 
 ```haskell
 isFolder -> bool
@@ -3020,7 +3047,7 @@ ___
 
 ▸ **isMetadata**(`a`: unknown): *a is Metadata*
 
-Defined in src/Folder/index.ts:107
+Defined in src/Folder/index.ts:111
 
 ```haskell
 isMetadata :: a -> bool
@@ -3036,11 +3063,31 @@ Name | Type |
 
 ___
 
+#### `Const` isReference
+
+▸ **isReference**(`a`: unknown): *a is Reference*
+
+Defined in src/Folder/index.ts:205
+
+```haskell
+isReference :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Reference*
+
+___
+
 #### `Const` make
 
 ▸ **make**(`name`: string): *(Anonymous function)*
 
-Defined in src/Folder/index.ts:71
+Defined in src/Folder/index.ts:75
 
 ```haskell
 make :: String -> Folder

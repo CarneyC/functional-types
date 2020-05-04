@@ -45,6 +45,10 @@ export interface Metadata {
   updated_at: string;
 }
 
+export interface Reference {
+  file: string;
+}
+
 export type File = Attributes & { metadata: Metadata };
 
 export type FilesByType = Record<FT.DocumentType, File[]>;
@@ -192,3 +196,11 @@ export const fromMetadata: (metadata: Metadata) => E.Either<Error, File> = (
       type: FT.fromContentType(metadata.content_type as FT.ContentType),
     }))
   )(metadata);
+
+/**
+ * ```haskell
+ * isReference :: a -> bool
+ * ```
+ */
+export const isReference = (a: unknown): a is Reference =>
+  allPass([is(Object), propIs(String, 'file')])(a);
