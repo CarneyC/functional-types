@@ -4,14 +4,14 @@ import * as RIO from './fp-ts/ReaderIO';
 import * as O from 'fp-ts/lib/Option';
 import {
   addIndex,
-  anyPass,
   assoc,
   Dictionary,
+  evolve,
   filter,
   head,
   identity,
-  lte,
   map,
+  pick,
   pipe,
   prop,
   reduce,
@@ -20,7 +20,6 @@ import {
   values,
 } from 'ramda';
 import {
-  containedBy,
   getXs,
   getYs,
   hasHeaderColumn,
@@ -92,6 +91,13 @@ export type DocumentAnnotationBase = Pick<
   DocumentAnnotation,
   'file' | 'treeByPage'
 >;
+
+export type TextCell = Pick<Cell, 'text'>;
+
+export type TextTableCell = TextCell & {
+  rowHeader: TextCell;
+  columnHeader: TextCell;
+};
 
 // makeNode :: LabeledBoundingBox -> IO Node
 export const makeNode: (boundingBox: LabeledBoundingBox) => IO.IO<Node> = ({
@@ -219,15 +225,11 @@ export const makeTable: (
     columnHeaders[column];
 
   const cellById: TableCellById = pipe(
-    reject(
-      anyPass([
-        pipe(containedBy(headerColumn), lte(0.99)),
-        pipe(containedBy(headerRow), lte(0.99)),
-      ])
-    ),
+    reject(isContainedBy(headerRow)),
     mapIndexed((poly: Poly, row: number): RIO.ReaderIO<Page, TableCell>[] =>
       pipe(
         splitByXs(xs),
+        reject(isContainedBy(headerColumn)),
         mapIndexed(
           (poly: Poly, column: number): RIO.ReaderIO<Page, TableCell> =>
             pipe(
@@ -291,3 +293,29 @@ export const make: (
     updated_at: timestamp,
   };
 };
+
+// makeTextCell :: String -> TextCell
+export const makeTextCell: (text: string) => TextCell = (text) => ({ text });
+
+// makeTextTableCell :: (String, String, String) -> TextTableCell
+export const makeTextTableCell: (
+  text: string,
+  rowHeader: string,
+  columnHeader: string
+) => TextTableCell = (text, rowHeader, columnHeader) => ({
+  ...makeTextCell(text),
+  rowHeader: makeTextCell(rowHeader),
+  columnHeader: makeTextCell(columnHeader),
+});
+
+// toTextCell: Cell -> TextCell
+export const toTextCell: (cell: Cell) => TextCell = pick(['text']);
+
+// toTextTableCell: TableCell -> TextTableCell
+export const toTextTableCell: (tableCell: TableCell) => TextTableCell = pipe(
+  evolve({
+    rowHeader: toTextCell,
+    columnHeader: toTextCell,
+  }),
+  pick(['text', 'rowHeader', 'columnHeader'])
+);

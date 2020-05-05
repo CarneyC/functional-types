@@ -4,24 +4,11 @@ import { labeledBoundingBox, tableAnnotation } from './TableAnnotation';
 import { Page, TextAnnotation } from '../../../../src/TextAnnotation';
 import { page, textAnnotation } from './TextAnnotation';
 import { LabeledBoundingBox } from '../../../../src/Vertex';
-import { Cell } from '../../../../src/DocumentAnnotation';
-import { map, pick } from 'ramda';
-
-export type Text = Pick<Cell, 'text'>;
-
-// makeText :: String -> Text
-export const makeText: (text: string) => Text = (text) => ({ text });
-
-// getTextFromCell: Cell -> Text
-export const getTextFromCell: (cell: Cell) => Text = pick(['text']);
-
-// makeTexts :: [String] -> [Text]
-export const makeTexts: (texts: string[]) => Text[] = map(makeText);
-
-// getTextsFromCells: [Cell] -> [Text]
-export const getTextsFromCells: (cells: Cell[]) => Text[] = map(
-  getTextFromCell
-);
+import {
+  makeTextTableCell,
+  TextTableCell,
+} from '../../../../src/DocumentAnnotation';
+import { is } from 'ramda';
 
 // getLabeledBoundingBox :: IO TableAnnotation
 export const getLabeledBoundingBox: IO.IO<LabeledBoundingBox> = () =>
@@ -35,3 +22,35 @@ export const getPage: IO.IO<Page> = () => page;
 
 // getTextAnnotation :: IO TextAnnotation
 export const getTextAnnotation: IO.IO<TextAnnotation> = () => textAnnotation;
+
+// getHeaderRows :: IO String
+export const getHeaderRows: IO.IO<string[]> = () => [
+  'US TREASURY N/B FIX 1.750% 30.09.19',
+  'ALLIANZ EMERGING MARKETS BOND FUND',
+  'US TREASURY N/B FIX 1.750% 31.07.24',
+  'US TREASURY N/B FIX 3.500% 15.05.20',
+  'US TREASURY N/B FIX 2.875% 30.11.23',
+  'US TREASURY N/B FIX 3.625% 15.02.21',
+  'INDONESIA GOVERNMENT FR61 FIX 7.000%\n15.05.22',
+  'NOTA DO TESOURO NACIONAL NTNE FIX\n10.000% 01.01.21',
+  'US TREASURY N/B FIX 2.000% 31.07.20',
+  'US TREASURY N/B FIX 2.375% 31.01.23',
+  'Total',
+];
+
+// getHeaderColumns :: IO String
+export const getHeaderColumns: IO.IO<string[]> = () => [
+  'Country/Location',
+  '%',
+];
+
+// getTableCell :: (String, number, number) -> TextTableCell
+export const getTableCell: (
+  text: string,
+  row: number | string,
+  col: number | string
+) => TextTableCell = (text, row, col) => {
+  const rowHeader = is(String, row) ? row : getHeaderRows()[row];
+  const columnHeader = is(String, col) ? col : getHeaderColumns()[col];
+  return makeTextTableCell(text, rowHeader, columnHeader);
+};
