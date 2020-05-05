@@ -1,19 +1,32 @@
-import { getTextFromWords, Page, Word, WordsById } from './TextAnnotation';
-import * as E from 'fp-ts/lib/Either';
+import {
+  getTextFromWords,
+  isWordArray,
+  Page,
+  Word,
+  WordsById,
+} from './TextAnnotation';
 import * as RIO from './fp-ts/ReaderIO';
 import * as O from 'fp-ts/lib/Option';
 import {
   addIndex,
+  all,
+  allPass,
+  anyPass,
   assoc,
   Dictionary,
   evolve,
   filter,
+  has,
   head,
-  identity,
+  ifElse,
+  is,
   map,
+  not,
   pick,
   pipe,
   prop,
+  propIs,
+  propSatisfies,
   reduce,
   reject,
   unnest,
@@ -27,6 +40,7 @@ import {
   hasRowsOrColumns,
   intersects,
   isContainedBy,
+  isPoly,
   LabeledBoundingBox,
   Poly,
   splitByXs,
@@ -57,7 +71,6 @@ export interface TableCell extends Cell {
 export type TableCellById = Dictionary<TableCell>;
 
 export interface Table extends Node {
-  parent?: string;
   rowHeaders: Cell[];
   columnHeaders: Cell[];
   intersectHeader: Cell;
@@ -99,7 +112,115 @@ export type TextTableCell = TextCell & {
   columnHeader: TextCell;
 };
 
-// makeNode :: LabeledBoundingBox -> IO Node
+/**
+ * ```haskell
+ * isNode :: a -> bool
+ * ```
+ */
+export const isNode = (a: unknown): a is Node =>
+  allPass([
+    is(Object),
+    propIs(String, 'id'),
+    propIs(String, 'label'),
+    propSatisfies(isPoly, 'boundingPoly'),
+  ])(a);
+
+/**
+ * ```haskell
+ * isCell :: a -> bool
+ * ```
+ */
+export const isCell = (a: unknown): a is Cell =>
+  allPass([
+    isNode,
+    propSatisfies(isWordArray, 'words'),
+    propIs(String, 'text'),
+  ])(a);
+
+/**
+ * ```haskell
+ * isCellArray :: a -> bool
+ * ```
+ */
+export const isCellArray = (a: unknown): a is Cell[] =>
+  allPass([is(Array), all(isCell)])(a);
+
+/**
+ * ```haskell
+ * isTableCell :: a -> bool
+ * ```
+ */
+export const isTableCell = (a: unknown): a is TableCell =>
+  allPass([
+    isCell,
+    propSatisfies(isCell, 'rowHeader'),
+    propSatisfies(isCell, 'columnHeader'),
+  ])(a);
+
+/**
+ * ```haskell
+ * isTableCellById :: a -> bool
+ * ```
+ */
+export const isTableCellById = (a: unknown): a is TableCellById =>
+  allPass([is(Object), pipe(values, all(isTableCell))])(a);
+
+/**
+ * ```haskell
+ * doesNotHave :: String -> Reader Object bool
+ * ```
+ */
+const doesNotHave: (
+  property: string
+) => R.Reader<Dictionary<unknown>, boolean> = (property) =>
+  pipe(has(property), not);
+
+/**
+ * ```haskell
+ * isTable :: a -> bool
+ * ```
+ */
+export const isTable = (a: unknown): a is Table =>
+  allPass([
+    isNode,
+    propSatisfies(isCellArray, 'rowHeaders'),
+    propSatisfies(isCellArray, 'columnHeaders'),
+    propSatisfies(isCell, 'intersectHeader'),
+    propSatisfies(isCell, 'mergedRowHeader'),
+    propSatisfies(isCell, 'mergedColumnHeader'),
+    propSatisfies(isTableCellById, 'cellById'),
+  ])(a);
+
+/**
+ * ```haskell
+ * isLeaf :: a -> bool
+ * ```
+ */
+export const isLeaf = (a: unknown): a is Leaf => anyPass([isCell, isTable])(a);
+
+/**
+ * ```haskell
+ * isBranch :: a -> bool
+ * ```
+ */
+export const isBranch = (a: unknown): a is Branch =>
+  anyPass([
+    isNode,
+    anyPass([doesNotHave('parent'), propSatisfies(isBranch, 'parent')]),
+    anyPass([
+      doesNotHave('children'),
+      propSatisfies(
+        allPass([is(Object), pipe(values, all(anyPass([isBranch, isLeaf])))]),
+        'children'
+      ),
+    ]),
+  ])(a);
+
+/**
+ * ```haskell
+ * makeNode :: LabeledBoundingBox -> IO Node
+ * ```
+ */
 export const makeNode: (boundingBox: LabeledBoundingBox) => IO.IO<Node> = ({
   boundingPoly,
   label,
@@ -109,7 +230,11 @@ export const makeNode: (boundingBox: LabeledBoundingBox) => IO.IO<Node> = ({
   boundingPoly,
 });
 
-// makeCell :: LabeledBoundingBox -> ReaderIO Page Cell
+/**
+ * ```haskell
+ * makeCell :: LabeledBoundingBox -> ReaderIO Page Cell
+ * ```
+ */
 export const makeCell: (
   boundingBox: LabeledBoundingBox
 ) => RIO.ReaderIO<Page, Cell> = (boundingBox) => (page): IO.IO<Cell> => {
@@ -127,7 +252,11 @@ export const makeCell: (
   });
 };
 
-// makeTableCell :: (Cell, Cell) -> LabeledBoundingBox -> ReaderIO Page TableCell
+/**
+ * ```haskell
+ * makeTableCell :: (Cell, Cell) -> LabeledBoundingBox -> ReaderIO Page TableCell
+ * ```
+ */
 export const makeTableCell: (
   rowHeader: Cell,
   columnHeader: Cell
@@ -144,7 +273,11 @@ export const makeTableCell: (
     }))
   );
 
-// fromTableBase :: TableBase -> ReaderIO LabeledBoundingBox Table
+/**
+ * ```haskell
+ * fromTableBase :: TableBase -> ReaderIO LabeledBoundingBox Table
+ * ```
+ */
 export const fromTableBase: (
   tableBase: TableBase
 ) => RIO.ReaderIO<LabeledBoundingBox, Table> = (tableBase) =>
@@ -158,7 +291,11 @@ export const fromTableBase: (
     )
   );
 
-// labelPoly :: LabeledBoundingBox -> Reader Poly LabeledBoundingBox
+/**
+ * ```haskell
+ * labelPoly :: LabeledBoundingBox -> Reader Poly LabeledBoundingBox
+ * ```
+ */
 const labelPoly: (
   boundingBox: LabeledBoundingBox
 ) => R.Reader<Poly, LabeledBoundingBox> = (boundingBox) => (
@@ -174,7 +311,11 @@ const mapIndexed: <T, U>(
   list: T[]
 ): U[] => addIndex<T, U>(map)(fn, list);
 
-// makeTable :: LabeledBoundingBox -> ReaderIO Page Table
+/**
+ * ```haskell
+ * makeTable :: LabeledBoundingBox -> ReaderIO Page Table
+ * ```
+ */
 export const makeTable: (
   boundingBox: LabeledBoundingBox
 ) => RIO.ReaderIO<Page, Table> = (boundingBox) => (page: Page) => (): Table => {
@@ -259,19 +400,14 @@ export const makeTable: (
   })(boundingBox)();
 };
 
-// makeLeaf :: LabeledBoundingBox -> Reader Page (IO Leaf)
+/**
+ * ```haskell
+ * makeLeaf :: LabeledBoundingBox -> Reader Page (IO Leaf)
+ * ```
+ */
 export const makeLeaf: (
   boundingBox: LabeledBoundingBox
-) => RIO.ReaderIO<Page, Leaf> = pipe(
-  E.fromPredicate(
-    hasRowsOrColumns,
-    identity as (boundingBox: LabeledBoundingBox) => LabeledBoundingBox
-  ),
-  E.fold<LabeledBoundingBox, LabeledBoundingBox, RIO.ReaderIO<Page, Leaf>>(
-    makeCell,
-    makeTable
-  )
-);
+) => RIO.ReaderIO<Page, Leaf> = ifElse(hasRowsOrColumns, makeTable, makeCell);
 
 /**
  * ```haskell
@@ -294,10 +430,18 @@ export const make: (
   };
 };
 
-// makeTextCell :: String -> TextCell
+/**
+ * ```haskell
+ * makeTextCell :: String -> TextCell
+ * ```
+ */
 export const makeTextCell: (text: string) => TextCell = (text) => ({ text });
 
-// makeTextTableCell :: (String, String, String) -> TextTableCell
+/**
+ * ```haskell
+ * makeTextTableCell :: (String, String, String) -> TextTableCell
+ * ```
+ */
 export const makeTextTableCell: (
   text: string,
   rowHeader: string,
@@ -308,10 +452,18 @@ export const makeTextTableCell: (
   columnHeader: makeTextCell(columnHeader),
 });
 
-// toTextCell: Cell -> TextCell
+/**
+ * ```haskell
+ * toTextCell: Cell -> TextCell
+ * ```
+ */
 export const toTextCell: (cell: Cell) => TextCell = pick(['text']);
 
-// toTextTableCell: TableCell -> TextTableCell
+/**
+ * ```haskell
+ * toTextTableCell: TableCell -> TextTableCell
+ * ```
+ */
 export const toTextTableCell: (tableCell: TableCell) => TextTableCell = pipe(
   evolve({
     rowHeader: toTextCell,

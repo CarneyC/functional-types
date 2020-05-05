@@ -1,6 +1,11 @@
 import * as IO from 'fp-ts/lib/IO';
 import { TableAnnotation } from '../../../../src/TableAnnotation';
-import { labeledBoundingBox, tableAnnotation } from './TableAnnotation';
+import {
+  tableBoundingBox,
+  tableAnnotation,
+  titleBoundingBox,
+  groupBoundingBox,
+} from './TableAnnotation';
 import { Page, TextAnnotation } from '../../../../src/TextAnnotation';
 import { page, textAnnotation } from './TextAnnotation';
 import { LabeledBoundingBox } from '../../../../src/Vertex';
@@ -10,9 +15,17 @@ import {
 } from '../../../../src/DocumentAnnotation';
 import { is } from 'ramda';
 
-// getLabeledBoundingBox :: IO TableAnnotation
-export const getLabeledBoundingBox: IO.IO<LabeledBoundingBox> = () =>
-  labeledBoundingBox;
+// getTableBoundingBox :: IO TableAnnotation
+export const getTableBoundingBox: IO.IO<LabeledBoundingBox> = () =>
+  tableBoundingBox;
+
+// getTitleBoundingBox :: IO TableAnnotation
+export const getTitleBoundingBox: IO.IO<LabeledBoundingBox> = () =>
+  titleBoundingBox;
+
+// getGroupBoundingBox :: IO TableAnnotation
+export const getGroupBoundingBox: IO.IO<LabeledBoundingBox> = () =>
+  groupBoundingBox;
 
 // getTableAnnotation :: IO TableAnnotation
 export const getTableAnnotation: IO.IO<TableAnnotation> = () => tableAnnotation;

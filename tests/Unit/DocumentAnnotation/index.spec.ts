@@ -3,13 +3,16 @@ import * as D from '../../../src/DocumentAnnotation';
 import {
   getHeaderColumns,
   getHeaderRows,
-  getLabeledBoundingBox,
+  getTableBoundingBox,
   getPage,
   getTableCell,
+  getTitleBoundingBox,
 } from './Sample';
 import * as IO from 'fp-ts/lib/IO';
+import * as RIO from '../../../src/fp-ts/ReaderIO';
 import chaiLike from 'chai-like';
 import { apply, map, pipe, values } from 'ramda';
+import { LabeledBoundingBox } from '../../../src/Vertex';
 
 chai.use(chaiLike);
 const { expect } = chai;
@@ -19,7 +22,7 @@ describe('DocumentAnnotation', function () {
     let makeTable: IO.IO<D.Table>;
 
     before(function () {
-      const labeledBoundingBox = getLabeledBoundingBox();
+      const labeledBoundingBox = getTableBoundingBox();
       const page = getPage();
       makeTable = D.makeTable(labeledBoundingBox)(page);
     });
@@ -84,6 +87,30 @@ describe('DocumentAnnotation', function () {
       ]);
 
       expect(actualTableCells).to.have.deep.members(expectedTableCells);
+    });
+  });
+
+  describe('#makeLeaf()', function () {
+    let makeLeaf: RIO.ReaderIO<LabeledBoundingBox, D.Leaf>;
+
+    before(function () {
+      const page = getPage();
+      makeLeaf = (boundingBox: LabeledBoundingBox): IO.IO<D.Leaf> =>
+        D.makeLeaf(boundingBox)(page);
+    });
+
+    it('should return a Cell when the given boundingBox does not contain rows or columns', function () {
+      const boundingBox = getTitleBoundingBox();
+      const leaf = makeLeaf(boundingBox)();
+
+      expect(D.isCell(leaf)).to.be.true;
+    });
+
+    it('should return a Table when the given boundingBox contain rows and columns', function () {
+      const boundingBox = getTableBoundingBox();
+      const leaf = makeLeaf(boundingBox)();
+
+      expect(D.isTable(leaf)).to.be.true;
     });
   });
 });

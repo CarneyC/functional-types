@@ -103,6 +103,14 @@ export const isWord = (a: unknown): a is Word =>
 
 /**
  * ```haskell
+ * isWordArray :: a -> bool
+ * ```
+ */
+export const isWordArray = (a: unknown): a is Word[] =>
+  allPass([is(Array), all(isWord)])(a);
+
+/**
+ * ```haskell
  * isParagraph :: a -> bool
  * ```
  */

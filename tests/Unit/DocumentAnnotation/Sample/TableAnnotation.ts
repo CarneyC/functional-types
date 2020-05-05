@@ -1,7 +1,7 @@
 import { TableAnnotation } from '../../../../src/TableAnnotation';
 import { LabeledBoundingBox, WithHeaders } from '../../../../src/Vertex';
 
-export const labeledBoundingBox: WithHeaders<LabeledBoundingBox> = {
+export const tableBoundingBox: WithHeaders<LabeledBoundingBox> = {
   id: '127688c1-6d31-4677-9e9e-f030b18df1cc',
   label: 'table',
   boundingPoly: [
@@ -80,14 +80,45 @@ export const labeledBoundingBox: WithHeaders<LabeledBoundingBox> = {
   ],
 };
 
+export const titleBoundingBox: LabeledBoundingBox = {
+  boundingPoly: [
+    { y: 0.5182496985380324, x: 0.04998715364060116 },
+    { x: 0.1885702209598839, y: 0.5182496985380324 },
+    { y: 0.5342582060275345, x: 0.04998715364060116 },
+    { x: 0.1885702209598839, y: 0.5342582060275345 },
+  ],
+  columns: [],
+  id: '1800eea3-556e-4983-930c-114b5a52b8eb',
+  label: 'title',
+  rows: [],
+};
+
+export const groupBoundingBox: LabeledBoundingBox = {
+  rows: [],
+  boundingPoly: [
+    { y: 0.5115261253924415, x: 0.042410939629433035 },
+    { y: 0.5115261253924415, x: 0.9410813714692994 },
+    { x: 0.042410939629433035, y: 0.8628424273540589 },
+    { x: 0.9410813714692994, y: 0.8628424273540589 },
+  ],
+  columns: [],
+  id: 'b0af7ece-3ae6-4835-9750-31a2d9b64e3a',
+  label: 'group',
+};
+
 export const tableAnnotation: TableAnnotation = {
   id: '803eb7ee-3ad9-4d7c-9025-f0a36a3edc87',
   file: '4afbf63a-fb17-416b-8f60-06a75772fd8f/sample.pdf',
   boundingBoxesByPage: [
     {
-      '127688c1-6d31-4677-9e9e-f030b18df1cc': labeledBoundingBox,
+      '127688c1-6d31-4677-9e9e-f030b18df1cc': tableBoundingBox,
     },
-    {},
+    {
+      '1800eea3-556e-4983-930c-114b5a52b8eb': titleBoundingBox,
+    },
+    {
+      'b0af7ece-3ae6-4835-9750-31a2d9b64e3a': groupBoundingBox,
+    },
   ],
   created_at: '2020-05-04T16:09:31.916Z',
   updated_at: '2020-05-04T16:09:31.916Z',
