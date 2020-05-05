@@ -12,14 +12,18 @@ import {
   all,
   allPass,
   anyPass,
+  append,
   assoc,
+  concat,
   Dictionary,
+  eqBy,
   evolve,
   filter,
   has,
   head,
   ifElse,
   is,
+  isEmpty,
   map,
   not,
   pick,
@@ -87,14 +91,12 @@ export type Leaf = Cell | Table;
 
 export interface Branch extends Node {
   parent?: Branch;
-  children?: Children;
+  children: Child[];
 }
 
 export type Child = Branch | Leaf;
 
-export type Children = Dictionary<Child>;
-
-export type Tree = Children;
+export type Tree = Dictionary<Child>;
 
 export type TreeByPage = Tree[];
 
@@ -210,16 +212,14 @@ export const isLeaf = (a: unknown): a is Leaf => anyPass([isCell, isTable])(a);
  * ```
  */
 export const isBranch = (a: unknown): a is Branch =>
-  anyPass([
+  allPass([
     isNode,
     anyPass([doesNotHave('parent'), propSatisfies(isBranch, 'parent')]),
-    anyPass([
-      doesNotHave('children'),
-      propSatisfies(
-        allPass([is(Object), pipe(values, all(anyPass([isBranch, isLeaf])))]),
-        'children'
-      ),
-    ]),
+    has('children'),
+    propSatisfies(
+      allPass([is(Array), all(anyPass([isBranch, isLeaf]))]),
+      'children'
+    ),
   ])(a);
 
 /**
@@ -232,10 +232,10 @@ export const isChild = (a: unknown): a is Child =>
 
 /**
  * ```haskell
- * isChildren :: a -> bool
+ * isTree :: a -> bool
  * ```
  */
-export const isChildren = (a: unknown): a is Children =>
+export const isTree = (a: unknown): a is Tree =>
   allPass([is(Object), pipe(values, all(isChild))])(a);
 
 /**
@@ -438,6 +438,70 @@ export const makeLeaf: (
 
 /**
  * ```haskell
+ * equalById :: LabelBoundingBox -> Reader LabelBoundingBox bool
+ * ```
+ */
+const equalById: (
+  boundingBox: LabeledBoundingBox
+) => R.Reader<LabeledBoundingBox, boolean> = eqBy(prop('id'));
+
+/**
+ * ```haskell
+ * makeChildren :: ([LabeledBoundingBox], Int) -> ReaderIO Page Child
+ * ```
+ */
+const makeChildren: (
+  boundingBoxes: LabeledBoundingBox[],
+  children?: Child[]
+) => RIO.ReaderIO<Page, Child[]> = (boundingBoxes, children: Child[] = []) => (
+  page
+) => (): Child[] => {
+  const siblingBoxes = getChildlessBoundingBoxes(boundingBoxes);
+  const parentBoxes = reject(
+    anyPass(map(equalById, siblingBoxes)),
+    boundingBoxes
+  );
+
+  const isOrphan: (child: Child) => boolean = pipe(
+    prop('boundingPoly'),
+    anyPass(map(pipe(prop('boundingPoly'), containedBy), siblingBoxes)),
+    not
+  );
+
+  const { orphans, descendants } = reduce(
+    (acc: { orphans: Child[]; descendants: Child[] }, child) => {
+      const key = isOrphan(child) ? 'orphans' : 'descendants';
+      return {
+        ...acc,
+        [key]: append(child, acc[key]),
+      };
+    },
+    { orphans: [], descendants: [] },
+    children
+  );
+
+  const siblings = isEmpty(children)
+    ? pipe(map(makeLeaf), RIO.sequenceReaderIO)(siblingBoxes)(page)()
+    : pipe(
+        map(
+          (sibling: LabeledBoundingBox): Branch => ({
+            ...makeNode(sibling)(),
+            children: filter(
+              propSatisfies(containedBy(sibling.boundingPoly), 'boundingPoly'),
+              descendants
+            ),
+          })
+        ),
+        concat(orphans)
+      )(siblingBoxes);
+
+  return isEmpty(parentBoxes)
+    ? siblings
+    : makeChildren(parentBoxes, siblings)(page)();
+};
+
+/**
+ * ```haskell
  * makeTree :: BoundingBoxes -> ReaderIO Page Tree
  * ```
  */
@@ -445,15 +509,8 @@ export const makeTree: (
   boundingBoxes: BoundingBoxes
 ) => RIO.ReaderIO<Page, Tree> = pipe(
   values,
-  getChildlessBoundingBoxes,
-  map(makeLeaf),
-  RIO.sequenceReaderIO,
-  RIO.map(
-    reduce<Child, Children>(
-      (acc: Children, child: Child) => assoc(child.id, child, acc),
-      {}
-    )
-  )
+  makeChildren,
+  RIO.map(reduce((acc: Tree, child: Child) => assoc(child.id, child, acc), {}))
 );
 
 /**

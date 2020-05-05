@@ -120,11 +120,42 @@ describe('DocumentAnnotation', function () {
         D.makeTree(boundingBoxes)(page);
     });
 
-    it('should return no nested branches when given boundingBoxes with no overlaps', function () {
+    it('should return only leafs when given boundingBoxes with no overlaps', function () {
       const boundingBoxes = Sample.getChildlessBoundingBoxes();
       const tree = makeTree(boundingBoxes)();
+      const children = values(tree);
 
-      expect(tree).to.satisfy(all(D.isLeaf));
+      expect(children).to.satisfy(all(D.isLeaf)).and.not.be.empty;
+    });
+
+    it('should return only branches when given boundingBoxes with no orphaned boxes', function () {
+      const boundingBoxes = Sample.getNestedBoundingBoxes();
+      const tree = makeTree(boundingBoxes)();
+      const children = values(tree);
+
+      expect(children).to.satisfy(all(D.isBranch)).and.not.be.empty;
+    });
+
+    it('should return a branch with its containing Cell and Table', function () {
+      const boundingBoxes = Sample.getNestedBoundingBoxes();
+      const tree = makeTree(boundingBoxes)();
+
+      const actualChildren = values(tree);
+      const expectedChildren = [
+        {
+          label: 'group',
+          children: [
+            {
+              label: 'table',
+            },
+            {
+              label: 'title',
+            },
+          ],
+        },
+      ];
+
+      expect(actualChildren).to.be.like(expectedChildren);
     });
   });
 });

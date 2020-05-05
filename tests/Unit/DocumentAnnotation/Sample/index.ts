@@ -2,6 +2,7 @@ import * as IO from 'fp-ts/lib/IO';
 import {
   BoundingBoxes,
   TableAnnotation,
+  toBoundingBoxes,
 } from '../../../../src/TableAnnotation';
 import {
   tableBoundingBox,
@@ -16,7 +17,7 @@ import {
   makeTextTableCell,
   TextTableCell,
 } from '../../../../src/DocumentAnnotation';
-import { assoc, is, reduce } from 'ramda';
+import { is } from 'ramda';
 
 // getTableBoundingBox :: IO TableAnnotation
 export const getTableBoundingBox: IO.IO<LabeledBoundingBox> = () =>
@@ -26,16 +27,17 @@ export const getTableBoundingBox: IO.IO<LabeledBoundingBox> = () =>
 export const getTitleBoundingBox: IO.IO<LabeledBoundingBox> = () =>
   titleBoundingBox;
 
-// getChildlessBoundingBoxes :: IO BoundingBoxes
-export const getChildlessBoundingBoxes: IO.IO<BoundingBoxes> = () =>
-  reduce((acc: BoundingBoxes, value) => assoc(value.id, value, acc), {}, [
-    tableBoundingBox,
-    titleBoundingBox,
-  ]);
-
 // getGroupBoundingBox :: IO TableAnnotation
 export const getGroupBoundingBox: IO.IO<LabeledBoundingBox> = () =>
   groupBoundingBox;
+
+// getChildlessBoundingBoxes :: IO BoundingBoxes
+export const getChildlessBoundingBoxes: IO.IO<BoundingBoxes> = () =>
+  toBoundingBoxes([tableBoundingBox, titleBoundingBox]);
+
+// getNestedBoundingBoxes :: IO BoundingBoxes
+export const getNestedBoundingBoxes: IO.IO<BoundingBoxes> = () =>
+  toBoundingBoxes([tableBoundingBox, titleBoundingBox, groupBoundingBox]);
 
 // getTableAnnotation :: IO TableAnnotation
 export const getTableAnnotation: IO.IO<TableAnnotation> = () => tableAnnotation;

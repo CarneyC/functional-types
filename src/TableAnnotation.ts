@@ -3,11 +3,13 @@ import * as IO from 'fp-ts/lib/IO';
 import {
   all,
   allPass,
+  assoc,
   Dictionary,
   is,
   pipe,
   propIs,
   propSatisfies,
+  reduce,
   values,
 } from 'ramda';
 import { getRandomId } from './String';
@@ -75,6 +77,18 @@ export const isTableAnnotation = (a: unknown): a is TableAnnotation =>
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
   ])(a);
+
+/**
+ * ```haskell
+ * toBoundingBoxes :: [BoundingBox] -> BoundingBoxes
+ * ```
+ */
+export const toBoundingBoxes: (
+  boundingBoxes: Array<WithHeader<LabeledBoundingBox> | LabeledBoundingBox>
+) => BoundingBoxes = reduce(
+  (acc: BoundingBoxes, value) => assoc(value.id, value, acc),
+  {}
+);
 
 /**
  * ```haskell

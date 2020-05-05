@@ -1,4 +1,12 @@
 
+<a name="readmemd"></a>
+
+[functional-types](#globalsmd)
+
+# functional-types
+
+
+
 <a name="globalsmd"></a>
 
 [functional-types](#globalsmd)
@@ -28,13 +36,2685 @@
 * ["fp-ts/ReaderIO"](#modules_fp_ts_readerio_md)
 * ["index"](#modules_index_md)
 
+# Interfaces
 
-<a name="readmemd"></a>
 
-[functional-types](#globalsmd)
+<a name="interfaces_documentannotation_branchmd"></a>
 
-# functional-types
+[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [Branch](#interfaces_documentannotation_branchmd)
 
+## Interface: Branch
+
+### Hierarchy
+
+* [Node](#interfaces_documentannotation_nodemd)
+
+  ↳ **Branch**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [children](#children)
+* [id](#id)
+* [label](#label)
+* [parent](#optional-parent)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+
+Defined in src/DocumentAnnotation.ts:64
+
+___
+
+####  children
+
+• **children**: *[Child](#child)[]*
+
+Defined in src/DocumentAnnotation.ts:94
+
+___
+
+####  id
+
+• **id**: *string*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
+
+Defined in src/DocumentAnnotation.ts:62
+
+___
+
+####  label
+
+• **label**: *string*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
+
+Defined in src/DocumentAnnotation.ts:63
+
+___
+
+#### `Optional` parent
+
+• **parent**? : *[Branch](#interfaces_documentannotation_branchmd)*
+
+Defined in src/DocumentAnnotation.ts:93
+
+
+<a name="interfaces_documentannotation_cellmd"></a>
+
+[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [Cell](#interfaces_documentannotation_cellmd)
+
+## Interface: Cell
+
+### Hierarchy
+
+* [Node](#interfaces_documentannotation_nodemd)
+
+  ↳ **Cell**
+
+  ↳ [TableCell](#interfaces_documentannotation_tablecellmd)
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [id](#id)
+* [label](#label)
+* [text](#text)
+* [words](#words)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+
+Defined in src/DocumentAnnotation.ts:64
+
+___
+
+####  id
+
+• **id**: *string*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
+
+Defined in src/DocumentAnnotation.ts:62
+
+___
+
+####  label
+
+• **label**: *string*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
+
+Defined in src/DocumentAnnotation.ts:63
+
+___
+
+####  text
+
+• **text**: *string*
+
+Defined in src/DocumentAnnotation.ts:69
+
+___
+
+####  words
+
+• **words**: *[Word](#interfaces_textannotation_wordmd)[]*
+
+Defined in src/DocumentAnnotation.ts:68
+
+
+<a name="interfaces_documentannotation_documentannotationmd"></a>
+
+[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)
+
+## Interface: DocumentAnnotation
+
+### Hierarchy
+
+* **DocumentAnnotation**
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [file](#file)
+* [id](#id)
+* [treeByPage](#treebypage)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *string*
+
+Defined in src/DocumentAnnotation.ts:107
+
+___
+
+####  file
+
+• **file**: *string*
+
+Defined in src/DocumentAnnotation.ts:105
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/DocumentAnnotation.ts:104
+
+___
+
+####  treeByPage
+
+• **treeByPage**: *[TreeByPage](#treebypage)*
+
+Defined in src/DocumentAnnotation.ts:106
+
+___
+
+####  updated_at
+
+• **updated_at**: *string*
+
+Defined in src/DocumentAnnotation.ts:108
+
+
+<a name="interfaces_documentannotation_nodemd"></a>
+
+[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [Node](#interfaces_documentannotation_nodemd)
+
+## Interface: Node
+
+### Hierarchy
+
+* **Node**
+
+  ↳ [Cell](#interfaces_documentannotation_cellmd)
+
+  ↳ [Table](#interfaces_documentannotation_tablemd)
+
+  ↳ [Branch](#interfaces_documentannotation_branchmd)
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [id](#id)
+* [label](#label)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+Defined in src/DocumentAnnotation.ts:64
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/DocumentAnnotation.ts:62
+
+___
+
+####  label
+
+• **label**: *string*
+
+Defined in src/DocumentAnnotation.ts:63
+
+
+<a name="interfaces_documentannotation_tablemd"></a>
+
+[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [Table](#interfaces_documentannotation_tablemd)
+
+## Interface: Table
+
+### Hierarchy
+
+* [Node](#interfaces_documentannotation_nodemd)
+
+  ↳ **Table**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [cellById](#cellbyid)
+* [columnHeaders](#columnheaders)
+* [id](#id)
+* [intersectHeader](#intersectheader)
+* [label](#label)
+* [mergedColumnHeader](#mergedcolumnheader)
+* [mergedRowHeader](#mergedrowheader)
+* [rowHeaders](#rowheaders)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+
+Defined in src/DocumentAnnotation.ts:64
+
+___
+
+####  cellById
+
+• **cellById**: *[TableCellById](#tablecellbyid)*
+
+Defined in src/DocumentAnnotation.ts:85
+
+___
+
+####  columnHeaders
+
+• **columnHeaders**: *[Cell](#interfaces_documentannotation_cellmd)[]*
+
+Defined in src/DocumentAnnotation.ts:81
+
+___
+
+####  id
+
+• **id**: *string*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
+
+Defined in src/DocumentAnnotation.ts:62
+
+___
+
+####  intersectHeader
+
+• **intersectHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
+
+Defined in src/DocumentAnnotation.ts:82
+
+___
+
+####  label
+
+• **label**: *string*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
+
+Defined in src/DocumentAnnotation.ts:63
+
+___
+
+####  mergedColumnHeader
+
+• **mergedColumnHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
+
+Defined in src/DocumentAnnotation.ts:84
+
+___
+
+####  mergedRowHeader
+
+• **mergedRowHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
+
+Defined in src/DocumentAnnotation.ts:83
+
+___
+
+####  rowHeaders
+
+• **rowHeaders**: *[Cell](#interfaces_documentannotation_cellmd)[]*
+
+Defined in src/DocumentAnnotation.ts:80
+
+
+<a name="interfaces_documentannotation_tablecellmd"></a>
+
+[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [TableCell](#interfaces_documentannotation_tablecellmd)
+
+## Interface: TableCell
+
+### Hierarchy
+
+  ↳ [Cell](#interfaces_documentannotation_cellmd)
+
+  ↳ **TableCell**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [columnHeader](#columnheader)
+* [id](#id)
+* [label](#label)
+* [rowHeader](#rowheader)
+* [text](#text)
+* [words](#words)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+
+Defined in src/DocumentAnnotation.ts:64
+
+___
+
+####  columnHeader
+
+• **columnHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
+
+Defined in src/DocumentAnnotation.ts:74
+
+___
+
+####  id
+
+• **id**: *string*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
+
+Defined in src/DocumentAnnotation.ts:62
+
+___
+
+####  label
+
+• **label**: *string*
+
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
+
+Defined in src/DocumentAnnotation.ts:63
+
+___
+
+####  rowHeader
+
+• **rowHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
+
+Defined in src/DocumentAnnotation.ts:73
+
+___
+
+####  text
+
+• **text**: *string*
+
+*Inherited from [Cell](#interfaces_documentannotation_cellmd).[text](#text)*
+
+Defined in src/DocumentAnnotation.ts:69
+
+___
+
+####  words
+
+• **words**: *[Word](#interfaces_textannotation_wordmd)[]*
+
+*Inherited from [Cell](#interfaces_documentannotation_cellmd).[words](#words)*
+
+Defined in src/DocumentAnnotation.ts:68
+
+
+<a name="interfaces_folder_index_attributesmd"></a>
+
+[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Attributes](#interfaces_folder_index_attributesmd)
+
+## Interface: Attributes
+
+### Hierarchy
+
+* **Attributes**
+
+### Index
+
+#### Properties
+
+* [folder](#folder)
+* [id](#id)
+* [name](#name)
+* [type](#type)
+
+### Properties
+
+####  folder
+
+• **folder**: *string*
+
+Defined in src/Folder/index.ts:29
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/Folder/index.ts:28
+
+___
+
+####  name
+
+• **name**: *string*
+
+Defined in src/Folder/index.ts:30
+
+___
+
+####  type
+
+• **type**: *FT.FileType*
+
+Defined in src/Folder/index.ts:31
+
+
+<a name="interfaces_folder_index_foldermd"></a>
+
+[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Folder](#interfaces_folder_index_foldermd)
+
+## Interface: Folder
+
+### Hierarchy
+
+* **Folder**
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [id](#id)
+* [name](#name)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *string*
+
+Defined in src/Folder/index.ts:23
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/Folder/index.ts:21
+
+___
+
+####  name
+
+• **name**: *string*
+
+Defined in src/Folder/index.ts:22
+
+___
+
+####  updated_at
+
+• **updated_at**: *string*
+
+Defined in src/Folder/index.ts:24
+
+
+<a name="interfaces_folder_index_metadatamd"></a>
+
+[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Metadata](#interfaces_folder_index_metadatamd)
+
+## Interface: Metadata
+
+### Hierarchy
+
+* **Metadata**
+
+### Index
+
+#### Properties
+
+* [bucket](#bucket)
+* [content_type](#content_type)
+* [created_at](#created_at)
+* [generation](#generation)
+* [id](#id)
+* [kind](#kind)
+* [media_link](#media_link)
+* [name](#name)
+* [self_link](#self_link)
+* [size](#size)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  bucket
+
+• **bucket**: *string*
+
+Defined in src/Folder/index.ts:40
+
+___
+
+####  content_type
+
+• **content_type**: *string*
+
+Defined in src/Folder/index.ts:42
+
+___
+
+####  created_at
+
+• **created_at**: *string*
+
+Defined in src/Folder/index.ts:44
+
+___
+
+####  generation
+
+• **generation**: *string*
+
+Defined in src/Folder/index.ts:41
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/Folder/index.ts:36
+
+___
+
+####  kind
+
+• **kind**: *string*
+
+Defined in src/Folder/index.ts:35
+
+___
+
+####  media_link
+
+• **media_link**: *string*
+
+Defined in src/Folder/index.ts:38
+
+___
+
+####  name
+
+• **name**: *string*
+
+Defined in src/Folder/index.ts:39
+
+___
+
+####  self_link
+
+• **self_link**: *string*
+
+Defined in src/Folder/index.ts:37
+
+___
+
+####  size
+
+• **size**: *string*
+
+Defined in src/Folder/index.ts:43
+
+___
+
+####  updated_at
+
+• **updated_at**: *string*
+
+Defined in src/Folder/index.ts:45
+
+
+<a name="interfaces_folder_index_referencemd"></a>
+
+[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Reference](#interfaces_folder_index_referencemd)
+
+## Interface: Reference
+
+### Hierarchy
+
+* **Reference**
+
+### Index
+
+#### Properties
+
+* [file](#file)
+
+### Properties
+
+####  file
+
+• **file**: *string*
+
+Defined in src/Folder/index.ts:49
+
+
+<a name="interfaces_label_labelmd"></a>
+
+[functional-types](#globalsmd) › ["Label"](#modules_label_md) › [Label](#interfaces_label_labelmd)
+
+## Interface: Label
+
+### Hierarchy
+
+* **Label**
+
+### Index
+
+#### Properties
+
+* [color](#color)
+* [id](#id)
+* [name](#name)
+
+### Properties
+
+####  color
+
+• **color**: *string*
+
+Defined in src/Label.ts:6
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/Label.ts:4
+
+___
+
+####  name
+
+• **name**: *string*
+
+Defined in src/Label.ts:5
+
+
+<a name="interfaces_schema_index_filematchermd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [FileMatcher](#interfaces_schema_index_filematchermd)
+
+## Interface: FileMatcher
+
+### Hierarchy
+
+* [Matcher](#interfaces_schema_index_matchermd)
+
+  ↳ **FileMatcher**
+
+### Index
+
+#### Properties
+
+* [child](#optional-child)
+* [name](#name)
+* [regex](#regex)
+* [timestamp_capture_group](#timestamp_capture_group)
+* [type](#type)
+
+### Properties
+
+#### `Optional` child
+
+• **child**? : *[FileMatcher](#interfaces_schema_index_filematchermd)*
+
+Defined in src/Schema/index.ts:29
+
+___
+
+####  name
+
+• **name**: *string*
+
+*Inherited from [Matcher](#interfaces_schema_index_matchermd).[name](#name)*
+
+Defined in src/Schema/index.ts:24
+
+___
+
+####  regex
+
+• **regex**: *string*
+
+*Inherited from [Matcher](#interfaces_schema_index_matchermd).[regex](#regex)*
+
+Defined in src/Schema/index.ts:23
+
+___
+
+####  timestamp_capture_group
+
+• **timestamp_capture_group**: *number*
+
+*Inherited from [Matcher](#interfaces_schema_index_matchermd).[timestamp_capture_group](#timestamp_capture_group)*
+
+Defined in src/Schema/index.ts:25
+
+___
+
+####  type
+
+• **type**: *[Type](#type)*
+
+Defined in src/Schema/index.ts:30
+
+
+<a name="interfaces_schema_index_gettablemd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Gettable](#interfaces_schema_index_gettablemd)
+
+## Interface: Gettable
+
+### Hierarchy
+
+* **Gettable**
+
+### Index
+
+#### Properties
+
+* [attributes](#attributes)
+* [file](#file)
+
+### Properties
+
+####  attributes
+
+• **attributes**: *[Matcher](#interfaces_schema_index_matchermd)[]*
+
+Defined in src/Schema/index.ts:35
+
+___
+
+####  file
+
+• **file**: *[FileMatcher](#interfaces_schema_index_filematchermd)*
+
+Defined in src/Schema/index.ts:34
+
+
+<a name="interfaces_schema_index_matchermd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Matcher](#interfaces_schema_index_matchermd)
+
+## Interface: Matcher
+
+### Hierarchy
+
+* **Matcher**
+
+  ↳ [FileMatcher](#interfaces_schema_index_filematchermd)
+
+### Index
+
+#### Properties
+
+* [name](#name)
+* [regex](#regex)
+* [timestamp_capture_group](#timestamp_capture_group)
+
+### Properties
+
+####  name
+
+• **name**: *string*
+
+Defined in src/Schema/index.ts:24
+
+___
+
+####  regex
+
+• **regex**: *string*
+
+Defined in src/Schema/index.ts:23
+
+___
+
+####  timestamp_capture_group
+
+• **timestamp_capture_group**: *number*
+
+Defined in src/Schema/index.ts:25
+
+
+<a name="interfaces_schema_index_schemamd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Schema](#interfaces_schema_index_schemamd)
+
+## Interface: Schema
+
+### Hierarchy
+
+* **Schema**
+
+  ↳ [VersionedSchema](#interfaces_schema_index_versionedschemamd)
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [gettables](#gettables)
+* [id](#id)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *Date*
+
+Defined in src/Schema/index.ts:43
+
+___
+
+####  gettables
+
+• **gettables**: *[Gettables](#gettables)*
+
+Defined in src/Schema/index.ts:42
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/Schema/index.ts:41
+
+___
+
+####  updated_at
+
+• **updated_at**: *Date*
+
+Defined in src/Schema/index.ts:44
+
+
+<a name="interfaces_schema_index_versionedschemamd"></a>
+
+[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [VersionedSchema](#interfaces_schema_index_versionedschemamd)
+
+## Interface: VersionedSchema
+
+### Hierarchy
+
+* [Schema](#interfaces_schema_index_schemamd)
+
+  ↳ **VersionedSchema**
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [gettables](#gettables)
+* [id](#id)
+* [schema_id](#schema_id)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *Date*
+
+*Inherited from [Schema](#interfaces_schema_index_schemamd).[created_at](#created_at)*
+
+Defined in src/Schema/index.ts:43
+
+___
+
+####  gettables
+
+• **gettables**: *[Gettables](#gettables)*
+
+*Inherited from [Schema](#interfaces_schema_index_schemamd).[gettables](#gettables)*
+
+Defined in src/Schema/index.ts:42
+
+___
+
+####  id
+
+• **id**: *string*
+
+*Inherited from [Schema](#interfaces_schema_index_schemamd).[id](#id)*
+
+Defined in src/Schema/index.ts:41
+
+___
+
+####  schema_id
+
+• **schema_id**: *string*
+
+Defined in src/Schema/index.ts:48
+
+___
+
+####  updated_at
+
+• **updated_at**: *Date*
+
+*Inherited from [Schema](#interfaces_schema_index_schemamd).[updated_at](#updated_at)*
+
+Defined in src/Schema/index.ts:44
+
+
+<a name="interfaces_tableannotation_tableannotationmd"></a>
+
+[functional-types](#globalsmd) › ["TableAnnotation"](#modules_tableannotation_md) › [TableAnnotation](#interfaces_tableannotation_tableannotationmd)
+
+## Interface: TableAnnotation
+
+### Hierarchy
+
+* **TableAnnotation**
+
+### Index
+
+#### Properties
+
+* [boundingBoxesByPage](#boundingboxesbypage)
+* [created_at](#created_at)
+* [file](#file)
+* [id](#id)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  boundingBoxesByPage
+
+• **boundingBoxesByPage**: *[BoundingBoxesByPage](#boundingboxesbypage)*
+
+Defined in src/TableAnnotation.ts:27
+
+___
+
+####  created_at
+
+• **created_at**: *string*
+
+Defined in src/TableAnnotation.ts:28
+
+___
+
+####  file
+
+• **file**: *string*
+
+Defined in src/TableAnnotation.ts:26
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/TableAnnotation.ts:25
+
+___
+
+####  updated_at
+
+• **updated_at**: *string*
+
+Defined in src/TableAnnotation.ts:29
+
+
+<a name="interfaces_textannotation_pagemd"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Page](#interfaces_textannotation_pagemd)
+
+## Interface: Page
+
+### Hierarchy
+
+* **Page**
+
+### Index
+
+#### Properties
+
+* [paragraphsById](#paragraphsbyid)
+* [wordsById](#wordsbyid)
+
+### Properties
+
+####  paragraphsById
+
+• **paragraphsById**: *[ParagraphsById](#paragraphsbyid)*
+
+Defined in src/TextAnnotation.ts:70
+
+___
+
+####  wordsById
+
+• **wordsById**: *[WordsById](#wordsbyid)*
+
+Defined in src/TextAnnotation.ts:69
+
+
+<a name="interfaces_textannotation_paragraphmd"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Paragraph](#interfaces_textannotation_paragraphmd)
+
+## Interface: Paragraph
+
+### Hierarchy
+
+* **Paragraph**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [confidence](#confidence)
+* [id](#id)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+Defined in src/TextAnnotation.ts:60
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/TextAnnotation.ts:61
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/TextAnnotation.ts:59
+
+
+<a name="interfaces_textannotation_textannotationmd"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [TextAnnotation](#interfaces_textannotation_textannotationmd)
+
+## Interface: TextAnnotation
+
+### Hierarchy
+
+* **TextAnnotation**
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [file](#file)
+* [id](#id)
+* [pages](#pages)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *string*
+
+Defined in src/TextAnnotation.ts:77
+
+___
+
+####  file
+
+• **file**: *string*
+
+Defined in src/TextAnnotation.ts:75
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/TextAnnotation.ts:74
+
+___
+
+####  pages
+
+• **pages**: *[Page](#interfaces_textannotation_pagemd)[]*
+
+Defined in src/TextAnnotation.ts:76
+
+___
+
+####  updated_at
+
+• **updated_at**: *string*
+
+Defined in src/TextAnnotation.ts:78
+
+
+<a name="interfaces_textannotation_wordmd"></a>
+
+[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Word](#interfaces_textannotation_wordmd)
+
+## Interface: Word
+
+### Hierarchy
+
+* **Word**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [breakType](#breaktype)
+* [confidence](#confidence)
+* [id](#id)
+* [paragraph](#paragraph)
+* [text](#text)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+Defined in src/TextAnnotation.ts:53
+
+___
+
+####  breakType
+
+• **breakType**: *[BreakType](#breaktype)*
+
+Defined in src/TextAnnotation.ts:52
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/TextAnnotation.ts:55
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/TextAnnotation.ts:50
+
+___
+
+####  paragraph
+
+• **paragraph**: *string*
+
+Defined in src/TextAnnotation.ts:51
+
+___
+
+####  text
+
+• **text**: *string*
+
+Defined in src/TextAnnotation.ts:54
+
+
+<a name="interfaces_vertex_index_boundingboxmd"></a>
+
+[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [BoundingBox](#interfaces_vertex_index_boundingboxmd)
+
+## Interface: BoundingBox
+
+### Hierarchy
+
+* **BoundingBox**
+
+  ↳ [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [columns](#columns)
+* [rows](#rows)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+Defined in src/Vertex/index.ts:57
+
+___
+
+####  columns
+
+• **columns**: *[Line](#line)[]*
+
+Defined in src/Vertex/index.ts:59
+
+___
+
+####  rows
+
+• **rows**: *[Line](#line)[]*
+
+Defined in src/Vertex/index.ts:58
+
+
+<a name="interfaces_vertex_index_cornersmd"></a>
+
+[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [Corners](#interfaces_vertex_index_cornersmd)
+
+## Interface: Corners
+
+### Hierarchy
+
+* **Corners**
+
+### Index
+
+#### Properties
+
+* [end](#end)
+* [start](#start)
+
+### Properties
+
+####  end
+
+• **end**: *[Vertex](#interfaces_vertex_index_vertexmd)*
+
+Defined in src/Vertex/index.ts:92
+
+___
+
+####  start
+
+• **start**: *[Vertex](#interfaces_vertex_index_vertexmd)*
+
+Defined in src/Vertex/index.ts:91
+
+
+<a name="interfaces_vertex_index_labeledboundingboxmd"></a>
+
+[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)
+
+## Interface: LabeledBoundingBox
+
+### Hierarchy
+
+* [BoundingBox](#interfaces_vertex_index_boundingboxmd)
+
+  ↳ **LabeledBoundingBox**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#boundingpoly)
+* [columns](#columns)
+* [id](#id)
+* [label](#label)
+* [rows](#rows)
+
+### Properties
+
+####  boundingPoly
+
+• **boundingPoly**: *[Poly](#poly)*
+
+*Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[boundingPoly](#boundingpoly)*
+
+Defined in src/Vertex/index.ts:57
+
+___
+
+####  columns
+
+• **columns**: *[Line](#line)[]*
+
+*Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[columns](#columns)*
+
+Defined in src/Vertex/index.ts:59
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/Vertex/index.ts:86
+
+___
+
+####  label
+
+• **label**: *string*
+
+Defined in src/Vertex/index.ts:87
+
+___
+
+####  rows
+
+• **rows**: *[Line](#line)[]*
+
+*Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[rows](#rows)*
+
+Defined in src/Vertex/index.ts:58
+
+
+<a name="interfaces_vertex_index_rectanglemd"></a>
+
+[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [Rectangle](#interfaces_vertex_index_rectanglemd)
+
+## Interface: Rectangle
+
+### Hierarchy
+
+* **Rectangle**
+
+### Index
+
+#### Properties
+
+* [x0](#x0)
+* [x1](#x1)
+* [y0](#y0)
+* [y1](#y1)
+
+### Properties
+
+####  x0
+
+• **x0**: *number*
+
+Defined in src/Vertex/index.ts:96
+
+___
+
+####  x1
+
+• **x1**: *number*
+
+Defined in src/Vertex/index.ts:98
+
+___
+
+####  y0
+
+• **y0**: *number*
+
+Defined in src/Vertex/index.ts:97
+
+___
+
+####  y1
+
+• **y1**: *number*
+
+Defined in src/Vertex/index.ts:99
+
+
+<a name="interfaces_vertex_index_vertexmd"></a>
+
+[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [Vertex](#interfaces_vertex_index_vertexmd)
+
+## Interface: Vertex
+
+### Hierarchy
+
+* **Vertex**
+
+### Index
+
+#### Properties
+
+* [x](#x)
+* [y](#y)
+
+### Properties
+
+####  x
+
+• **x**: *number*
+
+Defined in src/Vertex/index.ts:45
+
+___
+
+####  y
+
+• **y**: *number*
+
+Defined in src/Vertex/index.ts:46
+
+
+<a name="interfaces_vision_annotateimagerequestmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AnnotateImageRequest](#interfaces_vision_annotateimagerequestmd)
+
+## Interface: AnnotateImageRequest
+
+### Hierarchy
+
+* **AnnotateImageRequest**
+
+### Index
+
+#### Properties
+
+* [features](#optional-features)
+* [image](#image)
+* [imageContext](#optional-imagecontext)
+
+### Properties
+
+#### `Optional` features
+
+• **features**? : *[Feature](#interfaces_vision_featuremd)[]*
+
+Defined in src/Vision.ts:48
+
+___
+
+####  image
+
+• **image**: *[Image](#interfaces_vision_imagemd)*
+
+Defined in src/Vision.ts:47
+
+___
+
+#### `Optional` imageContext
+
+• **imageContext**? : *[ImageContext](#interfaces_vision_imagecontextmd)*
+
+Defined in src/Vision.ts:49
+
+
+<a name="interfaces_vision_annotateimageresponsemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)
+
+## Interface: AnnotateImageResponse
+
+### Hierarchy
+
+* **AnnotateImageResponse**
+
+### Index
+
+#### Properties
+
+* [fullTextAnnotation](#optional-fulltextannotation)
+* [labelAnnotations](#optional-labelannotations)
+* [textAnnotations](#optional-textannotations)
+
+### Properties
+
+#### `Optional` fullTextAnnotation
+
+• **fullTextAnnotation**? : *[TextAnnotation](#interfaces_vision_textannotationmd)*
+
+Defined in src/Vision.ts:63
+
+___
+
+#### `Optional` labelAnnotations
+
+• **labelAnnotations**? : *[EntityAnnotation](#interfaces_vision_entityannotationmd)[]*
+
+Defined in src/Vision.ts:54
+
+___
+
+#### `Optional` textAnnotations
+
+• **textAnnotations**? : *[EntityAnnotation](#interfaces_vision_entityannotationmd)[]*
+
+Defined in src/Vision.ts:57
+
+
+<a name="interfaces_vision_asyncannotatefilerequestmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)
+
+## Interface: AsyncAnnotateFileRequest
+
+### Hierarchy
+
+* **AsyncAnnotateFileRequest**
+
+### Index
+
+#### Properties
+
+* [features](#features)
+* [imageContext](#optional-imagecontext)
+* [inputConfig](#inputconfig)
+* [outputConfig](#outputconfig)
+* [responses](#optional-responses)
+
+### Properties
+
+####  features
+
+• **features**: *[Feature](#interfaces_vision_featuremd)[]*
+
+Defined in src/Vision.ts:16
+
+___
+
+#### `Optional` imageContext
+
+• **imageContext**? : *[ImageContext](#interfaces_vision_imagecontextmd)*
+
+Defined in src/Vision.ts:17
+
+___
+
+####  inputConfig
+
+• **inputConfig**: *[InputConfig](#interfaces_vision_inputconfigmd)*
+
+Defined in src/Vision.ts:15
+
+___
+
+####  outputConfig
+
+• **outputConfig**: *[OutputConfig](#interfaces_vision_outputconfigmd)*
+
+Defined in src/Vision.ts:18
+
+___
+
+#### `Optional` responses
+
+• **responses**? : *[AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)[]*
+
+Defined in src/Vision.ts:19
+
+
+<a name="interfaces_vision_blockmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Block](#interfaces_vision_blockmd)
+
+## Interface: Block
+
+### Hierarchy
+
+* **Block**
+
+### Index
+
+#### Properties
+
+* [blockType](#blocktype)
+* [boundingBox](#boundingbox)
+* [confidence](#optional-confidence)
+* [paragraphs](#paragraphs)
+* [property](#optional-property)
+
+### Properties
+
+####  blockType
+
+• **blockType**: *[BlockType](#blocktype)*
+
+Defined in src/Vision.ts:152
+
+___
+
+####  boundingBox
+
+• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:150
+
+___
+
+#### `Optional` confidence
+
+• **confidence**? : *number*
+
+Defined in src/Vision.ts:153
+
+___
+
+####  paragraphs
+
+• **paragraphs**: *[Paragraph](#interfaces_vision_paragraphmd)[]*
+
+Defined in src/Vision.ts:151
+
+___
+
+#### `Optional` property
+
+• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:139
+
+
+<a name="interfaces_vision_boundingpolymd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [BoundingPoly](#interfaces_vision_boundingpolymd)
+
+## Interface: BoundingPoly
+
+### Hierarchy
+
+* **BoundingPoly**
+
+### Index
+
+#### Properties
+
+* [normalizedVertices](#optional-normalizedvertices)
+* [vertices](#optional-vertices)
+
+### Properties
+
+#### `Optional` normalizedVertices
+
+• **normalizedVertices**? : *[NormalizedVertex](#interfaces_vision_normalizedvertexmd)[]*
+
+Defined in src/Vision.ts:212
+
+___
+
+#### `Optional` vertices
+
+• **vertices**? : *[Vertex](#interfaces_vision_vertexmd)[]*
+
+Defined in src/Vision.ts:211
+
+
+<a name="interfaces_vision_detectedbreakmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [DetectedBreak](#interfaces_vision_detectedbreakmd)
+
+## Interface: DetectedBreak
+
+### Hierarchy
+
+* **DetectedBreak**
+
+### Index
+
+#### Properties
+
+* [isPrefix](#optional-isprefix)
+* [type](#type)
+
+### Properties
+
+#### `Optional` isPrefix
+
+• **isPrefix**? : *boolean*
+
+Defined in src/Vision.ts:199
+
+___
+
+####  type
+
+• **type**: *[BreakType](#breaktype)*
+
+Defined in src/Vision.ts:196
+
+
+<a name="interfaces_vision_detectedlanguagemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [DetectedLanguage](#interfaces_vision_detectedlanguagemd)
+
+## Interface: DetectedLanguage
+
+### Hierarchy
+
+* **DetectedLanguage**
+
+### Index
+
+#### Properties
+
+* [confidence](#optional-confidence)
+* [languageCode](#languagecode)
+
+### Properties
+
+#### `Optional` confidence
+
+• **confidence**? : *number*
+
+Defined in src/Vision.ts:192
+
+___
+
+####  languageCode
+
+• **languageCode**: *string*
+
+Defined in src/Vision.ts:191
+
+
+<a name="interfaces_vision_entityannotationmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [EntityAnnotation](#interfaces_vision_entityannotationmd)
+
+## Interface: EntityAnnotation
+
+### Hierarchy
+
+* **EntityAnnotation**
+
+### Index
+
+#### Properties
+
+* [boundingPoly](#optional-boundingpoly)
+* [confidence](#confidence)
+* [description](#description)
+* [locale](#locale)
+* [locations](#locations)
+* [mid](#mid)
+* [properties](#properties)
+* [score](#score)
+* [topicality](#topicality)
+
+### Properties
+
+#### `Optional` boundingPoly
+
+• **boundingPoly**? : *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:99
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/Vision.ts:97
+
+___
+
+####  description
+
+• **description**: *string*
+
+Defined in src/Vision.ts:95
+
+___
+
+####  locale
+
+• **locale**: *string*
+
+Defined in src/Vision.ts:94
+
+___
+
+####  locations
+
+• **locations**: *[LocationInfo](#interfaces_vision_locationinfomd)[]*
+
+Defined in src/Vision.ts:100
+
+___
+
+####  mid
+
+• **mid**: *string*
+
+Defined in src/Vision.ts:93
+
+___
+
+####  properties
+
+• **properties**: *[Property](#interfaces_vision_propertymd)[]*
+
+Defined in src/Vision.ts:101
+
+___
+
+####  score
+
+• **score**: *number*
+
+Defined in src/Vision.ts:96
+
+___
+
+####  topicality
+
+• **topicality**: *number*
+
+Defined in src/Vision.ts:98
+
+
+<a name="interfaces_vision_featuremd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Feature](#interfaces_vision_featuremd)
+
+## Interface: Feature
+
+### Hierarchy
+
+* **Feature**
+
+### Index
+
+#### Properties
+
+* [maxResult](#optional-maxresult)
+* [model](#optional-model)
+* [type](#type)
+
+### Properties
+
+#### `Optional` maxResult
+
+• **maxResult**? : *number*
+
+Defined in src/Vision.ts:78
+
+___
+
+#### `Optional` model
+
+• **model**? : *"builtin/stable" | "builtin/latest"*
+
+Defined in src/Vision.ts:79
+
+___
+
+####  type
+
+• **type**: *[Type](#type)*
+
+Defined in src/Vision.ts:77
+
+
+<a name="interfaces_vision_gcsdestinationmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [GcsDestination](#interfaces_vision_gcsdestinationmd)
+
+## Interface: GcsDestination
+
+### Hierarchy
+
+* **GcsDestination**
+
+### Index
+
+#### Properties
+
+* [uri](#uri)
+
+### Properties
+
+####  uri
+
+• **uri**: *string*
+
+Defined in src/Vision.ts:43
+
+
+<a name="interfaces_vision_gcssourcemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [GcsSource](#interfaces_vision_gcssourcemd)
+
+## Interface: GcsSource
+
+### Hierarchy
+
+* **GcsSource**
+
+### Index
+
+#### Properties
+
+* [uri](#uri)
+
+### Properties
+
+####  uri
+
+• **uri**: *string*
+
+Defined in src/Vision.ts:29
+
+
+<a name="interfaces_vision_imagemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Image](#interfaces_vision_imagemd)
+
+## Interface: Image
+
+### Hierarchy
+
+* **Image**
+
+### Index
+
+#### Properties
+
+* [content](#optional-content)
+* [source](#optional-source)
+
+### Properties
+
+#### `Optional` content
+
+• **content**? : *Buffer*
+
+Defined in src/Vision.ts:67
+
+___
+
+#### `Optional` source
+
+• **source**? : *[ImageSource](#interfaces_vision_imagesourcemd)*
+
+Defined in src/Vision.ts:68
+
+
+<a name="interfaces_vision_imagecontextmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [ImageContext](#interfaces_vision_imagecontextmd)
+
+## Interface: ImageContext
+
+### Hierarchy
+
+* **ImageContext**
+
+### Index
+
+#### Properties
+
+* [cropHintsParams](#crophintsparams)
+* [languageHints](#languagehints)
+* [latLongRect](#latlongrect)
+* [productSearchParams](#productsearchparams)
+* [webDetectionParams](#webdetectionparams)
+
+### Properties
+
+####  cropHintsParams
+
+• **cropHintsParams**: *unknown*
+
+Defined in src/Vision.ts:87
+
+___
+
+####  languageHints
+
+• **languageHints**: *string[]*
+
+Defined in src/Vision.ts:86
+
+___
+
+####  latLongRect
+
+• **latLongRect**: *unknown*
+
+Defined in src/Vision.ts:85
+
+___
+
+####  productSearchParams
+
+• **productSearchParams**: *unknown*
+
+Defined in src/Vision.ts:88
+
+___
+
+####  webDetectionParams
+
+• **webDetectionParams**: *unknown*
+
+Defined in src/Vision.ts:89
+
+
+<a name="interfaces_vision_imagesourcemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [ImageSource](#interfaces_vision_imagesourcemd)
+
+## Interface: ImageSource
+
+### Hierarchy
+
+* **ImageSource**
+
+### Index
+
+#### Properties
+
+* [gcsImageUri](#optional-gcsimageuri)
+* [imageUri](#optional-imageuri)
+
+### Properties
+
+#### `Optional` gcsImageUri
+
+• **gcsImageUri**? : *string*
+
+Defined in src/Vision.ts:72
+
+___
+
+#### `Optional` imageUri
+
+• **imageUri**? : *string*
+
+Defined in src/Vision.ts:73
+
+
+<a name="interfaces_vision_inputconfigmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [InputConfig](#interfaces_vision_inputconfigmd)
+
+## Interface: InputConfig
+
+### Hierarchy
+
+* **InputConfig**
+
+### Index
+
+#### Properties
+
+* [content](#optional-content)
+* [gcsSource](#gcssource)
+* [mimeType](#mimetype)
+
+### Properties
+
+#### `Optional` content
+
+• **content**? : *Buffer*
+
+Defined in src/Vision.ts:24
+
+___
+
+####  gcsSource
+
+• **gcsSource**: *[GcsSource](#interfaces_vision_gcssourcemd)*
+
+Defined in src/Vision.ts:23
+
+___
+
+####  mimeType
+
+• **mimeType**: *string*
+
+Defined in src/Vision.ts:25
+
+
+<a name="interfaces_vision_latlngmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [LatLng](#interfaces_vision_latlngmd)
+
+## Interface: LatLng
+
+### Hierarchy
+
+* **LatLng**
+
+### Index
+
+#### Properties
+
+* [latitude](#latitude)
+* [longitude](#longitude)
+
+### Properties
+
+####  latitude
+
+• **latitude**: *number*
+
+Defined in src/Vision.ts:250
+
+___
+
+####  longitude
+
+• **longitude**: *number*
+
+Defined in src/Vision.ts:252
+
+
+<a name="interfaces_vision_locationinfomd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [LocationInfo](#interfaces_vision_locationinfomd)
+
+## Interface: LocationInfo
+
+### Hierarchy
+
+* **LocationInfo**
+
+### Index
+
+#### Properties
+
+* [latLng](#latlng)
+
+### Properties
+
+####  latLng
+
+• **latLng**: *[LatLng](#interfaces_vision_latlngmd)*
+
+Defined in src/Vision.ts:216
+
+
+<a name="interfaces_vision_normalizedvertexmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [NormalizedVertex](#interfaces_vision_normalizedvertexmd)
+
+## Interface: NormalizedVertex
+
+### Hierarchy
+
+* [Vertex](#interfaces_vision_vertexmd)
+
+  ↳ **NormalizedVertex**
+
+### Index
+
+#### Properties
+
+* [x](#x)
+* [y](#y)
+
+### Properties
+
+####  x
+
+• **x**: *number*
+
+*Overrides [Vertex](#interfaces_vision_vertexmd).[x](#x)*
+
+Defined in src/Vision.ts:239
+
+___
+
+####  y
+
+• **y**: *number*
+
+*Overrides [Vertex](#interfaces_vision_vertexmd).[y](#y)*
+
+Defined in src/Vision.ts:240
+
+
+<a name="interfaces_vision_outputconfigmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [OutputConfig](#interfaces_vision_outputconfigmd)
+
+## Interface: OutputConfig
+
+### Hierarchy
+
+* **OutputConfig**
+
+### Index
+
+#### Properties
+
+* [batchSize](#optional-batchsize)
+* [gcsDestination](#gcsdestination)
+
+### Properties
+
+#### `Optional` batchSize
+
+• **batchSize**? : *number*
+
+Defined in src/Vision.ts:38
+
+___
+
+####  gcsDestination
+
+• **gcsDestination**: *[GcsDestination](#interfaces_vision_gcsdestinationmd)*
+
+Defined in src/Vision.ts:39
+
+
+<a name="interfaces_vision_pagemd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Page](#interfaces_vision_pagemd)
+
+## Interface: Page
+
+### Hierarchy
+
+* **Page**
+
+### Index
+
+#### Properties
+
+* [blocks](#blocks)
+* [confidence](#optional-confidence)
+* [height](#height)
+* [property](#property)
+* [width](#width)
+
+### Properties
+
+####  blocks
+
+• **blocks**: *[Block](#interfaces_vision_blockmd)[]*
+
+Defined in src/Vision.ts:127
+
+___
+
+#### `Optional` confidence
+
+• **confidence**? : *number*
+
+Defined in src/Vision.ts:130
+
+___
+
+####  height
+
+• **height**: *number*
+
+Defined in src/Vision.ts:125
+
+___
+
+####  property
+
+• **property**: *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:118
+
+___
+
+####  width
+
+• **width**: *number*
+
+Defined in src/Vision.ts:124
+
+
+<a name="interfaces_vision_paragraphmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Paragraph](#interfaces_vision_paragraphmd)
+
+## Interface: Paragraph
+
+### Hierarchy
+
+* **Paragraph**
+
+### Index
+
+#### Properties
+
+* [boundingBox](#boundingbox)
+* [confidence](#confidence)
+* [property](#optional-property)
+* [words](#words)
+
+### Properties
+
+####  boundingBox
+
+• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:158
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/Vision.ts:160
+
+___
+
+#### `Optional` property
+
+• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:157
+
+___
+
+####  words
+
+• **words**: *[Word](#interfaces_vision_wordmd)[]*
+
+Defined in src/Vision.ts:159
+
+
+<a name="interfaces_vision_propertymd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Property](#interfaces_vision_propertymd)
+
+## Interface: Property
+
+### Hierarchy
+
+* **Property**
+
+### Index
+
+#### Properties
+
+* [name](#name)
+* [uint64Value](#uint64value)
+* [value](#value)
+
+### Properties
+
+####  name
+
+• **name**: *string*
+
+Defined in src/Vision.ts:220
+
+___
+
+####  uint64Value
+
+• **uint64Value**: *number*
+
+Defined in src/Vision.ts:222
+
+___
+
+####  value
+
+• **value**: *string*
+
+Defined in src/Vision.ts:221
+
+
+<a name="interfaces_vision_textannotationmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextAnnotation](#interfaces_vision_textannotationmd)
+
+## Interface: TextAnnotation
+
+### Hierarchy
+
+* **TextAnnotation**
+
+### Index
+
+#### Properties
+
+* [pages](#pages)
+* [text](#text)
+
+### Properties
+
+####  pages
+
+• **pages**: *[Page](#interfaces_vision_pagemd)[]*
+
+Defined in src/Vision.ts:110
+
+___
+
+####  text
+
+• **text**: *string*
+
+Defined in src/Vision.ts:113
+
+
+<a name="interfaces_vision_textpropertymd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextProperty](#interfaces_vision_textpropertymd)
+
+## Interface: TextProperty
+
+### Hierarchy
+
+* **TextProperty**
+
+### Index
+
+#### Properties
+
+* [detectedBreak](#optional-detectedbreak)
+* [detectedLanguages](#detectedlanguages)
+
+### Properties
+
+#### `Optional` detectedBreak
+
+• **detectedBreak**? : *[DetectedBreak](#interfaces_vision_detectedbreakmd)*
+
+Defined in src/Vision.ts:135
+
+___
+
+####  detectedLanguages
+
+• **detectedLanguages**: *[DetectedLanguage](#interfaces_vision_detectedlanguagemd)[]*
+
+Defined in src/Vision.ts:134
+
+
+<a name="interfaces_vision_textsymbolmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextSymbol](#interfaces_vision_textsymbolmd)
+
+## Interface: TextSymbol
+
+### Hierarchy
+
+* **TextSymbol**
+
+### Index
+
+#### Properties
+
+* [boundingBox](#optional-boundingbox)
+* [confidence](#confidence)
+* [property](#property)
+* [text](#text)
+
+### Properties
+
+#### `Optional` boundingBox
+
+• **boundingBox**? : *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:181
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/Vision.ts:183
+
+___
+
+####  property
+
+• **property**: *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:180
+
+___
+
+####  text
+
+• **text**: *string*
+
+Defined in src/Vision.ts:182
+
+
+<a name="interfaces_vision_vertexmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Vertex](#interfaces_vision_vertexmd)
+
+## Interface: Vertex
+
+### Hierarchy
+
+* **Vertex**
+
+  ↳ [NormalizedVertex](#interfaces_vision_normalizedvertexmd)
+
+### Index
+
+#### Properties
+
+* [x](#x)
+* [y](#y)
+
+### Properties
+
+####  x
+
+• **x**: *number*
+
+Defined in src/Vision.ts:230
+
+___
+
+####  y
+
+• **y**: *number*
+
+Defined in src/Vision.ts:231
+
+
+<a name="interfaces_vision_wordmd"></a>
+
+[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Word](#interfaces_vision_wordmd)
+
+## Interface: Word
+
+### Hierarchy
+
+* **Word**
+
+### Index
+
+#### Properties
+
+* [boundingBox](#boundingbox)
+* [confidence](#confidence)
+* [property](#optional-property)
+* [symbols](#symbols)
+
+### Properties
+
+####  boundingBox
+
+• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+
+Defined in src/Vision.ts:174
+
+___
+
+####  confidence
+
+• **confidence**: *number*
+
+Defined in src/Vision.ts:176
+
+___
+
+#### `Optional` property
+
+• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
+
+Defined in src/Vision.ts:173
+
+___
+
+####  symbols
+
+• **symbols**: *[TextSymbol](#interfaces_vision_textsymbolmd)[]*
+
+Defined in src/Vision.ts:175
 
 # Modules
 
@@ -141,33 +2821,59 @@ Name | Type |
 
 #### Type aliases
 
+* [Child](#child)
 * [DocumentAnnotationBase](#documentannotationbase)
 * [Leaf](#leaf)
 * [TableBase](#tablebase)
 * [TableCellById](#tablecellbyid)
+* [TextCell](#textcell)
+* [TextTableCell](#texttablecell)
 * [Tree](#tree)
 * [TreeByPage](#treebypage)
 
 #### Variables
 
 * [makeLeaf](#const-makeleaf)
+* [makeTree](#const-maketree)
+* [toTextCell](#const-totextcell)
+* [toTextTableCell](#const-totexttablecell)
 
 #### Functions
 
 * [fromTableBase](#const-fromtablebase)
+* [isBranch](#const-isbranch)
+* [isCell](#const-iscell)
+* [isCellArray](#const-iscellarray)
+* [isChild](#const-ischild)
+* [isLeaf](#const-isleaf)
+* [isNode](#const-isnode)
+* [isTable](#const-istable)
+* [isTableCell](#const-istablecell)
+* [isTableCellById](#const-istablecellbyid)
+* [isTree](#const-istree)
 * [make](#const-make)
 * [makeCell](#const-makecell)
 * [makeNode](#const-makenode)
 * [makeTable](#const-maketable)
 * [makeTableCell](#const-maketablecell)
+* [makeTextCell](#const-maketextcell)
+* [makeTextTableCell](#const-maketexttablecell)
 
 ### Type aliases
+
+####  Child
+
+Ƭ **Child**: *[Branch](#interfaces_documentannotation_branchmd) | [Leaf](#leaf)*
+
+Defined in src/DocumentAnnotation.ts:97
+
+___
 
 ####  DocumentAnnotationBase
 
 Ƭ **DocumentAnnotationBase**: *Pick‹[DocumentAnnotation](#interfaces_documentannotation_documentannotationmd), "file" | "treeByPage"›*
 
-Defined in src/DocumentAnnotation.ts:84
+Defined in src/DocumentAnnotation.ts:111
 
 ___
 
@@ -175,7 +2881,7 @@ ___
 
 Ƭ **Leaf**: *[Cell](#interfaces_documentannotation_cellmd) | [Table](#interfaces_documentannotation_tablemd)*
 
-Defined in src/DocumentAnnotation.ts:65
+Defined in src/DocumentAnnotation.ts:90
 
 ___
 
@@ -183,7 +2889,7 @@ ___
 
 Ƭ **TableBase**: *Omit‹[Table](#interfaces_documentannotation_tablemd), "id" | "label" | "boundingPoly"›*
 
-Defined in src/DocumentAnnotation.ts:63
+Defined in src/DocumentAnnotation.ts:88
 
 ___
 
@@ -191,15 +2897,31 @@ ___
 
 Ƭ **TableCellById**: *Dictionary‹[TableCell](#interfaces_documentannotation_tablecellmd)›*
 
-Defined in src/DocumentAnnotation.ts:52
+Defined in src/DocumentAnnotation.ts:77
+
+___
+
+####  TextCell
+
+Ƭ **TextCell**: *Pick‹[Cell](#interfaces_documentannotation_cellmd), "text"›*
+
+Defined in src/DocumentAnnotation.ts:116
+
+___
+
+####  TextTableCell
+
+Ƭ **TextTableCell**: *[TextCell](#textcell) & object*
+
+Defined in src/DocumentAnnotation.ts:118
 
 ___
 
 ####  Tree
 
-Ƭ **Tree**: *Dictionary‹[Branch](#interfaces_documentannotation_branchmd)›*
+Ƭ **Tree**: *Dictionary‹[Child](#child)›*
 
-Defined in src/DocumentAnnotation.ts:72
+Defined in src/DocumentAnnotation.ts:99
 
 ___
 
@@ -207,24 +2929,19 @@ ___
 
 Ƭ **TreeByPage**: *[Tree](#tree)[]*
 
-Defined in src/DocumentAnnotation.ts:74
+Defined in src/DocumentAnnotation.ts:101
 
 ### Variables
 
 #### `Const` makeLeaf
 
-• **makeLeaf**: *function* = pipe(
-  E.fromPredicate(
-    hasRowsOrColumns,
-    identity as (boundingBox: LabeledBoundingBox) => LabeledBoundingBox
-  ),
-  E.fold<LabeledBoundingBox, LabeledBoundingBox, RIO.ReaderIO<Page, Leaf>>(
-    makeCell,
-    makeTable
-  )
-)
+• **makeLeaf**: *function* = ifElse(hasRowsOrColumns, makeTable, makeCell)
 
-Defined in src/DocumentAnnotation.ts:234
+Defined in src/DocumentAnnotation.ts:435
+
+```haskell
+makeLeaf :: LabeledBoundingBox -> ReaderIO Page Leaf
+```
 
 ##### Type declaration:
 
@@ -236,13 +2953,93 @@ Name | Type |
 ------ | ------ |
 `boundingBox` | [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd) |
 
+___
+
+#### `Const` makeTree
+
+• **makeTree**: *function* = pipe(
+  values,
+  makeChildren,
+  RIO.map(reduce((acc: Tree, child: Child) => assoc(child.id, child, acc), {}))
+)
+
+Defined in src/DocumentAnnotation.ts:508
+
+```haskell
+makeTree :: BoundingBoxes -> ReaderIO Page Tree
+```
+
+##### Type declaration:
+
+▸ (`boundingBoxes`: [BoundingBoxes](#boundingboxes)): *RIO.ReaderIO‹[Page](#interfaces_textannotation_pagemd), [Tree](#tree)›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`boundingBoxes` | [BoundingBoxes](#boundingboxes) |
+
+___
+
+#### `Const` toTextCell
+
+• **toTextCell**: *function* = pick(['text'])
+
+Defined in src/DocumentAnnotation.ts:564
+
+```haskell
+toTextCell: Cell -> TextCell
+```
+
+##### Type declaration:
+
+▸ (`cell`: [Cell](#interfaces_documentannotation_cellmd)): *[TextCell](#textcell)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`cell` | [Cell](#interfaces_documentannotation_cellmd) |
+
+___
+
+#### `Const` toTextTableCell
+
+• **toTextTableCell**: *function* = pipe(
+  evolve({
+    rowHeader: toTextCell,
+    columnHeader: toTextCell,
+  }),
+  pick(['text', 'rowHeader', 'columnHeader'])
+)
+
+Defined in src/DocumentAnnotation.ts:571
+
+```haskell
+toTextTableCell: TableCell -> TextTableCell
+```
+
+##### Type declaration:
+
+▸ (`tableCell`: [TableCell](#interfaces_documentannotation_tablecellmd)): *[TextTableCell](#texttablecell)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`tableCell` | [TableCell](#interfaces_documentannotation_tablecellmd) |
+
 ### Functions
 
 #### `Const` fromTableBase
 
 ▸ **fromTableBase**(`tableBase`: object): *function*
 
-Defined in src/DocumentAnnotation.ts:137
+Defined in src/DocumentAnnotation.ts:305
+
+```haskell
+fromTableBase :: TableBase -> ReaderIO LabeledBoundingBox Table
+```
 
 **Parameters:**
 
@@ -262,11 +3059,211 @@ Name | Type |
 
 ___
 
+#### `Const` isBranch
+
+▸ **isBranch**(`a`: unknown): *a is Branch*
+
+Defined in src/DocumentAnnotation.ts:214
+
+```haskell
+isBranch :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Branch*
+
+___
+
+#### `Const` isCell
+
+▸ **isCell**(`a`: unknown): *a is Cell*
+
+Defined in src/DocumentAnnotation.ts:141
+
+```haskell
+isCell :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Cell*
+
+___
+
+#### `Const` isCellArray
+
+▸ **isCellArray**(`a`: unknown): *a is Cell[]*
+
+Defined in src/DocumentAnnotation.ts:153
+
+```haskell
+isCellArray :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Cell[]*
+
+___
+
+#### `Const` isChild
+
+▸ **isChild**(`a`: unknown): *a is Child*
+
+Defined in src/DocumentAnnotation.ts:230
+
+```haskell
+isChild :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Child*
+
+___
+
+#### `Const` isLeaf
+
+▸ **isLeaf**(`a`: unknown): *a is Leaf*
+
+Defined in src/DocumentAnnotation.ts:207
+
+```haskell
+isLeaf :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Leaf*
+
+___
+
+#### `Const` isNode
+
+▸ **isNode**(`a`: unknown): *a is Node*
+
+Defined in src/DocumentAnnotation.ts:128
+
+```haskell
+isNode :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Node*
+
+___
+
+#### `Const` isTable
+
+▸ **isTable**(`a`: unknown): *a is Table*
+
+Defined in src/DocumentAnnotation.ts:191
+
+```haskell
+isTable :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Table*
+
+___
+
+#### `Const` isTableCell
+
+▸ **isTableCell**(`a`: unknown): *a is TableCell*
+
+Defined in src/DocumentAnnotation.ts:161
+
+```haskell
+isTableCell :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is TableCell*
+
+___
+
+#### `Const` isTableCellById
+
+▸ **isTableCellById**(`a`: unknown): *a is TableCellById*
+
+Defined in src/DocumentAnnotation.ts:173
+
+```haskell
+isTableCellById :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is TableCellById*
+
+___
+
+#### `Const` isTree
+
+▸ **isTree**(`a`: unknown): *a is Tree*
+
+Defined in src/DocumentAnnotation.ts:238
+
+```haskell
+isTree :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Tree*
+
+___
+
 #### `Const` make
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in src/DocumentAnnotation.ts:254
+Defined in src/DocumentAnnotation.ts:523
 
 ```haskell
 make :: DocumentAnnotationBase -> IO DocumentAnnotation
@@ -279,7 +3276,7 @@ make :: DocumentAnnotationBase -> IO DocumentAnnotation
 Name | Type |
 ------ | ------ |
 `file` | string |
-`treeByPage` | Dictionary‹[Branch](#interfaces_documentannotation_branchmd)›[] |
+`treeByPage` | Dictionary‹[Cell](#interfaces_documentannotation_cellmd) &#124; [Branch](#interfaces_documentannotation_branchmd) &#124; [Table](#interfaces_documentannotation_tablemd)›[] |
 
 **Returns:** *(Anonymous function)*
 
@@ -289,7 +3286,11 @@ ___
 
 ▸ **makeCell**(`boundingBox`: [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)): *(Anonymous function)*
 
-Defined in src/DocumentAnnotation.ts:102
+Defined in src/DocumentAnnotation.ts:262
+
+```haskell
+makeCell :: LabeledBoundingBox -> ReaderIO Page Cell
+```
 
 **Parameters:**
 
@@ -305,7 +3306,11 @@ ___
 
 ▸ **makeNode**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in src/DocumentAnnotation.ts:90
+Defined in src/DocumentAnnotation.ts:246
+
+```haskell
+makeNode :: LabeledBoundingBox -> IO Node
+```
 
 **Parameters:**
 
@@ -324,7 +3329,11 @@ ___
 
 ▸ **makeTable**(`boundingBox`: [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)): *(Anonymous function)*
 
-Defined in src/DocumentAnnotation.ts:167
+Defined in src/DocumentAnnotation.ts:348
+
+```haskell
+makeTable :: LabeledBoundingBox -> ReaderIO Page Table
+```
 
 **Parameters:**
 
@@ -340,7 +3349,11 @@ ___
 
 ▸ **makeTableCell**(`rowHeader`: [Cell](#interfaces_documentannotation_cellmd), `columnHeader`: [Cell](#interfaces_documentannotation_cellmd)): *function*
 
-Defined in src/DocumentAnnotation.ts:121
+Defined in src/DocumentAnnotation.ts:285
+
+```haskell
+makeTableCell :: (Cell, Cell) -> LabeledBoundingBox -> ReaderIO Page TableCell
+```
 
 **Parameters:**
 
@@ -358,6 +3371,54 @@ Name | Type |
 Name | Type |
 ------ | ------ |
 `x0` | V0 |
+
+___
+
+#### `Const` makeTextCell
+
+▸ **makeTextCell**(`text`: string): *object*
+
+Defined in src/DocumentAnnotation.ts:542
+
+```haskell
+makeTextCell :: String -> TextCell
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+
+**Returns:** *object*
+
+* **text**: *string*
+
+___
+
+#### `Const` makeTextTableCell
+
+▸ **makeTextTableCell**(`text`: string, `rowHeader`: string, `columnHeader`: string): *object*
+
+Defined in src/DocumentAnnotation.ts:553
+
+```haskell
+makeTextTableCell :: (String, String, String) -> TextTableCell
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`text` | string |
+`rowHeader` | string |
+`columnHeader` | string |
+
+**Returns:** *object*
+
+* **columnHeader**(): *object*
+
+* **rowHeader**(): *object*
 
 
 <a name="modules_excel_md"></a>
@@ -1956,6 +5017,10 @@ getRandomId: IO String
 * [BoundingBoxesByPage](#boundingboxesbypage)
 * [TableAnnotationBase](#tableannotationbase)
 
+#### Variables
+
+* [toBoundingBoxes](#const-toboundingboxes)
+
 #### Functions
 
 * [isBoundingBoxes](#const-isboundingboxes)
@@ -1970,7 +5035,7 @@ getRandomId: IO String
 
 Ƭ **BoundingBoxes**: *Dictionary‹[WithHeader](#withheader)‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)› | [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›*
 
-Defined in src/TableAnnotation.ts:16
+Defined in src/TableAnnotation.ts:18
 
 ___
 
@@ -1978,7 +5043,7 @@ ___
 
 Ƭ **BoundingBoxesByPage**: *[BoundingBoxes](#boundingboxes)[]*
 
-Defined in src/TableAnnotation.ts:20
+Defined in src/TableAnnotation.ts:22
 
 ___
 
@@ -1986,7 +5051,32 @@ ___
 
 Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPage"›*
 
-Defined in src/TableAnnotation.ts:30
+Defined in src/TableAnnotation.ts:32
+
+### Variables
+
+#### `Const` toBoundingBoxes
+
+• **toBoundingBoxes**: *function* = reduce(
+  (acc: BoundingBoxes, value) => assoc(value.id, value, acc),
+  {}
+)
+
+Defined in src/TableAnnotation.ts:86
+
+```haskell
+toBoundingBoxes :: [BoundingBox] -> BoundingBoxes
+```
+
+##### Type declaration:
+
+▸ (`boundingBoxes`: Array‹[WithHeader](#withheader)‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)› | [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›): *[BoundingBoxes](#boundingboxes)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`boundingBoxes` | Array‹[WithHeader](#withheader)‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)› &#124; [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)› |
 
 ### Functions
 
@@ -1994,7 +5084,7 @@ Defined in src/TableAnnotation.ts:30
 
 ▸ **isBoundingBoxes**(`a`: unknown): *a is BoundingBoxes*
 
-Defined in src/TableAnnotation.ts:40
+Defined in src/TableAnnotation.ts:42
 
 ```haskell
 isBoundingBoxes :: a -> bool
@@ -2014,7 +5104,7 @@ ___
 
 ▸ **isBoundingBoxesByPage**(`a`: unknown): *a is BoundingBoxesByPage*
 
-Defined in src/TableAnnotation.ts:51
+Defined in src/TableAnnotation.ts:53
 
 ```haskell
 isBoundingBoxesByPage :: a -> bool
@@ -2034,7 +5124,7 @@ ___
 
 ▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in src/TableAnnotation.ts:71
+Defined in src/TableAnnotation.ts:73
 
 ```haskell
 isTableAnnotation :: a -> bool
@@ -2054,7 +5144,7 @@ ___
 
 ▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in src/TableAnnotation.ts:59
+Defined in src/TableAnnotation.ts:61
 
 ```haskell
 isTableAnnotationBase :: a -> bool
@@ -2074,7 +5164,7 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in src/TableAnnotation.ts:86
+Defined in src/TableAnnotation.ts:100
 
 ```haskell
 make :: TableAnnotationBase -> IO TableAnnotation
@@ -2134,6 +5224,7 @@ Name | Type |
 * [isParagraphsById](#const-isparagraphsbyid)
 * [isTextAnnotation](#const-istextannotation)
 * [isWord](#const-isword)
+* [isWordArray](#const-iswordarray)
 * [isWordsById](#const-iswordsbyid)
 
 ### Type aliases
@@ -2142,7 +5233,7 @@ Name | Type |
 
 Ƭ **BreakType**: *"UNKNOWN" | "SPACE" | "SURE_SPACE" | "EOL_SURE_SPACE" | "HYPHEN" | "LINE_BREAK"*
 
-Defined in src/TextAnnotation.ts:31
+Defined in src/TextAnnotation.ts:32
 
 ___
 
@@ -2150,7 +5241,7 @@ ___
 
 Ƭ **ParagraphsById**: *Dictionary‹[Paragraph](#interfaces_textannotation_paragraphmd)›*
 
-Defined in src/TextAnnotation.ts:65
+Defined in src/TextAnnotation.ts:66
 
 ___
 
@@ -2158,7 +5249,7 @@ ___
 
 Ƭ **WordsById**: *Dictionary‹[Word](#interfaces_textannotation_wordmd)›*
 
-Defined in src/TextAnnotation.ts:63
+Defined in src/TextAnnotation.ts:64
 
 ### Variables
 
@@ -2173,7 +5264,7 @@ Defined in src/TextAnnotation.ts:63
   'LINE_BREAK',
 ]
 
-Defined in src/TextAnnotation.ts:39
+Defined in src/TextAnnotation.ts:40
 
 ___
 
@@ -2185,7 +5276,7 @@ ___
   A.array.sequence(IO.io)
 )
 
-Defined in src/TextAnnotation.ts:277
+Defined in src/TextAnnotation.ts:286
 
 ```haskell
 fromAnnotateImageResponse :: AnnotateImageResponse -> IO [Page]
@@ -2217,7 +5308,7 @@ ___
   )
 )
 
-Defined in src/TextAnnotation.ts:260
+Defined in src/TextAnnotation.ts:269
 
 ```haskell
 fromVisionPage :: VisionPage -> IO Page
@@ -2244,7 +5335,7 @@ ___
   O.getOrElse(() => 'UNKNOWN')
 )
 
-Defined in src/TextAnnotation.ts:169
+Defined in src/TextAnnotation.ts:178
 
 ```haskell
 getBreakTypeFromSymbols :: [VisionSymbol] -> DetectedBreak
@@ -2269,7 +5360,7 @@ ___
   breakTypeMappings
 )
 
-Defined in src/TextAnnotation.ts:321
+Defined in src/TextAnnotation.ts:330
 
 ```haskell
 getStringFromBreakType :: BreakType -> String
@@ -2289,13 +5380,16 @@ ___
 
 #### `Const` getTextFromWords
 
-• **getTextFromWords**: *function* = reduce(
-  (acc: string, word: Word) =>
-    acc + word.text + getStringFromBreakType(word.breakType),
-  ''
+• **getTextFromWords**: *function* = pipe(
+  reduce(
+    (acc: string, word: Word) =>
+      acc + word.text + getStringFromBreakType(word.breakType),
+    ''
+  ),
+  replace(/\n$/, '')
 )
 
-Defined in src/TextAnnotation.ts:331
+Defined in src/TextAnnotation.ts:340
 
 ```haskell
 getTextFromWords :: [Word] -> String
@@ -2317,7 +5411,7 @@ Name | Type |
 
 ▸ **fromAnnotateImageRequest**(`request`: [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)): *(Anonymous function)*
 
-Defined in src/TextAnnotation.ts:292
+Defined in src/TextAnnotation.ts:301
 
 ```haskell
 fromAnnotateImageRequest :: AsyncAnnotateFileRequest -> IO [Page]
@@ -2337,7 +5431,7 @@ ___
 
 ▸ **fromVisionParagraph**(`visionParagraph`: [Paragraph](#interfaces_vision_paragraphmd)): *(Anonymous function)*
 
-Defined in src/TextAnnotation.ts:223
+Defined in src/TextAnnotation.ts:232
 
 ```haskell
 fromVisionParagraph :: VisionParagraph -> IO Page
@@ -2357,7 +5451,7 @@ ___
 
 ▸ **fromVisionWord**(`word`: [Word](#interfaces_vision_wordmd)): *(Anonymous function)*
 
-Defined in src/TextAnnotation.ts:204
+Defined in src/TextAnnotation.ts:213
 
 ```haskell
 fromVisionWord :: VisionWord -> Word
@@ -2377,7 +5471,7 @@ ___
 
 ▸ **isBreakType**(`a`: unknown): *a is BreakType*
 
-Defined in src/TextAnnotation.ts:85
+Defined in src/TextAnnotation.ts:86
 
 ```haskell
 isBreakType :: a -> bool
@@ -2397,7 +5491,7 @@ ___
 
 ▸ **isPage**(`a`: unknown): *a is Page*
 
-Defined in src/TextAnnotation.ts:136
+Defined in src/TextAnnotation.ts:145
 
 ```haskell
 isPage :: a -> bool
@@ -2417,7 +5511,7 @@ ___
 
 ▸ **isPages**(`a`: unknown): *a is Page*
 
-Defined in src/TextAnnotation.ts:147
+Defined in src/TextAnnotation.ts:156
 
 ```haskell
 isPages :: a -> bool
@@ -2437,7 +5531,7 @@ ___
 
 ▸ **isParagraph**(`a`: unknown): *a is Paragraph*
 
-Defined in src/TextAnnotation.ts:108
+Defined in src/TextAnnotation.ts:117
 
 ```haskell
 isParagraph :: a -> bool
@@ -2457,7 +5551,7 @@ ___
 
 ▸ **isParagraphsById**(`a`: unknown): *a is ParagraphsById*
 
-Defined in src/TextAnnotation.ts:128
+Defined in src/TextAnnotation.ts:137
 
 ```haskell
 isWordsById :: a -> bool
@@ -2477,7 +5571,7 @@ ___
 
 ▸ **isTextAnnotation**(`a`: unknown): *a is TextAnnotation*
 
-Defined in src/TextAnnotation.ts:155
+Defined in src/TextAnnotation.ts:164
 
 ```haskell
 isTextAnnotation :: a -> bool
@@ -2497,7 +5591,7 @@ ___
 
 ▸ **isWord**(`a`: unknown): *a is Word*
 
-Defined in src/TextAnnotation.ts:93
+Defined in src/TextAnnotation.ts:94
 
 ```haskell
 isWord :: a -> bool
@@ -2513,11 +5607,31 @@ Name | Type |
 
 ___
 
+#### `Const` isWordArray
+
+▸ **isWordArray**(`a`: unknown): *a is Word[]*
+
+Defined in src/TextAnnotation.ts:109
+
+```haskell
+isWordArray :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Word[]*
+
+___
+
 #### `Const` isWordsById
 
 ▸ **isWordsById**(`a`: unknown): *a is WordsById*
 
-Defined in src/TextAnnotation.ts:120
+Defined in src/TextAnnotation.ts:129
 
 ```haskell
 isWordsById :: a -> bool
@@ -2650,14 +5764,14 @@ Defined in src/Vertex/Arbitraries.ts:50
 * [getY](#const-gety)
 * [getYs](#const-getys)
 * [heightOf](#const-heightof)
-* [containedBy](#const-iscontainedby)
 * [widthOf](#const-widthof)
 
 #### Functions
 
 * [append](#const-append)
-* [ratioContainedBy](#const-containedby)
-* [ratioContaining](#const-contains)
+* [containedBy](#const-containedby)
+* [contains](#const-contains)
+* [getChildlessBoundingBoxes](#const-getchildlessboundingboxes)
 * [hasColumns](#const-hascolumns)
 * [hasHeader](#const-hasheader)
 * [hasHeaderColumn](#const-hasheadercolumn)
@@ -2677,6 +5791,8 @@ Defined in src/Vertex/Arbitraries.ts:50
 * [makeLine](#const-makeline)
 * [makePoly](#const-makepoly)
 * [makeVertex](#const-makevertex)
+* [ratioContainedBy](#const-ratiocontainedby)
+* [ratioContaining](#const-ratiocontaining)
 * [sortPoly](#const-sortpoly)
 * [splitByXs](#const-splitbyxs)
 * [splitByYs](#const-splitbyys)
@@ -2692,7 +5808,7 @@ Defined in src/Vertex/Arbitraries.ts:50
 
 Ƭ **Line**: *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:46
+Defined in src/Vertex/index.ts:49
 
 ___
 
@@ -2700,7 +5816,7 @@ ___
 
 Ƭ **Poly**: *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:51
+Defined in src/Vertex/index.ts:54
 
 [TopLeft, TopRight, BottomLeft, BottomRight]
 
@@ -2710,7 +5826,7 @@ ___
 
 Ƭ **WithColumns**: *A & object*
 
-Defined in src/Vertex/index.ts:63
+Defined in src/Vertex/index.ts:66
 
 ___
 
@@ -2718,7 +5834,7 @@ ___
 
 Ƭ **WithHeader**: *[WithHeaderRow](#withheaderrow)‹A› | [WithHeaderColumn](#withheadercolumn)‹A›*
 
-Defined in src/Vertex/index.ts:75
+Defined in src/Vertex/index.ts:78
 
 ___
 
@@ -2726,7 +5842,7 @@ ___
 
 Ƭ **WithHeaderColumn**: *A & object*
 
-Defined in src/Vertex/index.ts:71
+Defined in src/Vertex/index.ts:74
 
 ___
 
@@ -2734,7 +5850,7 @@ ___
 
 Ƭ **WithHeaderRow**: *A & object*
 
-Defined in src/Vertex/index.ts:67
+Defined in src/Vertex/index.ts:70
 
 ___
 
@@ -2742,7 +5858,7 @@ ___
 
 Ƭ **WithHeaders**: *[WithHeaderRow](#withheaderrow)‹A› & [WithHeaderColumn](#withheadercolumn)‹A›*
 
-Defined in src/Vertex/index.ts:79
+Defined in src/Vertex/index.ts:82
 
 ___
 
@@ -2750,7 +5866,7 @@ ___
 
 Ƭ **WithRows**: *A & object*
 
-Defined in src/Vertex/index.ts:59
+Defined in src/Vertex/index.ts:62
 
 ### Variables
 
@@ -2761,7 +5877,7 @@ Defined in src/Vertex/index.ts:59
   heightOf,
 ])
 
-Defined in src/Vertex/index.ts:597
+Defined in src/Vertex/index.ts:600
 
 ```haskell
 areaOf :: Poly -> Float
@@ -2783,7 +5899,7 @@ ___
 
 • **getBottomLeft**: *function* = nth(2)
 
-Defined in src/Vertex/index.ts:471
+Defined in src/Vertex/index.ts:474
 
 ```haskell
 getBottomLeft :: Poly -> Vertex
@@ -2805,7 +5921,7 @@ ___
 
 • **getBottomRight**: *function* = nth(3)
 
-Defined in src/Vertex/index.ts:478
+Defined in src/Vertex/index.ts:481
 
 ```haskell
 getBottomRight :: Poly -> Vertex
@@ -2830,7 +5946,7 @@ ___
   end: last,
 })
 
-Defined in src/Vertex/index.ts:320
+Defined in src/Vertex/index.ts:323
 
 ```haskell
 getCornersFromPoly :: Poly -> Corners
@@ -2852,7 +5968,7 @@ ___
 
 • **getTopLeft**: *function* = nth(0)
 
-Defined in src/Vertex/index.ts:457
+Defined in src/Vertex/index.ts:460
 
 ```haskell
 getTopLeft :: Poly -> Vertex
@@ -2874,7 +5990,7 @@ ___
 
 • **getTopRight**: *function* = nth(1)
 
-Defined in src/Vertex/index.ts:464
+Defined in src/Vertex/index.ts:467
 
 ```haskell
 getTopRight :: Poly -> Vertex
@@ -2896,7 +6012,7 @@ ___
 
 • **getX**: *function* = pipe(head, prop<'x', number>('x'))
 
-Defined in src/Vertex/index.ts:388
+Defined in src/Vertex/index.ts:391
 
 ```haskell
 getX :: Line -> Float
@@ -2918,7 +6034,7 @@ ___
 
 • **getXs**: *function* = map(getX)
 
-Defined in src/Vertex/index.ts:402
+Defined in src/Vertex/index.ts:405
 
 ```haskell
 getXs :: [Line] -> [Float]
@@ -2940,7 +6056,7 @@ ___
 
 • **getY**: *function* = pipe(head, prop<'y', number>('y'))
 
-Defined in src/Vertex/index.ts:381
+Defined in src/Vertex/index.ts:384
 
 ```haskell
 getY :: Line -> Float
@@ -2962,7 +6078,7 @@ ___
 
 • **getYs**: *function* = map(getY)
 
-Defined in src/Vertex/index.ts:395
+Defined in src/Vertex/index.ts:398
 
 ```haskell
 getYs :: [Line] -> [Float]
@@ -2987,7 +6103,7 @@ ___
   pipe(getTopLeft, prop('y')),
 ])
 
-Defined in src/Vertex/index.ts:587
+Defined in src/Vertex/index.ts:590
 
 ```haskell
 heightOf :: Poly -> Float
@@ -3005,27 +6121,6 @@ Name | Type |
 
 ___
 
-#### `Const` containedBy
-
-• **containedBy**: *function* = pipe(
-  ratioContainedBy,
-  R.map(lte(0.9))
-)
-
-Defined in src/Vertex/index.ts:687
-
-##### Type declaration:
-
-▸ (`poly`: [Poly](#poly)): *Reader‹[Poly](#poly), boolean›*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`poly` | [Poly](#poly) |
-
-___
-
 #### `Const` widthOf
 
 • **widthOf**: *function* = converge(subtract, [
@@ -3033,7 +6128,7 @@ ___
   pipe(getTopLeft, prop('x')),
 ])
 
-Defined in src/Vertex/index.ts:577
+Defined in src/Vertex/index.ts:580
 
 ```haskell
 widthOf :: Poly -> Float
@@ -3055,7 +6150,7 @@ Name | Type |
 
 ▸ **append**<**A**>(`boundingBox`: A): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:440
+Defined in src/Vertex/index.ts:443
 
 ```haskell
 append :: BoundingBox -> ([Float], [Float]) -> BoundingBox
@@ -3075,11 +6170,491 @@ Name | Type |
 
 ___
 
+#### `Const` containedBy
+
+▸ **containedBy**(`poly`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], `threshold`: number): *Reader‹[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], boolean›*
+
+Defined in src/Vertex/index.ts:699
+
+```haskell
+containedBy :: Poly -> Reader Poly bool
+```
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`poly` | [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)] | - |
+`threshold` | number | 0.9 |
+
+**Returns:** *Reader‹[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], boolean›*
+
+___
+
+#### `Const` contains
+
+▸ **contains**(`poly`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], `threshold`: number): *Reader‹[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], boolean›*
+
+Defined in src/Vertex/index.ts:710
+
+```haskell
+contains :: Poly -> Reader Poly bool
+```
+
+**Parameters:**
+
+Name | Type | Default |
+------ | ------ | ------ |
+`poly` | [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)] | - |
+`threshold` | number | 0.9 |
+
+**Returns:** *Reader‹[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], boolean›*
+
+___
+
+#### `Const` getChildlessBoundingBoxes
+
+▸ **getChildlessBoundingBoxes**(`boundingBoxes`: [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)[]): *any[]*
+
+Defined in src/Vertex/index.ts:754
+
+```haskell
+getChildlessBoundingBoxes :: [BoundingBox] -> [BoundingBox]
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`boundingBoxes` | [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)[] |
+
+**Returns:** *any[]*
+
+___
+
+#### `Const` hasColumns
+
+▸ **hasColumns**<**A**>(`a`: A): *a is WithColumns<A>*
+
+Defined in src/Vertex/index.ts:175
+
+```haskell
+hasColumns :: a -> bool
+```
+
+**Type parameters:**
+
+▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *a is WithColumns<A>*
+
+___
+
+#### `Const` hasHeader
+
+▸ **hasHeader**<**A**>(`a`: A): *a is WithHeader<A>*
+
+Defined in src/Vertex/index.ts:210
+
+```haskell
+hasHeader :: a -> bool
+```
+
+**Type parameters:**
+
+▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *a is WithHeader<A>*
+
+___
+
+#### `Const` hasHeaderColumn
+
+▸ **hasHeaderColumn**<**A**>(`a`: A): *a is WithHeaderColumn<A>*
+
+Defined in src/Vertex/index.ts:201
+
+```haskell
+hasHeaderColumn :: a -> bool
+```
+
+**Type parameters:**
+
+▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *a is WithHeaderColumn<A>*
+
+___
+
+#### `Const` hasHeaderRow
+
+▸ **hasHeaderRow**<**A**>(`a`: A): *a is WithHeaderRow<A>*
+
+Defined in src/Vertex/index.ts:192
+
+```haskell
+hasHeaderRow :: a -> bool
+```
+
+**Type parameters:**
+
+▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *a is WithHeaderRow<A>*
+
+___
+
+#### `Const` hasHeaders
+
+▸ **hasHeaders**<**A**>(`a`: A): *a is WithHeaders<A>*
+
+Defined in src/Vertex/index.ts:218
+
+```haskell
+hasHeaders :: a -> bool
+```
+
+**Type parameters:**
+
+▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *a is WithHeaders<A>*
+
+___
+
+#### `Const` hasRows
+
+▸ **hasRows**<**A**>(`a`: A): *a is WithRows<A>*
+
+Defined in src/Vertex/index.ts:167
+
+```haskell
+hasRows :: a -> bool
+```
+
+**Type parameters:**
+
+▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *a is WithRows<A>*
+
+___
+
+#### `Const` hasRowsOrColumns
+
+▸ **hasRowsOrColumns**<**A**>(`a`: A): *a is WithRows<A> | WithColumns<A>*
+
+Defined in src/Vertex/index.ts:183
+
+```haskell
+hasRowsOrColumns :: a -> bool
+```
+
+**Type parameters:**
+
+▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *a is WithRows<A> | WithColumns<A>*
+
+___
+
+#### `Const` intersects
+
+▸ **intersects**(`p0`: [Poly](#poly)): *(Anonymous function)*
+
+Defined in src/Vertex/index.ts:645
+
+```haskell
+intersects :: Poly -> Reader Poly Poly
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`p0` | [Poly](#poly) |
+
+**Returns:** *(Anonymous function)*
+
+___
+
+#### `Const` isBoundingBox
+
+▸ **isBoundingBox**(`a`: unknown): *a is BoundingBox*
+
+Defined in src/Vertex/index.ts:155
+
+```haskell
+isBoundingBox :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is BoundingBox*
+
+___
+
+#### `Const` isLabeledBoundingBox
+
+▸ **isLabeledBoundingBox**(`a`: unknown): *a is LabeledBoundingBox*
+
+Defined in src/Vertex/index.ts:412
+
+```haskell
+isLabeledBoundingBox :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is LabeledBoundingBox*
+
+___
+
+#### `Const` isLine
+
+▸ **isLine**(`a`: unknown): *a is Line*
+
+Defined in src/Vertex/index.ts:115
+
+```haskell
+isLine :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Line*
+
+___
+
+#### `Const` isPoly
+
+▸ **isPoly**(`a`: unknown): *a is Poly*
+
+Defined in src/Vertex/index.ts:127
+
+```haskell
+isPoly :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Poly*
+
+___
+
+#### `Const` isVertex
+
+▸ **isVertex**(`a`: unknown): *a is Vertex*
+
+Defined in src/Vertex/index.ts:107
+
+```haskell
+isVertex :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Vertex*
+
+___
+
+#### `Const` lengthOf
+
+▸ **lengthOf**(`__namedParameters`: [any, any]): *number*
+
+Defined in src/Vertex/index.ts:610
+
+```haskell
+lengthOf :: Line -> Float
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`__namedParameters` | [any, any] |
+
+**Returns:** *number*
+
+___
+
+#### `Const` makeBoundingBox
+
+▸ **makeBoundingBox**(`poly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+Defined in src/Vertex/index.ts:365
+
+```haskell
+makeBoundingBox :: (Poly, [Float], [Float]) -> BoundingBox
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`poly` | [Poly](#poly) |
+`ys` | number[] |
+`xs` | number[] |
+
+**Returns:** *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
+
+___
+
+#### `Const` makeLabeledBoundingBox
+
+▸ **makeLabeledBoundingBox**(`id`: string, `label`: string, `poly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
+
+Defined in src/Vertex/index.ts:420
+
+```haskell
+makeLabeledBoundingBox :: (String, String, Poly, [Float], [Float]) -> LabeledBoundingBox
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`id` | string |
+`label` | string |
+`poly` | [Poly](#poly) |
+`ys` | number[] |
+`xs` | number[] |
+
+**Returns:** *[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
+
+___
+
+#### `Const` makeLine
+
+▸ **makeLine**(`x0`: number, `y0`: number, `x1`: number, `y1`: number): *[Line](#line)*
+
+Defined in src/Vertex/index.ts:233
+
+```haskell
+makeVertex :: (Float, Float, Float, Float) -> Line
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x0` | number |
+`y0` | number |
+`x1` | number |
+`y1` | number |
+
+**Returns:** *[Line](#line)*
+
+___
+
+#### `Const` makePoly
+
+▸ **makePoly**(...`coords`: [number, number, number, number]): *[Poly](#poly)*
+
+Defined in src/Vertex/index.ts:298
+
+```haskell
+makePoly :: (Float, Float, Float, Float) -> Poly
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...coords` | [number, number, number, number] |
+
+**Returns:** *[Poly](#poly)*
+
+___
+
+#### `Const` makeVertex
+
+▸ **makeVertex**(`x`: number, `y`: number): *[Vertex](#interfaces_vertex_index_vertexmd)*
+
+Defined in src/Vertex/index.ts:226
+
+```haskell
+makeVertex :: (Float, Float) -> Vertex
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x` | number |
+`y` | number |
+
+**Returns:** *[Vertex](#interfaces_vertex_index_vertexmd)*
+
+___
+
 #### `Const` ratioContainedBy
 
 ▸ **ratioContainedBy**(`p0`: [Poly](#poly)): *function*
 
-Defined in src/Vertex/index.ts:668
+Defined in src/Vertex/index.ts:671
 
 ```haskell
 ratioContainedBy :: Poly -> Reader Poly Float
@@ -3107,7 +6682,7 @@ ___
 
 ▸ **ratioContaining**(`p0`: [Poly](#poly)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:682
+Defined in src/Vertex/index.ts:687
 
 ```haskell
 ratioContaining :: Poly -> Reader Poly Float
@@ -3123,429 +6698,11 @@ Name | Type |
 
 ___
 
-#### `Const` hasColumns
-
-▸ **hasColumns**<**A**>(`a`: A): *a is WithColumns<A>*
-
-Defined in src/Vertex/index.ts:172
-
-```haskell
-hasColumns :: a -> bool
-```
-
-**Type parameters:**
-
-▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | A |
-
-**Returns:** *a is WithColumns<A>*
-
-___
-
-#### `Const` hasHeader
-
-▸ **hasHeader**<**A**>(`a`: A): *a is WithHeader<A>*
-
-Defined in src/Vertex/index.ts:207
-
-```haskell
-hasHeader :: a -> bool
-```
-
-**Type parameters:**
-
-▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | A |
-
-**Returns:** *a is WithHeader<A>*
-
-___
-
-#### `Const` hasHeaderColumn
-
-▸ **hasHeaderColumn**<**A**>(`a`: A): *a is WithHeaderColumn<A>*
-
-Defined in src/Vertex/index.ts:198
-
-```haskell
-hasHeaderColumn :: a -> bool
-```
-
-**Type parameters:**
-
-▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | A |
-
-**Returns:** *a is WithHeaderColumn<A>*
-
-___
-
-#### `Const` hasHeaderRow
-
-▸ **hasHeaderRow**<**A**>(`a`: A): *a is WithHeaderRow<A>*
-
-Defined in src/Vertex/index.ts:189
-
-```haskell
-hasHeaderRow :: a -> bool
-```
-
-**Type parameters:**
-
-▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | A |
-
-**Returns:** *a is WithHeaderRow<A>*
-
-___
-
-#### `Const` hasHeaders
-
-▸ **hasHeaders**<**A**>(`a`: A): *a is WithHeaders<A>*
-
-Defined in src/Vertex/index.ts:215
-
-```haskell
-hasHeaders :: a -> bool
-```
-
-**Type parameters:**
-
-▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | A |
-
-**Returns:** *a is WithHeaders<A>*
-
-___
-
-#### `Const` hasRows
-
-▸ **hasRows**<**A**>(`a`: A): *a is WithRows<A>*
-
-Defined in src/Vertex/index.ts:164
-
-```haskell
-hasRows :: a -> bool
-```
-
-**Type parameters:**
-
-▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | A |
-
-**Returns:** *a is WithRows<A>*
-
-___
-
-#### `Const` hasRowsOrColumns
-
-▸ **hasRowsOrColumns**<**A**>(`a`: A): *a is WithRows<A> | WithColumns<A>*
-
-Defined in src/Vertex/index.ts:180
-
-```haskell
-hasRowsOrColumns :: a -> bool
-```
-
-**Type parameters:**
-
-▪ **A**: *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | A |
-
-**Returns:** *a is WithRows<A> | WithColumns<A>*
-
-___
-
-#### `Const` intersects
-
-▸ **intersects**(`p0`: [Poly](#poly)): *(Anonymous function)*
-
-Defined in src/Vertex/index.ts:642
-
-```haskell
-intersects :: Poly -> Reader Poly Poly
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`p0` | [Poly](#poly) |
-
-**Returns:** *(Anonymous function)*
-
-___
-
-#### `Const` isBoundingBox
-
-▸ **isBoundingBox**(`a`: unknown): *a is BoundingBox*
-
-Defined in src/Vertex/index.ts:152
-
-```haskell
-isBoundingBox :: a -> bool
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | unknown |
-
-**Returns:** *a is BoundingBox*
-
-___
-
-#### `Const` isLabeledBoundingBox
-
-▸ **isLabeledBoundingBox**(`a`: unknown): *a is LabeledBoundingBox*
-
-Defined in src/Vertex/index.ts:409
-
-```haskell
-isLabeledBoundingBox :: a -> bool
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | unknown |
-
-**Returns:** *a is LabeledBoundingBox*
-
-___
-
-#### `Const` isLine
-
-▸ **isLine**(`a`: unknown): *a is Line*
-
-Defined in src/Vertex/index.ts:112
-
-```haskell
-isLine :: a -> bool
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | unknown |
-
-**Returns:** *a is Line*
-
-___
-
-#### `Const` isPoly
-
-▸ **isPoly**(`a`: unknown): *a is Poly*
-
-Defined in src/Vertex/index.ts:124
-
-```haskell
-isPoly :: a -> bool
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | unknown |
-
-**Returns:** *a is Poly*
-
-___
-
-#### `Const` isVertex
-
-▸ **isVertex**(`a`: unknown): *a is Vertex*
-
-Defined in src/Vertex/index.ts:104
-
-```haskell
-isVertex :: a -> bool
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`a` | unknown |
-
-**Returns:** *a is Vertex*
-
-___
-
-#### `Const` lengthOf
-
-▸ **lengthOf**(`__namedParameters`: [any, any]): *number*
-
-Defined in src/Vertex/index.ts:607
-
-```haskell
-lengthOf :: Line -> Float
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`__namedParameters` | [any, any] |
-
-**Returns:** *number*
-
-___
-
-#### `Const` makeBoundingBox
-
-▸ **makeBoundingBox**(`poly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-Defined in src/Vertex/index.ts:362
-
-```haskell
-makeBoundingBox :: (Poly, [Float], [Float]) -> BoundingBox
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`poly` | [Poly](#poly) |
-`ys` | number[] |
-`xs` | number[] |
-
-**Returns:** *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
-
-___
-
-#### `Const` makeLabeledBoundingBox
-
-▸ **makeLabeledBoundingBox**(`id`: string, `label`: string, `poly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
-
-Defined in src/Vertex/index.ts:417
-
-```haskell
-makeLabeledBoundingBox :: (String, String, Poly, [Float], [Float]) -> LabeledBoundingBox
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`id` | string |
-`label` | string |
-`poly` | [Poly](#poly) |
-`ys` | number[] |
-`xs` | number[] |
-
-**Returns:** *[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
-
-___
-
-#### `Const` makeLine
-
-▸ **makeLine**(`x0`: number, `y0`: number, `x1`: number, `y1`: number): *[Line](#line)*
-
-Defined in src/Vertex/index.ts:230
-
-```haskell
-makeVertex :: (Float, Float, Float, Float) -> Line
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`x0` | number |
-`y0` | number |
-`x1` | number |
-`y1` | number |
-
-**Returns:** *[Line](#line)*
-
-___
-
-#### `Const` makePoly
-
-▸ **makePoly**(...`coords`: [number, number, number, number]): *[Poly](#poly)*
-
-Defined in src/Vertex/index.ts:295
-
-```haskell
-makePoly :: (Float, Float, Float, Float) -> Poly
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`...coords` | [number, number, number, number] |
-
-**Returns:** *[Poly](#poly)*
-
-___
-
-#### `Const` makeVertex
-
-▸ **makeVertex**(`x`: number, `y`: number): *[Vertex](#interfaces_vertex_index_vertexmd)*
-
-Defined in src/Vertex/index.ts:223
-
-```haskell
-makeVertex :: (Float, Float) -> Vertex
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`x` | number |
-`y` | number |
-
-**Returns:** *[Vertex](#interfaces_vertex_index_vertexmd)*
-
-___
-
 #### `Const` sortPoly
 
 ▸ **sortPoly**(`__namedParameters`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]): *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:307
+Defined in src/Vertex/index.ts:310
 
 ```haskell
 sortPoly :: Poly -> Poly
@@ -3565,7 +6722,7 @@ ___
 
 ▸ **splitByXs**(`xs`: number[]): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:714
+Defined in src/Vertex/index.ts:735
 
 ```haskell
 splitByXs :: [number] -> Reader Poly [Poly]
@@ -3585,7 +6742,7 @@ ___
 
 ▸ **splitByYs**(`ys`: number[]): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:697
+Defined in src/Vertex/index.ts:718
 
 ```haskell
 splitByYs :: [number] -> Reader Poly [Poly]
@@ -3605,7 +6762,7 @@ ___
 
 ▸ **toPoly**(`__namedParameters`: object): *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:634
+Defined in src/Vertex/index.ts:637
 
 ```haskell
 toPoly :: Rectangle -> Poly
@@ -3630,7 +6787,7 @@ ___
 
 ▸ **toRectangle**(`__namedParameters`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]): *object*
 
-Defined in src/Vertex/index.ts:617
+Defined in src/Vertex/index.ts:620
 
 ```haskell
 toRectangle :: Poly -> Rectangle
@@ -3658,7 +6815,7 @@ ___
 
 ▸ **withHeader**(`vertex`: [Vertex](#interfaces_vertex_index_vertexmd)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:562
+Defined in src/Vertex/index.ts:565
 
 ```haskell
 withHeader :: Vertex -> ReaderEither BoundingBox (WithHeader BoundingBox) BoundingBox
@@ -3678,7 +6835,7 @@ ___
 
 ▸ **withHeaderColumn**(`x`: number): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:525
+Defined in src/Vertex/index.ts:528
 
 ```haskell
 withHeaderColumn :: Float -> ReaderEither BoundingBox BoundingBox (WithHeaderColumn BoundingBox)
@@ -3698,7 +6855,7 @@ ___
 
 ▸ **withHeaderRow**(`y`: number): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:487
+Defined in src/Vertex/index.ts:490
 
 ```haskell
 withHeaderRow :: Float -> ReaderEither BoundingBox BoundingBox (WithHeaderRow BoundingBox)
@@ -4067,2683 +7224,3 @@ getWordsFromParagraph :: Paragraph -> [Word]
 Name | Type |
 ------ | ------ |
 `paragraph` | [Paragraph](#interfaces_vision_paragraphmd) |
-
-# Interfaces
-
-
-<a name="interfaces_documentannotation_branchmd"></a>
-
-[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [Branch](#interfaces_documentannotation_branchmd)
-
-## Interface: Branch
-
-### Hierarchy
-
-* [Node](#interfaces_documentannotation_nodemd)
-
-  ↳ **Branch**
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [children](#optional-children)
-* [id](#id)
-* [label](#label)
-* [parent](#optional-parent)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
-
-Defined in src/DocumentAnnotation.ts:39
-
-___
-
-#### `Optional` children
-
-• **children**? : *Dictionary‹[Branch](#interfaces_documentannotation_branchmd) | [Leaf](#leaf)›*
-
-Defined in src/DocumentAnnotation.ts:69
-
-___
-
-####  id
-
-• **id**: *string*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
-
-Defined in src/DocumentAnnotation.ts:37
-
-___
-
-####  label
-
-• **label**: *string*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
-
-Defined in src/DocumentAnnotation.ts:38
-
-___
-
-#### `Optional` parent
-
-• **parent**? : *[Branch](#interfaces_documentannotation_branchmd)*
-
-Defined in src/DocumentAnnotation.ts:68
-
-
-<a name="interfaces_documentannotation_cellmd"></a>
-
-[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [Cell](#interfaces_documentannotation_cellmd)
-
-## Interface: Cell
-
-### Hierarchy
-
-* [Node](#interfaces_documentannotation_nodemd)
-
-  ↳ **Cell**
-
-  ↳ [TableCell](#interfaces_documentannotation_tablecellmd)
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [id](#id)
-* [label](#label)
-* [text](#text)
-* [words](#words)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
-
-Defined in src/DocumentAnnotation.ts:39
-
-___
-
-####  id
-
-• **id**: *string*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
-
-Defined in src/DocumentAnnotation.ts:37
-
-___
-
-####  label
-
-• **label**: *string*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
-
-Defined in src/DocumentAnnotation.ts:38
-
-___
-
-####  text
-
-• **text**: *string*
-
-Defined in src/DocumentAnnotation.ts:44
-
-___
-
-####  words
-
-• **words**: *[Word](#interfaces_textannotation_wordmd)[]*
-
-Defined in src/DocumentAnnotation.ts:43
-
-
-<a name="interfaces_documentannotation_documentannotationmd"></a>
-
-[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)
-
-## Interface: DocumentAnnotation
-
-### Hierarchy
-
-* **DocumentAnnotation**
-
-### Index
-
-#### Properties
-
-* [created_at](#created_at)
-* [file](#file)
-* [id](#id)
-* [treeByPage](#treebypage)
-* [updated_at](#updated_at)
-
-### Properties
-
-####  created_at
-
-• **created_at**: *string*
-
-Defined in src/DocumentAnnotation.ts:80
-
-___
-
-####  file
-
-• **file**: *string*
-
-Defined in src/DocumentAnnotation.ts:78
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/DocumentAnnotation.ts:77
-
-___
-
-####  treeByPage
-
-• **treeByPage**: *[TreeByPage](#treebypage)*
-
-Defined in src/DocumentAnnotation.ts:79
-
-___
-
-####  updated_at
-
-• **updated_at**: *string*
-
-Defined in src/DocumentAnnotation.ts:81
-
-
-<a name="interfaces_documentannotation_nodemd"></a>
-
-[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [Node](#interfaces_documentannotation_nodemd)
-
-## Interface: Node
-
-### Hierarchy
-
-* **Node**
-
-  ↳ [Cell](#interfaces_documentannotation_cellmd)
-
-  ↳ [Table](#interfaces_documentannotation_tablemd)
-
-  ↳ [Branch](#interfaces_documentannotation_branchmd)
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [id](#id)
-* [label](#label)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-Defined in src/DocumentAnnotation.ts:39
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/DocumentAnnotation.ts:37
-
-___
-
-####  label
-
-• **label**: *string*
-
-Defined in src/DocumentAnnotation.ts:38
-
-
-<a name="interfaces_documentannotation_tablemd"></a>
-
-[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [Table](#interfaces_documentannotation_tablemd)
-
-## Interface: Table
-
-### Hierarchy
-
-* [Node](#interfaces_documentannotation_nodemd)
-
-  ↳ **Table**
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [cellById](#cellbyid)
-* [columnHeaders](#columnheaders)
-* [id](#id)
-* [label](#label)
-* [mergedColumnHeader](#mergedcolumnheader)
-* [mergedRowHeader](#mergedrowheader)
-* [parent](#optional-parent)
-* [rowHeaders](#rowheaders)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
-
-Defined in src/DocumentAnnotation.ts:39
-
-___
-
-####  cellById
-
-• **cellById**: *[TableCellById](#tablecellbyid)*
-
-Defined in src/DocumentAnnotation.ts:60
-
-___
-
-####  columnHeaders
-
-• **columnHeaders**: *[Cell](#interfaces_documentannotation_cellmd)[]*
-
-Defined in src/DocumentAnnotation.ts:57
-
-___
-
-####  id
-
-• **id**: *string*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
-
-Defined in src/DocumentAnnotation.ts:37
-
-___
-
-####  label
-
-• **label**: *string*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
-
-Defined in src/DocumentAnnotation.ts:38
-
-___
-
-####  mergedColumnHeader
-
-• **mergedColumnHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
-
-Defined in src/DocumentAnnotation.ts:59
-
-___
-
-####  mergedRowHeader
-
-• **mergedRowHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
-
-Defined in src/DocumentAnnotation.ts:58
-
-___
-
-#### `Optional` parent
-
-• **parent**? : *string*
-
-Defined in src/DocumentAnnotation.ts:55
-
-___
-
-####  rowHeaders
-
-• **rowHeaders**: *[Cell](#interfaces_documentannotation_cellmd)[]*
-
-Defined in src/DocumentAnnotation.ts:56
-
-
-<a name="interfaces_documentannotation_tablecellmd"></a>
-
-[functional-types](#globalsmd) › ["DocumentAnnotation"](#modules_documentannotation_md) › [TableCell](#interfaces_documentannotation_tablecellmd)
-
-## Interface: TableCell
-
-### Hierarchy
-
-  ↳ [Cell](#interfaces_documentannotation_cellmd)
-
-  ↳ **TableCell**
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [columnHeader](#columnheader)
-* [id](#id)
-* [label](#label)
-* [rowHeader](#rowheader)
-* [text](#text)
-* [words](#words)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
-
-Defined in src/DocumentAnnotation.ts:39
-
-___
-
-####  columnHeader
-
-• **columnHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
-
-Defined in src/DocumentAnnotation.ts:49
-
-___
-
-####  id
-
-• **id**: *string*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
-
-Defined in src/DocumentAnnotation.ts:37
-
-___
-
-####  label
-
-• **label**: *string*
-
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
-
-Defined in src/DocumentAnnotation.ts:38
-
-___
-
-####  rowHeader
-
-• **rowHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
-
-Defined in src/DocumentAnnotation.ts:48
-
-___
-
-####  text
-
-• **text**: *string*
-
-*Inherited from [Cell](#interfaces_documentannotation_cellmd).[text](#text)*
-
-Defined in src/DocumentAnnotation.ts:44
-
-___
-
-####  words
-
-• **words**: *[Word](#interfaces_textannotation_wordmd)[]*
-
-*Inherited from [Cell](#interfaces_documentannotation_cellmd).[words](#words)*
-
-Defined in src/DocumentAnnotation.ts:43
-
-
-<a name="interfaces_folder_index_attributesmd"></a>
-
-[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Attributes](#interfaces_folder_index_attributesmd)
-
-## Interface: Attributes
-
-### Hierarchy
-
-* **Attributes**
-
-### Index
-
-#### Properties
-
-* [folder](#folder)
-* [id](#id)
-* [name](#name)
-* [type](#type)
-
-### Properties
-
-####  folder
-
-• **folder**: *string*
-
-Defined in src/Folder/index.ts:29
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/Folder/index.ts:28
-
-___
-
-####  name
-
-• **name**: *string*
-
-Defined in src/Folder/index.ts:30
-
-___
-
-####  type
-
-• **type**: *FT.FileType*
-
-Defined in src/Folder/index.ts:31
-
-
-<a name="interfaces_folder_index_foldermd"></a>
-
-[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Folder](#interfaces_folder_index_foldermd)
-
-## Interface: Folder
-
-### Hierarchy
-
-* **Folder**
-
-### Index
-
-#### Properties
-
-* [created_at](#created_at)
-* [id](#id)
-* [name](#name)
-* [updated_at](#updated_at)
-
-### Properties
-
-####  created_at
-
-• **created_at**: *string*
-
-Defined in src/Folder/index.ts:23
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/Folder/index.ts:21
-
-___
-
-####  name
-
-• **name**: *string*
-
-Defined in src/Folder/index.ts:22
-
-___
-
-####  updated_at
-
-• **updated_at**: *string*
-
-Defined in src/Folder/index.ts:24
-
-
-<a name="interfaces_folder_index_metadatamd"></a>
-
-[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Metadata](#interfaces_folder_index_metadatamd)
-
-## Interface: Metadata
-
-### Hierarchy
-
-* **Metadata**
-
-### Index
-
-#### Properties
-
-* [bucket](#bucket)
-* [content_type](#content_type)
-* [created_at](#created_at)
-* [generation](#generation)
-* [id](#id)
-* [kind](#kind)
-* [media_link](#media_link)
-* [name](#name)
-* [self_link](#self_link)
-* [size](#size)
-* [updated_at](#updated_at)
-
-### Properties
-
-####  bucket
-
-• **bucket**: *string*
-
-Defined in src/Folder/index.ts:40
-
-___
-
-####  content_type
-
-• **content_type**: *string*
-
-Defined in src/Folder/index.ts:42
-
-___
-
-####  created_at
-
-• **created_at**: *string*
-
-Defined in src/Folder/index.ts:44
-
-___
-
-####  generation
-
-• **generation**: *string*
-
-Defined in src/Folder/index.ts:41
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/Folder/index.ts:36
-
-___
-
-####  kind
-
-• **kind**: *string*
-
-Defined in src/Folder/index.ts:35
-
-___
-
-####  media_link
-
-• **media_link**: *string*
-
-Defined in src/Folder/index.ts:38
-
-___
-
-####  name
-
-• **name**: *string*
-
-Defined in src/Folder/index.ts:39
-
-___
-
-####  self_link
-
-• **self_link**: *string*
-
-Defined in src/Folder/index.ts:37
-
-___
-
-####  size
-
-• **size**: *string*
-
-Defined in src/Folder/index.ts:43
-
-___
-
-####  updated_at
-
-• **updated_at**: *string*
-
-Defined in src/Folder/index.ts:45
-
-
-<a name="interfaces_folder_index_referencemd"></a>
-
-[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Reference](#interfaces_folder_index_referencemd)
-
-## Interface: Reference
-
-### Hierarchy
-
-* **Reference**
-
-### Index
-
-#### Properties
-
-* [file](#file)
-
-### Properties
-
-####  file
-
-• **file**: *string*
-
-Defined in src/Folder/index.ts:49
-
-
-<a name="interfaces_label_labelmd"></a>
-
-[functional-types](#globalsmd) › ["Label"](#modules_label_md) › [Label](#interfaces_label_labelmd)
-
-## Interface: Label
-
-### Hierarchy
-
-* **Label**
-
-### Index
-
-#### Properties
-
-* [color](#color)
-* [id](#id)
-* [name](#name)
-
-### Properties
-
-####  color
-
-• **color**: *string*
-
-Defined in src/Label.ts:6
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/Label.ts:4
-
-___
-
-####  name
-
-• **name**: *string*
-
-Defined in src/Label.ts:5
-
-
-<a name="interfaces_schema_index_filematchermd"></a>
-
-[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [FileMatcher](#interfaces_schema_index_filematchermd)
-
-## Interface: FileMatcher
-
-### Hierarchy
-
-* [Matcher](#interfaces_schema_index_matchermd)
-
-  ↳ **FileMatcher**
-
-### Index
-
-#### Properties
-
-* [child](#optional-child)
-* [name](#name)
-* [regex](#regex)
-* [timestamp_capture_group](#timestamp_capture_group)
-* [type](#type)
-
-### Properties
-
-#### `Optional` child
-
-• **child**? : *[FileMatcher](#interfaces_schema_index_filematchermd)*
-
-Defined in src/Schema/index.ts:29
-
-___
-
-####  name
-
-• **name**: *string*
-
-*Inherited from [Matcher](#interfaces_schema_index_matchermd).[name](#name)*
-
-Defined in src/Schema/index.ts:24
-
-___
-
-####  regex
-
-• **regex**: *string*
-
-*Inherited from [Matcher](#interfaces_schema_index_matchermd).[regex](#regex)*
-
-Defined in src/Schema/index.ts:23
-
-___
-
-####  timestamp_capture_group
-
-• **timestamp_capture_group**: *number*
-
-*Inherited from [Matcher](#interfaces_schema_index_matchermd).[timestamp_capture_group](#timestamp_capture_group)*
-
-Defined in src/Schema/index.ts:25
-
-___
-
-####  type
-
-• **type**: *[Type](#type)*
-
-Defined in src/Schema/index.ts:30
-
-
-<a name="interfaces_schema_index_gettablemd"></a>
-
-[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Gettable](#interfaces_schema_index_gettablemd)
-
-## Interface: Gettable
-
-### Hierarchy
-
-* **Gettable**
-
-### Index
-
-#### Properties
-
-* [attributes](#attributes)
-* [file](#file)
-
-### Properties
-
-####  attributes
-
-• **attributes**: *[Matcher](#interfaces_schema_index_matchermd)[]*
-
-Defined in src/Schema/index.ts:35
-
-___
-
-####  file
-
-• **file**: *[FileMatcher](#interfaces_schema_index_filematchermd)*
-
-Defined in src/Schema/index.ts:34
-
-
-<a name="interfaces_schema_index_matchermd"></a>
-
-[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Matcher](#interfaces_schema_index_matchermd)
-
-## Interface: Matcher
-
-### Hierarchy
-
-* **Matcher**
-
-  ↳ [FileMatcher](#interfaces_schema_index_filematchermd)
-
-### Index
-
-#### Properties
-
-* [name](#name)
-* [regex](#regex)
-* [timestamp_capture_group](#timestamp_capture_group)
-
-### Properties
-
-####  name
-
-• **name**: *string*
-
-Defined in src/Schema/index.ts:24
-
-___
-
-####  regex
-
-• **regex**: *string*
-
-Defined in src/Schema/index.ts:23
-
-___
-
-####  timestamp_capture_group
-
-• **timestamp_capture_group**: *number*
-
-Defined in src/Schema/index.ts:25
-
-
-<a name="interfaces_schema_index_schemamd"></a>
-
-[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [Schema](#interfaces_schema_index_schemamd)
-
-## Interface: Schema
-
-### Hierarchy
-
-* **Schema**
-
-  ↳ [VersionedSchema](#interfaces_schema_index_versionedschemamd)
-
-### Index
-
-#### Properties
-
-* [created_at](#created_at)
-* [gettables](#gettables)
-* [id](#id)
-* [updated_at](#updated_at)
-
-### Properties
-
-####  created_at
-
-• **created_at**: *Date*
-
-Defined in src/Schema/index.ts:43
-
-___
-
-####  gettables
-
-• **gettables**: *[Gettables](#gettables)*
-
-Defined in src/Schema/index.ts:42
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/Schema/index.ts:41
-
-___
-
-####  updated_at
-
-• **updated_at**: *Date*
-
-Defined in src/Schema/index.ts:44
-
-
-<a name="interfaces_schema_index_versionedschemamd"></a>
-
-[functional-types](#globalsmd) › ["Schema/index"](#modules_schema_index_md) › [VersionedSchema](#interfaces_schema_index_versionedschemamd)
-
-## Interface: VersionedSchema
-
-### Hierarchy
-
-* [Schema](#interfaces_schema_index_schemamd)
-
-  ↳ **VersionedSchema**
-
-### Index
-
-#### Properties
-
-* [created_at](#created_at)
-* [gettables](#gettables)
-* [id](#id)
-* [schema_id](#schema_id)
-* [updated_at](#updated_at)
-
-### Properties
-
-####  created_at
-
-• **created_at**: *Date*
-
-*Inherited from [Schema](#interfaces_schema_index_schemamd).[created_at](#created_at)*
-
-Defined in src/Schema/index.ts:43
-
-___
-
-####  gettables
-
-• **gettables**: *[Gettables](#gettables)*
-
-*Inherited from [Schema](#interfaces_schema_index_schemamd).[gettables](#gettables)*
-
-Defined in src/Schema/index.ts:42
-
-___
-
-####  id
-
-• **id**: *string*
-
-*Inherited from [Schema](#interfaces_schema_index_schemamd).[id](#id)*
-
-Defined in src/Schema/index.ts:41
-
-___
-
-####  schema_id
-
-• **schema_id**: *string*
-
-Defined in src/Schema/index.ts:48
-
-___
-
-####  updated_at
-
-• **updated_at**: *Date*
-
-*Inherited from [Schema](#interfaces_schema_index_schemamd).[updated_at](#updated_at)*
-
-Defined in src/Schema/index.ts:44
-
-
-<a name="interfaces_tableannotation_tableannotationmd"></a>
-
-[functional-types](#globalsmd) › ["TableAnnotation"](#modules_tableannotation_md) › [TableAnnotation](#interfaces_tableannotation_tableannotationmd)
-
-## Interface: TableAnnotation
-
-### Hierarchy
-
-* **TableAnnotation**
-
-### Index
-
-#### Properties
-
-* [boundingBoxesByPage](#boundingboxesbypage)
-* [created_at](#created_at)
-* [file](#file)
-* [id](#id)
-* [updated_at](#updated_at)
-
-### Properties
-
-####  boundingBoxesByPage
-
-• **boundingBoxesByPage**: *[BoundingBoxesByPage](#boundingboxesbypage)*
-
-Defined in src/TableAnnotation.ts:25
-
-___
-
-####  created_at
-
-• **created_at**: *string*
-
-Defined in src/TableAnnotation.ts:26
-
-___
-
-####  file
-
-• **file**: *string*
-
-Defined in src/TableAnnotation.ts:24
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/TableAnnotation.ts:23
-
-___
-
-####  updated_at
-
-• **updated_at**: *string*
-
-Defined in src/TableAnnotation.ts:27
-
-
-<a name="interfaces_textannotation_pagemd"></a>
-
-[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Page](#interfaces_textannotation_pagemd)
-
-## Interface: Page
-
-### Hierarchy
-
-* **Page**
-
-### Index
-
-#### Properties
-
-* [paragraphsById](#paragraphsbyid)
-* [wordsById](#wordsbyid)
-
-### Properties
-
-####  paragraphsById
-
-• **paragraphsById**: *[ParagraphsById](#paragraphsbyid)*
-
-Defined in src/TextAnnotation.ts:69
-
-___
-
-####  wordsById
-
-• **wordsById**: *[WordsById](#wordsbyid)*
-
-Defined in src/TextAnnotation.ts:68
-
-
-<a name="interfaces_textannotation_paragraphmd"></a>
-
-[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Paragraph](#interfaces_textannotation_paragraphmd)
-
-## Interface: Paragraph
-
-### Hierarchy
-
-* **Paragraph**
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [confidence](#confidence)
-* [id](#id)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-Defined in src/TextAnnotation.ts:59
-
-___
-
-####  confidence
-
-• **confidence**: *number*
-
-Defined in src/TextAnnotation.ts:60
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/TextAnnotation.ts:58
-
-
-<a name="interfaces_textannotation_textannotationmd"></a>
-
-[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [TextAnnotation](#interfaces_textannotation_textannotationmd)
-
-## Interface: TextAnnotation
-
-### Hierarchy
-
-* **TextAnnotation**
-
-### Index
-
-#### Properties
-
-* [created_at](#created_at)
-* [file](#file)
-* [id](#id)
-* [pages](#pages)
-* [updated_at](#updated_at)
-
-### Properties
-
-####  created_at
-
-• **created_at**: *string*
-
-Defined in src/TextAnnotation.ts:76
-
-___
-
-####  file
-
-• **file**: *string*
-
-Defined in src/TextAnnotation.ts:74
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/TextAnnotation.ts:73
-
-___
-
-####  pages
-
-• **pages**: *[Page](#interfaces_textannotation_pagemd)[]*
-
-Defined in src/TextAnnotation.ts:75
-
-___
-
-####  updated_at
-
-• **updated_at**: *string*
-
-Defined in src/TextAnnotation.ts:77
-
-
-<a name="interfaces_textannotation_wordmd"></a>
-
-[functional-types](#globalsmd) › ["TextAnnotation"](#modules_textannotation_md) › [Word](#interfaces_textannotation_wordmd)
-
-## Interface: Word
-
-### Hierarchy
-
-* **Word**
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [breakType](#breaktype)
-* [confidence](#confidence)
-* [id](#id)
-* [paragraph](#paragraph)
-* [text](#text)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-Defined in src/TextAnnotation.ts:52
-
-___
-
-####  breakType
-
-• **breakType**: *[BreakType](#breaktype)*
-
-Defined in src/TextAnnotation.ts:51
-
-___
-
-####  confidence
-
-• **confidence**: *number*
-
-Defined in src/TextAnnotation.ts:54
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/TextAnnotation.ts:49
-
-___
-
-####  paragraph
-
-• **paragraph**: *string*
-
-Defined in src/TextAnnotation.ts:50
-
-___
-
-####  text
-
-• **text**: *string*
-
-Defined in src/TextAnnotation.ts:53
-
-
-<a name="interfaces_vertex_index_boundingboxmd"></a>
-
-[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [BoundingBox](#interfaces_vertex_index_boundingboxmd)
-
-## Interface: BoundingBox
-
-### Hierarchy
-
-* **BoundingBox**
-
-  ↳ [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [columns](#columns)
-* [rows](#rows)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-Defined in src/Vertex/index.ts:54
-
-___
-
-####  columns
-
-• **columns**: *[Line](#line)[]*
-
-Defined in src/Vertex/index.ts:56
-
-___
-
-####  rows
-
-• **rows**: *[Line](#line)[]*
-
-Defined in src/Vertex/index.ts:55
-
-
-<a name="interfaces_vertex_index_cornersmd"></a>
-
-[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [Corners](#interfaces_vertex_index_cornersmd)
-
-## Interface: Corners
-
-### Hierarchy
-
-* **Corners**
-
-### Index
-
-#### Properties
-
-* [end](#end)
-* [start](#start)
-
-### Properties
-
-####  end
-
-• **end**: *[Vertex](#interfaces_vertex_index_vertexmd)*
-
-Defined in src/Vertex/index.ts:89
-
-___
-
-####  start
-
-• **start**: *[Vertex](#interfaces_vertex_index_vertexmd)*
-
-Defined in src/Vertex/index.ts:88
-
-
-<a name="interfaces_vertex_index_labeledboundingboxmd"></a>
-
-[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)
-
-## Interface: LabeledBoundingBox
-
-### Hierarchy
-
-* [BoundingBox](#interfaces_vertex_index_boundingboxmd)
-
-  ↳ **LabeledBoundingBox**
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#boundingpoly)
-* [columns](#columns)
-* [id](#id)
-* [label](#label)
-* [rows](#rows)
-
-### Properties
-
-####  boundingPoly
-
-• **boundingPoly**: *[Poly](#poly)*
-
-*Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[boundingPoly](#boundingpoly)*
-
-Defined in src/Vertex/index.ts:54
-
-___
-
-####  columns
-
-• **columns**: *[Line](#line)[]*
-
-*Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[columns](#columns)*
-
-Defined in src/Vertex/index.ts:56
-
-___
-
-####  id
-
-• **id**: *string*
-
-Defined in src/Vertex/index.ts:83
-
-___
-
-####  label
-
-• **label**: *string*
-
-Defined in src/Vertex/index.ts:84
-
-___
-
-####  rows
-
-• **rows**: *[Line](#line)[]*
-
-*Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[rows](#rows)*
-
-Defined in src/Vertex/index.ts:55
-
-
-<a name="interfaces_vertex_index_rectanglemd"></a>
-
-[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [Rectangle](#interfaces_vertex_index_rectanglemd)
-
-## Interface: Rectangle
-
-### Hierarchy
-
-* **Rectangle**
-
-### Index
-
-#### Properties
-
-* [x0](#x0)
-* [x1](#x1)
-* [y0](#y0)
-* [y1](#y1)
-
-### Properties
-
-####  x0
-
-• **x0**: *number*
-
-Defined in src/Vertex/index.ts:93
-
-___
-
-####  x1
-
-• **x1**: *number*
-
-Defined in src/Vertex/index.ts:95
-
-___
-
-####  y0
-
-• **y0**: *number*
-
-Defined in src/Vertex/index.ts:94
-
-___
-
-####  y1
-
-• **y1**: *number*
-
-Defined in src/Vertex/index.ts:96
-
-
-<a name="interfaces_vertex_index_vertexmd"></a>
-
-[functional-types](#globalsmd) › ["Vertex/index"](#modules_vertex_index_md) › [Vertex](#interfaces_vertex_index_vertexmd)
-
-## Interface: Vertex
-
-### Hierarchy
-
-* **Vertex**
-
-### Index
-
-#### Properties
-
-* [x](#x)
-* [y](#y)
-
-### Properties
-
-####  x
-
-• **x**: *number*
-
-Defined in src/Vertex/index.ts:42
-
-___
-
-####  y
-
-• **y**: *number*
-
-Defined in src/Vertex/index.ts:43
-
-
-<a name="interfaces_vision_annotateimagerequestmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AnnotateImageRequest](#interfaces_vision_annotateimagerequestmd)
-
-## Interface: AnnotateImageRequest
-
-### Hierarchy
-
-* **AnnotateImageRequest**
-
-### Index
-
-#### Properties
-
-* [features](#optional-features)
-* [image](#image)
-* [imageContext](#optional-imagecontext)
-
-### Properties
-
-#### `Optional` features
-
-• **features**? : *[Feature](#interfaces_vision_featuremd)[]*
-
-Defined in src/Vision.ts:48
-
-___
-
-####  image
-
-• **image**: *[Image](#interfaces_vision_imagemd)*
-
-Defined in src/Vision.ts:47
-
-___
-
-#### `Optional` imageContext
-
-• **imageContext**? : *[ImageContext](#interfaces_vision_imagecontextmd)*
-
-Defined in src/Vision.ts:49
-
-
-<a name="interfaces_vision_annotateimageresponsemd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)
-
-## Interface: AnnotateImageResponse
-
-### Hierarchy
-
-* **AnnotateImageResponse**
-
-### Index
-
-#### Properties
-
-* [fullTextAnnotation](#optional-fulltextannotation)
-* [labelAnnotations](#optional-labelannotations)
-* [textAnnotations](#optional-textannotations)
-
-### Properties
-
-#### `Optional` fullTextAnnotation
-
-• **fullTextAnnotation**? : *[TextAnnotation](#interfaces_vision_textannotationmd)*
-
-Defined in src/Vision.ts:63
-
-___
-
-#### `Optional` labelAnnotations
-
-• **labelAnnotations**? : *[EntityAnnotation](#interfaces_vision_entityannotationmd)[]*
-
-Defined in src/Vision.ts:54
-
-___
-
-#### `Optional` textAnnotations
-
-• **textAnnotations**? : *[EntityAnnotation](#interfaces_vision_entityannotationmd)[]*
-
-Defined in src/Vision.ts:57
-
-
-<a name="interfaces_vision_asyncannotatefilerequestmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)
-
-## Interface: AsyncAnnotateFileRequest
-
-### Hierarchy
-
-* **AsyncAnnotateFileRequest**
-
-### Index
-
-#### Properties
-
-* [features](#features)
-* [imageContext](#optional-imagecontext)
-* [inputConfig](#inputconfig)
-* [outputConfig](#outputconfig)
-* [responses](#optional-responses)
-
-### Properties
-
-####  features
-
-• **features**: *[Feature](#interfaces_vision_featuremd)[]*
-
-Defined in src/Vision.ts:16
-
-___
-
-#### `Optional` imageContext
-
-• **imageContext**? : *[ImageContext](#interfaces_vision_imagecontextmd)*
-
-Defined in src/Vision.ts:17
-
-___
-
-####  inputConfig
-
-• **inputConfig**: *[InputConfig](#interfaces_vision_inputconfigmd)*
-
-Defined in src/Vision.ts:15
-
-___
-
-####  outputConfig
-
-• **outputConfig**: *[OutputConfig](#interfaces_vision_outputconfigmd)*
-
-Defined in src/Vision.ts:18
-
-___
-
-#### `Optional` responses
-
-• **responses**? : *[AnnotateImageResponse](#interfaces_vision_annotateimageresponsemd)[]*
-
-Defined in src/Vision.ts:19
-
-
-<a name="interfaces_vision_blockmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Block](#interfaces_vision_blockmd)
-
-## Interface: Block
-
-### Hierarchy
-
-* **Block**
-
-### Index
-
-#### Properties
-
-* [blockType](#blocktype)
-* [boundingBox](#boundingbox)
-* [confidence](#optional-confidence)
-* [paragraphs](#paragraphs)
-* [property](#optional-property)
-
-### Properties
-
-####  blockType
-
-• **blockType**: *[BlockType](#blocktype)*
-
-Defined in src/Vision.ts:152
-
-___
-
-####  boundingBox
-
-• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
-
-Defined in src/Vision.ts:150
-
-___
-
-#### `Optional` confidence
-
-• **confidence**? : *number*
-
-Defined in src/Vision.ts:153
-
-___
-
-####  paragraphs
-
-• **paragraphs**: *[Paragraph](#interfaces_vision_paragraphmd)[]*
-
-Defined in src/Vision.ts:151
-
-___
-
-#### `Optional` property
-
-• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
-
-Defined in src/Vision.ts:139
-
-
-<a name="interfaces_vision_boundingpolymd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [BoundingPoly](#interfaces_vision_boundingpolymd)
-
-## Interface: BoundingPoly
-
-### Hierarchy
-
-* **BoundingPoly**
-
-### Index
-
-#### Properties
-
-* [normalizedVertices](#optional-normalizedvertices)
-* [vertices](#optional-vertices)
-
-### Properties
-
-#### `Optional` normalizedVertices
-
-• **normalizedVertices**? : *[NormalizedVertex](#interfaces_vision_normalizedvertexmd)[]*
-
-Defined in src/Vision.ts:212
-
-___
-
-#### `Optional` vertices
-
-• **vertices**? : *[Vertex](#interfaces_vision_vertexmd)[]*
-
-Defined in src/Vision.ts:211
-
-
-<a name="interfaces_vision_detectedbreakmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [DetectedBreak](#interfaces_vision_detectedbreakmd)
-
-## Interface: DetectedBreak
-
-### Hierarchy
-
-* **DetectedBreak**
-
-### Index
-
-#### Properties
-
-* [isPrefix](#optional-isprefix)
-* [type](#type)
-
-### Properties
-
-#### `Optional` isPrefix
-
-• **isPrefix**? : *boolean*
-
-Defined in src/Vision.ts:199
-
-___
-
-####  type
-
-• **type**: *[BreakType](#breaktype)*
-
-Defined in src/Vision.ts:196
-
-
-<a name="interfaces_vision_detectedlanguagemd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [DetectedLanguage](#interfaces_vision_detectedlanguagemd)
-
-## Interface: DetectedLanguage
-
-### Hierarchy
-
-* **DetectedLanguage**
-
-### Index
-
-#### Properties
-
-* [confidence](#optional-confidence)
-* [languageCode](#languagecode)
-
-### Properties
-
-#### `Optional` confidence
-
-• **confidence**? : *number*
-
-Defined in src/Vision.ts:192
-
-___
-
-####  languageCode
-
-• **languageCode**: *string*
-
-Defined in src/Vision.ts:191
-
-
-<a name="interfaces_vision_entityannotationmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [EntityAnnotation](#interfaces_vision_entityannotationmd)
-
-## Interface: EntityAnnotation
-
-### Hierarchy
-
-* **EntityAnnotation**
-
-### Index
-
-#### Properties
-
-* [boundingPoly](#optional-boundingpoly)
-* [confidence](#confidence)
-* [description](#description)
-* [locale](#locale)
-* [locations](#locations)
-* [mid](#mid)
-* [properties](#properties)
-* [score](#score)
-* [topicality](#topicality)
-
-### Properties
-
-#### `Optional` boundingPoly
-
-• **boundingPoly**? : *[BoundingPoly](#interfaces_vision_boundingpolymd)*
-
-Defined in src/Vision.ts:99
-
-___
-
-####  confidence
-
-• **confidence**: *number*
-
-Defined in src/Vision.ts:97
-
-___
-
-####  description
-
-• **description**: *string*
-
-Defined in src/Vision.ts:95
-
-___
-
-####  locale
-
-• **locale**: *string*
-
-Defined in src/Vision.ts:94
-
-___
-
-####  locations
-
-• **locations**: *[LocationInfo](#interfaces_vision_locationinfomd)[]*
-
-Defined in src/Vision.ts:100
-
-___
-
-####  mid
-
-• **mid**: *string*
-
-Defined in src/Vision.ts:93
-
-___
-
-####  properties
-
-• **properties**: *[Property](#interfaces_vision_propertymd)[]*
-
-Defined in src/Vision.ts:101
-
-___
-
-####  score
-
-• **score**: *number*
-
-Defined in src/Vision.ts:96
-
-___
-
-####  topicality
-
-• **topicality**: *number*
-
-Defined in src/Vision.ts:98
-
-
-<a name="interfaces_vision_featuremd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Feature](#interfaces_vision_featuremd)
-
-## Interface: Feature
-
-### Hierarchy
-
-* **Feature**
-
-### Index
-
-#### Properties
-
-* [maxResult](#optional-maxresult)
-* [model](#optional-model)
-* [type](#type)
-
-### Properties
-
-#### `Optional` maxResult
-
-• **maxResult**? : *number*
-
-Defined in src/Vision.ts:78
-
-___
-
-#### `Optional` model
-
-• **model**? : *"builtin/stable" | "builtin/latest"*
-
-Defined in src/Vision.ts:79
-
-___
-
-####  type
-
-• **type**: *[Type](#type)*
-
-Defined in src/Vision.ts:77
-
-
-<a name="interfaces_vision_gcsdestinationmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [GcsDestination](#interfaces_vision_gcsdestinationmd)
-
-## Interface: GcsDestination
-
-### Hierarchy
-
-* **GcsDestination**
-
-### Index
-
-#### Properties
-
-* [uri](#uri)
-
-### Properties
-
-####  uri
-
-• **uri**: *string*
-
-Defined in src/Vision.ts:43
-
-
-<a name="interfaces_vision_gcssourcemd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [GcsSource](#interfaces_vision_gcssourcemd)
-
-## Interface: GcsSource
-
-### Hierarchy
-
-* **GcsSource**
-
-### Index
-
-#### Properties
-
-* [uri](#uri)
-
-### Properties
-
-####  uri
-
-• **uri**: *string*
-
-Defined in src/Vision.ts:29
-
-
-<a name="interfaces_vision_imagemd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Image](#interfaces_vision_imagemd)
-
-## Interface: Image
-
-### Hierarchy
-
-* **Image**
-
-### Index
-
-#### Properties
-
-* [content](#optional-content)
-* [source](#optional-source)
-
-### Properties
-
-#### `Optional` content
-
-• **content**? : *Buffer*
-
-Defined in src/Vision.ts:67
-
-___
-
-#### `Optional` source
-
-• **source**? : *[ImageSource](#interfaces_vision_imagesourcemd)*
-
-Defined in src/Vision.ts:68
-
-
-<a name="interfaces_vision_imagecontextmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [ImageContext](#interfaces_vision_imagecontextmd)
-
-## Interface: ImageContext
-
-### Hierarchy
-
-* **ImageContext**
-
-### Index
-
-#### Properties
-
-* [cropHintsParams](#crophintsparams)
-* [languageHints](#languagehints)
-* [latLongRect](#latlongrect)
-* [productSearchParams](#productsearchparams)
-* [webDetectionParams](#webdetectionparams)
-
-### Properties
-
-####  cropHintsParams
-
-• **cropHintsParams**: *unknown*
-
-Defined in src/Vision.ts:87
-
-___
-
-####  languageHints
-
-• **languageHints**: *string[]*
-
-Defined in src/Vision.ts:86
-
-___
-
-####  latLongRect
-
-• **latLongRect**: *unknown*
-
-Defined in src/Vision.ts:85
-
-___
-
-####  productSearchParams
-
-• **productSearchParams**: *unknown*
-
-Defined in src/Vision.ts:88
-
-___
-
-####  webDetectionParams
-
-• **webDetectionParams**: *unknown*
-
-Defined in src/Vision.ts:89
-
-
-<a name="interfaces_vision_imagesourcemd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [ImageSource](#interfaces_vision_imagesourcemd)
-
-## Interface: ImageSource
-
-### Hierarchy
-
-* **ImageSource**
-
-### Index
-
-#### Properties
-
-* [gcsImageUri](#optional-gcsimageuri)
-* [imageUri](#optional-imageuri)
-
-### Properties
-
-#### `Optional` gcsImageUri
-
-• **gcsImageUri**? : *string*
-
-Defined in src/Vision.ts:72
-
-___
-
-#### `Optional` imageUri
-
-• **imageUri**? : *string*
-
-Defined in src/Vision.ts:73
-
-
-<a name="interfaces_vision_inputconfigmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [InputConfig](#interfaces_vision_inputconfigmd)
-
-## Interface: InputConfig
-
-### Hierarchy
-
-* **InputConfig**
-
-### Index
-
-#### Properties
-
-* [content](#optional-content)
-* [gcsSource](#gcssource)
-* [mimeType](#mimetype)
-
-### Properties
-
-#### `Optional` content
-
-• **content**? : *Buffer*
-
-Defined in src/Vision.ts:24
-
-___
-
-####  gcsSource
-
-• **gcsSource**: *[GcsSource](#interfaces_vision_gcssourcemd)*
-
-Defined in src/Vision.ts:23
-
-___
-
-####  mimeType
-
-• **mimeType**: *string*
-
-Defined in src/Vision.ts:25
-
-
-<a name="interfaces_vision_latlngmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [LatLng](#interfaces_vision_latlngmd)
-
-## Interface: LatLng
-
-### Hierarchy
-
-* **LatLng**
-
-### Index
-
-#### Properties
-
-* [latitude](#latitude)
-* [longitude](#longitude)
-
-### Properties
-
-####  latitude
-
-• **latitude**: *number*
-
-Defined in src/Vision.ts:250
-
-___
-
-####  longitude
-
-• **longitude**: *number*
-
-Defined in src/Vision.ts:252
-
-
-<a name="interfaces_vision_locationinfomd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [LocationInfo](#interfaces_vision_locationinfomd)
-
-## Interface: LocationInfo
-
-### Hierarchy
-
-* **LocationInfo**
-
-### Index
-
-#### Properties
-
-* [latLng](#latlng)
-
-### Properties
-
-####  latLng
-
-• **latLng**: *[LatLng](#interfaces_vision_latlngmd)*
-
-Defined in src/Vision.ts:216
-
-
-<a name="interfaces_vision_normalizedvertexmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [NormalizedVertex](#interfaces_vision_normalizedvertexmd)
-
-## Interface: NormalizedVertex
-
-### Hierarchy
-
-* [Vertex](#interfaces_vision_vertexmd)
-
-  ↳ **NormalizedVertex**
-
-### Index
-
-#### Properties
-
-* [x](#x)
-* [y](#y)
-
-### Properties
-
-####  x
-
-• **x**: *number*
-
-*Overrides [Vertex](#interfaces_vision_vertexmd).[x](#x)*
-
-Defined in src/Vision.ts:239
-
-___
-
-####  y
-
-• **y**: *number*
-
-*Overrides [Vertex](#interfaces_vision_vertexmd).[y](#y)*
-
-Defined in src/Vision.ts:240
-
-
-<a name="interfaces_vision_outputconfigmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [OutputConfig](#interfaces_vision_outputconfigmd)
-
-## Interface: OutputConfig
-
-### Hierarchy
-
-* **OutputConfig**
-
-### Index
-
-#### Properties
-
-* [batchSize](#optional-batchsize)
-* [gcsDestination](#gcsdestination)
-
-### Properties
-
-#### `Optional` batchSize
-
-• **batchSize**? : *number*
-
-Defined in src/Vision.ts:38
-
-___
-
-####  gcsDestination
-
-• **gcsDestination**: *[GcsDestination](#interfaces_vision_gcsdestinationmd)*
-
-Defined in src/Vision.ts:39
-
-
-<a name="interfaces_vision_pagemd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Page](#interfaces_vision_pagemd)
-
-## Interface: Page
-
-### Hierarchy
-
-* **Page**
-
-### Index
-
-#### Properties
-
-* [blocks](#blocks)
-* [confidence](#optional-confidence)
-* [height](#height)
-* [property](#property)
-* [width](#width)
-
-### Properties
-
-####  blocks
-
-• **blocks**: *[Block](#interfaces_vision_blockmd)[]*
-
-Defined in src/Vision.ts:127
-
-___
-
-#### `Optional` confidence
-
-• **confidence**? : *number*
-
-Defined in src/Vision.ts:130
-
-___
-
-####  height
-
-• **height**: *number*
-
-Defined in src/Vision.ts:125
-
-___
-
-####  property
-
-• **property**: *[TextProperty](#interfaces_vision_textpropertymd)*
-
-Defined in src/Vision.ts:118
-
-___
-
-####  width
-
-• **width**: *number*
-
-Defined in src/Vision.ts:124
-
-
-<a name="interfaces_vision_paragraphmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Paragraph](#interfaces_vision_paragraphmd)
-
-## Interface: Paragraph
-
-### Hierarchy
-
-* **Paragraph**
-
-### Index
-
-#### Properties
-
-* [boundingBox](#boundingbox)
-* [confidence](#confidence)
-* [property](#optional-property)
-* [words](#words)
-
-### Properties
-
-####  boundingBox
-
-• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
-
-Defined in src/Vision.ts:158
-
-___
-
-####  confidence
-
-• **confidence**: *number*
-
-Defined in src/Vision.ts:160
-
-___
-
-#### `Optional` property
-
-• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
-
-Defined in src/Vision.ts:157
-
-___
-
-####  words
-
-• **words**: *[Word](#interfaces_vision_wordmd)[]*
-
-Defined in src/Vision.ts:159
-
-
-<a name="interfaces_vision_propertymd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Property](#interfaces_vision_propertymd)
-
-## Interface: Property
-
-### Hierarchy
-
-* **Property**
-
-### Index
-
-#### Properties
-
-* [name](#name)
-* [uint64Value](#uint64value)
-* [value](#value)
-
-### Properties
-
-####  name
-
-• **name**: *string*
-
-Defined in src/Vision.ts:220
-
-___
-
-####  uint64Value
-
-• **uint64Value**: *number*
-
-Defined in src/Vision.ts:222
-
-___
-
-####  value
-
-• **value**: *string*
-
-Defined in src/Vision.ts:221
-
-
-<a name="interfaces_vision_textannotationmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextAnnotation](#interfaces_vision_textannotationmd)
-
-## Interface: TextAnnotation
-
-### Hierarchy
-
-* **TextAnnotation**
-
-### Index
-
-#### Properties
-
-* [pages](#pages)
-* [text](#text)
-
-### Properties
-
-####  pages
-
-• **pages**: *[Page](#interfaces_vision_pagemd)[]*
-
-Defined in src/Vision.ts:110
-
-___
-
-####  text
-
-• **text**: *string*
-
-Defined in src/Vision.ts:113
-
-
-<a name="interfaces_vision_textpropertymd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextProperty](#interfaces_vision_textpropertymd)
-
-## Interface: TextProperty
-
-### Hierarchy
-
-* **TextProperty**
-
-### Index
-
-#### Properties
-
-* [detectedBreak](#optional-detectedbreak)
-* [detectedLanguages](#detectedlanguages)
-
-### Properties
-
-#### `Optional` detectedBreak
-
-• **detectedBreak**? : *[DetectedBreak](#interfaces_vision_detectedbreakmd)*
-
-Defined in src/Vision.ts:135
-
-___
-
-####  detectedLanguages
-
-• **detectedLanguages**: *[DetectedLanguage](#interfaces_vision_detectedlanguagemd)[]*
-
-Defined in src/Vision.ts:134
-
-
-<a name="interfaces_vision_textsymbolmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [TextSymbol](#interfaces_vision_textsymbolmd)
-
-## Interface: TextSymbol
-
-### Hierarchy
-
-* **TextSymbol**
-
-### Index
-
-#### Properties
-
-* [boundingBox](#optional-boundingbox)
-* [confidence](#confidence)
-* [property](#property)
-* [text](#text)
-
-### Properties
-
-#### `Optional` boundingBox
-
-• **boundingBox**? : *[BoundingPoly](#interfaces_vision_boundingpolymd)*
-
-Defined in src/Vision.ts:181
-
-___
-
-####  confidence
-
-• **confidence**: *number*
-
-Defined in src/Vision.ts:183
-
-___
-
-####  property
-
-• **property**: *[TextProperty](#interfaces_vision_textpropertymd)*
-
-Defined in src/Vision.ts:180
-
-___
-
-####  text
-
-• **text**: *string*
-
-Defined in src/Vision.ts:182
-
-
-<a name="interfaces_vision_vertexmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Vertex](#interfaces_vision_vertexmd)
-
-## Interface: Vertex
-
-### Hierarchy
-
-* **Vertex**
-
-  ↳ [NormalizedVertex](#interfaces_vision_normalizedvertexmd)
-
-### Index
-
-#### Properties
-
-* [x](#x)
-* [y](#y)
-
-### Properties
-
-####  x
-
-• **x**: *number*
-
-Defined in src/Vision.ts:230
-
-___
-
-####  y
-
-• **y**: *number*
-
-Defined in src/Vision.ts:231
-
-
-<a name="interfaces_vision_wordmd"></a>
-
-[functional-types](#globalsmd) › ["Vision"](#modules_vision_md) › [Word](#interfaces_vision_wordmd)
-
-## Interface: Word
-
-### Hierarchy
-
-* **Word**
-
-### Index
-
-#### Properties
-
-* [boundingBox](#boundingbox)
-* [confidence](#confidence)
-* [property](#optional-property)
-* [symbols](#symbols)
-
-### Properties
-
-####  boundingBox
-
-• **boundingBox**: *[BoundingPoly](#interfaces_vision_boundingpolymd)*
-
-Defined in src/Vision.ts:174
-
-___
-
-####  confidence
-
-• **confidence**: *number*
-
-Defined in src/Vision.ts:176
-
-___
-
-#### `Optional` property
-
-• **property**? : *[TextProperty](#interfaces_vision_textpropertymd)*
-
-Defined in src/Vision.ts:173
-
-___
-
-####  symbols
-
-• **symbols**: *[TextSymbol](#interfaces_vision_textsymbolmd)[]*
-
-Defined in src/Vision.ts:175
