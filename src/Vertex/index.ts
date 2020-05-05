@@ -30,6 +30,7 @@ import {
   sort,
   subtract,
   uniq,
+  lte,
 } from 'ramda';
 import * as R from 'fp-ts/lib/Reader';
 import * as RE from 'fp-ts/lib/ReaderEither';
@@ -170,6 +171,15 @@ export const hasRows = <A extends BoundingBox>(a: A): a is WithRows<A> =>
  */
 export const hasColumns = <A extends BoundingBox>(a: A): a is WithColumns<A> =>
   propSatisfies(isNonEmptyLineArray, 'columns')(a);
+
+/**
+ * ```haskell
+ * hasRowsOrColumns :: a -> bool
+ * ```
+ */
+export const hasRowsOrColumns = <A extends BoundingBox>(
+  a: A
+): a is WithRows<A> | WithColumns<A> => anyPass([hasRows, hasColumns])(a);
 
 /**
  * ```haskell
@@ -672,3 +682,43 @@ export const containedBy: (poly: Poly) => R.Reader<Poly, number> = (p0: Poly) =>
 export const contains: (poly: Poly) => R.Reader<Poly, number> = (p0: Poly) => (
   p1: Poly
 ): number => containedBy(p1)(p0);
+
+// isContainedBy :: Poly -> Reader Poly bool
+export const isContainedBy: (poly: Poly) => R.Reader<Poly, boolean> = pipe(
+  containedBy,
+  R.map(lte(0.9))
+);
+
+/**
+ * ```haskell
+ * splitByYs :: [number] -> Reader Poly [Poly]
+ * ```
+ */
+export const splitByYs: (ys: number[]) => R.Reader<Poly, Poly[]> = (ys) => (
+  poly
+): Poly[] => {
+  const { x0, y0, x1, y1 } = toRectangle(poly);
+  return pipe(
+    (ys: number[]) => [y0, ...ys, y1],
+    sort(subtract),
+    aperture(2),
+    map(([y0, y1]) => makePoly(x0, y0, x1, y1))
+  )(ys);
+};
+
+/**
+ * ```haskell
+ * splitByXs :: [number] -> Reader Poly [Poly]
+ * ```
+ */
+export const splitByXs: (xs: number[]) => R.Reader<Poly, Poly[]> = (xs) => (
+  poly
+): Poly[] => {
+  const { x0, y0, x1, y1 } = toRectangle(poly);
+  return pipe(
+    (xs: number[]) => [x0, ...xs, x1],
+    sort(subtract),
+    aperture(2),
+    map(([x0, x1]) => makePoly(x0, y0, x1, y1))
+  )(xs);
+};

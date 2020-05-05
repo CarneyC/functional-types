@@ -3,6 +3,7 @@ import * as A from 'fp-ts/lib/Array';
 import * as IO from 'fp-ts/lib/IO';
 import * as O from 'fp-ts/lib/Option';
 import {
+  __,
   all,
   allPass,
   applySpec,
@@ -280,6 +281,7 @@ export const fromAnnotateImageResponse: (
   map(fromVisionPage),
   A.array.sequence(IO.io)
 );
+
 /**
  * ```haskell
  * fromAnnotateImageRequest :: AsyncAnnotateFileRequest -> IO [Page]
@@ -301,3 +303,33 @@ export const fromAnnotateImageRequest: (
     updated_at: timestamp,
   };
 };
+
+const breakTypeMappings: Record<BreakType, string> = {
+  UNKNOWN: '',
+  SPACE: ' ',
+  SURE_SPACE: ' ',
+  EOL_SURE_SPACE: '\n',
+  HYPHEN: '-',
+  LINE_BREAK: '\n',
+};
+
+/**
+ * ```haskell
+ * getStringFromBreakType :: BreakType -> String
+ * ```
+ */
+export const getStringFromBreakType: (breakType: BreakType) => string = prop(
+  __,
+  breakTypeMappings
+);
+
+/**
+ * ```haskell
+ * getTextFromWords :: [Word] -> String
+ * ```
+ */
+export const getTextFromWords: (words: Word[]) => string = reduce(
+  (acc: string, word: Word) =>
+    acc + word.text + getStringFromBreakType(word.breakType),
+  ''
+);
