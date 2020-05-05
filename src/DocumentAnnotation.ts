@@ -1,26 +1,32 @@
 import { getTextFromWords, Page, Word, WordsById } from './TextAnnotation';
 import * as E from 'fp-ts/lib/Either';
 import * as RIO from './fp-ts/ReaderIO';
+import * as O from 'fp-ts/lib/Option';
 import {
   addIndex,
+  anyPass,
   assoc,
   Dictionary,
   filter,
   head,
   identity,
+  lte,
   map,
   pipe,
   prop,
   reduce,
+  reject,
   unnest,
   values,
 } from 'ramda';
 import {
+  containedBy,
   getXs,
   getYs,
   hasHeaderColumn,
   hasHeaderRow,
   hasRowsOrColumns,
+  intersects,
   isContainedBy,
   LabeledBoundingBox,
   Poly,
@@ -55,6 +61,7 @@ export interface Table extends Node {
   parent?: string;
   rowHeaders: Cell[];
   columnHeaders: Cell[];
+  intersectHeader: Cell;
   mergedRowHeader: Cell;
   mergedColumnHeader: Cell;
   cellById: TableCellById;
@@ -180,16 +187,29 @@ export const makeTable: (
     ? boundingBox.headerColumn
     : head(columns);
 
+  const intersectHeader = pipe(
+    intersects(headerRow),
+    O.getOrElse(() =>
+      hasHeaderRow(boundingBox) || !hasHeaderColumn(boundingBox)
+        ? headerRow
+        : headerColumn
+    ),
+    label,
+    makeCell
+  )(headerColumn)(page)();
+
   const mergedRowHeader: Cell = pipe(label, makeCell)(headerColumn)(page)();
   const mergedColumnHeader: Cell = pipe(label, makeCell)(headerRow)(page)();
 
   const rowHeaders: Cell[] = pipe(
     splitByYs(ys),
+    reject(isContainedBy(headerRow)),
     map(pipe(label, makeCell)),
     sequenceReaderIO
   )(headerColumn)(page)();
   const columnHeaders: Cell[] = pipe(
     splitByXs(xs),
+    reject(isContainedBy(headerColumn)),
     map(pipe(label, makeCell)),
     sequenceReaderIO
   )(headerRow)(page)();
@@ -199,6 +219,12 @@ export const makeTable: (
     columnHeaders[column];
 
   const cellById: TableCellById = pipe(
+    reject(
+      anyPass([
+        pipe(containedBy(headerColumn), lte(0.99)),
+        pipe(containedBy(headerRow), lte(0.99)),
+      ])
+    ),
     mapIndexed((poly: Poly, row: number): RIO.ReaderIO<Page, TableCell>[] =>
       pipe(
         splitByXs(xs),
@@ -226,6 +252,7 @@ export const makeTable: (
     columnHeaders,
     mergedRowHeader,
     mergedColumnHeader,
+    intersectHeader,
     cellById,
   })(boundingBox)();
 };
