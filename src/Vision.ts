@@ -102,7 +102,7 @@ export interface EntityAnnotation {
 }
 
 /*
- * TextAnnotation contains a structured representation of OCR extracted text.
+ * TextAnnotation ratioContaining a structured representation of OCR extracted text.
  * The hierarchy of an OCR extracted text structure is like this:
  * TextAnnotation -> Page -> Block -> Paragraph -> Word -> TextSymbol
  */

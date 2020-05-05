@@ -31,6 +31,9 @@ import {
   subtract,
   uniq,
   lte,
+  reduce,
+  reject,
+  propEq,
 } from 'ramda';
 import * as R from 'fp-ts/lib/Reader';
 import * as RE from 'fp-ts/lib/ReaderEither';
@@ -662,10 +665,12 @@ export const intersects: (poly: Poly) => R.Reader<Poly, O.Option<Poly>> = (
 
 /**
  * ```haskell
- * containedBy :: Poly -> Reader Poly Float
+ * ratioContainedBy :: Poly -> Reader Poly Float
  * ```
  */
-export const containedBy: (poly: Poly) => R.Reader<Poly, number> = (p0: Poly) =>
+export const ratioContainedBy: (poly: Poly) => R.Reader<Poly, number> = (
+  p0: Poly
+) =>
   converge(divide, [
     pipe(
       intersects(p0),
@@ -676,18 +681,34 @@ export const containedBy: (poly: Poly) => R.Reader<Poly, number> = (p0: Poly) =>
 
 /**
  * ```haskell
- * contains :: Poly -> Reader Poly Float
+ * ratioContaining :: Poly -> Reader Poly Float
  * ```
  */
-export const contains: (poly: Poly) => R.Reader<Poly, number> = (p0: Poly) => (
-  p1: Poly
-): number => containedBy(p1)(p0);
+export const ratioContaining: (poly: Poly) => R.Reader<Poly, number> = (
+  p0: Poly
+) => (p1: Poly): number => ratioContainedBy(p1)(p0);
 
-// isContainedBy :: Poly -> Reader Poly bool
-export const isContainedBy: (poly: Poly) => R.Reader<Poly, boolean> = pipe(
-  containedBy,
-  R.map(lte(0.9))
-);
+/**
+ * ```haskell
+ * containedBy :: Poly -> Reader Poly bool
+ * ```
+ */
+export const containedBy: (
+  poly: Poly,
+  threshold?: number
+) => R.Reader<Poly, boolean> = (poly, threshold = 0.9) =>
+  pipe(ratioContainedBy, R.map(lte(threshold)))(poly);
+
+/**
+ * ```haskell
+ * contains :: Poly -> Reader Poly bool
+ * ```
+ */
+export const contains: (
+  poly: Poly,
+  threshold?: number
+) => R.Reader<Poly, boolean> = (poly, threshold = 0.9) =>
+  pipe(ratioContaining, R.map(lte(threshold)))(poly);
 
 /**
  * ```haskell
@@ -722,3 +743,24 @@ export const splitByXs: (xs: number[]) => R.Reader<Poly, Poly[]> = (xs) => (
     map(([x0, x1]) => makePoly(x0, y0, x1, y1))
   )(xs);
 };
+
+/**
+ * ```haskell
+ * getChildlessBoundingBoxes :: [BoundingBox] -> [BoundingBox]
+ * ```
+ */
+export const getChildlessBoundingBoxes: (
+  boundingBoxes: LabeledBoundingBox[]
+) => LabeledBoundingBox[] = (boundingBoxes: LabeledBoundingBox[]) =>
+  reduce(
+    (acc, boundingBox) =>
+      reject(
+        allPass([
+          pipe(propEq('id', boundingBox.id), not),
+          propSatisfies(contains(boundingBox.boundingPoly), 'boundingPoly'),
+        ]),
+        acc
+      ),
+    clone(boundingBoxes),
+    boundingBoxes
+  );

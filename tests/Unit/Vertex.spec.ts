@@ -3,7 +3,7 @@ import fc from 'fast-check';
 import * as Arb from '../../src/Vertex/Arbitraries';
 import {
   BoundingBox,
-  contains,
+  ratioContaining,
   makePoly,
   Poly,
   sortPoly,
@@ -118,11 +118,11 @@ describe('Vertex', function () {
     });
   });
 
-  describe('#contains()', function () {
+  describe('#ratioContaining()', function () {
     it('should return 0 if there are not overlaps between two Poly', function () {
       fc.assert(
         fc.property(Arb.separates(), ([p0, p1]) => {
-          const actualArea = contains(p0)(p1);
+          const actualArea = ratioContaining(p0)(p1);
           expect(actualArea).to.be.equal(0);
         }),
         {
@@ -134,7 +134,7 @@ describe('Vertex', function () {
     it('should return 1 if given two identical polygons', function () {
       fc.assert(
         fc.property(Arb.poly(), (poly) => {
-          const actualArea = contains(poly)(poly);
+          const actualArea = ratioContaining(poly)(poly);
           expect(actualArea).to.be.equal(1);
         })
       );
@@ -143,7 +143,7 @@ describe('Vertex', function () {
     it('should return a value greater than 0 if there are overlaps between two Poly', function () {
       fc.assert(
         fc.property(Arb.overlaps(), ([p0, p1]) => {
-          const actualArea = contains(p0)(p1);
+          const actualArea = ratioContaining(p0)(p1);
           expect(actualArea).to.be.greaterThan(0);
         }),
         {

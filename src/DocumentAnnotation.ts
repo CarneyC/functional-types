@@ -39,18 +39,20 @@ import {
   hasHeaderRow,
   hasRowsOrColumns,
   intersects,
-  isContainedBy,
+  containedBy,
   isPoly,
   LabeledBoundingBox,
   Poly,
   splitByXs,
   splitByYs,
+  getChildlessBoundingBoxes,
 } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import * as R from 'fp-ts/lib/Reader';
 import { getCurrentISOString } from './DateTime';
 import { getRandomId } from './String';
 import { sequenceReaderIO } from './fp-ts/ReaderIO';
+import { BoundingBoxes } from './TableAnnotation';
 
 export interface Node {
   id: string;
@@ -85,10 +87,14 @@ export type Leaf = Cell | Table;
 
 export interface Branch extends Node {
   parent?: Branch;
-  children?: Dictionary<Branch | Leaf>;
+  children?: Children;
 }
 
-export type Tree = Dictionary<Branch>;
+export type Child = Branch | Leaf;
+
+export type Children = Dictionary<Child>;
+
+export type Tree = Children;
 
 export type TreeByPage = Tree[];
 
@@ -218,6 +224,22 @@ export const isBranch = (a: unknown): a is Branch =>
 
 /**
  * ```haskell
+ * isChild :: a -> bool
+ * ```
+ */
+export const isChild = (a: unknown): a is Child =>
+  anyPass([isBranch, isLeaf])(a);
+
+/**
+ * ```haskell
+ * isChildren :: a -> bool
+ * ```
+ */
+export const isChildren = (a: unknown): a is Children =>
+  allPass([is(Object), pipe(values, all(isChild))])(a);
+
+/**
+ * ```haskell
  * makeNode :: LabeledBoundingBox -> IO Node
  * ```
  */
@@ -241,7 +263,7 @@ export const makeCell: (
   const words: Word[] = pipe(
     prop('wordsById'),
     values as (wordsById: WordsById) => Word[],
-    filter(pipe(prop('boundingPoly'), isContainedBy(boundingBox.boundingPoly)))
+    filter(pipe(prop('boundingPoly'), containedBy(boundingBox.boundingPoly)))
   )(page);
   const text = getTextFromWords(words);
 
@@ -305,6 +327,11 @@ const labelPoly: (
   boundingPoly: poly,
 });
 
+/**
+ * ```haskell
+ * mapIndexed :: ((T, Int) -> U) -> Reader [T] [U]
+ * ```
+ */
 const mapIndexed: <T, U>(
   fn: (item: T, index: number) => U
 ) => R.Reader<T[], U[]> = <T, U>(fn: (item: T, index: number) => U) => (
@@ -350,13 +377,13 @@ export const makeTable: (
 
   const rowHeaders: Cell[] = pipe(
     splitByYs(ys),
-    reject(isContainedBy(headerRow)),
+    reject(containedBy(headerRow)),
     map(pipe(label, makeCell)),
     sequenceReaderIO
   )(headerColumn)(page)();
   const columnHeaders: Cell[] = pipe(
     splitByXs(xs),
-    reject(isContainedBy(headerColumn)),
+    reject(containedBy(headerColumn)),
     map(pipe(label, makeCell)),
     sequenceReaderIO
   )(headerRow)(page)();
@@ -366,11 +393,11 @@ export const makeTable: (
     columnHeaders[column];
 
   const cellById: TableCellById = pipe(
-    reject(isContainedBy(headerRow)),
+    reject(containedBy(headerRow)),
     mapIndexed((poly: Poly, row: number): RIO.ReaderIO<Page, TableCell>[] =>
       pipe(
         splitByXs(xs),
-        reject(isContainedBy(headerColumn)),
+        reject(containedBy(headerColumn)),
         mapIndexed(
           (poly: Poly, column: number): RIO.ReaderIO<Page, TableCell> =>
             pipe(
@@ -402,12 +429,32 @@ export const makeTable: (
 
 /**
  * ```haskell
- * makeLeaf :: LabeledBoundingBox -> Reader Page (IO Leaf)
+ * makeLeaf :: LabeledBoundingBox -> ReaderIO Page Leaf
  * ```
  */
 export const makeLeaf: (
   boundingBox: LabeledBoundingBox
 ) => RIO.ReaderIO<Page, Leaf> = ifElse(hasRowsOrColumns, makeTable, makeCell);
+
+/**
+ * ```haskell
+ * makeTree :: BoundingBoxes -> ReaderIO Page Tree
+ * ```
+ */
+export const makeTree: (
+  boundingBoxes: BoundingBoxes
+) => RIO.ReaderIO<Page, Tree> = pipe(
+  values,
+  getChildlessBoundingBoxes,
+  map(makeLeaf),
+  RIO.sequenceReaderIO,
+  RIO.map(
+    reduce<Child, Children>(
+      (acc: Children, child: Child) => assoc(child.id, child, acc),
+      {}
+    )
+  )
+);
 
 /**
  * ```haskell

@@ -2650,14 +2650,14 @@ Defined in src/Vertex/Arbitraries.ts:50
 * [getY](#const-gety)
 * [getYs](#const-getys)
 * [heightOf](#const-heightof)
-* [isContainedBy](#const-iscontainedby)
+* [containedBy](#const-iscontainedby)
 * [widthOf](#const-widthof)
 
 #### Functions
 
 * [append](#const-append)
-* [containedBy](#const-containedby)
-* [contains](#const-contains)
+* [ratioContainedBy](#const-containedby)
+* [ratioContaining](#const-contains)
 * [hasColumns](#const-hascolumns)
 * [hasHeader](#const-hasheader)
 * [hasHeaderColumn](#const-hasheadercolumn)
@@ -3005,10 +3005,10 @@ Name | Type |
 
 ___
 
-#### `Const` isContainedBy
+#### `Const` containedBy
 
-• **isContainedBy**: *function* = pipe(
-  containedBy,
+• **containedBy**: *function* = pipe(
+  ratioContainedBy,
   R.map(lte(0.9))
 )
 
@@ -3075,14 +3075,14 @@ Name | Type |
 
 ___
 
-#### `Const` containedBy
+#### `Const` ratioContainedBy
 
-▸ **containedBy**(`p0`: [Poly](#poly)): *function*
+▸ **ratioContainedBy**(`p0`: [Poly](#poly)): *function*
 
 Defined in src/Vertex/index.ts:668
 
 ```haskell
-containedBy :: Poly -> Reader Poly Float
+ratioContainedBy :: Poly -> Reader Poly Float
 ```
 
 **Parameters:**
@@ -3103,14 +3103,14 @@ Name | Type |
 
 ___
 
-#### `Const` contains
+#### `Const` ratioContaining
 
-▸ **contains**(`p0`: [Poly](#poly)): *(Anonymous function)*
+▸ **ratioContaining**(`p0`: [Poly](#poly)): *(Anonymous function)*
 
 Defined in src/Vertex/index.ts:682
 
 ```haskell
-contains :: Poly -> Reader Poly Float
+ratioContaining :: Poly -> Reader Poly Float
 ```
 
 **Parameters:**

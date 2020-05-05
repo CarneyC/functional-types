@@ -1,18 +1,12 @@
 import chai from 'chai';
 import * as D from '../../../src/DocumentAnnotation';
-import {
-  getHeaderColumns,
-  getHeaderRows,
-  getTableBoundingBox,
-  getPage,
-  getTableCell,
-  getTitleBoundingBox,
-} from './Sample';
+import * as Sample from './Sample';
 import * as IO from 'fp-ts/lib/IO';
 import * as RIO from '../../../src/fp-ts/ReaderIO';
 import chaiLike from 'chai-like';
-import { apply, map, pipe, values } from 'ramda';
+import { all, apply, map, pipe, values } from 'ramda';
 import { LabeledBoundingBox } from '../../../src/Vertex';
+import { BoundingBoxes } from '../../../src/TableAnnotation';
 
 chai.use(chaiLike);
 const { expect } = chai;
@@ -22,8 +16,8 @@ describe('DocumentAnnotation', function () {
     let makeTable: IO.IO<D.Table>;
 
     before(function () {
-      const labeledBoundingBox = getTableBoundingBox();
-      const page = getPage();
+      const labeledBoundingBox = Sample.getTableBoundingBox();
+      const page = Sample.getPage();
       makeTable = D.makeTable(labeledBoundingBox)(page);
     });
 
@@ -31,7 +25,10 @@ describe('DocumentAnnotation', function () {
       const table = makeTable();
       const actualColumnHeaders = map(D.toTextCell, table.columnHeaders);
 
-      const expectedColumnHeaders = map(D.makeTextCell, getHeaderColumns());
+      const expectedColumnHeaders = map(
+        D.makeTextCell,
+        Sample.getHeaderColumns()
+      );
 
       expect(actualColumnHeaders).to.be.like(expectedColumnHeaders);
     });
@@ -40,7 +37,7 @@ describe('DocumentAnnotation', function () {
       const table = makeTable();
       const actualRowHeaders = map(D.toTextCell, table.rowHeaders);
 
-      const expectedRowHeaders = map(D.makeTextCell, getHeaderRows());
+      const expectedRowHeaders = map(D.makeTextCell, Sample.getHeaderRows());
 
       expect(actualRowHeaders).to.be.like(expectedRowHeaders);
     });
@@ -61,7 +58,7 @@ describe('DocumentAnnotation', function () {
         map(D.toTextTableCell)
       )(table.cellById);
 
-      const expectedTableCells = map(apply(getTableCell), [
+      const expectedTableCells = map(apply(Sample.getTableCell), [
         ['UNITED STATES', 0, 0],
         ['10.5', 0, 1],
         ['OTHERS', 1, 0],
@@ -94,23 +91,40 @@ describe('DocumentAnnotation', function () {
     let makeLeaf: RIO.ReaderIO<LabeledBoundingBox, D.Leaf>;
 
     before(function () {
-      const page = getPage();
+      const page = Sample.getPage();
       makeLeaf = (boundingBox: LabeledBoundingBox): IO.IO<D.Leaf> =>
         D.makeLeaf(boundingBox)(page);
     });
 
     it('should return a Cell when the given boundingBox does not contain rows or columns', function () {
-      const boundingBox = getTitleBoundingBox();
+      const boundingBox = Sample.getTitleBoundingBox();
       const leaf = makeLeaf(boundingBox)();
 
-      expect(D.isCell(leaf)).to.be.true;
+      expect(leaf).to.satisfy(D.isCell);
     });
 
     it('should return a Table when the given boundingBox contain rows and columns', function () {
-      const boundingBox = getTableBoundingBox();
+      const boundingBox = Sample.getTableBoundingBox();
       const leaf = makeLeaf(boundingBox)();
 
-      expect(D.isTable(leaf)).to.be.true;
+      expect(leaf).to.satisfy(D.isTable);
+    });
+  });
+
+  describe('#makeTree()', function () {
+    let makeTree: RIO.ReaderIO<BoundingBoxes, D.Tree>;
+
+    before(function () {
+      const page = Sample.getPage();
+      makeTree = (boundingBoxes: BoundingBoxes): IO.IO<D.Tree> =>
+        D.makeTree(boundingBoxes)(page);
+    });
+
+    it('should return no nested branches when given boundingBoxes with no overlaps', function () {
+      const boundingBoxes = Sample.getChildlessBoundingBoxes();
+      const tree = makeTree(boundingBoxes)();
+
+      expect(tree).to.satisfy(all(D.isLeaf));
     });
   });
 });
