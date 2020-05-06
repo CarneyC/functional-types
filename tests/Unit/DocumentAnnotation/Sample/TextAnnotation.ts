@@ -12144,8 +12144,7 @@ export const page: Page = {
 
 export const textAnnotation: TextAnnotation = {
   id: '0fdbe1ff-6471-4321-9fe1-0c364f822c81',
-  file:
-    '4afbf63a-fb17-416b-8f60-06a75772fd8f/hk_allianz_global_opportunistic_bond_a_factsheet_en_201908.pdf',
+  file: '4afbf63a-fb17-416b-8f60-06a75772fd8f/sample.pdf',
   pages: [page],
   created_at: '2020-05-04T10:51:27.167Z',
   updated_at: '2020-05-04T10:51:27.167Z',

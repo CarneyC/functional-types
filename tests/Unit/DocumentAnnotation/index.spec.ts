@@ -7,6 +7,7 @@ import chaiLike from 'chai-like';
 import { all, apply, map, pipe, values } from 'ramda';
 import { LabeledBoundingBox } from '../../../src/Vertex';
 import { BoundingBoxes } from '../../../src/TableAnnotation';
+import { getTableAnnotation, getTextAnnotation } from './Sample';
 
 chai.use(chaiLike);
 const { expect } = chai;
@@ -156,6 +157,17 @@ describe('DocumentAnnotation', function () {
       ];
 
       expect(actualChildren).to.be.like(expectedChildren);
+    });
+  });
+
+  describe('#make()', function () {
+    it('should return a DocumentAnnotation', function () {
+      const tableAnnotation = getTableAnnotation();
+      const textAnnotation = getTextAnnotation();
+
+      const result = D.make(tableAnnotation)(textAnnotation)();
+
+      expect(result).to.satisfy(D.isDocumentAnnotation);
     });
   });
 });

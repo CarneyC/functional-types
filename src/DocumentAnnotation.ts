@@ -7,6 +7,7 @@ import {
 } from './TextAnnotation';
 import * as RIO from './fp-ts/ReaderIO';
 import * as O from 'fp-ts/lib/Option';
+import * as A from 'fp-ts/lib/Array';
 import {
   addIndex,
   all,
@@ -24,6 +25,7 @@ import {
   ifElse,
   is,
   isEmpty,
+  join,
   map,
   not,
   pick,
@@ -33,8 +35,10 @@ import {
   propSatisfies,
   reduce,
   reject,
+  uniq,
   unnest,
   values,
+  zip,
 } from 'ramda';
 import {
   getXs,
@@ -56,7 +60,9 @@ import * as R from 'fp-ts/lib/Reader';
 import { getCurrentISOString } from './DateTime';
 import { getRandomId } from './String';
 import { sequenceReaderIO } from './fp-ts/ReaderIO';
-import { BoundingBoxes } from './TableAnnotation';
+import { BoundingBoxes, TableAnnotation } from './TableAnnotation';
+import { TextAnnotation } from '../lib/TextAnnotation';
+import { sequenceS } from 'fp-ts/lib/Apply';
 
 export interface Node {
   id: string;
@@ -240,6 +246,28 @@ export const isTree = (a: unknown): a is Tree =>
 
 /**
  * ```haskell
+ * isTreeByPage :: a -> bool
+ * ```
+ */
+export const isTreeByPage = (a: unknown): a is TreeByPage =>
+  allPass([is(Array), all(isTree)])(a);
+
+/**
+ * ```haskell
+ * isDocumentAnnotation :: a -> bool
+ * ```
+ */
+export const isDocumentAnnotation = (a: unknown): a is DocumentAnnotation =>
+  allPass([
+    is(Object),
+    propIs(String, 'file'),
+    propSatisfies(isTreeByPage, 'treeByPage'),
+    propIs(String, 'created_at'),
+    propIs(String, 'updated_at'),
+  ])(a);
+
+/**
+ * ```haskell
  * makeNode :: LabeledBoundingBox -> IO Node
  * ```
  */
@@ -300,7 +328,7 @@ export const makeTableCell: (
  * fromTableBase :: TableBase -> ReaderIO LabeledBoundingBox Table
  * ```
  */
-export const fromTableBase: (
+const fromTableBase: (
   tableBase: TableBase
 ) => RIO.ReaderIO<LabeledBoundingBox, Table> = (tableBase) =>
   pipe(
@@ -515,10 +543,10 @@ export const makeTree: (
 
 /**
  * ```haskell
- * make :: DocumentAnnotationBase -> IO DocumentAnnotation
+ * fromDocumentBase :: DocumentAnnotationBase -> IO DocumentAnnotation
  * ```
  */
-export const make: (
+const fromDocumentBase: (
   annotation: DocumentAnnotationBase
 ) => IO.IO<DocumentAnnotation> = ({
   file,
@@ -533,6 +561,60 @@ export const make: (
     updated_at: timestamp,
   };
 };
+
+type Tuple = [BoundingBoxes, Page];
+
+/**
+ * ```haskell
+ * makeTreeByPage :: TableAnnotation -> ReaderIO TextAnnotation TreeByPage
+ * ```
+ */
+export const makeTreeByPage: (
+  tableAnnotation: TableAnnotation
+) => RIO.ReaderIO<TextAnnotation, TreeByPage> = (tableAnnotation) => (
+  textAnnotation
+): IO.IO<TreeByPage> => {
+  const tuple: Tuple[] = zip(
+    tableAnnotation.boundingBoxesByPage,
+    textAnnotation.pages
+  );
+
+  return pipe(
+    map<Tuple, IO.IO<Tree>>(
+      ([boundingBoxes, page]): IO.IO<Tree> => makeTree(boundingBoxes)(page)
+    ),
+    A.array.sequence(IO.io)
+  )(tuple);
+};
+
+/**
+ * ```haskell
+ * getFileNameIO :: TableAnnotation -> ReaderIO TextAnnotation String
+ * ```
+ */
+const getFileNameIO: (
+  tableAnnotation: TableAnnotation
+) => RIO.ReaderIO<TextAnnotation, string> = (tableAnnotation) => (
+  textAnnotation: TextAnnotation
+) => (): string =>
+  pipe(uniq, join(','))([tableAnnotation.file, textAnnotation.file]);
+
+/**
+ * ```haskell
+ * make :: TableAnnotation -> ReaderIO TextAnnotation DocumentAnnotation
+ * ```
+ */
+export const make: (
+  tableAnnotation: TableAnnotation
+) => RIO.ReaderIO<TextAnnotation, DocumentAnnotation> = pipe(
+  sequenceS(R.reader)({
+    file: getFileNameIO,
+    treeByPage: makeTreeByPage,
+  }),
+  sequenceS(R.reader),
+  R.map(sequenceS(IO.io)),
+  RIO.chainIOK(fromDocumentBase)
+);
 
 /**
  * ```haskell

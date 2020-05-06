@@ -7,8 +7,13 @@ export type ReaderIO<R, A> = R.Reader<R, IO.IO<A>>;
 
 // map :: ( A -> B ) -> ReaderIO R A -> ReaderIO R B
 export const map: <R, A, B>(
-  x0: (a: A) => B
+  f: (a: A) => B
 ) => (fa: ReaderIO<R, A>) => ReaderIO<R, B> = pipe(IO.map, R.map);
+
+// map :: ( A -> IO B ) -> ReaderIO R A -> ReaderIO R B
+export const chainIOK: <A, B>(
+  f: (a: A) => IO.IO<B>
+) => <R>(fa: ReaderIO<R, A>) => ReaderIO<R, B> = pipe(IO.chain, R.map);
 
 // sequenceReaderIO :: [Reader a IO] -> Reader a [IO]
 export const sequenceReaderIO = <R, A>(r: ReaderIO<R, A>[]): ReaderIO<R, A[]> =>
