@@ -69,7 +69,7 @@
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
 
-Defined in src/DocumentAnnotation.ts:64
+Defined in src/DocumentAnnotation.ts:70
 
 ___
 
@@ -77,7 +77,7 @@ ___
 
 • **children**: *[Child](#child)[]*
 
-Defined in src/DocumentAnnotation.ts:94
+Defined in src/DocumentAnnotation.ts:100
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
 
-Defined in src/DocumentAnnotation.ts:62
+Defined in src/DocumentAnnotation.ts:68
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
 
-Defined in src/DocumentAnnotation.ts:63
+Defined in src/DocumentAnnotation.ts:69
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 • **parent**? : *[Branch](#interfaces_documentannotation_branchmd)*
 
-Defined in src/DocumentAnnotation.ts:93
+Defined in src/DocumentAnnotation.ts:99
 
 
 <a name="interfaces_documentannotation_cellmd"></a>
@@ -140,7 +140,7 @@ Defined in src/DocumentAnnotation.ts:93
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
 
-Defined in src/DocumentAnnotation.ts:64
+Defined in src/DocumentAnnotation.ts:70
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
 
-Defined in src/DocumentAnnotation.ts:62
+Defined in src/DocumentAnnotation.ts:68
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
 
-Defined in src/DocumentAnnotation.ts:63
+Defined in src/DocumentAnnotation.ts:69
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 • **text**: *string*
 
-Defined in src/DocumentAnnotation.ts:69
+Defined in src/DocumentAnnotation.ts:75
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 • **words**: *[Word](#interfaces_textannotation_wordmd)[]*
 
-Defined in src/DocumentAnnotation.ts:68
+Defined in src/DocumentAnnotation.ts:74
 
 
 <a name="interfaces_documentannotation_documentannotationmd"></a>
@@ -205,7 +205,7 @@ Defined in src/DocumentAnnotation.ts:68
 
 • **created_at**: *string*
 
-Defined in src/DocumentAnnotation.ts:107
+Defined in src/DocumentAnnotation.ts:113
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 • **file**: *string*
 
-Defined in src/DocumentAnnotation.ts:105
+Defined in src/DocumentAnnotation.ts:111
 
 ___
 
@@ -221,7 +221,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/DocumentAnnotation.ts:104
+Defined in src/DocumentAnnotation.ts:110
 
 ___
 
@@ -229,7 +229,7 @@ ___
 
 • **treeByPage**: *[TreeByPage](#treebypage)*
 
-Defined in src/DocumentAnnotation.ts:106
+Defined in src/DocumentAnnotation.ts:112
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/DocumentAnnotation.ts:108
+Defined in src/DocumentAnnotation.ts:114
 
 
 <a name="interfaces_documentannotation_nodemd"></a>
@@ -270,7 +270,7 @@ Defined in src/DocumentAnnotation.ts:108
 
 • **boundingPoly**: *[Poly](#poly)*
 
-Defined in src/DocumentAnnotation.ts:64
+Defined in src/DocumentAnnotation.ts:70
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/DocumentAnnotation.ts:62
+Defined in src/DocumentAnnotation.ts:68
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 • **label**: *string*
 
-Defined in src/DocumentAnnotation.ts:63
+Defined in src/DocumentAnnotation.ts:69
 
 
 <a name="interfaces_documentannotation_tablemd"></a>
@@ -323,7 +323,7 @@ Defined in src/DocumentAnnotation.ts:63
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
 
-Defined in src/DocumentAnnotation.ts:64
+Defined in src/DocumentAnnotation.ts:70
 
 ___
 
@@ -331,7 +331,7 @@ ___
 
 • **cellById**: *[TableCellById](#tablecellbyid)*
 
-Defined in src/DocumentAnnotation.ts:85
+Defined in src/DocumentAnnotation.ts:91
 
 ___
 
@@ -339,7 +339,7 @@ ___
 
 • **columnHeaders**: *[Cell](#interfaces_documentannotation_cellmd)[]*
 
-Defined in src/DocumentAnnotation.ts:81
+Defined in src/DocumentAnnotation.ts:87
 
 ___
 
@@ -349,7 +349,7 @@ ___
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
 
-Defined in src/DocumentAnnotation.ts:62
+Defined in src/DocumentAnnotation.ts:68
 
 ___
 
@@ -357,7 +357,7 @@ ___
 
 • **intersectHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
 
-Defined in src/DocumentAnnotation.ts:82
+Defined in src/DocumentAnnotation.ts:88
 
 ___
 
@@ -367,7 +367,7 @@ ___
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
 
-Defined in src/DocumentAnnotation.ts:63
+Defined in src/DocumentAnnotation.ts:69
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 • **mergedColumnHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
 
-Defined in src/DocumentAnnotation.ts:84
+Defined in src/DocumentAnnotation.ts:90
 
 ___
 
@@ -383,7 +383,7 @@ ___
 
 • **mergedRowHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
 
-Defined in src/DocumentAnnotation.ts:83
+Defined in src/DocumentAnnotation.ts:89
 
 ___
 
@@ -391,7 +391,7 @@ ___
 
 • **rowHeaders**: *[Cell](#interfaces_documentannotation_cellmd)[]*
 
-Defined in src/DocumentAnnotation.ts:80
+Defined in src/DocumentAnnotation.ts:86
 
 
 <a name="interfaces_documentannotation_tablecellmd"></a>
@@ -426,7 +426,7 @@ Defined in src/DocumentAnnotation.ts:80
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
 
-Defined in src/DocumentAnnotation.ts:64
+Defined in src/DocumentAnnotation.ts:70
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 • **columnHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
 
-Defined in src/DocumentAnnotation.ts:74
+Defined in src/DocumentAnnotation.ts:80
 
 ___
 
@@ -444,7 +444,7 @@ ___
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[id](#id)*
 
-Defined in src/DocumentAnnotation.ts:62
+Defined in src/DocumentAnnotation.ts:68
 
 ___
 
@@ -454,7 +454,7 @@ ___
 
 *Inherited from [Node](#interfaces_documentannotation_nodemd).[label](#label)*
 
-Defined in src/DocumentAnnotation.ts:63
+Defined in src/DocumentAnnotation.ts:69
 
 ___
 
@@ -462,7 +462,7 @@ ___
 
 • **rowHeader**: *[Cell](#interfaces_documentannotation_cellmd)*
 
-Defined in src/DocumentAnnotation.ts:73
+Defined in src/DocumentAnnotation.ts:79
 
 ___
 
@@ -472,7 +472,7 @@ ___
 
 *Inherited from [Cell](#interfaces_documentannotation_cellmd).[text](#text)*
 
-Defined in src/DocumentAnnotation.ts:69
+Defined in src/DocumentAnnotation.ts:75
 
 ___
 
@@ -482,7 +482,7 @@ ___
 
 *Inherited from [Cell](#interfaces_documentannotation_cellmd).[words](#words)*
 
-Defined in src/DocumentAnnotation.ts:68
+Defined in src/DocumentAnnotation.ts:74
 
 
 <a name="interfaces_folder_index_attributesmd"></a>
@@ -2833,6 +2833,7 @@ Name | Type |
 
 #### Variables
 
+* [make](#const-make)
 * [makeLeaf](#const-makeleaf)
 * [makeTree](#const-maketree)
 * [toTextCell](#const-totextcell)
@@ -2840,24 +2841,25 @@ Name | Type |
 
 #### Functions
 
-* [fromTableBase](#const-fromtablebase)
 * [isBranch](#const-isbranch)
 * [isCell](#const-iscell)
 * [isCellArray](#const-iscellarray)
 * [isChild](#const-ischild)
+* [isDocumentAnnotation](#const-isdocumentannotation)
 * [isLeaf](#const-isleaf)
 * [isNode](#const-isnode)
 * [isTable](#const-istable)
 * [isTableCell](#const-istablecell)
 * [isTableCellById](#const-istablecellbyid)
 * [isTree](#const-istree)
-* [make](#const-make)
+* [isTreeByPage](#const-istreebypage)
 * [makeCell](#const-makecell)
 * [makeNode](#const-makenode)
 * [makeTable](#const-maketable)
 * [makeTableCell](#const-maketablecell)
 * [makeTextCell](#const-maketextcell)
 * [makeTextTableCell](#const-maketexttablecell)
+* [makeTreeByPage](#const-maketreebypage)
 
 ### Type aliases
 
@@ -2865,7 +2867,7 @@ Name | Type |
 
 Ƭ **Child**: *[Branch](#interfaces_documentannotation_branchmd) | [Leaf](#leaf)*
 
-Defined in src/DocumentAnnotation.ts:97
+Defined in src/DocumentAnnotation.ts:103
 
 ___
 
@@ -2873,7 +2875,7 @@ ___
 
 Ƭ **DocumentAnnotationBase**: *Pick‹[DocumentAnnotation](#interfaces_documentannotation_documentannotationmd), "file" | "treeByPage"›*
 
-Defined in src/DocumentAnnotation.ts:111
+Defined in src/DocumentAnnotation.ts:117
 
 ___
 
@@ -2881,7 +2883,7 @@ ___
 
 Ƭ **Leaf**: *[Cell](#interfaces_documentannotation_cellmd) | [Table](#interfaces_documentannotation_tablemd)*
 
-Defined in src/DocumentAnnotation.ts:90
+Defined in src/DocumentAnnotation.ts:96
 
 ___
 
@@ -2889,7 +2891,7 @@ ___
 
 Ƭ **TableBase**: *Omit‹[Table](#interfaces_documentannotation_tablemd), "id" | "label" | "boundingPoly"›*
 
-Defined in src/DocumentAnnotation.ts:88
+Defined in src/DocumentAnnotation.ts:94
 
 ___
 
@@ -2897,7 +2899,7 @@ ___
 
 Ƭ **TableCellById**: *Dictionary‹[TableCell](#interfaces_documentannotation_tablecellmd)›*
 
-Defined in src/DocumentAnnotation.ts:77
+Defined in src/DocumentAnnotation.ts:83
 
 ___
 
@@ -2905,7 +2907,7 @@ ___
 
 Ƭ **TextCell**: *Pick‹[Cell](#interfaces_documentannotation_cellmd), "text"›*
 
-Defined in src/DocumentAnnotation.ts:116
+Defined in src/DocumentAnnotation.ts:122
 
 ___
 
@@ -2913,7 +2915,7 @@ ___
 
 Ƭ **TextTableCell**: *[TextCell](#textcell) & object*
 
-Defined in src/DocumentAnnotation.ts:118
+Defined in src/DocumentAnnotation.ts:124
 
 ___
 
@@ -2921,7 +2923,7 @@ ___
 
 Ƭ **Tree**: *Dictionary‹[Child](#child)›*
 
-Defined in src/DocumentAnnotation.ts:99
+Defined in src/DocumentAnnotation.ts:105
 
 ___
 
@@ -2929,15 +2931,45 @@ ___
 
 Ƭ **TreeByPage**: *[Tree](#tree)[]*
 
-Defined in src/DocumentAnnotation.ts:101
+Defined in src/DocumentAnnotation.ts:107
 
 ### Variables
+
+#### `Const` make
+
+• **make**: *function* = pipe(
+  sequenceS(R.reader)({
+    file: getFileNameIO,
+    treeByPage: makeTreeByPage,
+  }),
+  sequenceS(R.reader),
+  R.map(sequenceS(IO.io)),
+  RIO.chainIOK(fromDocumentBase)
+)
+
+Defined in src/DocumentAnnotation.ts:607
+
+```haskell
+make :: TableAnnotation -> ReaderIO TextAnnotation DocumentAnnotation
+```
+
+##### Type declaration:
+
+▸ (`tableAnnotation`: [TableAnnotation](#interfaces_tableannotation_tableannotationmd)): *RIO.ReaderIO‹[TextAnnotation](#interfaces_textannotation_textannotationmd), [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`tableAnnotation` | [TableAnnotation](#interfaces_tableannotation_tableannotationmd) |
+
+___
 
 #### `Const` makeLeaf
 
 • **makeLeaf**: *function* = ifElse(hasRowsOrColumns, makeTable, makeCell)
 
-Defined in src/DocumentAnnotation.ts:435
+Defined in src/DocumentAnnotation.ts:463
 
 ```haskell
 makeLeaf :: LabeledBoundingBox -> ReaderIO Page Leaf
@@ -2963,7 +2995,7 @@ ___
   RIO.map(reduce((acc: Tree, child: Child) => assoc(child.id, child, acc), {}))
 )
 
-Defined in src/DocumentAnnotation.ts:508
+Defined in src/DocumentAnnotation.ts:536
 
 ```haskell
 makeTree :: BoundingBoxes -> ReaderIO Page Tree
@@ -2985,7 +3017,7 @@ ___
 
 • **toTextCell**: *function* = pick(['text'])
 
-Defined in src/DocumentAnnotation.ts:564
+Defined in src/DocumentAnnotation.ts:646
 
 ```haskell
 toTextCell: Cell -> TextCell
@@ -3013,7 +3045,7 @@ ___
   pick(['text', 'rowHeader', 'columnHeader'])
 )
 
-Defined in src/DocumentAnnotation.ts:571
+Defined in src/DocumentAnnotation.ts:653
 
 ```haskell
 toTextTableCell: TableCell -> TextTableCell
@@ -3031,39 +3063,11 @@ Name | Type |
 
 ### Functions
 
-#### `Const` fromTableBase
-
-▸ **fromTableBase**(`tableBase`: object): *function*
-
-Defined in src/DocumentAnnotation.ts:305
-
-```haskell
-fromTableBase :: TableBase -> ReaderIO LabeledBoundingBox Table
-```
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`tableBase` | object |
-
-**Returns:** *function*
-
-▸ (`x0`: V0): *T2*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`x0` | V0 |
-
-___
-
 #### `Const` isBranch
 
 ▸ **isBranch**(`a`: unknown): *a is Branch*
 
-Defined in src/DocumentAnnotation.ts:214
+Defined in src/DocumentAnnotation.ts:220
 
 ```haskell
 isBranch :: a -> bool
@@ -3083,7 +3087,7 @@ ___
 
 ▸ **isCell**(`a`: unknown): *a is Cell*
 
-Defined in src/DocumentAnnotation.ts:141
+Defined in src/DocumentAnnotation.ts:147
 
 ```haskell
 isCell :: a -> bool
@@ -3103,7 +3107,7 @@ ___
 
 ▸ **isCellArray**(`a`: unknown): *a is Cell[]*
 
-Defined in src/DocumentAnnotation.ts:153
+Defined in src/DocumentAnnotation.ts:159
 
 ```haskell
 isCellArray :: a -> bool
@@ -3123,7 +3127,7 @@ ___
 
 ▸ **isChild**(`a`: unknown): *a is Child*
 
-Defined in src/DocumentAnnotation.ts:230
+Defined in src/DocumentAnnotation.ts:236
 
 ```haskell
 isChild :: a -> bool
@@ -3139,11 +3143,31 @@ Name | Type |
 
 ___
 
+#### `Const` isDocumentAnnotation
+
+▸ **isDocumentAnnotation**(`a`: unknown): *a is DocumentAnnotation*
+
+Defined in src/DocumentAnnotation.ts:260
+
+```haskell
+isDocumentAnnotation :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is DocumentAnnotation*
+
+___
+
 #### `Const` isLeaf
 
 ▸ **isLeaf**(`a`: unknown): *a is Leaf*
 
-Defined in src/DocumentAnnotation.ts:207
+Defined in src/DocumentAnnotation.ts:213
 
 ```haskell
 isLeaf :: a -> bool
@@ -3163,7 +3187,7 @@ ___
 
 ▸ **isNode**(`a`: unknown): *a is Node*
 
-Defined in src/DocumentAnnotation.ts:128
+Defined in src/DocumentAnnotation.ts:134
 
 ```haskell
 isNode :: a -> bool
@@ -3183,7 +3207,7 @@ ___
 
 ▸ **isTable**(`a`: unknown): *a is Table*
 
-Defined in src/DocumentAnnotation.ts:191
+Defined in src/DocumentAnnotation.ts:197
 
 ```haskell
 isTable :: a -> bool
@@ -3203,7 +3227,7 @@ ___
 
 ▸ **isTableCell**(`a`: unknown): *a is TableCell*
 
-Defined in src/DocumentAnnotation.ts:161
+Defined in src/DocumentAnnotation.ts:167
 
 ```haskell
 isTableCell :: a -> bool
@@ -3223,7 +3247,7 @@ ___
 
 ▸ **isTableCellById**(`a`: unknown): *a is TableCellById*
 
-Defined in src/DocumentAnnotation.ts:173
+Defined in src/DocumentAnnotation.ts:179
 
 ```haskell
 isTableCellById :: a -> bool
@@ -3243,7 +3267,7 @@ ___
 
 ▸ **isTree**(`a`: unknown): *a is Tree*
 
-Defined in src/DocumentAnnotation.ts:238
+Defined in src/DocumentAnnotation.ts:244
 
 ```haskell
 isTree :: a -> bool
@@ -3259,26 +3283,23 @@ Name | Type |
 
 ___
 
-#### `Const` make
+#### `Const` isTreeByPage
 
-▸ **make**(`__namedParameters`: object): *(Anonymous function)*
+▸ **isTreeByPage**(`a`: unknown): *a is TreeByPage*
 
-Defined in src/DocumentAnnotation.ts:523
+Defined in src/DocumentAnnotation.ts:252
 
 ```haskell
-make :: DocumentAnnotationBase -> IO DocumentAnnotation
+isTreeByPage :: a -> bool
 ```
 
 **Parameters:**
 
-▪ **__namedParameters**: *object*
-
 Name | Type |
 ------ | ------ |
-`file` | string |
-`treeByPage` | Dictionary‹[Cell](#interfaces_documentannotation_cellmd) &#124; [Branch](#interfaces_documentannotation_branchmd) &#124; [Table](#interfaces_documentannotation_tablemd)›[] |
+`a` | unknown |
 
-**Returns:** *(Anonymous function)*
+**Returns:** *a is TreeByPage*
 
 ___
 
@@ -3286,7 +3307,7 @@ ___
 
 ▸ **makeCell**(`boundingBox`: [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)): *(Anonymous function)*
 
-Defined in src/DocumentAnnotation.ts:262
+Defined in src/DocumentAnnotation.ts:290
 
 ```haskell
 makeCell :: LabeledBoundingBox -> ReaderIO Page Cell
@@ -3306,7 +3327,7 @@ ___
 
 ▸ **makeNode**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in src/DocumentAnnotation.ts:246
+Defined in src/DocumentAnnotation.ts:274
 
 ```haskell
 makeNode :: LabeledBoundingBox -> IO Node
@@ -3329,7 +3350,7 @@ ___
 
 ▸ **makeTable**(`boundingBox`: [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)): *(Anonymous function)*
 
-Defined in src/DocumentAnnotation.ts:348
+Defined in src/DocumentAnnotation.ts:376
 
 ```haskell
 makeTable :: LabeledBoundingBox -> ReaderIO Page Table
@@ -3349,7 +3370,7 @@ ___
 
 ▸ **makeTableCell**(`rowHeader`: [Cell](#interfaces_documentannotation_cellmd), `columnHeader`: [Cell](#interfaces_documentannotation_cellmd)): *function*
 
-Defined in src/DocumentAnnotation.ts:285
+Defined in src/DocumentAnnotation.ts:313
 
 ```haskell
 makeTableCell :: (Cell, Cell) -> LabeledBoundingBox -> ReaderIO Page TableCell
@@ -3378,7 +3399,7 @@ ___
 
 ▸ **makeTextCell**(`text`: string): *object*
 
-Defined in src/DocumentAnnotation.ts:542
+Defined in src/DocumentAnnotation.ts:624
 
 ```haskell
 makeTextCell :: String -> TextCell
@@ -3400,7 +3421,7 @@ ___
 
 ▸ **makeTextTableCell**(`text`: string, `rowHeader`: string, `columnHeader`: string): *object*
 
-Defined in src/DocumentAnnotation.ts:553
+Defined in src/DocumentAnnotation.ts:635
 
 ```haskell
 makeTextTableCell :: (String, String, String) -> TextTableCell
@@ -3419,6 +3440,26 @@ Name | Type |
 * **columnHeader**(): *object*
 
 * **rowHeader**(): *object*
+
+___
+
+#### `Const` makeTreeByPage
+
+▸ **makeTreeByPage**(`tableAnnotation`: [TableAnnotation](#interfaces_tableannotation_tableannotationmd)): *(Anonymous function)*
+
+Defined in src/DocumentAnnotation.ts:574
+
+```haskell
+makeTreeByPage :: TableAnnotation -> ReaderIO TextAnnotation TreeByPage
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`tableAnnotation` | [TableAnnotation](#interfaces_tableannotation_tableannotationmd) |
+
+**Returns:** *(Anonymous function)*
 
 
 <a name="modules_excel_md"></a>
@@ -4320,6 +4361,7 @@ Name | Type |
 
 #### Variables
 
+* [chainIOK](#const-chainiok)
 * [map](#const-map)
 
 #### Functions
@@ -4336,6 +4378,48 @@ Defined in src/fp-ts/ReaderIO.ts:6
 
 ### Variables
 
+#### `Const` chainIOK
+
+• **chainIOK**: *function* = pipe(IO.chain, R.map)
+
+Defined in src/fp-ts/ReaderIO.ts:14
+
+##### Type declaration:
+
+▸ <**A**, **B**>(`f`: function): *function*
+
+**Type parameters:**
+
+▪ **A**
+
+▪ **B**
+
+**Parameters:**
+
+▪ **f**: *function*
+
+▸ (`a`: A): *IO‹B›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+▸ <**R**>(`fa`: [ReaderIO](#readerio)‹R, A›): *[ReaderIO](#readerio)‹R, B›*
+
+**Type parameters:**
+
+▪ **R**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`fa` | [ReaderIO](#readerio)‹R, A› |
+
+___
+
 #### `Const` map
 
 • **map**: *function* = pipe(IO.map, R.map)
@@ -4344,7 +4428,7 @@ Defined in src/fp-ts/ReaderIO.ts:9
 
 ##### Type declaration:
 
-▸ <**R**, **A**, **B**>(`x0`: function): *function*
+▸ <**R**, **A**, **B**>(`f`: function): *function*
 
 **Type parameters:**
 
@@ -4356,7 +4440,7 @@ Defined in src/fp-ts/ReaderIO.ts:9
 
 **Parameters:**
 
-▪ **x0**: *function*
+▪ **f**: *function*
 
 ▸ (`a`: A): *B*
 
@@ -4380,7 +4464,7 @@ Name | Type |
 
 ▸ **sequenceReaderIO**<**R**, **A**>(`r`: [ReaderIO](#readerio)‹R, A›[]): *[ReaderIO](#readerio)‹R, A[]›*
 
-Defined in src/fp-ts/ReaderIO.ts:14
+Defined in src/fp-ts/ReaderIO.ts:19
 
 **Type parameters:**
 

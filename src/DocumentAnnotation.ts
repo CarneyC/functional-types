@@ -61,7 +61,7 @@ import { getCurrentISOString } from './DateTime';
 import { getRandomId } from './String';
 import { sequenceReaderIO } from './fp-ts/ReaderIO';
 import { BoundingBoxes, TableAnnotation } from './TableAnnotation';
-import { TextAnnotation } from '../lib/TextAnnotation';
+import { TextAnnotation } from './TextAnnotation';
 import { sequenceS } from 'fp-ts/lib/Apply';
 
 export interface Node {
