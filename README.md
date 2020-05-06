@@ -34,6 +34,7 @@
 * ["Vertex/index"](#modules_vertex_index_md)
 * ["Vision"](#modules_vision_md)
 * ["fp-ts/ReaderIO"](#modules_fp_ts_readerio_md)
+* ["fp-ts/TaskEither"](#modules_fp_ts_taskeither_md)
 * ["index"](#modules_index_md)
 
 # Interfaces
@@ -4479,6 +4480,39 @@ Name | Type |
 `r` | [ReaderIO](#readerio)‹R, A›[] |
 
 **Returns:** *[ReaderIO](#readerio)‹R, A[]›*
+
+
+<a name="modules_fp_ts_taskeither_md"></a>
+
+[functional-types](#globalsmd) › ["fp-ts/TaskEither"](#modules_fp_ts_taskeither_md)
+
+## Module: "fp-ts/TaskEither"
+
+### Index
+
+#### Functions
+
+* [fromTask](#const-fromtask)
+
+### Functions
+
+#### `Const` fromTask
+
+▸ **fromTask**(`task`: Task‹A›): *TaskEither‹Error, A›*
+
+Defined in src/fp-ts/TaskEither.ts:10
+
+```haskell
+fromThunk :: Task -> TaskEither
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`task` | Task‹A› |
+
+**Returns:** *TaskEither‹Error, A›*
 
 
 <a name="modules_index_md"></a>
