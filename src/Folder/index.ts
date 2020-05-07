@@ -204,3 +204,12 @@ export const fromMetadata: (metadata: Metadata) => E.Either<Error, File> = (
  */
 export const isReference = (a: unknown): a is Reference =>
   allPass([is(Object), propIs(String, 'file')])(a);
+
+/**
+ * ```haskell
+ * makeReference :: String -> Reference
+ * ```
+ */
+export const makeReference: (file: string) => Reference = (file) => ({
+  file,
+});

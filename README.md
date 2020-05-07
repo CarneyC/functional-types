@@ -4134,6 +4134,7 @@ Defined in src/Folder/Arbitraries.ts:15
 * [isMetadata](#const-ismetadata)
 * [isReference](#const-isreference)
 * [make](#const-make)
+* [makeReference](#const-makereference)
 
 ### Type aliases
 
@@ -4346,6 +4347,28 @@ Name | Type |
 `name` | string |
 
 **Returns:** *(Anonymous function)*
+
+___
+
+#### `Const` makeReference
+
+▸ **makeReference**(`file`: string): *object*
+
+Defined in src/Folder/index.ts:213
+
+```haskell
+makeReference :: String -> Reference
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`file` | string |
+
+**Returns:** *object*
+
+* **file**: *string*
 
 
 <a name="modules_fp_ts_readerio_md"></a>
