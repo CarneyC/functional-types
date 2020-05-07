@@ -25,6 +25,7 @@
 * ["Folder/index"](#modules_folder_index_md)
 * ["Json"](#modules_json_md)
 * ["Label"](#modules_label_md)
+* ["Response"](#modules_response_md)
 * ["Schema/Arbitraries"](#modules_schema_arbitraries_md)
 * ["Schema/index"](#modules_schema_index_md)
 * ["String"](#modules_string_md)
@@ -771,6 +772,69 @@ ___
 • **name**: *string*
 
 Defined in src/Label.ts:5
+
+
+<a name="interfaces_response_failuremd"></a>
+
+[functional-types](#globalsmd) › ["Response"](#modules_response_md) › [Failure](#interfaces_response_failuremd)
+
+## Interface: Failure
+
+### Hierarchy
+
+* **Failure**
+
+### Index
+
+#### Properties
+
+* [error](#error)
+
+### Properties
+
+####  error
+
+• **error**: *string*
+
+Defined in src/Response.ts:25
+
+
+<a name="interfaces_response_successmd"></a>
+
+[functional-types](#globalsmd) › ["Response"](#modules_response_md) › [Success](#interfaces_response_successmd)
+
+## Interface: Success <**T**>
+
+### Type parameters
+
+▪ **T**
+
+### Hierarchy
+
+* **Success**
+
+### Index
+
+#### Properties
+
+* [message](#message)
+* [payload](#payload)
+
+### Properties
+
+####  message
+
+• **message**: *string*
+
+Defined in src/Response.ts:20
+
+___
+
+####  payload
+
+• **payload**: *T*
+
+Defined in src/Response.ts:21
 
 
 <a name="interfaces_schema_index_filematchermd"></a>
@@ -4702,6 +4766,455 @@ Name | Type |
 `a` | unknown |
 
 **Returns:** *a is Label*
+
+
+<a name="modules_response_md"></a>
+
+[functional-types](#globalsmd) › ["Response"](#modules_response_md)
+
+## Module: "Response"
+
+### Index
+
+#### Interfaces
+
+* [Failure](#interfaces_response_failuremd)
+* [Success](#interfaces_response_successmd)
+
+#### Type aliases
+
+* [Response](#response)
+* [Status](#status)
+
+#### Variables
+
+* [fromEither](#const-fromeither)
+* [getPayload](#const-getpayload)
+* [getStatusFromResponse](#const-getstatusfromresponse)
+* [toEither](#const-toeither)
+* [toEmptyResponse](#const-toemptyresponse)
+
+#### Functions
+
+* [fromError](#const-fromerror)
+* [fromPredicate](#const-frompredicate)
+* [getPayloadOrElse](#const-getpayloadorelse)
+* [isFailure](#const-isfailure)
+* [isResponse](#const-isresponse)
+* [isSuccess](#const-issuccess)
+* [map](#const-map)
+* [success](#const-success)
+* [withMessage](#const-withmessage)
+
+### Type aliases
+
+####  Response
+
+Ƭ **Response**: *[Success](#interfaces_response_successmd)‹T› | [Failure](#interfaces_response_failuremd)*
+
+Defined in src/Response.ts:28
+
+___
+
+####  Status
+
+Ƭ **Status**: *400 | 200*
+
+Defined in src/Response.ts:30
+
+### Variables
+
+#### `Const` fromEither
+
+• **fromEither**: *function* = ifElse(
+  E.isRight,
+  pipe(prop('right'), success),
+  pipe(prop('left'), fromError)
+)
+
+Defined in src/Response.ts:80
+
+```haskell
+fromEither :: Either Error a -> Response a
+```
+
+##### Type declaration:
+
+▸ <**A**>(`either`: E.Either‹Error, A›): *[Response](#response)‹A›*
+
+**Type parameters:**
+
+▪ **A**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`either` | E.Either‹Error, A› |
+
+___
+
+#### `Const` getPayload
+
+• **getPayload**: *function* = prop('payload')
+
+Defined in src/Response.ts:155
+
+```haskell
+getPayload :: Success a -> a
+```
+
+##### Type declaration:
+
+▸ <**A**>(`response`: [Success](#interfaces_response_successmd)‹A›): *A*
+
+**Type parameters:**
+
+▪ **A**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`response` | [Success](#interfaces_response_successmd)‹A› |
+
+___
+
+#### `Const` getStatusFromResponse
+
+• **getStatusFromResponse**: *function* = ifElse(
+  isSuccess,
+  () => 200,
+  () => 400
+)
+
+Defined in src/Response.ts:103
+
+```haskell
+getStatusFromResponse :: Response -> Status
+```
+
+##### Type declaration:
+
+▸ (`response`: [Response](#response)‹unknown›): *[Status](#status)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`response` | [Response](#response)‹unknown› |
+
+___
+
+#### `Const` toEither
+
+• **toEither**: *function* = ifElse(
+  isSuccess,
+  E.right,
+  pipe((failure: Failure): Error => new Error(failure.error), E.left)
+)
+
+Defined in src/Response.ts:142
+
+```haskell
+toEither :: Response -> Either Response Error
+```
+
+##### Type declaration:
+
+▸ <**A**>(`response`: [Response](#response)‹A›): *E.Either‹Error, [Success](#interfaces_response_successmd)‹A››*
+
+**Type parameters:**
+
+▪ **A**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`response` | [Response](#response)‹A› |
+
+___
+
+#### `Const` toEmptyResponse
+
+• **toEmptyResponse**: *function* = unless(isFailure, () => undefined)
+
+Defined in src/Response.ts:172
+
+```haskell
+toEmptyResponse :: Response -> Empty | Failure
+```
+
+##### Type declaration:
+
+▸ <**T**>(`response`: [Response](#response)‹T›): *[Failure](#interfaces_response_failuremd) | undefined*
+
+**Type parameters:**
+
+▪ **T**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`response` | [Response](#response)‹T› |
+
+### Functions
+
+#### `Const` fromError
+
+▸ **fromError**(`error`: Error): *object*
+
+Defined in src/Response.ts:61
+
+```haskell
+fromError :: Error -> Failure
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`error` | Error |
+
+**Returns:** *object*
+
+* **error**: *string* = error.message
+
+___
+
+#### `Const` fromPredicate
+
+▸ **fromPredicate**(`predicate`: function, `onFalse`: function): *function*
+
+Defined in src/Response.ts:119
+
+```haskell
+fromPredicate :: Predicate -> Response
+```
+
+**Parameters:**
+
+▪ **predicate**: *function*
+
+▸ (`a`: unknown): *a is A*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+▪ **onFalse**: *function*
+
+▸ (`a`: unknown): *Error*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *function*
+
+▸ (`obj`: T): *U*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`obj` | T |
+
+___
+
+#### `Const` getPayloadOrElse
+
+▸ **getPayloadOrElse**(`onFailure`: function): *function*
+
+Defined in src/Response.ts:164
+
+```haskell
+getPayloadOrElse :: ((Failure) -> E) -> Reader (Response a) a
+```
+
+**Parameters:**
+
+▪ **onFailure**: *function*
+
+▸ (`failure`: [Failure](#interfaces_response_failuremd)): *E*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`failure` | [Failure](#interfaces_response_failuremd) |
+
+**Returns:** *function*
+
+▸ (`a`: any): *any*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | any |
+
+___
+
+#### `Const` isFailure
+
+▸ **isFailure**(`a`: unknown): *a is Failure*
+
+Defined in src/Response.ts:45
+
+```haskell
+isFailure :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Failure*
+
+___
+
+#### `Const` isResponse
+
+▸ **isResponse**(`a`: unknown): *a is Response<unknown>*
+
+Defined in src/Response.ts:53
+
+```haskell
+isResponse :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Response<unknown>*
+
+___
+
+#### `Const` isSuccess
+
+▸ **isSuccess**(`a`: unknown): *a is Success<unknown>*
+
+Defined in src/Response.ts:37
+
+```haskell
+isSuccess :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Success<unknown>*
+
+___
+
+#### `Const` map
+
+▸ **map**<**A**, **B**>(`fa`: function): *function*
+
+Defined in src/Response.ts:129
+
+```haskell
+map :: (A -> B) -> Reader (Response A) (Response B)
+```
+
+**Type parameters:**
+
+▪ **A**
+
+▪ **B**
+
+**Parameters:**
+
+▪ **fa**: *function*
+
+▸ (`a`: A): *B*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *function*
+
+▸ (`obj`: T): *U*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`obj` | T |
+
+___
+
+#### `Const` success
+
+▸ **success**(`a`: A): *object*
+
+Defined in src/Response.ts:70
+
+```haskell
+success :: a -> Success
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *object*
+
+* **message**: *string* = ""
+
+* **payload**: *A* = a
+
+___
+
+#### `Const` withMessage
+
+▸ **withMessage**<**A**>(`message`: any): *function*
+
+Defined in src/Response.ts:95
+
+```haskell
+withMessage :: string -> Reader (Response a) (Response a)`
+```
+
+**Type parameters:**
+
+▪ **A**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`message` | any |
+
+**Returns:** *function*
+
+▸ (`obj`: T): *U*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`obj` | T |
 
 
 <a name="modules_schema_arbitraries_md"></a>
