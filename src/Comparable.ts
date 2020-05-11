@@ -118,6 +118,18 @@ export const isNode = (a: unknown): a is Node =>
 
 /**
  * ```haskell
+ * isComparable :: a -> bool
+ * ```
+ */
+export function isComparable(a: unknown): a is Comparable {
+  return anyPass([
+    isNode,
+    pipe(values, allPass([is(Array), all(isComparable)])),
+  ])(a);
+}
+
+/**
+ * ```haskell
  * getPathFromDirection :: Direction -> Reader TableCell [String]
  * ```
  */
@@ -409,7 +421,7 @@ export const fromCellByName: (
 
 /**
  * ```haskell
- * fromBranch :: Descendant -> Reader FormatBranchOptions Something
+ * fromBranch :: Branch -> Reader FormatBranchOptions Comparable
  * ```
  */
 export function fromBranch(
@@ -439,3 +451,15 @@ export function fromBranch(
     )
   )(branch);
 }
+
+/**
+ * ```haskell
+ * fromForest :: Forest -> Reader FormatBranchOptions Comparable
+ * ```
+ */
+export const fromForest: (
+  forest: D.Forest
+) => R.Reader<FormatBranchOptions, Comparable> = pipe(
+  mapObjIndexed(fromBranch),
+  sequenceS(R.reader)
+);

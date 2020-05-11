@@ -234,4 +234,40 @@ describe('Comparable', function () {
       });
     });
   });
+
+  describe('#fromForest()', function () {
+    it('should return a Comparable when no format options is provided', function () {
+      const forest = Sample.getComplexForest();
+      const result = C.fromForest(forest)([]);
+
+      expect(result).to.satisfy(C.isComparable);
+    });
+
+    it('should return a Comparable when some format options is provided', function () {
+      const forest = Sample.getComplexForest();
+      const result = C.fromForest(forest)([
+        {
+          predicate: regExpTest(/Sector Allocation/),
+          mergeKey: true,
+          splitBy: 'row',
+        },
+        {
+          predicate: regExpTest(/Credit Rating/),
+          mergeKey: true,
+          splitBy: 'row',
+        },
+        {
+          predicate: regExpTest(/Country\/Location Allocation/),
+          mergeKey: true,
+          splitBy: 'row',
+        },
+        {
+          predicate: regExpTest(/Top 10 Holdings/),
+          splitBy: 'row',
+        },
+      ]);
+
+      expect(result).to.satisfy(C.isComparable);
+    });
+  });
 });
