@@ -34,6 +34,7 @@ import {
   reduce,
   reject,
   propEq,
+  tail,
 } from 'ramda';
 import * as R from 'fp-ts/lib/Reader';
 import * as RE from 'fp-ts/lib/ReaderEither';
@@ -639,7 +640,7 @@ export const toPoly: (rect: Rectangle) => Poly = ({ x0, y0, x1, y1 }) =>
 
 /**
  * ```haskell
- * intersects :: Poly -> Reader Poly Poly
+ * intersects :: Poly -> Reader Poly (Option Poly)
  * ```
  */
 export const intersects: (poly: Poly) => R.Reader<Poly, O.Option<Poly>> = (
@@ -662,6 +663,38 @@ export const intersects: (poly: Poly) => R.Reader<Poly, O.Option<Poly>> = (
         })
       );
 };
+
+/**
+ * ```haskell
+ * unions :: Poly -> Reader Poly Poly
+ * ```
+ */
+export const unions: (poly: Poly) => R.Reader<Poly, Poly> = (p0: Poly) => (
+  p1: Poly
+): Poly => {
+  const r0 = toRectangle(p0);
+  const r1 = toRectangle(p1);
+  const x0 = min(r0.x0, r1.x0);
+  const y0 = min(r0.y0, r1.y0);
+  const x1 = max(r0.x1, r1.x1);
+  const y1 = max(r0.y1, r1.y1);
+  return toPoly({
+    x0,
+    y0,
+    x1,
+    y1,
+  });
+};
+
+/**
+ * ```haskell
+ * unionOf :: [Poly] -> Poly
+ * ```
+ */
+export const unionOf: (polygons: Poly[]) => Poly = converge(
+  reduce((acc: Poly, value: Poly) => unions(acc)(value)),
+  [head, tail]
+);
 
 /**
  * ```haskell

@@ -128,7 +128,7 @@ export type TextTableCell = TextCell & {
 
 /**
  * ```haskell
- * isNode :: a -> bool
+ * isLeaf :: a -> bool
  * ```
  */
 export const isNode = (a: unknown): a is Node =>
@@ -647,7 +647,7 @@ export const toTextCell: (cell: Cell) => TextCell = pick(['text']);
 
 /**
  * ```haskell
- * toTextTableCell: TableCell -> TextTableCell
+ * toTextTableCell :: TableCell -> TextTableCell
  * ```
  */
 export const toTextTableCell: (tableCell: TableCell) => TextTableCell = pipe(

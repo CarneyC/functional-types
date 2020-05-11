@@ -23,6 +23,7 @@ import {
   propSatisfies,
   reduce,
   replace,
+  trim,
   values,
 } from 'ramda';
 import { isPoly, Poly, sortPoly } from './Vertex';
@@ -343,5 +344,6 @@ export const getTextFromWords: (words: Word[]) => string = pipe(
       acc + word.text + getStringFromBreakType(word.breakType),
     ''
   ),
-  replace(/\n$/, '')
+  replace(/\n$/, ''),
+  trim
 );
