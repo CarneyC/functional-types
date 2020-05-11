@@ -57,7 +57,7 @@ export type Node = Dictionary<Leaf>;
 
 export type Comparable = Dictionary<Comparable> | Node;
 
-export type Type = 'cell' | 'table';
+export type ComparableView = Dictionary<ComparableView> | Dictionary<string>;
 
 export interface Partitions {
   branchByLabel: Dictionary<D.Branch>;
@@ -463,3 +463,21 @@ export const fromForest: (
   mapObjIndexed(fromBranch),
   sequenceS(R.reader)
 );
+
+/**
+ * ```haskell
+ * viewNode :: Node -> Dictionary String
+ * ```
+ */
+export const viewNode: (node: Node) => Dictionary<string> = mapObjIndexed(
+  (leaf) => leaf.value
+);
+
+/**
+ * ```haskell
+ * view :: Comparable -> ComparableView
+ * ```
+ */
+export function view(comparable: Comparable): ComparableView {
+  return ifElse(isNode, viewNode, mapObjIndexed(view))(comparable);
+}
