@@ -5,8 +5,9 @@ import {
   Branch,
   DocumentAnnotation,
   Table,
-  Tree,
-  TreeByPage,
+  Forest,
+  ForestByPage,
+  Descendant,
 } from '../../../../src/DocumentAnnotation';
 import { Comparable } from '../../../../src/Comparable';
 import { keys, map, mapObjIndexed, pipe, replace, values } from 'ramda';
@@ -22,20 +23,44 @@ export const getDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
   return JSON.parse((buffer as unknown) as string);
 };
 
-// getTreeByPage :: IO TreeByPage
-export const getTreeByPage: IO.IO<TreeByPage> = () =>
-  getDocumentAnnotation().treeByPage;
+// getComplexDocumentAnnotation :: IO DocumentAnnotation
+export const getComplexDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
+  const buffer = fs.readFileSync(
+    path.join(__dirname, 'ComplexDocumentAnnotation.json')
+  );
+  return JSON.parse((buffer as unknown) as string);
+};
 
-// getTree :: IO Tree
-export const getTree: IO.IO<Tree> = () => getTreeByPage()[1];
+// getForestByPage :: IO ForestByPage
+export const getForestByPage: IO.IO<ForestByPage> = () =>
+  getDocumentAnnotation().forestByPage;
+
+// getComplexForestByPage :: IO ForestByPage
+export const getComplexForestByPage: IO.IO<ForestByPage> = () =>
+  getComplexDocumentAnnotation().forestByPage;
+
+// getForest :: IO Forest
+export const getForest: IO.IO<Forest> = () => getForestByPage()[1];
+
+// getComplexForest :: IO Forest
+export const getComplexForest: IO.IO<Forest> = () =>
+  getComplexForestByPage()[0];
+
+// getDescendant :: IO Descendant
+export const getDescendant: IO.IO<Descendant> = () =>
+  getForest()[tableByColumnsId] as Descendant;
+
+// getBranch :: IO Branch
+export const getBranch: IO.IO<Branch> = () =>
+  getComplexForest()['bc279842-13b8-483c-8ea4-8f35679b77ec'] as Branch;
 
 // getTableByColumns :: IO Table
 export const getTableByColumns: IO.IO<Table> = () =>
-  (getTree()[tableByColumnsId] as Branch).children[1] as Table;
+  (getForest()[tableByColumnsId] as Branch).children[1] as Table;
 
 // getTableByRows :: IO Table
 export const getTableByRows: IO.IO<Table> = () =>
-  (getTree()[tableByRowsId] as Branch).children[0] as Table;
+  (getForest()[tableByRowsId] as Branch).children[0] as Table;
 
 // keysOf :: Comparable -> [String]
 export const keysOf: (comparable: Comparable) => string[] = pipe(

@@ -1,6 +1,6 @@
 import * as R from 'fp-ts/lib/Reader';
 import * as O from 'fp-ts/lib/Option';
-import { Table, TableCell, TableCellById } from './DocumentAnnotation';
+import * as D from './DocumentAnnotation';
 import {
   __,
   all,
@@ -9,21 +9,26 @@ import {
   assoc,
   assocPath,
   Dictionary,
+  equals,
+  evolve,
   F,
   find,
   has,
   invertObj,
   is,
+  isEmpty,
   isNil,
   keys,
   map,
   mapObjIndexed,
+  mergeDeepRight,
   not,
   pipe,
   prop,
   propIs,
   propSatisfies,
   reduce,
+  reject,
   values,
 } from 'ramda';
 import { isPoly, Poly, unionOf } from './Vertex';
@@ -45,25 +50,51 @@ export interface Leaf {
 
 export type Node = Dictionary<Leaf>;
 
-export type Comparable = Dictionary<Comparable | Node>;
+export type Comparable = Dictionary<Comparable> | Node;
+
+export type Type = 'cell' | 'table';
+
+export interface Partitions {
+  branchByLabel: Dictionary<D.Branch>;
+  tableByLabel: Dictionary<D.TableByName>;
+  cellByLabel: Dictionary<D.CellByName>;
+}
 
 export interface FormatTableOptions {
   key?: Predicate;
   splitBy: Direction;
 }
 
-// propSatisfiesIfExists :: (Pred, String) -> Reader a bool
+export interface FormatLeafOptions extends FormatTableOptions {
+  predicate: Predicate;
+}
+
+export type FormatBranchOptions = FormatLeafOptions[];
+
+/**
+ * ```haskell
+ * propSatisfiesIfExists :: (Pred, String) -> Reader a bool
+ * ```
+ */
 const propSatisfiesIfExists: (
   predicate: (a: unknown) => boolean,
   name: string
 ) => R.Reader<unknown, boolean> = (pred, name) =>
   anyPass([pipe(has(name), not), propSatisfies(pred, name)]);
 
-// isMetadata :: a -> bool
+/**
+ * ```haskell
+ * isMetadata :: a -> bool
+ * ```
+ */
 export const isMetadata = (a: unknown): a is Metadata =>
   allPass([is(Object), propSatisfiesIfExists(isPoly, 'boundingPoly')])(a);
 
-// isLeaf :: a -> bool
+/**
+ * ```haskell
+ * isLeaf :: a -> bool
+ * ```
+ */
 export const isLeaf = (a: unknown): a is Leaf =>
   allPass([
     is(Object),
@@ -71,51 +102,75 @@ export const isLeaf = (a: unknown): a is Leaf =>
     propSatisfiesIfExists(isMetadata, 'metadata'),
   ])(a);
 
-// isNode :: a -> bool
+/**
+ * ```haskell
+ * isNode :: a -> bool
+ * ```
+ */
 export const isNode = (a: unknown): a is Node =>
   allPass([is(Object), pipe(values, all(isLeaf))])(a);
 
-// getPathFromDirection :: Direction -> Reader TableCell [String]
+/**
+ * ```haskell
+ * getPathFromDirection :: Direction -> Reader TableCell [String]
+ * ```
+ */
 const getPathFromDirection: (
   direction: Direction
-) => R.Reader<TableCell, string[]> = (direction) => (cell): string[] =>
+) => R.Reader<D.TableCell, string[]> = (direction) => (cell): string[] =>
   direction === 'row'
     ? [cell.rowHeader.text, cell.columnHeader.text]
     : [cell.columnHeader.text, cell.rowHeader.text];
 
-// getPolyFromTableCell :: TableCell -> Poly
-const getPolyFromTableCell: (cell: TableCell) => Poly = pipe(
+/**
+ * ```haskell
+ * getPolyFromCell :: Cell -> Poly
+ * ```
+ */
+const getPolyFromCell: (cell: D.Cell) => Poly = pipe(
   prop('words'),
   map(prop('boundingPoly')),
   unionOf
 );
 
-// fromTableCell :: TableCell -> Node
-const fromTableCell: (tableCell: TableCell) => Leaf = (tableCell) => {
+/**
+ * ```haskell
+ * fromTableCell :: TableCell -> Node
+ * ```
+ */
+const fromTableCell: (tableCell: D.TableCell) => Leaf = (tableCell) => {
   const leaf = {
     value: tableCell.text,
   };
-  const poly = getPolyFromTableCell(tableCell);
+  const poly = getPolyFromCell(tableCell);
   return poly ? assocPath(['metadata', 'boundingPoly'], poly, leaf) : leaf;
 };
 
-// makeLeaf :: String -> Leaf
+/**
+ * ```haskell
+ * makeLeaf :: String -> Leaf
+ * ```
+ */
 export const makeLeaf: (value: string) => Leaf = (value) => ({
   value,
 });
 
-// splitTable :: Table -> Reader Direction Comparable
+/**
+ * ```haskell
+ * splitTable :: Table -> Reader Direction Comparable
+ * ```
+ */
 export const splitTable: (
-  table: Table
+  table: D.Table
 ) => R.Reader<FormatTableOptions, Comparable> = (table) => ({
   splitBy: direction,
 }): Comparable => {
   const getPath = getPathFromDirection(direction);
   return pipe(
     prop('cellById'),
-    values as (cells: TableCellById) => TableCell[],
+    values as (cells: D.TableCellById) => D.TableCell[],
     reduce(
-      (acc: Comparable, cell: TableCell): Comparable =>
+      (acc: Comparable, cell: D.TableCell): Comparable =>
         assocPath(getPath(cell), fromTableCell(cell), acc),
       {} as Comparable
     ),
@@ -125,7 +180,11 @@ export const splitTable: (
   )(table);
 };
 
-// getKeyFromPredicate :: Node -> Reader Predicate (Option String)
+/**
+ * ```haskell
+ * getKeyFromPredicate :: Node -> Reader Predicate (Option String)
+ * ```
+ */
 export const getKeyFromPredicate: (
   node: Node
 ) => R.Reader<Predicate, O.Option<string>> = (node) => (
@@ -138,7 +197,11 @@ export const getKeyFromPredicate: (
     O.map(pipe(prop(__, node), prop('value')))
   )(node);
 
-// getKeysFromPredicate :: Comparable -> Reader Predicate String
+/**
+ * ```haskell
+ * getKeysFromPredicate :: Comparable -> Reader Predicate String
+ * ```
+ */
 export const getKeysFromPredicate: (
   comparable: Comparable
 ) => R.Reader<Predicate, Mapping> = pipe(
@@ -150,10 +213,14 @@ export const getKeysFromPredicate: (
   sequenceS(R.reader)
 );
 
-// setKeys :: Comparable -> Reader Predicate Comparable
+/**
+ * ```haskell
+ * setKeys :: Comparable -> Reader Predicate Comparable
+ * ```
+ */
 export const setKeys: (
-  comparable: Comparable
-) => R.Reader<FormatTableOptions, Comparable> = (comparable) =>
+  comparable: Dictionary<Node>
+) => R.Reader<FormatTableOptions, Dictionary<Node>> = (comparable) =>
   pipe(
     pipe(
       getKeysFromPredicate,
@@ -167,10 +234,146 @@ export const setKeys: (
     )
   )(comparable);
 
-// fromTable :: Table -> Reader FormatTableOptions Something
+/**
+ * ```haskell
+ * fromTable :: Table -> Reader FormatTableOptions Comparable
+ * ```
+ */
 export const fromTable: (
-  table: Table
+  table: D.Table
 ) => R.Reader<FormatTableOptions, Comparable> = pipe(
   splitTable,
   R.chain(setKeys)
 );
+
+/**
+ * ```haskell
+ * getLabelFromNode :: Node -> String
+ * ```
+ */
+const getLabelFromNode: (node: D.Node) => string = (node) => node.label;
+
+/**
+ * ```haskell
+ * getTypeFromNode :: Leaf -> String
+ * ```
+ */
+const getTypeFromNode: (node: D.Node) => string = (node) => {
+  if (D.isTable(node)) {
+    return 'tableByLabel';
+  } else if (D.isCell(node)) {
+    return 'cellByLabel';
+  } else {
+    return 'branchByLabel';
+  }
+};
+
+/**
+ * ```haskell
+ * getPathFromTree :: Tree -> [String]
+ * ```
+ */
+const getPathFromTree: (tree: D.Tree) => string[] = (tree) => {
+  const path = [getTypeFromNode(tree), getLabelFromNode(tree)];
+  return D.isLeaf(tree) ? [...path, D.getKeyFromLeaf(tree)] : path;
+};
+
+/**
+ * ```haskell
+ * partition :: Descendant -> DescendantByLabel
+ * ```
+ */
+export const partition: (branch: D.Branch) => Partitions = (branch) =>
+  reduce<D.Tree, Partitions>(
+    (partition, child) => assocPath(getPathFromTree(child), child, partition),
+    { branchByLabel: {}, cellByLabel: {}, tableByLabel: {} } as Partitions,
+    branch.children
+  );
+
+/**
+ * ```haskell
+ * getTableOptions :: String -> Reader FormatBranchOptions (Option FormatTableOptions)
+ * ```
+ */
+export const getTableOptions: (
+  key: string
+) => R.Reader<FormatBranchOptions, O.Option<FormatTableOptions>> = (key) =>
+  pipe(
+    find<FormatLeafOptions>((options) => options.predicate(key)),
+    O.fromPredicate<FormatLeafOptions>(pipe(isNil, not))
+  );
+
+/**
+ * ```haskell
+ * fromTableByName :: TableByName -> Reader FormatBranchOptions Comparable
+ * ```
+ */
+export const fromTableByName: (
+  tables: D.TableByName
+) => R.Reader<FormatBranchOptions, Comparable> = pipe(
+  mapObjIndexed<
+    D.Table,
+    R.Reader<FormatBranchOptions, O.Option<Comparable>>,
+    string
+  >((table, key) => pipe(getTableOptions(key), O.map(fromTable(table)))),
+  sequenceS(R.reader),
+  R.map(
+    pipe(
+      mapObjIndexed<O.Option<Comparable>, Comparable | false>(
+        O.getOrElse<Comparable | false>(() => false)
+      ),
+      reject<Comparable | false>(equals(false)) as R.Reader<
+        Dictionary<Comparable | false>,
+        Comparable
+      >
+    )
+  )
+);
+
+/**
+ * ```haskell
+ * fromCell :: Cell -> Node
+ * ```
+ */
+export const fromCell: (cell: D.Cell) => Leaf = (cell) => ({
+  value: cell.text,
+  metadata: {
+    boundingPoly: getPolyFromCell(cell),
+  },
+});
+
+/**
+ * ```haskell
+ * fromCellByName :: CellByName -> Reader FormatBranchOptions Node
+ * ```
+ */
+export const fromCellByName: (
+  cells: D.CellByName
+) => R.Reader<FormatBranchOptions, Comparable> = (cells) => () =>
+  mapObjIndexed(fromCell, cells);
+
+/**
+ * ```haskell
+ * fromBranch :: Descendant -> Reader FormatBranchOptions Something
+ * ```
+ */
+export function fromBranch(
+  branch: D.Branch
+): R.Reader<FormatBranchOptions, Comparable> {
+  return pipe(
+    partition,
+    reject(isEmpty),
+    evolve({
+      branchByLabel: pipe(mapObjIndexed(fromBranch), sequenceS(R.reader)),
+      cellByLabel: pipe(mapObjIndexed(fromCellByName), sequenceS(R.reader)),
+      tableByLabel: pipe(mapObjIndexed(fromTableByName), sequenceS(R.reader)),
+    }),
+    sequenceS(R.reader),
+    R.map<Dictionary<Comparable>, Dictionary<Comparable>>(
+      pipe(
+        values as R.Reader<Dictionary<Comparable>, Comparable[]>,
+        reduce<Comparable, Dictionary<Comparable>>(mergeDeepRight, {})
+      )
+    )
+  )(branch);
+}

@@ -112,13 +112,13 @@ describe('DocumentAnnotation', function () {
     });
   });
 
-  describe('#makeTree()', function () {
-    let makeTree: RIO.ReaderIO<BoundingBoxes, D.Tree>;
+  describe('#makeForest()', function () {
+    let makeTree: RIO.ReaderIO<BoundingBoxes, D.Forest>;
 
     before(function () {
       const page = Sample.getPage();
-      makeTree = (boundingBoxes: BoundingBoxes): IO.IO<D.Tree> =>
-        D.makeTree(boundingBoxes)(page);
+      makeTree = (boundingBoxes: BoundingBoxes): IO.IO<D.Forest> =>
+        D.makeForest(boundingBoxes)(page);
     });
 
     it('should return only leafs when given boundingBoxes with no overlaps', function () {

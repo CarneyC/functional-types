@@ -28,6 +28,7 @@ import {
   join,
   map,
   not,
+  path,
   pick,
   pipe,
   prop,
@@ -75,6 +76,8 @@ export interface Cell extends Node {
   text: string;
 }
 
+export type CellByName = Dictionary<Cell>;
+
 export interface TableCell extends Cell {
   rowHeader: Cell;
   columnHeader: Cell;
@@ -91,32 +94,38 @@ export interface Table extends Node {
   cellById: TableCellById;
 }
 
+export type TableByName = Dictionary<Table>;
+
 export type TableBase = Omit<Table, 'id' | 'label' | 'boundingPoly'>;
 
 export type Leaf = Cell | Table;
 
 export interface Branch extends Node {
   parent?: Branch;
-  children: Child[];
+  children: Tree[];
 }
 
-export type Child = Branch | Leaf;
+export interface Descendant extends Branch {
+  children: Leaf[];
+}
 
-export type Tree = Dictionary<Child>;
+export type Tree = Branch | Leaf;
 
-export type TreeByPage = Tree[];
+export type Forest = Dictionary<Tree>;
+
+export type ForestByPage = Forest[];
 
 export interface DocumentAnnotation {
   id: string;
   file: string;
-  treeByPage: TreeByPage;
+  forestByPage: ForestByPage;
   created_at: string;
   updated_at: string;
 }
 
 export type DocumentAnnotationBase = Pick<
   DocumentAnnotation,
-  'file' | 'treeByPage'
+  'file' | 'forestByPage'
 >;
 
 export type TextCell = Pick<Cell, 'text'>;
@@ -230,27 +239,26 @@ export const isBranch = (a: unknown): a is Branch =>
 
 /**
  * ```haskell
- * isChild :: a -> bool
- * ```
- */
-export const isChild = (a: unknown): a is Child =>
-  anyPass([isBranch, isLeaf])(a);
-
-/**
- * ```haskell
  * isTree :: a -> bool
  * ```
  */
-export const isTree = (a: unknown): a is Tree =>
-  allPass([is(Object), pipe(values, all(isChild))])(a);
+export const isTree = (a: unknown): a is Tree => anyPass([isBranch, isLeaf])(a);
 
 /**
  * ```haskell
- * isTreeByPage :: a -> bool
+ * isForest :: a -> bool
  * ```
  */
-export const isTreeByPage = (a: unknown): a is TreeByPage =>
-  allPass([is(Array), all(isTree)])(a);
+export const isForest = (a: unknown): a is Forest =>
+  allPass([is(Object), pipe(values, all(isTree))])(a);
+
+/**
+ * ```haskell
+ * isForestByPage :: a -> bool
+ * ```
+ */
+export const isForestByPage = (a: unknown): a is ForestByPage =>
+  allPass([is(Array), all(isForest)])(a);
 
 /**
  * ```haskell
@@ -261,7 +269,7 @@ export const isDocumentAnnotation = (a: unknown): a is DocumentAnnotation =>
   allPass([
     is(Object),
     propIs(String, 'file'),
-    propSatisfies(isTreeByPage, 'treeByPage'),
+    propSatisfies(isForestByPage, 'forestByPage'),
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
   ])(a);
@@ -475,29 +483,29 @@ const equalById: (
 
 /**
  * ```haskell
- * makeChildren :: ([LabeledBoundingBox], Int) -> ReaderIO Page Child
+ * makeTrees :: ([LabeledBoundingBox], Int) -> ReaderIO Page Tree
  * ```
  */
-const makeChildren: (
+const makeTrees: (
   boundingBoxes: LabeledBoundingBox[],
-  children?: Child[]
-) => RIO.ReaderIO<Page, Child[]> = (boundingBoxes, children: Child[] = []) => (
+  children?: Tree[]
+) => RIO.ReaderIO<Page, Tree[]> = (boundingBoxes, children: Tree[] = []) => (
   page
-) => (): Child[] => {
+) => (): Tree[] => {
   const siblingBoxes = getChildlessBoundingBoxes(boundingBoxes);
   const parentBoxes = reject(
     anyPass(map(equalById, siblingBoxes)),
     boundingBoxes
   );
 
-  const isOrphan: (child: Child) => boolean = pipe(
+  const isOrphan: (child: Tree) => boolean = pipe(
     prop('boundingPoly'),
     anyPass(map(pipe(prop('boundingPoly'), containedBy), siblingBoxes)),
     not
   );
 
   const { orphans, descendants } = reduce(
-    (acc: { orphans: Child[]; descendants: Child[] }, child) => {
+    (acc: { orphans: Tree[]; descendants: Tree[] }, child) => {
       const key = isOrphan(child) ? 'orphans' : 'descendants';
       return {
         ...acc,
@@ -525,20 +533,20 @@ const makeChildren: (
 
   return isEmpty(parentBoxes)
     ? siblings
-    : makeChildren(parentBoxes, siblings)(page)();
+    : makeTrees(parentBoxes, siblings)(page)();
 };
 
 /**
  * ```haskell
- * makeTree :: BoundingBoxes -> ReaderIO Page Tree
+ * makeForest :: BoundingBoxes -> ReaderIO Page Forest
  * ```
  */
-export const makeTree: (
+export const makeForest: (
   boundingBoxes: BoundingBoxes
-) => RIO.ReaderIO<Page, Tree> = pipe(
+) => RIO.ReaderIO<Page, Forest> = pipe(
   values,
-  makeChildren,
-  RIO.map(reduce((acc: Tree, child: Child) => assoc(child.id, child, acc), {}))
+  makeTrees,
+  RIO.map(reduce((acc: Forest, child: Tree) => assoc(child.id, child, acc), {}))
 );
 
 /**
@@ -550,13 +558,13 @@ const fromDocumentBase: (
   annotation: DocumentAnnotationBase
 ) => IO.IO<DocumentAnnotation> = ({
   file,
-  treeByPage,
+  forestByPage,
 }) => (): DocumentAnnotation => {
   const timestamp = getCurrentISOString();
   return {
     id: getRandomId(),
     file,
-    treeByPage,
+    forestByPage: forestByPage,
     created_at: timestamp,
     updated_at: timestamp,
   };
@@ -566,22 +574,22 @@ type Tuple = [BoundingBoxes, Page];
 
 /**
  * ```haskell
- * makeTreeByPage :: TableAnnotation -> ReaderIO TextAnnotation TreeByPage
+ * makeForestByPage :: TableAnnotation -> ReaderIO TextAnnotation ForestByPage
  * ```
  */
-export const makeTreeByPage: (
+export const makeForestByPage: (
   tableAnnotation: TableAnnotation
-) => RIO.ReaderIO<TextAnnotation, TreeByPage> = (tableAnnotation) => (
+) => RIO.ReaderIO<TextAnnotation, ForestByPage> = (tableAnnotation) => (
   textAnnotation
-): IO.IO<TreeByPage> => {
+): IO.IO<ForestByPage> => {
   const tuple: Tuple[] = zip(
     tableAnnotation.boundingBoxesByPage,
     textAnnotation.pages
   );
 
   return pipe(
-    map<Tuple, IO.IO<Tree>>(
-      ([boundingBoxes, page]): IO.IO<Tree> => makeTree(boundingBoxes)(page)
+    map<Tuple, IO.IO<Forest>>(
+      ([boundingBoxes, page]): IO.IO<Forest> => makeForest(boundingBoxes)(page)
     ),
     A.array.sequence(IO.io)
   )(tuple);
@@ -609,7 +617,7 @@ export const make: (
 ) => RIO.ReaderIO<TextAnnotation, DocumentAnnotation> = pipe(
   sequenceS(R.reader)({
     file: getFileNameIO,
-    treeByPage: makeTreeByPage,
+    forestByPage: makeForestByPage,
   }),
   sequenceS(R.reader),
   R.map(sequenceS(IO.io)),
@@ -656,4 +664,13 @@ export const toTextTableCell: (tableCell: TableCell) => TextTableCell = pipe(
     columnHeader: toTextCell,
   }),
   pick(['text', 'rowHeader', 'columnHeader'])
+);
+
+/**
+ * getKeyFromLeaf :: Leaf -> String
+ */
+export const getKeyFromLeaf: (leaf: Leaf) => string = ifElse(
+  isTable,
+  path(['intersectHeader', 'text']),
+  prop('text')
 );

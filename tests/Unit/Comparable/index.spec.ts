@@ -104,4 +104,100 @@ describe('Comparable', function () {
       });
     });
   });
+
+  describe('#fromBranch()', function () {
+    let fromBranch: R.Reader<C.FormatBranchOptions, C.Comparable>;
+
+    describe('With Single Level Branch', function () {
+      before(function () {
+        const descendant = Sample.getDescendant();
+        fromBranch = C.fromBranch(descendant);
+      });
+
+      it('should return a comparable with labels and tables matching the provided predicate', function () {
+        const actualComparable = fromBranch([
+          {
+            predicate: regExpTest(/^Share Class/),
+            key: regExpTest(/^ISIN/),
+            splitBy: 'column',
+          },
+        ]);
+
+        const expectedComparable = {
+          title: {
+            'Fund Details': {
+              value: 'Fund Details',
+            },
+          },
+          table: {
+            'Share Class': getComparable(),
+          },
+        };
+
+        expect(actualComparable).to.be.like(expectedComparable);
+      });
+
+      it('should return a comparable with only cell properties when no tables matches the predicate', function () {
+        const actualComparable = fromBranch([
+          {
+            predicate: regExpTest(/^Dividend/),
+            key: regExpTest(/^ISIN/),
+            splitBy: 'column',
+          },
+        ]);
+
+        const expectedComparable = {
+          title: {
+            'Fund Details': {
+              value: 'Fund Details',
+            },
+          },
+          table: {},
+        };
+
+        expect(actualComparable).to.be.like(expectedComparable);
+      });
+
+      it('should return a comparable with only cell properties when no predicate has been provided', function () {
+        const actualComparable = fromBranch([]);
+
+        const expectedComparable = {
+          title: {
+            'Fund Details': {
+              value: 'Fund Details',
+            },
+          },
+          table: {},
+        };
+
+        expect(actualComparable).to.be.like(expectedComparable);
+      });
+    });
+
+    describe('With Nested Branch', function () {
+      before(function () {
+        const branch = Sample.getBranch();
+        fromBranch = C.fromBranch(branch);
+      });
+
+      it('should return a nested comparable with child matching the nested branch', function () {
+        const actualComparable = fromBranch([]);
+
+        const expectedComparable = {
+          split_cell: {
+            title: {
+              'Statistics Summary': {
+                value: 'Statistics Summary',
+              },
+              'Dividend History?': {
+                value: 'Dividend History?',
+              },
+            },
+          },
+        };
+
+        expect(actualComparable).to.be.like(expectedComparable);
+      });
+    });
+  });
 });
