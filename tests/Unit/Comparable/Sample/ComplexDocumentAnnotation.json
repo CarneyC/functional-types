@@ -269,7 +269,7 @@
                     "confidence": 0.98
                   }
                 ],
-                "text": "AA "
+                "text": "AA"
               },
               {
                 "id": "bd82ee26-147a-43cd-880c-d15712da8aef",
@@ -319,7 +319,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "B "
+                "text": "B"
               },
               {
                 "id": "e0eb4618-bfc8-4267-90a0-64887a828396",
@@ -369,7 +369,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "LIQUIDITY "
+                "text": "LIQUIDITY"
               }
             ],
             "columnHeaders": [
@@ -697,7 +697,7 @@
                   "confidence": 0.99
                 }
               ],
-              "text": "Credit AAA\nBBB\nBB\nAA B LIQUIDITY "
+              "text": "Credit AAA\nBBB\nBB\nAA B LIQUIDITY"
             },
             "mergedColumnHeader": {
               "id": "2fe0446d-e0b5-480f-a02f-52c37e46b448",
@@ -922,7 +922,7 @@
                   "confidence": 0.99
                 }
               ],
-              "text": "Credit "
+              "text": "Credit"
             },
             "cellById": {
               "335f93f5-d812-4351-a047-a2b434de0f64": {
@@ -2071,7 +2071,7 @@
                       "confidence": 0.98
                     }
                   ],
-                  "text": "AA "
+                  "text": "AA"
                 },
                 "columnHeader": {
                   "id": "aa97c056-feec-4720-b95c-1ab51e0aab11",
@@ -2321,7 +2321,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "B "
+                  "text": "B"
                 },
                 "columnHeader": {
                   "id": "aa97c056-feec-4720-b95c-1ab51e0aab11",
@@ -2546,7 +2546,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "LIQUIDITY "
+                  "text": "LIQUIDITY"
                 },
                 "columnHeader": {
                   "id": "aa97c056-feec-4720-b95c-1ab51e0aab11",
@@ -2796,7 +2796,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "CORPORATE "
+                "text": "CORPORATE"
               },
               {
                 "id": "0dbd2ec3-6dae-475b-bbf4-e5a17b60e803",
@@ -2946,7 +2946,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "GOV'T-RELATED "
+                "text": "GOV'T-RELATED"
               },
               {
                 "id": "37e78749-f034-4dac-91ae-881021c7b4f4",
@@ -2996,7 +2996,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "LIQUIDITY "
+                "text": "LIQUIDITY"
               }
             ],
             "columnHeaders": [
@@ -3349,7 +3349,7 @@
                   "confidence": 0.99
                 }
               ],
-              "text": "Sector GOVERNMENT\nCORPORATE GOV'T-RELATED LIQUIDITY "
+              "text": "Sector GOVERNMENT\nCORPORATE GOV'T-RELATED LIQUIDITY"
             },
             "mergedColumnHeader": {
               "id": "9c508431-511a-40ae-bc4c-37f1d00be984",
@@ -3549,7 +3549,7 @@
                   "confidence": 0.99
                 }
               ],
-              "text": "Sector "
+              "text": "Sector"
             },
             "cellById": {
               "5e3041d8-2bbc-438d-a04e-9dae08eb1fc3": {
@@ -3899,7 +3899,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "CORPORATE "
+                  "text": "CORPORATE"
                 },
                 "columnHeader": {
                   "id": "6c81e88d-1b7b-4284-ad88-bda1e780bcf7",
@@ -4274,7 +4274,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "GOV'T-RELATED "
+                  "text": "GOV'T-RELATED"
                 },
                 "columnHeader": {
                   "id": "6c81e88d-1b7b-4284-ad88-bda1e780bcf7",
@@ -4474,7 +4474,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "LIQUIDITY "
+                  "text": "LIQUIDITY"
                 },
                 "columnHeader": {
                   "id": "6c81e88d-1b7b-4284-ad88-bda1e780bcf7",
@@ -23475,7 +23475,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "INDONESIA "
+                "text": "INDONESIA"
               },
               {
                 "id": "55853f83-c5db-44bb-872e-5a7feece6628",
@@ -23525,7 +23525,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "BRAZIL "
+                "text": "BRAZIL"
               },
               {
                 "id": "33fd14bb-6ea6-4093-b240-fe0b5d35102a",
@@ -23575,7 +23575,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "RUSSIA "
+                "text": "RUSSIA"
               },
               {
                 "id": "a41f028b-420f-44cb-a8c2-0cfe8d781de1",
@@ -23649,7 +23649,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "KAZAKHSTAN "
+                "text": "KAZAKHSTAN"
               },
               {
                 "id": "90f5cc3f-322e-4b9d-a4a8-3ec577e2ab94",
@@ -23724,7 +23724,7 @@
                     "confidence": 1
                   }
                 ],
-                "text": "SAUDI ARABIA "
+                "text": "SAUDI ARABIA"
               },
               {
                 "id": "09b11232-a252-49a5-8dc3-a2df5193fc0b",
@@ -23774,7 +23774,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "COLOMBIA "
+                "text": "COLOMBIA"
               },
               {
                 "id": "888650ea-8525-46bb-b0b3-f9416b7acb5d",
@@ -23849,7 +23849,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "DOMINICAN REPUBLIC "
+                "text": "DOMINICAN REPUBLIC"
               },
               {
                 "id": "92c2882b-6172-4269-bdf4-bec7b2993a03",
@@ -23924,7 +23924,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "IVORY COAST "
+                "text": "IVORY COAST"
               },
               {
                 "id": "d740a933-f471-4ad3-99cf-2119633cd447",
@@ -23998,7 +23998,7 @@
                     "confidence": 0.99
                   }
                 ],
-                "text": "LIQUIDITY "
+                "text": "LIQUIDITY"
               }
             ],
             "columnHeaders": [
@@ -24626,7 +24626,7 @@
                   "confidence": 0.99
                 }
               ],
-              "text": "Country/Location UNITED STATES\nINDONESIA BRAZIL RUSSIA NEW ZEALAND KAZAKHSTAN SAUDI ARABIA COLOMBIA DOMINICAN REPUBLIC IVORY COAST OTHERS LIQUIDITY "
+              "text": "Country/Location UNITED STATES\nINDONESIA BRAZIL RUSSIA NEW ZEALAND KAZAKHSTAN SAUDI ARABIA COLOMBIA DOMINICAN REPUBLIC IVORY COAST OTHERS LIQUIDITY"
             },
             "mergedColumnHeader": {
               "id": "8f74c36a-9b98-4d18-8d0b-23a0f9225f29",
@@ -24926,7 +24926,7 @@
                   "confidence": 0.99
                 }
               ],
-              "text": "Country/Location "
+              "text": "Country/Location"
             },
             "cellById": {
               "040d0f25-3bff-408a-b219-64bbaa78827d": {
@@ -25351,7 +25351,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "INDONESIA "
+                  "text": "INDONESIA"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",
@@ -25601,7 +25601,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "BRAZIL "
+                  "text": "BRAZIL"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",
@@ -25851,7 +25851,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "RUSSIA "
+                  "text": "RUSSIA"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",
@@ -26274,7 +26274,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "KAZAKHSTAN "
+                  "text": "KAZAKHSTAN"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",
@@ -26574,7 +26574,7 @@
                       "confidence": 1
                     }
                   ],
-                  "text": "SAUDI ARABIA "
+                  "text": "SAUDI ARABIA"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",
@@ -26849,7 +26849,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "COLOMBIA "
+                  "text": "COLOMBIA"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",
@@ -27149,7 +27149,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "DOMINICAN REPUBLIC "
+                  "text": "DOMINICAN REPUBLIC"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",
@@ -27449,7 +27449,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "IVORY COAST "
+                  "text": "IVORY COAST"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",
@@ -27822,7 +27822,7 @@
                       "confidence": 0.99
                     }
                   ],
-                  "text": "LIQUIDITY "
+                  "text": "LIQUIDITY"
                 },
                 "columnHeader": {
                   "id": "b3804d66-6640-4f63-9b76-9301e7cc7f20",

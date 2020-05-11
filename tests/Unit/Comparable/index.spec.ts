@@ -198,6 +198,40 @@ describe('Comparable', function () {
 
         expect(actualComparable).to.be.like(expectedComparable);
       });
+
+      it('should return a nested comparable with table matching the predicates', function () {
+        const actualComparable = fromBranch([
+          {
+            predicate: regExpTest(/^Sector Allocation \(%\)/),
+            splitBy: 'row',
+            mergeKey: true,
+          },
+          {
+            predicate: regExpTest(/^Credit Rating/),
+            splitBy: 'row',
+            mergeKey: true,
+          },
+        ]);
+
+        const expectedComparable = {
+          bar_chart: {
+            'Sector Allocation (%)': {
+              CORPORATE: C.makeLeaf('10.0'),
+            },
+            'Credit Rating Allocation (%)': {
+              AAA: C.makeLeaf('61.9'),
+            },
+          },
+          split_cell: {
+            title: {
+              'Statistics Summary': C.makeLeaf('Statistics Summary'),
+              'Dividend History?': C.makeLeaf('Dividend History?'),
+            },
+          },
+        };
+
+        expect(actualComparable).to.be.like(expectedComparable);
+      });
     });
   });
 });

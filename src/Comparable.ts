@@ -5,6 +5,7 @@ import {
   __,
   all,
   allPass,
+  any,
   anyPass,
   assoc,
   assocPath,
@@ -12,8 +13,11 @@ import {
   equals,
   evolve,
   F,
+  filter,
   find,
   has,
+  head,
+  ifElse,
   invertObj,
   is,
   isEmpty,
@@ -29,6 +33,7 @@ import {
   propSatisfies,
   reduce,
   reject,
+  unless,
   values,
 } from 'ramda';
 import { isPoly, Poly, unionOf } from './Vertex';
@@ -62,6 +67,7 @@ export interface Partitions {
 
 export interface FormatTableOptions {
   key?: Predicate;
+  mergeKey?: boolean;
   splitBy: Direction;
 }
 
@@ -157,6 +163,16 @@ export const makeLeaf: (value: string) => Leaf = (value) => ({
 
 /**
  * ```haskell
+ * unnest :: Comparable -> Comparable
+ * ```
+ */
+export const unnest: (comparable: Comparable) => Comparable = unless(
+  isEmpty,
+  pipe(values, head)
+);
+
+/**
+ * ```haskell
  * splitTable :: Table -> Reader Direction Comparable
  * ```
  */
@@ -164,6 +180,7 @@ export const splitTable: (
   table: D.Table
 ) => R.Reader<FormatTableOptions, Comparable> = (table) => ({
   splitBy: direction,
+  mergeKey,
 }): Comparable => {
   const getPath = getPathFromDirection(direction);
   return pipe(
@@ -174,8 +191,10 @@ export const splitTable: (
         assocPath(getPath(cell), fromTableCell(cell), acc),
       {} as Comparable
     ),
-    mapObjIndexed((comparable, key) =>
-      assoc(table.intersectHeader.text, makeLeaf(key), comparable)
+    mapObjIndexed((comparable: Comparable, key) =>
+      mergeKey
+        ? unnest(comparable)
+        : assoc(table.intersectHeader.text, makeLeaf(key), comparable)
     )
   )(table);
 };
@@ -270,25 +289,61 @@ const getTypeFromNode: (node: D.Node) => string = (node) => {
 
 /**
  * ```haskell
- * getPathFromTree :: Tree -> [String]
+ * matchMergeOptions :: Table -> Reader FormatBranchOptions Bool
  * ```
  */
-const getPathFromTree: (tree: D.Tree) => string[] = (tree) => {
+const matchMergeOptions: (
+  table: D.Table
+) => R.Reader<FormatBranchOptions, boolean> = (table) =>
+  ifElse(
+    isEmpty,
+    F,
+    any((options: FormatLeafOptions) =>
+      options.predicate(table.mergedColumnHeader.text)
+    )
+  );
+
+/**
+ * ```haskell
+ * getPathFromTree :: Tree -> Reader FormatBranchOptions [String]
+ * ```
+ */
+const getPathFromTree: (
+  tree: D.Tree
+) => R.Reader<FormatBranchOptions, string[]> = (tree) => (
+  options
+): string[] => {
   const path = [getTypeFromNode(tree), getLabelFromNode(tree)];
-  return D.isLeaf(tree) ? [...path, D.getKeyFromLeaf(tree)] : path;
+  if (D.isTable(tree) && matchMergeOptions(tree)(options)) {
+    return [...path, tree.mergedColumnHeader.text];
+  } else if (D.isLeaf(tree)) {
+    return [...path, D.getKeyFromLeaf(tree)];
+  } else {
+    return path;
+  }
 };
 
 /**
  * ```haskell
- * partition :: Descendant -> DescendantByLabel
+ * partition :: Descendant -> Reader FormatBranchOptions Format DescendantByLabel
  * ```
  */
-export const partition: (branch: D.Branch) => Partitions = (branch) =>
-  reduce<D.Tree, Partitions>(
-    (partition, child) => assocPath(getPathFromTree(child), child, partition),
+export const partition: (
+  branch: D.Branch
+) => R.Reader<FormatBranchOptions, Partitions> = (branch) => (
+  options
+): Partitions => {
+  const mergeOptions = filter(
+    (options: FormatLeafOptions) => options.mergeKey === true,
+    options
+  );
+  return reduce<D.Tree, Partitions>(
+    (partition, child) =>
+      assocPath(getPathFromTree(child)(mergeOptions), child, partition),
     { branchByLabel: {}, cellByLabel: {}, tableByLabel: {} } as Partitions,
     branch.children
   );
+};
 
 /**
  * ```haskell
@@ -349,7 +404,7 @@ export const fromCell: (cell: D.Cell) => Leaf = (cell) => ({
  */
 export const fromCellByName: (
   cells: D.CellByName
-) => R.Reader<FormatBranchOptions, Comparable> = (cells) => () =>
+) => R.Reader<FormatBranchOptions, Comparable> = (cells) => (): Comparable =>
   mapObjIndexed(fromCell, cells);
 
 /**
@@ -362,13 +417,20 @@ export function fromBranch(
 ): R.Reader<FormatBranchOptions, Comparable> {
   return pipe(
     partition,
-    reject(isEmpty),
-    evolve({
-      branchByLabel: pipe(mapObjIndexed(fromBranch), sequenceS(R.reader)),
-      cellByLabel: pipe(mapObjIndexed(fromCellByName), sequenceS(R.reader)),
-      tableByLabel: pipe(mapObjIndexed(fromTableByName), sequenceS(R.reader)),
-    }),
-    sequenceS(R.reader),
+    R.chain(
+      pipe(
+        reject(isEmpty),
+        evolve({
+          branchByLabel: pipe(mapObjIndexed(fromBranch), sequenceS(R.reader)),
+          cellByLabel: pipe(mapObjIndexed(fromCellByName), sequenceS(R.reader)),
+          tableByLabel: pipe(
+            mapObjIndexed(fromTableByName),
+            sequenceS(R.reader)
+          ),
+        }),
+        sequenceS(R.reader)
+      )
+    ),
     R.map<Dictionary<Comparable>, Dictionary<Comparable>>(
       pipe(
         values as R.Reader<Dictionary<Comparable>, Comparable[]>,
