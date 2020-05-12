@@ -195,13 +195,13 @@ Defined in src/Comparable.ts:52
 
 #### Properties
 
-* [boundingPoly](#optional-boundingpoly)
+* [bounding_poly](#optional-boundingpoly)
 
 ### Properties
 
-#### `Optional` boundingPoly
+#### `Optional` bounding_poly
 
-• **boundingPoly**? : *[Poly](#poly)*
+• **bounding_poly**? : *[Poly](#poly)*
 
 Defined in src/Comparable.ts:46
 
@@ -267,7 +267,7 @@ Defined in src/Comparable.ts:64
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [children](#children)
 * [id](#id)
 * [label](#label)
@@ -275,11 +275,11 @@ Defined in src/Comparable.ts:64
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[bounding_poly](#boundingpoly)*
 
 Defined in src/DocumentAnnotation.ts:71
 
@@ -338,7 +338,7 @@ Defined in src/DocumentAnnotation.ts:104
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [id](#id)
 * [label](#label)
 * [text](#text)
@@ -346,11 +346,11 @@ Defined in src/DocumentAnnotation.ts:104
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[bounding_poly](#boundingpoly)*
 
 Defined in src/DocumentAnnotation.ts:71
 
@@ -407,7 +407,7 @@ Defined in src/DocumentAnnotation.ts:75
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [children](#children)
 * [id](#id)
 * [label](#label)
@@ -415,11 +415,11 @@ Defined in src/DocumentAnnotation.ts:75
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[bounding_poly](#boundingpoly)*
 
 Defined in src/DocumentAnnotation.ts:71
 
@@ -545,15 +545,15 @@ Defined in src/DocumentAnnotation.ts:123
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [id](#id)
 * [label](#label)
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
 Defined in src/DocumentAnnotation.ts:71
 
@@ -590,7 +590,7 @@ Defined in src/DocumentAnnotation.ts:70
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [cellById](#cellbyid)
 * [columnHeaders](#columnheaders)
 * [id](#id)
@@ -602,11 +602,11 @@ Defined in src/DocumentAnnotation.ts:70
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[bounding_poly](#boundingpoly)*
 
 Defined in src/DocumentAnnotation.ts:71
 
@@ -695,7 +695,7 @@ Defined in src/DocumentAnnotation.ts:89
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [columnHeader](#columnheader)
 * [id](#id)
 * [label](#label)
@@ -705,11 +705,11 @@ Defined in src/DocumentAnnotation.ts:89
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
-*Inherited from [Node](#interfaces_documentannotation_nodemd).[boundingPoly](#boundingpoly)*
+*Inherited from [Node](#interfaces_documentannotation_nodemd).[bounding_poly](#boundingpoly)*
 
 Defined in src/DocumentAnnotation.ts:71
 
@@ -1502,15 +1502,15 @@ Defined in src/TextAnnotation.ts:70
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [confidence](#confidence)
 * [id](#id)
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
 Defined in src/TextAnnotation.ts:61
 
@@ -1606,7 +1606,7 @@ Defined in src/TextAnnotation.ts:79
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [breakType](#breaktype)
 * [confidence](#confidence)
 * [id](#id)
@@ -1615,9 +1615,9 @@ Defined in src/TextAnnotation.ts:79
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
 Defined in src/TextAnnotation.ts:54
 
@@ -1678,15 +1678,15 @@ Defined in src/TextAnnotation.ts:55
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [columns](#columns)
 * [rows](#rows)
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
 Defined in src/Vertex/index.ts:58
 
@@ -1757,7 +1757,7 @@ Defined in src/Vertex/index.ts:92
 
 #### Properties
 
-* [boundingPoly](#boundingpoly)
+* [bounding_poly](#boundingpoly)
 * [columns](#columns)
 * [id](#id)
 * [label](#label)
@@ -1765,11 +1765,11 @@ Defined in src/Vertex/index.ts:92
 
 ### Properties
 
-####  boundingPoly
+####  bounding_poly
 
-• **boundingPoly**: *[Poly](#poly)*
+• **bounding_poly**: *[Poly](#poly)*
 
-*Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[boundingPoly](#boundingpoly)*
+*Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[bounding_poly](#boundingpoly)*
 
 Defined in src/Vertex/index.ts:58
 
@@ -2220,7 +2220,7 @@ Defined in src/Vision.ts:191
 
 #### Properties
 
-* [boundingPoly](#optional-boundingpoly)
+* [bounding_poly](#optional-boundingpoly)
 * [confidence](#confidence)
 * [description](#description)
 * [locale](#locale)
@@ -2232,9 +2232,9 @@ Defined in src/Vision.ts:191
 
 ### Properties
 
-#### `Optional` boundingPoly
+#### `Optional` bounding_poly
 
-• **boundingPoly**? : *[BoundingPoly](#interfaces_vision_boundingpolymd)*
+• **bounding_poly**? : *[BoundingPoly](#interfaces_vision_boundingpolymd)*
 
 Defined in src/Vision.ts:99
 
@@ -3371,7 +3371,7 @@ Name | Type |
 
 * ### **metadata**: *object*
 
-  * **boundingPoly**: *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]* = getPolyFromCell(cell)
+  * **bounding_poly**: *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]* = getPolyFromCell(cell)
 
 ___
 
@@ -3794,7 +3794,7 @@ ___
 
 ####  TableBase
 
-Ƭ **TableBase**: *Omit‹[Table](#interfaces_documentannotation_tablemd), "id" | "label" | "boundingPoly"›*
+Ƭ **TableBase**: *Omit‹[Table](#interfaces_documentannotation_tablemd), "id" | "label" | "bounding_poly"›*
 
 Defined in src/DocumentAnnotation.ts:99
 
@@ -4288,7 +4288,7 @@ makeNode :: LabeledBoundingBox -> IO Node
 
 Name | Type |
 ------ | ------ |
-`boundingPoly` | [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)] |
+`bounding_poly` | [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)] |
 `label` | string |
 
 **Returns:** *(Anonymous function)*

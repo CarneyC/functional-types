@@ -33,6 +33,7 @@ import {
   propSatisfies,
   reduce,
   reject,
+  tap,
   unless,
   values,
 } from 'ramda';
@@ -43,7 +44,7 @@ export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
 
 export interface Metadata {
-  boundingPoly?: Poly;
+  bounding_poly?: Poly;
 }
 
 export type Mapping = Dictionary<string>;
@@ -53,9 +54,7 @@ export interface Leaf {
   metadata?: Metadata;
 }
 
-export type Node = Dictionary<Leaf>;
-
-export type Comparable = Dictionary<Comparable> | Node;
+export type Comparable = Dictionary<Comparable | Leaf>;
 
 export type ComparableView = Dictionary<ComparableView> | Dictionary<string>;
 
@@ -94,7 +93,7 @@ const propSatisfiesIfExists: (
  * ```
  */
 export const isMetadata = (a: unknown): a is Metadata =>
-  allPass([is(Object), propSatisfiesIfExists(isPoly, 'boundingPoly')])(a);
+  allPass([is(Object), propSatisfiesIfExists(isPoly, 'bounding_poly')])(a);
 
 /**
  * ```haskell
@@ -110,22 +109,14 @@ export const isLeaf = (a: unknown): a is Leaf =>
 
 /**
  * ```haskell
- * isNode :: a -> bool
- * ```
- */
-export const isNode = (a: unknown): a is Node =>
-  allPass([is(Object), pipe(values, all(isLeaf))])(a);
-
-/**
- * ```haskell
  * isComparable :: a -> bool
  * ```
  */
 export function isComparable(a: unknown): a is Comparable {
-  return anyPass([
-    isNode,
-    pipe(values, allPass([is(Array), all(isComparable)])),
-  ])(a);
+  return pipe(
+    values,
+    allPass([is(Array), all(anyPass([isComparable, isLeaf]))])
+  )(a);
 }
 
 /**
@@ -161,7 +152,7 @@ const fromTableCell: (tableCell: D.TableCell) => Leaf = (tableCell) => {
     value: tableCell.text,
   };
   const poly = getPolyFromCell(tableCell);
-  return poly ? assocPath(['metadata', 'boundingPoly'], poly, leaf) : leaf;
+  return poly ? assocPath(['metadata', 'bounding_poly'], poly, leaf) : leaf;
 };
 
 /**
@@ -198,11 +189,11 @@ export const splitTable: (
   return pipe(
     prop('cellById'),
     values as (cells: D.TableCellById) => D.TableCell[],
-    reduce(
-      (acc: Comparable, cell: D.TableCell): Comparable =>
-        assocPath(getPath(cell), fromTableCell(cell), acc),
-      {} as Comparable
-    ),
+    reduce((acc: Comparable, cell: D.TableCell): Comparable => {
+      const path = getPath(cell);
+      const table = fromTableCell(cell);
+      return assocPath(path, table, acc);
+    }, {} as Comparable),
     mapObjIndexed((comparable: Comparable, key) =>
       mergeKey
         ? unnest(comparable)
@@ -213,20 +204,21 @@ export const splitTable: (
 
 /**
  * ```haskell
- * getKeyFromPredicate :: Node -> Reader Predicate (Option String)
+ * getKeyFromPredicate :: Comparable -> Reader Predicate (Option String)
  * ```
  */
 export const getKeyFromPredicate: (
-  node: Node
-) => R.Reader<Predicate, O.Option<string>> = (node) => (
+  comparable: Comparable
+) => R.Reader<Predicate, O.Option<string>> = (comparable) => (
   pred
 ): O.Option<string> =>
   pipe(
+    filter(isLeaf) as R.Reader<Comparable, Dictionary<Leaf>>,
     keys,
     find(pred),
-    O.fromPredicate(pipe(isNil, not)),
-    O.map(pipe(prop(__, node), prop('value')))
-  )(node);
+    O.fromPredicate<string>(pipe(isNil, not)),
+    O.map<string, string>(pipe(prop(__, comparable), prop('value')))
+  )(comparable);
 
 /**
  * ```haskell
@@ -236,11 +228,9 @@ export const getKeyFromPredicate: (
 export const getKeysFromPredicate: (
   comparable: Comparable
 ) => R.Reader<Predicate, Mapping> = pipe(
-  mapObjIndexed((node: Comparable | Node, key: string) => {
-    return isNode(node)
-      ? pipe(getKeyFromPredicate, R.map(O.getOrElse(() => key)))(node)
-      : (): string => key;
-  }),
+  mapObjIndexed((node: Comparable, key: string) =>
+    pipe(getKeyFromPredicate, R.map(O.getOrElse(() => key)))(node)
+  ),
   sequenceS(R.reader)
 );
 
@@ -250,8 +240,8 @@ export const getKeysFromPredicate: (
  * ```
  */
 export const setKeys: (
-  comparable: Dictionary<Node>
-) => R.Reader<FormatTableOptions, Dictionary<Node>> = (comparable) =>
+  comparable: Comparable
+) => R.Reader<FormatTableOptions, Comparable> = (comparable) =>
   pipe(
     pipe(
       getKeysFromPredicate,
@@ -405,7 +395,7 @@ export const fromTableByName: (
 export const fromCell: (cell: D.Cell) => Leaf = (cell) => ({
   value: cell.text,
   metadata: {
-    boundingPoly: getPolyFromCell(cell),
+    bounding_poly: getPolyFromCell(cell),
   },
 });
 
@@ -466,18 +456,9 @@ export const fromForest: (
 
 /**
  * ```haskell
- * viewNode :: Node -> Dictionary String
- * ```
- */
-export const viewNode: (node: Node) => Dictionary<string> = mapObjIndexed(
-  (leaf) => leaf.value
-);
-
-/**
- * ```haskell
  * view :: Comparable -> ComparableView
  * ```
  */
 export function view(comparable: Comparable): ComparableView {
-  return ifElse(isNode, viewNode, mapObjIndexed(view))(comparable);
+  return ifElse(isLeaf, prop('value'), mapObjIndexed(view))(comparable);
 }

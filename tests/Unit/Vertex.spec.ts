@@ -19,7 +19,7 @@ chai.config.truncateThreshold = 0;
 
 describe('Vertex', function () {
   describe('#sortPoly()', function () {
-    it('should return a sorted boundingPoly when given an unsorted boundingPoly', function () {
+    it('should return a sorted bounding_poly when given an unsorted bounding_poly', function () {
       const poly: Poly = [
         {
           x: 0.7042017,
