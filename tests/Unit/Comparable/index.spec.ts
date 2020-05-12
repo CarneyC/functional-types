@@ -3,7 +3,7 @@ import * as C from '../../../src/Comparable';
 import * as Sample from './Sample';
 import * as R from 'fp-ts/lib/Reader';
 import { keys, test as regExpTest } from 'ramda';
-import { getComparable, getISINs, getShareClasses, keysOf } from './Sample';
+import { getTree, getISINs, getShareClasses, keysOf } from './Sample';
 import chaiLike from 'chai-like';
 
 chai.use(chaiLike);
@@ -11,7 +11,7 @@ const { expect } = chai;
 
 describe('Comparable', function () {
   describe('#fromTable()', function () {
-    let fromTable: R.Reader<C.FormatTableOptions, C.Comparable>;
+    let fromTable: R.Reader<C.FromTableOptions, C.Tree>;
 
     describe('When the Table is split by columns', function () {
       before(function () {
@@ -19,37 +19,37 @@ describe('Comparable', function () {
         fromTable = C.fromTable(table);
       });
 
-      it('should return a comparable with keys matching its header when no key predicate is given', function () {
-        const comparable = fromTable({
+      it('should return a tree with keys matching its header when no key predicate is given', function () {
+        const tree = fromTable({
           splitBy: 'column',
         });
 
-        const actualKeys = keys(comparable);
+        const actualKeys = keys(tree);
         const expectedKeys = getShareClasses();
 
         expect(actualKeys).to.have.members(expectedKeys);
       });
 
-      it('should return a comparable with keys matching its the key predicate', function () {
-        const comparable = fromTable({
+      it('should return a tree with keys matching its the key predicate', function () {
+        const tree = fromTable({
           key: regExpTest(/^ISIN/),
           splitBy: 'column',
         });
 
-        const actualKeys = keysOf(comparable);
+        const actualKeys = keysOf(tree);
         const expectedKeys = getISINs();
 
         expect(actualKeys).to.have.members(expectedKeys);
       });
 
       it('should contain the original key as value of its intersect header', function () {
-        const actualComparable = fromTable({
+        const actualTree = fromTable({
           key: regExpTest(/^ISIN/),
           splitBy: 'column',
         });
 
-        const expectedComparable = getComparable();
-        expect(actualComparable).to.be.like(expectedComparable);
+        const expectedTree = getTree();
+        expect(actualTree).to.be.like(expectedTree);
       });
     });
 
@@ -59,12 +59,12 @@ describe('Comparable', function () {
         fromTable = C.fromTable(table);
       });
 
-      it('should return a comparable with keys matching its header when no key predicate is given', function () {
-        const comparable = fromTable({
+      it('should return a tree with keys matching its header when no key predicate is given', function () {
+        const tree = fromTable({
           splitBy: 'row',
         });
 
-        const actualKeys = keysOf(comparable);
+        const actualKeys = keysOf(tree);
 
         const expectedKeys = [
           'USD',
@@ -81,13 +81,13 @@ describe('Comparable', function () {
         expect(actualKeys).to.have.members(expectedKeys);
       });
 
-      it('should return a comparable with keys matching its the key predicate', function () {
-        const comparable = fromTable({
+      it('should return a tree with keys matching its the key predicate', function () {
+        const tree = fromTable({
           key: regExpTest(/^Annualised/),
           splitBy: 'row',
         });
 
-        const actualKeys = keysOf(comparable);
+        const actualKeys = keysOf(tree);
         const expectedKeys = [
           '4.94%',
           '4.87%',
@@ -106,7 +106,7 @@ describe('Comparable', function () {
   });
 
   describe('#fromBranch()', function () {
-    let fromBranch: R.Reader<C.FormatBranchOptions, C.Comparable>;
+    let fromBranch: R.Reader<C.FromBranchOptions, C.Tree>;
 
     describe('With Single Level Branch', function () {
       before(function () {
@@ -114,8 +114,8 @@ describe('Comparable', function () {
         fromBranch = C.fromBranch(descendant);
       });
 
-      it('should return a comparable with labels and tables matching the provided predicate', function () {
-        const actualComparable = fromBranch([
+      it('should return a tree with labels and tables matching the provided predicate', function () {
+        const actualTree = fromBranch([
           {
             predicate: regExpTest(/^Share Class/),
             key: regExpTest(/^ISIN/),
@@ -123,22 +123,22 @@ describe('Comparable', function () {
           },
         ]);
 
-        const expectedComparable = {
+        const expectedTree = {
           title: {
             'Fund Details': {
               value: 'Fund Details',
             },
           },
           table: {
-            'Share Class': getComparable(),
+            'Share Class': getTree(),
           },
         };
 
-        expect(actualComparable).to.be.like(expectedComparable);
+        expect(actualTree).to.be.like(expectedTree);
       });
 
-      it('should return a comparable with only cell properties when no tables matches the predicate', function () {
-        const actualComparable = fromBranch([
+      it('should return a tree with only cell properties when no tables matches the predicate', function () {
+        const actualTree = fromBranch([
           {
             predicate: regExpTest(/^Dividend/),
             key: regExpTest(/^ISIN/),
@@ -146,7 +146,7 @@ describe('Comparable', function () {
           },
         ]);
 
-        const expectedComparable = {
+        const expectedTree = {
           title: {
             'Fund Details': {
               value: 'Fund Details',
@@ -155,13 +155,13 @@ describe('Comparable', function () {
           table: {},
         };
 
-        expect(actualComparable).to.be.like(expectedComparable);
+        expect(actualTree).to.be.like(expectedTree);
       });
 
-      it('should return a comparable with only cell properties when no predicate has been provided', function () {
-        const actualComparable = fromBranch([]);
+      it('should return a tree with only cell properties when no predicate has been provided', function () {
+        const actualTree = fromBranch([]);
 
-        const expectedComparable = {
+        const expectedTree = {
           title: {
             'Fund Details': {
               value: 'Fund Details',
@@ -170,7 +170,7 @@ describe('Comparable', function () {
           table: {},
         };
 
-        expect(actualComparable).to.be.like(expectedComparable);
+        expect(actualTree).to.be.like(expectedTree);
       });
     });
 
@@ -180,10 +180,10 @@ describe('Comparable', function () {
         fromBranch = C.fromBranch(branch);
       });
 
-      it('should return a nested comparable with child matching the nested branch', function () {
-        const actualComparable = fromBranch([]);
+      it('should return a nested tree with child matching the nested branch', function () {
+        const actualTree = fromBranch([]);
 
-        const expectedComparable = {
+        const expectedTree = {
           split_cell: {
             title: {
               'Statistics Summary': {
@@ -196,11 +196,11 @@ describe('Comparable', function () {
           },
         };
 
-        expect(actualComparable).to.be.like(expectedComparable);
+        expect(actualTree).to.be.like(expectedTree);
       });
 
-      it('should return a nested comparable with table matching the predicates', function () {
-        const actualComparable = fromBranch([
+      it('should return a nested tree with table matching the predicates', function () {
+        const actualTree = fromBranch([
           {
             predicate: regExpTest(/^Sector Allocation \(%\)/),
             splitBy: 'row',
@@ -213,7 +213,7 @@ describe('Comparable', function () {
           },
         ]);
 
-        const expectedComparable = {
+        const expectedTree = {
           bar_chart: {
             'Sector Allocation (%)': {
               CORPORATE: C.makeLeaf('10.0'),
@@ -230,20 +230,20 @@ describe('Comparable', function () {
           },
         };
 
-        expect(actualComparable).to.be.like(expectedComparable);
+        expect(actualTree).to.be.like(expectedTree);
       });
     });
   });
 
   describe('#fromForest()', function () {
-    it('should return a Comparable when no format options is provided', function () {
+    it('should return a Tree when no format options is provided', function () {
       const forest = Sample.getComplexForest();
       const result = C.fromForest(forest)([]);
 
-      expect(result).to.satisfy(C.isComparable);
+      expect(result).to.satisfy(C.isTree);
     });
 
-    it('should return a Comparable when some format options is provided', function () {
+    it('should return a Tree when some format options is provided', function () {
       const forest = Sample.getComplexForest();
       const result = C.fromForest(forest)([
         {
@@ -267,7 +267,7 @@ describe('Comparable', function () {
         },
       ]);
 
-      expect(result).to.satisfy(C.isComparable);
+      expect(result).to.satisfy(C.isTree);
     });
   });
 });

@@ -9,7 +9,7 @@ import {
   ForestByPage,
   Descendant,
 } from '../../../../src/DocumentAnnotation';
-import { Comparable } from '../../../../src/Comparable';
+import { Tree } from '../../../../src/Comparable';
 import { keys, map, mapObjIndexed, pipe, replace, values } from 'ramda';
 
 const tableByColumnsId = '60fc0465-527a-4a03-ad18-958cd5056b00';
@@ -62,8 +62,8 @@ export const getTableByColumns: IO.IO<Table> = () =>
 export const getTableByRows: IO.IO<Table> = () =>
   (getForest()[tableByRowsId] as Branch).children[0] as Table;
 
-// keysOf :: Comparable -> [String]
-export const keysOf: (comparable: Comparable) => string[] = pipe(
+// keysOf :: Tree -> [String]
+export const keysOf: (comparable: Tree) => string[] = pipe(
   keys,
   map(replace(/\n/, ' '))
 );
@@ -86,9 +86,9 @@ export const getShareClasses: IO.IO<string[]> = () => values(mappings);
 // getISINs :: IO [String]
 export const getISINs: IO.IO<string[]> = () => keys(mappings);
 
-// getComparable :: IO Comparable
-export const getComparable: IO.IO<Comparable> = () =>
+// getTree :: IO Tree
+export const getTree: IO.IO<Tree> = () =>
   (mapObjIndexed(
     (sharedClass) => ({ 'Share Class': { value: sharedClass } }),
     mappings
-  ) as any) as Comparable;
+  ) as any) as Tree;
