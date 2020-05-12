@@ -6,6 +6,7 @@ import {
   allPass,
   is,
   join,
+  last,
   map,
   pipe,
   prop,
@@ -213,3 +214,10 @@ export const isReference = (a: unknown): a is Reference =>
 export const makeReference: (file: string) => Reference = (file) => ({
   file,
 });
+
+/**
+ * ```haskell
+ * getFileNameFromId :: String -> String
+ * ```
+ */
+export const getFileNameFromId: (id: string) => string = pipe(split('/'), last);

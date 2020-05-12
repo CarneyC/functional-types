@@ -20,8 +20,8 @@ import {
   replace,
   values,
 } from 'ramda';
-import { Gettable, Gettables } from '../../../../src/Schema';
-import { gettable, gettables } from './Gettables';
+import { Gettable, Gettables, Schema } from '../../../../src/Schema';
+import { gettable, gettables, schema } from './Schema';
 
 const tableByColumnsId = '60fc0465-527a-4a03-ad18-958cd5056b00';
 const tableByRowsId = '5ad93d23-e4a0-41d7-b212-850d74c66d68';
@@ -120,11 +120,14 @@ export const getTree: IO.IO<Tree> = () =>
     mappings
   ) as any) as Tree;
 
+// getGettable :: IO Gettable
+export const getGettable: IO.IO<Gettable> = () => gettable;
+
 // getGettables :: IO Gettables
 export const getGettables: IO.IO<Gettables> = () => gettables;
 
-// getGettable :: IO Gettable
-export const getGettable: IO.IO<Gettable> = () => gettable;
+// getSchema :: IO Schema
+export const getSchema: IO.IO<Schema> = () => schema;
 
 // getComparableNode :: IO Node
 export const getComparableNode: IO.IO<Tree> = () => ({

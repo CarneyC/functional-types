@@ -15,11 +15,13 @@ import {
   assocPath,
   defaultTo,
   Dictionary,
+  dissoc,
   equals,
   evolve,
   F,
   filter,
   find,
+  groupBy,
   has,
   head,
   ifElse,
@@ -32,6 +34,7 @@ import {
   last,
   map,
   mapObjIndexed,
+  mergeAll,
   mergeDeepRight,
   not,
   path,
@@ -43,6 +46,7 @@ import {
   reduce,
   reject,
   test as regExpTest,
+  toPairs,
   unless,
   values,
   when,
@@ -51,6 +55,7 @@ import { isPoly, Poly, unionOf } from './Vertex';
 import { sequenceS } from 'fp-ts/lib/Apply';
 import * as S from './Schema';
 import { PathSegment } from './Schema';
+import { getFileNameFromId } from './Folder';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
@@ -99,6 +104,11 @@ export interface FromLeafOptions extends FromTableOptions {
 }
 
 export type FromBranchOptions = FromLeafOptions[];
+
+interface PartitionedGettables {
+  annotation: D.DocumentAnnotation;
+  gettables: S.Gettables;
+}
 
 /**
  * ```haskell
@@ -651,7 +661,7 @@ export const applyPath: (node: Node) => R.Reader<S.Path, O.Option<Node>> = (
 
 /**
  * ```haskell
- * applyGettables :: Forest -> Reader Gettables Tree
+ * applyGettables :: ForestByLabel -> Reader Gettables Tree
  * ```
  */
 export const applyGettables: (
@@ -668,4 +678,76 @@ export const applyGettables: (
   ),
   R.map(filter(O.isSome)),
   R.map(mapObjIndexed((some: O.Some<Node>) => some.value))
+);
+
+/**
+ * ```haskell
+ * satisfyFilePath :: [String] -> Reader FilePath Bool
+ * ```
+ */
+const satisfyFilePath: (files: string[]) => R.Reader<S.FilePath, boolean> = (
+  files
+) => ([path, ...others]) => {
+  if (others) return false;
+  return any(regExpTest(path), files);
+};
+
+/**
+ * ```haskell
+ * partitionGettables :: [DocumentAnnotation] -> Reader Gettables (Dictionary Gettables)
+ * ```
+ */
+export const partitionGettables: (
+  annotations: D.DocumentAnnotation[]
+) => R.Reader<S.Gettables, Dictionary<PartitionedGettables>> = (
+  annotations
+) => {
+  const annotationByFile: Record<string, D.DocumentAnnotation> = pipe(
+    groupBy(pipe(prop('file'), getFileNameFromId)),
+    mapObjIndexed(head)
+  )(annotations);
+
+  const files: string[] = keys(annotationByFile);
+
+  return pipe(
+    toPairs as R.Reader<S.Gettables, [string, S.Gettable][]>,
+    map(([key, gettable]) => ({ [key]: gettable })),
+    groupBy<S.Gettables>(
+      pipe(
+        values,
+        head,
+        prop('file'),
+        unless(satisfyFilePath(files), () => '')
+      )
+    ),
+    dissoc(''),
+    mapObjIndexed<S.Gettables[], S.Gettables>(mergeAll),
+    mapObjIndexed<S.Gettables, PartitionedGettables>((gettables, file) => ({
+      annotation: prop(file, annotationByFile),
+      gettables,
+    }))
+  );
+};
+
+/**
+ * ```haskell
+ * applySchema :: [DocumentAnnotation] -> Reader Schema Tree
+ * ```
+ */
+export const applySchema: (
+  annotations: D.DocumentAnnotation[]
+) => R.Reader<S.Schema, Tree> = pipe(
+  pipe(
+    partitionGettables,
+    R.local(prop('gettables') as R.Reader<S.Schema, S.Gettables>)
+  ),
+  R.map(
+    mapObjIndexed<PartitionedGettables, Tree>(({ annotation, gettables }) =>
+      pipe(
+        prop('forestByPage'),
+        D.mergeForestByPage,
+        applyGettables
+      )(annotation)(gettables)
+    )
+  )
 );

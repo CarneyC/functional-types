@@ -4,7 +4,6 @@ import * as Sample from './Sample';
 import * as R from 'fp-ts/lib/Reader';
 import { keys, pipe, prop, test as regExpTest } from 'ramda';
 import chaiLike from 'chai-like';
-import { getLeafOptionsFromGettable } from '../../../src/Comparable';
 import { mergeForestByPage } from '../../../src/DocumentAnnotation';
 
 chai.use(chaiLike);
@@ -276,7 +275,7 @@ describe('Comparable', function () {
     it('should return a LeafOptions which when provided to fromForest retrieve the appropriate Tree', function () {
       const gettable = Sample.getGettable();
       const forest = Sample.getCompleteForest();
-      const leafOptions = getLeafOptionsFromGettable(gettable);
+      const leafOptions = C.getLeafOptionsFromGettable(gettable);
 
       const actualTree = C.fromForest(forest)([leafOptions]);
       const expectedTree = {
@@ -299,7 +298,7 @@ describe('Comparable', function () {
       const actualNode = pipe(
         pipe(
           C.fromForest,
-          R.local(pipe(getLeafOptionsFromGettable, (value) => [value]))
+          R.local(pipe(C.getLeafOptionsFromGettable, (value) => [value]))
         ),
         R.chain(pipe(C.applyPath, R.local(prop('attribute'))))
       )(forest)(gettable);
@@ -321,6 +320,23 @@ describe('Comparable', function () {
         mergeForestByPage,
         C.applyGettables
       )(forestByPage)(gettables);
+
+      const expectedTree = Sample.getFlatComparableTree();
+
+      expect(actualTree).to.be.like(expectedTree);
+    });
+  });
+
+  describe('#applySchema()', function () {
+    it('should return a Tree with appropriate table values.', function () {
+      const schema = Sample.getSchema();
+      const annotations = [
+        Sample.getDocumentAnnotation(),
+        Sample.getCompleteDocumentAnnotation(),
+        Sample.getComplexDocumentAnnotation(),
+      ];
+
+      const actualTree = C.applySchema(annotations)(schema);
 
       const expectedTree = Sample.getFlatComparableTree();
 
