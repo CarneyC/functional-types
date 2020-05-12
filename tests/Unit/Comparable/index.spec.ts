@@ -2,7 +2,7 @@ import chai from 'chai';
 import * as C from '../../../src/Comparable';
 import * as Sample from './Sample';
 import * as R from 'fp-ts/lib/Reader';
-import { keys, test as regExpTest } from 'ramda';
+import { keys, pipe, prop, test as regExpTest } from 'ramda';
 import {
   getTree,
   getISINs,
@@ -295,6 +295,45 @@ describe('Comparable', function () {
       };
 
       expect(actualTree).to.be.like(expectedTree);
+    });
+  });
+
+  describe('#applyPath()', function () {
+    it('should return the Node at the end of the Path', function () {
+      const gettable = getGettable();
+      const forest = getCompleteForest();
+
+      const actualNode = pipe(
+        pipe(
+          C.fromForest,
+          R.local(pipe(getLeafOptionsFromGettable, (value) => [value]))
+        ),
+        R.chain(pipe(C.applyPath, R.local(prop('attribute'))))
+      )(forest)(gettable);
+
+      const expectedNode = {
+        value: {
+          'NAV-NAV (%)': {
+            'Year to Date': {
+              value: '7.76',
+            },
+            '1 Year': {
+              value: '6.31',
+            },
+            '3 Years': {
+              value: '7.39',
+            },
+            '5 Years': {
+              value: '13.23',
+            },
+            'Since Inception': {
+              value: '21.93',
+            },
+          },
+        },
+      };
+
+      expect(actualNode).to.be.like(expectedNode);
     });
   });
 });

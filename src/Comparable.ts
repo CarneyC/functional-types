@@ -1,5 +1,7 @@
 import * as R from 'fp-ts/lib/Reader';
 import * as O from 'fp-ts/lib/Option';
+import * as RE from 'fp-ts/lib/ReaderEither';
+import * as E from 'fp-ts/lib/Either';
 import * as D from './DocumentAnnotation';
 import {
   __,
@@ -8,6 +10,7 @@ import {
   any,
   anyPass,
   applySpec,
+  applyTo,
   assoc,
   assocPath,
   defaultTo,
@@ -42,10 +45,12 @@ import {
   test as regExpTest,
   unless,
   values,
+  when,
 } from 'ramda';
 import { isPoly, Poly, unionOf } from './Vertex';
 import { sequenceS } from 'fp-ts/lib/Apply';
-import { Gettable } from './Schema';
+import * as S from './Schema';
+import { PathSegment } from './Schema';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
@@ -102,6 +107,13 @@ const propSatisfiesIfExists: (
   name: string
 ) => R.Reader<unknown, boolean> = (pred, name) =>
   anyPass([pipe(has(name), not), propSatisfies(pred, name)]);
+
+/**
+ * ```haskell
+ * isNotNil :: a -> bool
+ * ```
+ */
+export const isNotNil: (a: unknown) => boolean = pipe(isNil, not);
 
 /**
  * ```haskell
@@ -214,25 +226,33 @@ export const splitTable: (
 
 /**
  * ```haskell
- * getKeyFromPredicate :: Tree -> Reader PredicateStr (Option String)
+ * findKeyFromPredicate :: Tree -> Reader Predicate (Option String)
  * ```
  */
-export const getKeyFromPredicate: (
+export const findKeyFromPredicate: (
   tree: Tree
 ) => R.Reader<Predicate, O.Option<string>> = (tree) => (
   pred
 ): O.Option<string> =>
+  pipe(keys, find(pred), O.fromPredicate<string>(isNotNil))(tree);
+
+/**
+ * ```haskell
+ * getKeyFromPredicate :: Tree -> Reader Predicate (Option String)
+ * ```
+ */
+export const getKeyFromPredicate: (
+  tree: Tree
+) => R.Reader<Predicate, O.Option<string>> = (tree) =>
   pipe(
     filter(isLeaf) as R.Reader<Tree, Dictionary<Leaf>>,
-    keys,
-    find(pred),
-    O.fromPredicate<string>(pipe(isNil, not)),
-    O.map<string, string>(pipe(prop(__, tree), prop('value')))
+    findKeyFromPredicate,
+    R.map(O.map<string, string>(pipe(prop(__, tree), prop('value'))))
   )(tree);
 
 /**
  * ```haskell
- * getKeysFromPredicate :: Tree -> Reader PredicateStr String
+ * getKeysFromPredicate :: Tree -> Reader Predicate String
  * ```
  */
 export const getKeysFromPredicate: (
@@ -362,7 +382,7 @@ export const getTableOptions: (
 ) => R.Reader<FromBranchOptions, O.Option<FromTableOptions>> = (key) =>
   pipe(
     find<FromLeafOptions>((options) => options.predicate(key)),
-    O.fromPredicate<FromLeafOptions>(pipe(isNil, not))
+    O.fromPredicate<FromLeafOptions>(isNotNil)
   );
 
 /**
@@ -472,7 +492,7 @@ export function view(tree: Tree): TreeView {
  * getPredicateFromGettable :: Gettable -> Predicate
  * ```
  */
-const getPredicateFromGettable: (gettable: Gettable) => Predicate = pipe(
+const getPredicateFromGettable: (gettable: S.Gettable) => Predicate = pipe(
   prop('attribute'),
   last,
   ifElse(isNil, F, regExpTest)
@@ -484,7 +504,7 @@ const getPredicateFromGettable: (gettable: Gettable) => Predicate = pipe(
  * ```
  */
 const getKeyPredicateFromGettable: (
-  gettable: Gettable
+  gettable: S.Gettable
 ) => Predicate | undefined = pipe(
   path<RegExp>(['options', 'key']),
   unless(isNil, regExpTest)
@@ -496,7 +516,7 @@ const getKeyPredicateFromGettable: (
  * ```
  */
 const getMergeKeyFromGettable: (
-  gettable: Gettable
+  gettable: S.Gettable
 ) => boolean = pathSatisfies(allPass([is(Array), includes('header')]), [
   'options',
   'merge_type',
@@ -507,7 +527,7 @@ const getMergeKeyFromGettable: (
  * getSplitByFromGettable :: Gettable -> Direction
  * ```
  */
-const getDirectionFromGettable: (gettable: Gettable) => Direction = pipe(
+const getDirectionFromGettable: (gettable: S.Gettable) => Direction = pipe(
   path<Direction>(['options', 'direction']),
   defaultTo<Direction>('row')
 );
@@ -518,10 +538,88 @@ const getDirectionFromGettable: (gettable: Gettable) => Direction = pipe(
  * ```
  */
 export const getLeafOptionsFromGettable: (
-  gettable: Gettable
+  gettable: S.Gettable
 ) => FromLeafOptions = applySpec({
   predicate: getPredicateFromGettable,
   key: getKeyPredicateFromGettable,
   mergeKey: getMergeKeyFromGettable,
   splitBy: getDirectionFromGettable,
 });
+
+/**
+ * ```haskell
+ * getBranchOptionsFromGettables :: Gettables -> FromBranchOptions
+ * ```
+ */
+export const getBranchOptionsFromGettables: (
+  gettables: S.Gettables
+) => FromBranchOptions = pipe(
+  values as R.Reader<S.Gettables, S.Gettable[]>,
+  map(getLeafOptionsFromGettable)
+);
+
+/**
+ * ```haskell
+ * getPredicateFromPathSegment :: PathSegment -> Predicate
+ * ```
+ */
+export const getPredicateFromPathSegment: (
+  segment: PathSegment
+) => Predicate = pipe(when(S.isPredicate, prop('value')), regExpTest);
+
+/**
+ * ```haskell
+ * satisfyPredicate :: Node -> Reader Predicate Bool
+ * ```
+ */
+const satisfyPredicate: (node: Node) => R.Reader<Predicate, boolean> = pipe(
+  RE.fromPredicate(isTree, () => false),
+  RE.chain(pipe(findKeyFromPredicate, R.map(E.fromOption(() => false)))),
+  R.map(E.isRight)
+);
+
+/**
+ * ```haskell
+ * satisfyProperties :: Tree -> Reader [Property] Bool
+ * ```
+ */
+export const satisfyProperties: (
+  node: Node
+) => R.Reader<S.Property[], boolean> = (node) =>
+  all(({ property, pattern }) =>
+    propSatisfies(
+      allPass([
+        isNotNil,
+        R.compose(satisfyPredicate)(applyTo(regExpTest(pattern))),
+      ]),
+      property
+    )(node)
+  );
+
+/**
+ * ```haskell
+ * applyPath :: Tree -> Reader Path (Option Tree)
+ * ```
+ */
+export const applyPath: (node: Node) => R.Reader<S.Path, O.Option<Node>> = (
+  node
+) => (path): O.Option<Node> => {
+  if (isEmpty(path)) return O.some(node);
+
+  const [segment, ...pathSegments] = path;
+  const predicate = getPredicateFromPathSegment(segment);
+  if (isLeaf(node)) {
+    return isEmpty(pathSegments) && predicate(node.value)
+      ? O.some(node)
+      : O.none;
+  }
+  const key = findKeyFromPredicate(node)(predicate);
+  if (O.isNone(key)) return O.none;
+
+  const child = node[key.value];
+  if (S.isPredicate(segment) && !satisfyProperties(child)(segment.properties)) {
+    return O.none;
+  }
+
+  return applyPath(child)(pathSegments);
+};
