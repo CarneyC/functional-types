@@ -7,8 +7,10 @@ import {
   allPass,
   any,
   anyPass,
+  applySpec,
   assoc,
   assocPath,
+  defaultTo,
   Dictionary,
   equals,
   evolve,
@@ -18,26 +20,32 @@ import {
   has,
   head,
   ifElse,
+  includes,
   invertObj,
   is,
   isEmpty,
   isNil,
   keys,
+  last,
   map,
   mapObjIndexed,
   mergeDeepRight,
   not,
+  path,
+  pathSatisfies,
   pipe,
   prop,
   propIs,
   propSatisfies,
   reduce,
   reject,
+  test as regExpTest,
   unless,
   values,
 } from 'ramda';
 import { isPoly, Poly, unionOf } from './Vertex';
 import { sequenceS } from 'fp-ts/lib/Apply';
+import { Gettable } from './Schema';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
@@ -52,7 +60,9 @@ export interface Leaf {
   metadata?: Metadata;
 }
 
-export type Tree = Dictionary<Tree | Leaf>;
+export type Node = Tree | Leaf;
+
+export type Tree = Dictionary<Node>;
 
 export interface Comparable {
   id: string;
@@ -443,6 +453,7 @@ export function fromBranch(
 export const fromForest: (
   forest: D.Forest
 ) => R.Reader<FromBranchOptions, Tree> = pipe(
+  D.mergeForestByLabel,
   mapObjIndexed(fromBranch),
   sequenceS(R.reader)
 );
@@ -455,3 +466,62 @@ export const fromForest: (
 export function view(tree: Tree): TreeView {
   return ifElse(isLeaf, prop('value'), mapObjIndexed(view))(tree);
 }
+
+/**
+ * ```haskell
+ * getPredicateFromGettable :: Gettable -> Predicate
+ * ```
+ */
+const getPredicateFromGettable: (gettable: Gettable) => Predicate = pipe(
+  prop('attribute'),
+  last,
+  ifElse(isNil, F, regExpTest)
+);
+
+/**
+ * ```haskell
+ * getKeyPredicateFromGettable :: Gettable -> Predicate
+ * ```
+ */
+const getKeyPredicateFromGettable: (
+  gettable: Gettable
+) => Predicate | undefined = pipe(
+  path<RegExp>(['options', 'key']),
+  unless(isNil, regExpTest)
+);
+
+/**
+ * ```haskell
+ * getMergeKeyFromGettable :: Gettable -> Bool
+ * ```
+ */
+const getMergeKeyFromGettable: (
+  gettable: Gettable
+) => boolean = pathSatisfies(allPass([is(Array), includes('header')]), [
+  'options',
+  'merge_type',
+]);
+
+/**
+ * ```haskell
+ * getSplitByFromGettable :: Gettable -> Direction
+ * ```
+ */
+const getDirectionFromGettable: (gettable: Gettable) => Direction = pipe(
+  path<Direction>(['options', 'direction']),
+  defaultTo<Direction>('row')
+);
+
+/**
+ * ```haskell
+ * getLeafOptionsFromGettable :: Gettable -> FromLeafOptions
+ * ```
+ */
+export const getLeafOptionsFromGettable: (
+  gettable: Gettable
+) => FromLeafOptions = applySpec({
+  predicate: getPredicateFromGettable,
+  key: getKeyPredicateFromGettable,
+  mergeKey: getMergeKeyFromGettable,
+  splitBy: getDirectionFromGettable,
+});

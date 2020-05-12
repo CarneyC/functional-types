@@ -11,6 +11,8 @@ import {
 } from '../../../../src/DocumentAnnotation';
 import { Tree } from '../../../../src/Comparable';
 import { keys, map, mapObjIndexed, pipe, replace, values } from 'ramda';
+import { Gettable } from '../../../../src/Schema';
+import { gettable } from './Gettables';
 
 const tableByColumnsId = '60fc0465-527a-4a03-ad18-958cd5056b00';
 const tableByRowsId = '5ad93d23-e4a0-41d7-b212-850d74c66d68';
@@ -31,6 +33,14 @@ export const getComplexDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
   return JSON.parse((buffer as unknown) as string);
 };
 
+// getCompleteDocumentAnnotation :: IO DocumentAnnotation
+export const getCompleteDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
+  const buffer = fs.readFileSync(
+    path.join(__dirname, 'CompleteDocumentAnnotation.json')
+  );
+  return JSON.parse((buffer as unknown) as string);
+};
+
 // getForestByPage :: IO ForestByPage
 export const getForestByPage: IO.IO<ForestByPage> = () =>
   getDocumentAnnotation().forestByPage;
@@ -39,12 +49,20 @@ export const getForestByPage: IO.IO<ForestByPage> = () =>
 export const getComplexForestByPage: IO.IO<ForestByPage> = () =>
   getComplexDocumentAnnotation().forestByPage;
 
+// getCompleteForestByPage :: IO ForestByPage
+export const getCompleteForestByPage: IO.IO<ForestByPage> = () =>
+  getCompleteDocumentAnnotation().forestByPage;
+
 // getForest :: IO Forest
 export const getForest: IO.IO<Forest> = () => getForestByPage()[1];
 
 // getComplexForest :: IO Forest
 export const getComplexForest: IO.IO<Forest> = () =>
   getComplexForestByPage()[0];
+
+// getCompleteForest :: IO Forest
+export const getCompleteForest: IO.IO<Forest> = () =>
+  getCompleteForestByPage()[0];
 
 // getDescendant :: IO Descendant
 export const getDescendant: IO.IO<Descendant> = () =>
@@ -92,3 +110,6 @@ export const getTree: IO.IO<Tree> = () =>
     (sharedClass) => ({ 'Share Class': { value: sharedClass } }),
     mappings
   ) as any) as Tree;
+
+// getGettable :: IO Gettable
+export const getGettable: IO.IO<Gettable> = () => gettable;

@@ -3,8 +3,16 @@ import * as C from '../../../src/Comparable';
 import * as Sample from './Sample';
 import * as R from 'fp-ts/lib/Reader';
 import { keys, test as regExpTest } from 'ramda';
-import { getTree, getISINs, getShareClasses, keysOf } from './Sample';
+import {
+  getTree,
+  getISINs,
+  getShareClasses,
+  keysOf,
+  getGettable,
+  getCompleteForest,
+} from './Sample';
 import chaiLike from 'chai-like';
+import { getLeafOptionsFromGettable } from '../../../src/Comparable';
 
 chai.use(chaiLike);
 const { expect } = chai;
@@ -268,6 +276,25 @@ describe('Comparable', function () {
       ]);
 
       expect(result).to.satisfy(C.isTree);
+    });
+  });
+
+  describe('#getLeafOptionsFromGettable()', function () {
+    it('should return a LeafOptions which when provided to fromForest retrieve the appropriate Tree', function () {
+      const gettable = getGettable();
+      const forest = getCompleteForest();
+      const leafOptions = getLeafOptionsFromGettable(gettable);
+
+      const actualTree = C.fromForest(forest)([leafOptions]);
+      const expectedTree = {
+        performance: {
+          table: {
+            'Cumulative Returns': {},
+          },
+        },
+      };
+
+      expect(actualTree).to.be.like(expectedTree);
     });
   });
 });

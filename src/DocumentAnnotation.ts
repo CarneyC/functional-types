@@ -55,6 +55,7 @@ import {
   splitByXs,
   splitByYs,
   getChildlessBoundingBoxes,
+  unions,
 } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import * as R from 'fp-ts/lib/Reader';
@@ -673,4 +674,27 @@ export const getKeyFromLeaf: (leaf: Leaf) => string = ifElse(
   isTable,
   path(['intersectHeader', 'text']),
   prop('text')
+);
+
+/**
+ * mergeForestByLabel :: Forest -> Tree
+ */
+export const mergeForestByLabel: (forest: Forest) => Dictionary<Branch> = pipe(
+  values as R.Reader<Forest, Tree[]>,
+  reduce<Tree, Dictionary<Branch>>((acc, newTree: Tree) => {
+    const { label } = newTree;
+
+    const oldTree = acc[label];
+    const accChildren = oldTree?.children || [];
+    const newChildren = isLeaf(newTree) ? [newTree] : newTree.children;
+
+    const id = oldTree ? `${oldTree.id},${newTree.id}` : newTree.id;
+    const boundingPoly = oldTree
+      ? unions(oldTree.boundingPoly)(newTree.boundingPoly)
+      : newTree.boundingPoly;
+    const children = concat(accChildren, newChildren);
+
+    const tree = { id, label, boundingPoly, children };
+    return assoc(label, tree, acc);
+  }, {})
 );
