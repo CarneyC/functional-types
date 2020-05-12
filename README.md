@@ -67,7 +67,7 @@
 
 #### `Optional` key
 
-• **key**? : *[Predicate](#predicate)*
+• **key**? : *[PredicateStr](#predicate)*
 
 *Inherited from [FromTableOptions](#interfaces_comparable_formattableoptionsmd).[key](#optional-key)*
 
@@ -87,7 +87,7 @@ ___
 
 ####  predicate
 
-• **predicate**: *[Predicate](#predicate)*
+• **predicate**: *[PredicateStr](#predicate)*
 
 Defined in src/Tree.ts:75
 
@@ -126,7 +126,7 @@ Defined in src/Tree.ts:71
 
 #### `Optional` key
 
-• **key**? : *[Predicate](#predicate)*
+• **key**? : *[PredicateStr](#predicate)*
 
 Defined in src/Tree.ts:69
 
@@ -3090,7 +3090,7 @@ Defined in src/Vision.ts:175
 * [FromBranchOptions](#formatbranchoptions)
 * [Mapping](#mapping)
 * [Node](#node)
-* [Predicate](#predicate)
+* [PredicateStr](#predicate)
 * [Type](#type)
 
 #### Variables
@@ -3159,9 +3159,9 @@ Defined in src/Tree.ts:56
 
 ___
 
-####  Predicate
+####  PredicateStr
 
-Ƭ **Predicate**: *function*
+Ƭ **PredicateStr**: *function*
 
 Defined in src/Tree.ts:43
 
@@ -3289,12 +3289,12 @@ ___
 Defined in src/Tree.ts:236
 
 ```haskell
-getKeysFromPredicate :: Tree -> Reader Predicate String
+getKeysFromPredicate :: Tree -> Reader PredicateStr String
 ```
 
 ##### Type declaration:
 
-▸ (`tree`: [Tree](#tree)): *Reader‹[Predicate](#predicate), [Mapping](#mapping)›*
+▸ (`tree`: [Tree](#tree)): *Reader‹[PredicateStr](#predicate), [Mapping](#mapping)›*
 
 **Parameters:**
 
@@ -3402,7 +3402,7 @@ ___
 Defined in src/Tree.ts:221
 
 ```haskell
-getKeyFromPredicate :: Node -> Reader Predicate (Option String)
+getKeyFromPredicate :: Node -> Reader PredicateStr (Option String)
 ```
 
 **Parameters:**
@@ -3572,7 +3572,7 @@ ___
 Defined in src/Tree.ts:254
 
 ```haskell
-setKeys :: Tree -> Reader Predicate Tree
+setKeys :: Tree -> Reader PredicateStr Tree
 ```
 
 **Parameters:**
@@ -5855,7 +5855,7 @@ ___
 Defined in src/Response.ts:119
 
 ```haskell
-fromPredicate :: Predicate -> Response
+fromPredicate :: PredicateStr -> Response
 ```
 
 **Parameters:**

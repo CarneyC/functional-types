@@ -204,7 +204,7 @@ export const splitTable: (
 
 /**
  * ```haskell
- * getKeyFromPredicate :: Tree -> Reader Predicate (Option String)
+ * getKeyFromPredicate :: Tree -> Reader PredicateStr (Option String)
  * ```
  */
 export const getKeyFromPredicate: (
@@ -222,7 +222,7 @@ export const getKeyFromPredicate: (
 
 /**
  * ```haskell
- * getKeysFromPredicate :: Tree -> Reader Predicate String
+ * getKeysFromPredicate :: Tree -> Reader PredicateStr String
  * ```
  */
 export const getKeysFromPredicate: (
@@ -236,7 +236,7 @@ export const getKeysFromPredicate: (
 
 /**
  * ```haskell
- * setKeys :: Tree -> Reader Predicate Tree
+ * setKeys :: Tree -> Reader PredicateStr Tree
  * ```
  */
 export const setKeys: (tree: Tree) => R.Reader<FromTableOptions, Tree> = (

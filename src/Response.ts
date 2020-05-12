@@ -110,7 +110,7 @@ export const getStatusFromResponse: (
 
 /**
  * ```haskell
- * fromPredicate :: Predicate -> Response
+ * fromPredicate :: PredicateStr -> Response
  * ```
  */
 export const fromPredicate: <A>(
