@@ -65,19 +65,22 @@ export interface Leaf {
   metadata?: Metadata;
 }
 
-export type Node = Tree | Leaf;
+export interface Tree {
+  [index: string]: Node;
+}
 
-export type Tree = Dictionary<Node>;
+export type Node = Tree | Leaf;
 
 export interface Comparable {
   id: string;
   schema_ids: string[];
+  files: string[];
   attributes: Tree;
   created_at: string;
   updated_at: string;
 }
 
-export type TreeView = Dictionary<TreeView> | Dictionary<string>;
+export type TreeView = Dictionary<TreeView | string>;
 
 export interface Partitions {
   branchByLabel: Dictionary<D.Branch>;
@@ -467,15 +470,35 @@ export function fromBranch(
 
 /**
  * ```haskell
+ * fromForestByLabel :: ForestByLabel -> Reader FromBranchOptions Tree
+ * ```
+ */
+export const fromForestByLabel: (
+  forest: D.ForestByLabel
+) => R.Reader<FromBranchOptions, Tree> = pipe(
+  mapObjIndexed(fromBranch),
+  sequenceS(R.reader)
+);
+
+/**
+ * ```haskell
  * fromForest :: Forest -> Reader FromBranchOptions Tree
  * ```
  */
 export const fromForest: (
   forest: D.Forest
+) => R.Reader<FromBranchOptions, Tree> = pipe(D.mergeForest, fromForestByLabel);
+
+/**
+ * ```haskell
+ * fromForestByPage :: ForestByPage -> Reader FromBranchOptions Tree
+ * ```
+ */
+export const fromForestByPage: (
+  forestByPage: D.ForestByPage
 ) => R.Reader<FromBranchOptions, Tree> = pipe(
-  D.mergeForestByLabel,
-  mapObjIndexed(fromBranch),
-  sequenceS(R.reader)
+  D.mergeForestByPage,
+  fromForestByLabel
 );
 
 /**
@@ -608,11 +631,13 @@ export const applyPath: (node: Node) => R.Reader<S.Path, O.Option<Node>> = (
 
   const [segment, ...pathSegments] = path;
   const predicate = getPredicateFromPathSegment(segment);
+
   if (isLeaf(node)) {
     return isEmpty(pathSegments) && predicate(node.value)
       ? O.some(node)
       : O.none;
   }
+
   const key = findKeyFromPredicate(node)(predicate);
   if (O.isNone(key)) return O.none;
 
@@ -623,3 +648,24 @@ export const applyPath: (node: Node) => R.Reader<S.Path, O.Option<Node>> = (
 
   return applyPath(child)(pathSegments);
 };
+
+/**
+ * ```haskell
+ * applyGettables :: Forest -> Reader Gettables Tree
+ * ```
+ */
+export const applyGettables: (
+  forest: D.ForestByLabel
+) => R.Reader<S.Gettables, Tree> = pipe(
+  pipe(fromForestByLabel, R.local(getBranchOptionsFromGettables)),
+  R.map<Tree, R.Reader<S.Gettable, O.Option<Node>>>(
+    pipe(applyPath, R.local<S.Gettable, S.Path>(prop('attribute')))
+  ),
+  R.chain(
+    mapObjIndexed as (
+      fa: R.Reader<S.Gettable, O.Option<Node>>
+    ) => R.Reader<S.Gettables, Dictionary<O.Option<Node>>>
+  ),
+  R.map(filter(O.isSome)),
+  R.map(mapObjIndexed((some: O.Some<Node>) => some.value))
+);

@@ -3,16 +3,9 @@ import * as C from '../../../src/Comparable';
 import * as Sample from './Sample';
 import * as R from 'fp-ts/lib/Reader';
 import { keys, pipe, prop, test as regExpTest } from 'ramda';
-import {
-  getTree,
-  getISINs,
-  getShareClasses,
-  keysOf,
-  getGettable,
-  getCompleteForest,
-} from './Sample';
 import chaiLike from 'chai-like';
 import { getLeafOptionsFromGettable } from '../../../src/Comparable';
+import { mergeForestByPage } from '../../../src/DocumentAnnotation';
 
 chai.use(chaiLike);
 const { expect } = chai;
@@ -33,7 +26,7 @@ describe('Comparable', function () {
         });
 
         const actualKeys = keys(tree);
-        const expectedKeys = getShareClasses();
+        const expectedKeys = Sample.getShareClasses();
 
         expect(actualKeys).to.have.members(expectedKeys);
       });
@@ -44,8 +37,8 @@ describe('Comparable', function () {
           splitBy: 'column',
         });
 
-        const actualKeys = keysOf(tree);
-        const expectedKeys = getISINs();
+        const actualKeys = Sample.keysOf(tree);
+        const expectedKeys = Sample.getISINs();
 
         expect(actualKeys).to.have.members(expectedKeys);
       });
@@ -56,7 +49,7 @@ describe('Comparable', function () {
           splitBy: 'column',
         });
 
-        const expectedTree = getTree();
+        const expectedTree = Sample.getTree();
         expect(actualTree).to.be.like(expectedTree);
       });
     });
@@ -72,7 +65,7 @@ describe('Comparable', function () {
           splitBy: 'row',
         });
 
-        const actualKeys = keysOf(tree);
+        const actualKeys = Sample.keysOf(tree);
 
         const expectedKeys = [
           'USD',
@@ -95,7 +88,7 @@ describe('Comparable', function () {
           splitBy: 'row',
         });
 
-        const actualKeys = keysOf(tree);
+        const actualKeys = Sample.keysOf(tree);
         const expectedKeys = [
           '4.94%',
           '4.87%',
@@ -138,7 +131,7 @@ describe('Comparable', function () {
             },
           },
           table: {
-            'Share Class': getTree(),
+            'Share Class': Sample.getTree(),
           },
         };
 
@@ -281,8 +274,8 @@ describe('Comparable', function () {
 
   describe('#getLeafOptionsFromGettable()', function () {
     it('should return a LeafOptions which when provided to fromForest retrieve the appropriate Tree', function () {
-      const gettable = getGettable();
-      const forest = getCompleteForest();
+      const gettable = Sample.getGettable();
+      const forest = Sample.getCompleteForest();
       const leafOptions = getLeafOptionsFromGettable(gettable);
 
       const actualTree = C.fromForest(forest)([leafOptions]);
@@ -300,8 +293,8 @@ describe('Comparable', function () {
 
   describe('#applyPath()', function () {
     it('should return the Node at the end of the Path', function () {
-      const gettable = getGettable();
-      const forest = getCompleteForest();
+      const gettable = Sample.getGettable();
+      const forest = Sample.getCompleteForest();
 
       const actualNode = pipe(
         pipe(
@@ -311,29 +304,27 @@ describe('Comparable', function () {
         R.chain(pipe(C.applyPath, R.local(prop('attribute'))))
       )(forest)(gettable);
 
-      const expectedNode = {
-        value: {
-          'NAV-NAV (%)': {
-            'Year to Date': {
-              value: '7.76',
-            },
-            '1 Year': {
-              value: '6.31',
-            },
-            '3 Years': {
-              value: '7.39',
-            },
-            '5 Years': {
-              value: '13.23',
-            },
-            'Since Inception': {
-              value: '21.93',
-            },
-          },
-        },
-      };
+      const expectedNode = Sample.getComparableNode();
 
-      expect(actualNode).to.be.like(expectedNode);
+      expect(actualNode).to.be.like({
+        value: expectedNode,
+      });
+    });
+  });
+
+  describe('#applyGettables()', function () {
+    it('should return a Tree with appropriate table values.', function () {
+      const gettables = Sample.getGettables();
+      const forestByPage = Sample.getCompleteForestByPage();
+
+      const actualTree = pipe(
+        mergeForestByPage,
+        C.applyGettables
+      )(forestByPage)(gettables);
+
+      const expectedTree = Sample.getFlatComparableTree();
+
+      expect(actualTree).to.be.like(expectedTree);
     });
   });
 });

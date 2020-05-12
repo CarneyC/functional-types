@@ -27,6 +27,7 @@ import {
   isEmpty,
   join,
   map,
+  mergeAll,
   not,
   path,
   pick,
@@ -115,6 +116,8 @@ export type Tree = Branch | Leaf;
 export type Forest = Dictionary<Tree>;
 
 export type ForestByPage = Forest[];
+
+export type ForestByLabel = Dictionary<Branch>;
 
 export interface DocumentAnnotation {
   id: string;
@@ -677,9 +680,9 @@ export const getKeyFromLeaf: (leaf: Leaf) => string = ifElse(
 );
 
 /**
- * mergeForestByLabel :: Forest -> Tree
+ * mergeForest :: Forest -> ForestByLabel
  */
-export const mergeForestByLabel: (forest: Forest) => Dictionary<Branch> = pipe(
+export const mergeForest: (forest: Forest) => ForestByLabel = pipe(
   values as R.Reader<Forest, Tree[]>,
   reduce<Tree, Dictionary<Branch>>((acc, newTree: Tree) => {
     const { label } = newTree;
@@ -698,3 +701,10 @@ export const mergeForestByLabel: (forest: Forest) => Dictionary<Branch> = pipe(
     return assoc(label, tree, acc);
   }, {})
 );
+
+/**
+ * mergeForestByPage :: ForestByPage -> ForestByLabel
+ */
+export const mergeForestByPage: (
+  forestByPage: ForestByPage
+) => ForestByLabel = pipe(mergeAll, mergeForest);

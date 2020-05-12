@@ -57,7 +57,7 @@ export const gettables: Gettables = {
           },
         ],
       },
-      /^table$/,
+      /^bar_chart$/,
       /^Credit Rating/,
     ],
     options: {
@@ -77,7 +77,7 @@ export const gettables: Gettables = {
           },
         ],
       },
-      /^table$/,
+      /^bar_chart$/,
       /^Bond Type/,
     ],
     options: {
@@ -97,8 +97,8 @@ export const gettables: Gettables = {
           },
         ],
       },
-      /^table$/,
-      /^Currency/,
+      /^bar_chart$/,
+      /^Country(\/)*Location/,
     ],
     options: {
       direction: 'row',

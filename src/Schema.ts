@@ -53,11 +53,19 @@ export interface Schema {
   file_type: DocumentType;
 }
 
-// isProperty :: a -> bool
+/**
+ * ```haskell
+ * isProperty :: a -> bool
+ * ```
+ */
 export const isProperty = (a: unknown): a is Property =>
   allPass([propIs(String, 'property'), propIs(RegExp, 'pattern')])(a);
 
-// isPredicate :: a -> bool
+/**
+ * ```haskell
+ * isPredicate :: a -> bool
+ * ```
+ */
 export const isPredicate = (a: unknown): a is Predicate =>
   allPass([
     pipe(isNil, not),

@@ -10,9 +10,18 @@ import {
   Descendant,
 } from '../../../../src/DocumentAnnotation';
 import { Tree } from '../../../../src/Comparable';
-import { keys, map, mapObjIndexed, pipe, replace, values } from 'ramda';
-import { Gettable } from '../../../../src/Schema';
-import { gettable } from './Gettables';
+import {
+  flatten,
+  keys,
+  map,
+  mapObjIndexed,
+  mergeAll,
+  pipe,
+  replace,
+  values,
+} from 'ramda';
+import { Gettable, Gettables } from '../../../../src/Schema';
+import { gettable, gettables } from './Gettables';
 
 const tableByColumnsId = '60fc0465-527a-4a03-ad18-958cd5056b00';
 const tableByRowsId = '5ad93d23-e4a0-41d7-b212-850d74c66d68';
@@ -111,5 +120,69 @@ export const getTree: IO.IO<Tree> = () =>
     mappings
   ) as any) as Tree;
 
+// getGettables :: IO Gettables
+export const getGettables: IO.IO<Gettables> = () => gettables;
+
 // getGettable :: IO Gettable
 export const getGettable: IO.IO<Gettable> = () => gettable;
+
+// getComparableNode :: IO Node
+export const getComparableNode: IO.IO<Tree> = () => ({
+  'NAV-NAV (%)': {
+    'Year to Date': {
+      value: '7.76',
+    },
+    '1 Year': {
+      value: '6.31',
+    },
+    '3 Years': {
+      value: '7.39',
+    },
+    '5 Years': {
+      value: '13.23',
+    },
+    'Since Inception': {
+      value: '21.93',
+    },
+  },
+});
+
+// getComparableTree :: IO Tree
+export const getComparableTree: IO.IO<Tree> = () => ({
+  performance: {
+    cumulative_returns: getComparableNode(),
+    calendar_year_returns: {
+      'NAV-NAV (%)': {
+        '2018': {
+          value: '-4.78',
+        },
+        '2017': {
+          value: '6.69',
+        },
+        '2016': {
+          value: '5.82',
+        },
+        '2015': {
+          value: '0.44',
+        },
+        '2014': {
+          value: '0.81',
+        },
+      },
+    },
+  },
+});
+
+// getFlatComparableTree :: IO Tree
+export const getFlatComparableTree: IO.IO<Tree> = pipe(
+  getComparableTree,
+  mapObjIndexed((tree, outer) =>
+    pipe(
+      mapObjIndexed((tree, inner) => ({ [`${outer}.${inner}`]: tree })),
+      values
+    )(tree as any)
+  ),
+  values,
+  flatten,
+  mergeAll
+) as any;
