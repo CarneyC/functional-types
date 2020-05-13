@@ -155,8 +155,7 @@ export const gettables: Gettables = {
           },
         ],
       },
-      /^table$/,
-      /^Statistics$/,
+      /^title$/,
     ],
     options: {
       direction: 'row',
@@ -174,20 +173,11 @@ export const gettables: Gettables = {
           },
         ],
       },
-      {
-        value: /^split_cell$/,
-        properties: [
-          {
-            property: 'title',
-            pattern: /^Statistics Summary$/,
-          },
-        ],
-      },
       /^table$/,
+      /^Dividend History/,
     ],
     options: {
       direction: 'row',
-      merge_type: ['table'],
     },
   },
   'fund_details.share_class': {
