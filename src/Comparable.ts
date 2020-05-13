@@ -13,6 +13,7 @@ import {
   applyTo,
   assoc,
   assocPath,
+  clone,
   defaultTo,
   Dictionary,
   dissoc,
@@ -73,6 +74,8 @@ export interface Leaf {
 export interface Tree {
   [index: string]: Node;
 }
+
+export type TreeByFile = Dictionary<Tree>;
 
 export type Node = Tree | Leaf;
 
@@ -682,14 +685,16 @@ export const applyGettables: (
 
 /**
  * ```haskell
- * satisfyFilePath :: [String] -> Reader FilePath Bool
+ * findNamesSatisfyingFilePath :: [String] -> Reader FilePath [String]
  * ```
  */
-const satisfyFilePath: (files: string[]) => R.Reader<S.FilePath, boolean> = (
-  files
-) => ([path, ...others]) => {
-  if (others) return false;
-  return any(regExpTest(path), files);
+const findNamesSatisfyingFilePath: (
+  files: string[]
+) => R.Reader<S.FilePath, string[]> = (files) => ([
+  path,
+  ...others
+]): string[] => {
+  return isEmpty(others) ? filter(regExpTest(path), files) : [];
 };
 
 /**
@@ -711,14 +716,19 @@ export const partitionGettables: (
 
   return pipe(
     toPairs as R.Reader<S.Gettables, [string, S.Gettable][]>,
-    map(([key, gettable]) => ({ [key]: gettable })),
-    groupBy<S.Gettables>(
-      pipe(
-        values,
-        head,
-        prop('file'),
-        unless(satisfyFilePath(files), () => '')
-      )
+    reduce<[string, S.Gettable], Dictionary<S.Gettables>>(
+      (acc, [property, gettable]) => {
+        return pipe(
+          prop('file'),
+          findNamesSatisfyingFilePath(files),
+          reduce<string, Dictionary<S.Gettables>>(
+            (acc, filename) =>
+              assocPath([filename, property], clone(gettable), acc),
+            acc
+          )
+        )(gettable);
+      },
+      {}
     ),
     dissoc(''),
     mapObjIndexed<S.Gettables[], S.Gettables>(mergeAll),
@@ -736,7 +746,7 @@ export const partitionGettables: (
  */
 export const applySchema: (
   annotations: D.DocumentAnnotation[]
-) => R.Reader<S.Schema, Tree> = pipe(
+) => R.Reader<S.Schema, TreeByFile> = pipe(
   pipe(
     partitionGettables,
     R.local(prop('gettables') as R.Reader<S.Schema, S.Gettables>)

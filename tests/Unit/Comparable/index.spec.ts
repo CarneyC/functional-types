@@ -336,11 +336,13 @@ describe('Comparable', function () {
         Sample.getComplexDocumentAnnotation(),
       ];
 
-      const actualTree = C.applySchema(annotations)(schema);
+      const actualTreeByFile = C.applySchema(annotations)(schema);
 
-      const expectedTree = Sample.getFlatComparableTree();
+      const expectedTreeByFile = {
+        'hk_allianz_flexi_asia_bond_am_factsheet_en_201908.pdf': Sample.getFlatComparableTree(),
+      };
 
-      expect(actualTree).to.be.like(expectedTree);
+      expect(actualTreeByFile).to.be.like(expectedTreeByFile);
     });
   });
 });
