@@ -10,9 +10,12 @@ import {
   all,
   anyPass,
   has,
+  clone,
 } from 'ramda';
 import { Direction } from './Comparable';
 import { DocumentType } from './FileType';
+import { getCurrentISOString } from './DateTime';
+import * as IO from 'fp-ts/lib/IO';
 
 export interface Property {
   property: string;
@@ -48,10 +51,15 @@ export type Gettables = Dictionary<Gettable>;
 
 export interface Schema {
   id: string;
+  name: string;
   gettables: Gettables;
   files: FilePath[];
   file_type: DocumentType;
+  created_at: string;
+  updated_at: string;
 }
+
+export type SchemaBase = Omit<Schema, 'created_at' | 'updated_at'>;
 
 /**
  * ```haskell
@@ -75,3 +83,19 @@ export const isPredicate = (a: unknown): a is Predicate =>
       propSatisfies(allPass([is(Array), all(isProperty)]), 'properties'),
     ]),
   ])(a);
+
+/**
+ * ```haskell
+ * makeSchema :: SchemaBase -> IO Schema
+ * ```
+ */
+export const makeSchema: (schemaBase: SchemaBase) => IO.IO<Schema> = (
+  schemaBase: SchemaBase
+) => (): Schema => {
+  const timestamp = getCurrentISOString();
+  return {
+    ...clone(schemaBase),
+    created_at: timestamp,
+    updated_at: timestamp,
+  };
+};

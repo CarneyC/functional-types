@@ -213,8 +213,11 @@ export const gettables: Gettables = {
 };
 
 export const schema: Schema = {
-  id: 'ac16dba9-5085-4a3c-8e13-e8613b6c0322',
+  id: 'generic_factsheet_en',
+  name: 'Generic Factsheet',
   gettables,
   files: [file],
   file_type: 'pdf',
+  created_at: '2020-05-13T09:07:02.907Z',
+  updated_at: '2020-05-13T09:07:02.907Z',
 };

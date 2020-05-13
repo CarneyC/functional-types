@@ -36,19 +36,21 @@
     "@types/chai-datetime": "0.0.33",
     "@types/chai-like": "^1.1.0",
     "@types/chai-string": "^1.4.2",
+    "@types/chai-things": "0.0.34",
     "@types/chai-uuid": "^1.0.1",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^13.13.5",
+    "@types/node": "^14.0.1",
     "@types/ramda": "^0.27.4",
     "@types/sinon": "^9.0.0",
     "@types/sinon-chai": "^3.2.4",
     "@types/uuid": "^7.0.3",
-    "@typescript-eslint/eslint-plugin": "^2.32.0",
-    "@typescript-eslint/parser": "^2.32.0",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "chai": "^4.2.0",
     "chai-datetime": "^1.6.0",
     "chai-like": "^1.1.1",
     "chai-string": "^1.5.0",
+    "chai-things": "^0.2.0",
     "concat-md": "^0.3.5",
     "cross-env": "^7.0.2",
     "eslint": "^7.0.0",
@@ -68,7 +70,7 @@
     "ts-node": "^8.10.1",
     "typedoc": "^0.17.6",
     "typedoc-plugin-markdown": "^2.2.17",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.2"
   },
   "husky": {
     "hooks": {

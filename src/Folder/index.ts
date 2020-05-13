@@ -220,4 +220,7 @@ export const makeReference: (file: string) => Reference = (file) => ({
  * getFileNameFromId :: String -> String
  * ```
  */
-export const getFileNameFromId: (id: string) => string = pipe(split('/'), last);
+export const getFileNameFromId: (id: string) => string = pipe(
+  split('/'),
+  last as R.Reader<string[], string>
+);

@@ -3,6 +3,7 @@ import * as O from 'fp-ts/lib/Option';
 import * as RE from 'fp-ts/lib/ReaderEither';
 import * as E from 'fp-ts/lib/Either';
 import * as D from './DocumentAnnotation';
+import * as RIO from './fp-ts/ReaderIO';
 import {
   __,
   all,
@@ -57,6 +58,8 @@ import { sequenceS } from 'fp-ts/lib/Apply';
 import * as S from './Schema';
 import { PathSegment } from './Schema';
 import { getFileNameFromId } from './Folder';
+import { getCurrentISOString } from './DateTime';
+import { getRandomId } from './String';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
@@ -81,7 +84,7 @@ export type Node = Tree | Leaf;
 
 export interface Comparable {
   id: string;
-  schema_ids: string[];
+  schema_id: string;
   files: string[];
   attributes: Tree;
   created_at: string;
@@ -210,7 +213,10 @@ export const makeLeaf: (value: string) => Leaf = (value) => ({
  * unnest :: Tree -> Tree
  * ```
  */
-export const unnest: (tree: Tree) => Tree = unless(isEmpty, pipe(values, head));
+export const unnest: (tree: Tree) => Tree = unless<Tree, Tree>(
+  isEmpty,
+  pipe(values as R.Reader<Tree, Tree[]>, head as R.Reader<Tree[], Tree>)
+);
 
 /**
  * ```haskell
@@ -709,7 +715,7 @@ export const partitionGettables: (
 ) => {
   const annotationByFile: Record<string, D.DocumentAnnotation> = pipe(
     groupBy(pipe(prop('file'), getFileNameFromId)),
-    mapObjIndexed(head)
+    mapObjIndexed<D.DocumentAnnotation[], D.DocumentAnnotation>(head)
   )(annotations);
 
   const files: string[] = keys(annotationByFile);
@@ -758,6 +764,48 @@ export const applySchema: (
         D.mergeForestByPage,
         applyGettables
       )(annotation)(gettables)
+    )
+  )
+);
+
+/**
+ * ```haskell
+ * makeComparables :: (Tree, String) -> ReaderIO Schema Comparable
+ * ```
+ */
+export const makeComparable: (
+  tree: Tree,
+  file: string
+) => RIO.ReaderIO<S.Schema, Comparable> = (tree, file) => (
+  schema
+) => (): Comparable => {
+  const timestamp = getCurrentISOString();
+  return {
+    id: getRandomId(),
+    schema_id: schema.id,
+    files: [file],
+    attributes: clone(tree),
+    created_at: timestamp,
+    updated_at: timestamp,
+  };
+};
+
+/**
+ * ```haskell
+ * makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
+ * ```
+ */
+export const makeComparables: (
+  annotations: D.DocumentAnnotation[]
+) => RIO.ReaderIO<S.Schema, Comparable[]> = pipe(
+  applySchema,
+  R.chain(
+    pipe(
+      mapObjIndexed<Tree, RIO.ReaderIO<S.Schema, Comparable>>((tree, file) =>
+        makeComparable(tree, file)
+      ),
+      values,
+      RIO.sequenceReaderIO
     )
   )
 );

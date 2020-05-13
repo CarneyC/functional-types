@@ -324,7 +324,7 @@ export const sortPoly: (poly: Poly) => Poly = ([topLeft, topRight, bottom]) => {
 export const getCornersFromPoly: (poly: Poly) => Corners = applySpec({
   start: head,
   end: last,
-});
+}) as R.Reader<Poly, Corners>;
 
 /**
  * ```haskell

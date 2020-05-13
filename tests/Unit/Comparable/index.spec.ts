@@ -4,12 +4,27 @@ import * as Sample from './Sample';
 import * as R from 'fp-ts/lib/Reader';
 import { keys, pipe, prop, test as regExpTest } from 'ramda';
 import chaiLike from 'chai-like';
-import { mergeForestByPage } from '../../../src/DocumentAnnotation';
+import chaiThings from 'chai-things';
+import {
+  DocumentAnnotation,
+  mergeForestByPage,
+} from '../../../src/DocumentAnnotation';
 
 chai.use(chaiLike);
+chai.use(chaiThings);
 const { expect } = chai;
 
 describe('Comparable', function () {
+  let annotation: DocumentAnnotation;
+  let complexAnnotation: DocumentAnnotation;
+  let completeAnnotation: DocumentAnnotation;
+
+  before(function () {
+    annotation = Sample.getDocumentAnnotation();
+    complexAnnotation = Sample.getComplexDocumentAnnotation();
+    completeAnnotation = Sample.getCompleteDocumentAnnotation();
+  });
+
   describe('#fromTable()', function () {
     let fromTable: R.Reader<C.FromTableOptions, C.Tree>;
 
@@ -330,11 +345,7 @@ describe('Comparable', function () {
   describe('#applySchema()', function () {
     it('should return a Tree with appropriate table values.', function () {
       const schema = Sample.getSchema();
-      const annotations = [
-        Sample.getDocumentAnnotation(),
-        Sample.getCompleteDocumentAnnotation(),
-        Sample.getComplexDocumentAnnotation(),
-      ];
+      const annotations = [annotation, completeAnnotation, complexAnnotation];
 
       const actualTreeByFile = C.applySchema(annotations)(schema);
 
@@ -343,6 +354,25 @@ describe('Comparable', function () {
       };
 
       expect(actualTreeByFile).to.be.like(expectedTreeByFile);
+    });
+  });
+
+  describe('#makeComparables()', function () {
+    it('should contains a Comparable with appropriate table values.', function () {
+      const schema = Sample.getSchema();
+      const annotations = [annotation, completeAnnotation, complexAnnotation];
+
+      const actualComparables = C.makeComparables(annotations)(schema)();
+
+      const expectedComparable = {
+        schema_id: 'generic_factsheet_en',
+        files: ['hk_allianz_flexi_asia_bond_am_factsheet_en_201908.pdf'],
+        attributes: Sample.getFlatComparableTree(),
+      };
+
+      expect(actualComparables)
+        .to.be.an('array')
+        .that.contains.something.like(expectedComparable);
     });
   });
 });
