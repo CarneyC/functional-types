@@ -24,7 +24,6 @@ import {
   filter,
   find,
   groupBy,
-  has,
   head,
   ifElse,
   includes,
@@ -38,7 +37,6 @@ import {
   mapObjIndexed,
   mergeAll,
   mergeDeepRight,
-  not,
   path,
   pathSatisfies,
   pipe,
@@ -60,7 +58,13 @@ import { PathSegment } from './Schema';
 import { getFileNameFromId } from './Folder';
 import { getCurrentISOString } from './DateTime';
 import { getRandomId } from './String';
-import { isNotNil, propSatisfiesIfExists } from './Types';
+import {
+  isArray,
+  isDictionary,
+  isNotNil,
+  isString,
+  propSatisfiesIfExists,
+} from './Types';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
@@ -93,6 +97,10 @@ export interface Comparable {
 }
 
 export type TreeView = Dictionary<TreeView | string>;
+
+export interface ComparableView extends Omit<Comparable, 'attributes'> {
+  attributes: TreeView;
+}
 
 export interface Partitions {
   branchByLabel: Dictionary<D.Branch>;
@@ -145,6 +153,21 @@ export const isLeaf = (a: unknown): a is Leaf =>
 export function isTree(a: unknown): a is Tree {
   return pipe(values, allPass([is(Array), all(anyPass([isTree, isLeaf]))]))(a);
 }
+
+/**
+ * ```haskell
+ * isComparable :: a -> bool
+ * ```
+ */
+export const isComparable = (a: unknown): a is Comparable =>
+  allPass([
+    isDictionary,
+    propIs(String, 'schema_id'),
+    propSatisfies(allPass([isArray, all(isString)]), 'files'),
+    propSatisfies(isTree, 'attributes'),
+    propIs(String, 'created_at'),
+    propIs(String, 'updated_at'),
+  ])(a);
 
 /**
  * ```haskell
@@ -505,12 +528,21 @@ export const fromForestByPage: (
 
 /**
  * ```haskell
- * view :: Tree -> TreeView
+ * viewTree :: Tree -> TreeView
  * ```
  */
-export function view(tree: Tree): TreeView {
-  return ifElse(isLeaf, prop('value'), mapObjIndexed(view))(tree);
+export function viewTree(tree: Tree): TreeView {
+  return ifElse(isLeaf, prop('value'), mapObjIndexed(viewTree))(tree);
 }
+
+/**
+ * ```haskell
+ * view :: Comparable -> ComparableView
+ * ```
+ */
+export const view: (comparable: Comparable) => ComparableView = evolve({
+  attributes: viewTree,
+});
 
 /**
  * ```haskell
