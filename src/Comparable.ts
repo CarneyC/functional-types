@@ -60,6 +60,7 @@ import { PathSegment } from './Schema';
 import { getFileNameFromId } from './Folder';
 import { getCurrentISOString } from './DateTime';
 import { getRandomId } from './String';
+import { isNotNil, propSatisfiesIfExists } from './Types';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
@@ -115,24 +116,6 @@ interface PartitionedGettables {
   annotation: D.DocumentAnnotation;
   gettables: S.Gettables;
 }
-
-/**
- * ```haskell
- * propSatisfiesIfExists :: (Pred, String) -> Reader a bool
- * ```
- */
-const propSatisfiesIfExists: (
-  predicate: (a: unknown) => boolean,
-  name: string
-) => R.Reader<unknown, boolean> = (pred, name) =>
-  anyPass([pipe(has(name), not), propSatisfies(pred, name)]);
-
-/**
- * ```haskell
- * isNotNil :: a -> bool
- * ```
- */
-export const isNotNil: (a: unknown) => boolean = pipe(isNil, not);
 
 /**
  * ```haskell

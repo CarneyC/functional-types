@@ -2,7 +2,6 @@ import {
   concat,
   Dictionary,
   ifElse,
-  is,
   isEmpty,
   map,
   mapObjIndexed,
@@ -15,6 +14,7 @@ import * as R from 'fp-ts/lib/Reader';
 import * as E from 'fp-ts/lib/Either';
 import * as A from 'fp-ts/lib/Array';
 import { sequenceS } from 'fp-ts/lib/Apply';
+import { isArray, isNumber, isRegExp, isString } from '../Types';
 
 export type Serializable =
   | string
@@ -57,34 +57,6 @@ export const deserializeRegExp: (
     )
   )
 );
-
-/**
- * ```haskell
- * isRegExp :: a -> bool
- * ```
- */
-const isRegExp = (a: unknown): a is RegExp => is(RegExp)(a);
-
-/**
- * ```haskell
- * isNumber :: a -> bool
- * ```
- */
-const isNumber = (a: unknown): a is number => is(Number)(a);
-
-/**
- * ```haskell
- * isString :: a -> bool
- * ```
- */
-const isString = (a: unknown): a is string => is(String)(a);
-
-/**
- * ```haskell
- * isArray :: a -> bool
- * ```
- */
-const isArray = (a: Deserializable): a is Deserializable[] => is(Array)(a);
 
 /**
  * ```haskell

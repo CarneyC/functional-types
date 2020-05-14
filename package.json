@@ -2,7 +2,7 @@
   "name": "functional-types",
   "version": "0.2.0",
   "description": "Functional Types for Entities' functions",
-  "main": "lib/index.js",
+  "main": "lib/Types.js",
   "scripts": {
     "build": "npm run docs && npm run clean && tsc && tsc -m es6 --outDir es6",
     "patch": "npm version patch -m \"Upgrade to %s\"",

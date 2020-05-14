@@ -1,9 +1,0 @@
-export * as C from './Comparable';
-export * as DT from './DateTime';
-export * as DA from './DocumentAnnotation';
-export * as E from './Excel';
-export * as FT from './FileType';
-export * as F from './Folder';
-export * as L from './Label';
-export * as TA from './TableAnnotation';
-export * as V from './Vertex';
