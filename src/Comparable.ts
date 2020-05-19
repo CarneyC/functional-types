@@ -45,6 +45,7 @@ import {
   propSatisfies,
   reduce,
   reject,
+  replace,
   test as regExpTest,
   toPairs,
   unless,
@@ -68,6 +69,7 @@ import {
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
+export type Path = Predicate[];
 export type Mapping = Dictionary<string>;
 
 export interface Metadata {
@@ -263,6 +265,20 @@ export const findKeyFromPredicate: (
   pred
 ): O.Option<string> =>
   pipe(keys, find(pred), O.fromPredicate<string>(isNotNil))(tree);
+
+/**
+ * ```haskell
+ * findNodeFromPredicate :: Tree -> Reader Predicate (Option Node)
+ * ```
+ */
+export const findNodeFromPredicate: (
+  node: Tree
+) => R.Reader<Predicate, O.Option<Node>> = (tree) =>
+  pipe(
+    filter(isLeaf) as R.Reader<Tree, Dictionary<Leaf>>,
+    findKeyFromPredicate,
+    R.map(O.map<string, Node>(pipe(prop(__, tree))))
+  )(tree);
 
 /**
  * ```haskell
@@ -685,6 +701,63 @@ export const applyPath: (node: Node) => R.Reader<S.Path, O.Option<Node>> = (
 
 /**
  * ```haskell
+ * applyReplacement :: String -> Reader [Replacement] String
+ * ```
+ */
+const applyReplacement: (value: string) => R.Reader<S.Replacement[], string> = (
+  value
+) =>
+  pipe(
+    find(({ pattern }: S.Replacement) => regExpTest(pattern, value)),
+    ifElse(
+      isNil,
+      () => value,
+      ({ pattern, value: replaceValue }: S.Replacement) =>
+        replace(pattern, replaceValue, value)
+    )
+  );
+
+/**
+ * ```haskell
+ * translateNode :: Node -> Reader Path Node
+ * ```
+ */
+export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
+  node
+) => (replacements) => {
+  const { values, keys } = replacements;
+  return pipe(
+    unless(
+      isLeaf,
+      pipe(
+        toPairs,
+        reduce<[string, Node], Tree>((acc, [key, child]) => {
+          const replaceList = (isLeaf(child) ? values : keys) || [];
+          const translatedKey = applyReplacement(key)(replaceList);
+          const translatedChild = translateNode(child)(replacements);
+          return assoc(translatedKey, translatedChild, acc);
+        }, {})
+      )
+    )
+  )(node);
+};
+
+/**
+ * ```haskell
+ * translateTree :: Tree -> Reader Gettables Tree
+ * ```
+ */
+export const translateTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
+  tree
+) => (gettables): Tree =>
+  mapObjIndexed(
+    (node, key) =>
+      translateNode(node)(gettables[key].options.replacements || {}),
+    tree
+  );
+
+/**
+ * ```haskell
  * applyGettables :: ForestByLabel -> Reader Gettables Tree
  * ```
  */
@@ -701,7 +774,8 @@ export const applyGettables: (
     ) => R.Reader<S.Gettables, Dictionary<O.Option<Node>>>
   ),
   R.map(filter(O.isSome)),
-  R.map(mapObjIndexed((some: O.Some<Node>) => some.value))
+  R.map(mapObjIndexed((some: O.Some<Node>) => some.value)),
+  R.chain(translateTree)
 );
 
 /**
@@ -762,7 +836,7 @@ export const partitionGettables: (
 
 /**
  * ```haskell
- * applySchema :: [DocumentAnnotation] -> Reader Schema Tree
+ * applySchema :: [DocumentAnnotation] -> Reader Schema TreeByFile
  * ```
  */
 export const applySchema: (

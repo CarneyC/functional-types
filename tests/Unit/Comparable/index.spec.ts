@@ -357,6 +357,31 @@ describe('Comparable', function () {
     });
   });
 
+  describe('#translateNode()', function () {
+    it('should return a node with all children translated.', function () {
+      const replacements = Sample.getReplacements();
+      const node = Sample.getTranslationNode();
+
+      const actualNode = C.translateNode(node)(replacements);
+
+      const expectedNode = {
+        nav: {
+          '1_year': {
+            value: '6.31',
+          },
+          '3_years': {
+            value: '7.39',
+          },
+          '5_years': {
+            value: '13.23',
+          },
+        },
+      };
+
+      expect(actualNode).to.be.like(expectedNode);
+    });
+  });
+
   describe('#makeComparables()', function () {
     it('should contains a Comparable with appropriate table values.', function () {
       const schema = Sample.getSchema();

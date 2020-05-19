@@ -2,16 +2,15 @@ import {
   allPass,
   Dictionary,
   pipe,
-  not,
   propIs,
   propSatisfies,
   all,
   anyPass,
-  has,
   clone,
   length,
   equals,
   values,
+  map,
 } from 'ramda';
 import { Direction } from './Comparable';
 import { DocumentType, isDocumentType } from './FileType';
@@ -25,6 +24,16 @@ import {
   isString,
   propSatisfiesIfExists,
 } from './Types';
+
+export interface Replacement {
+  pattern: RegExp;
+  value: string;
+}
+
+export interface Replacements {
+  keys?: Replacement[];
+  values?: Replacement[];
+}
 
 export interface Property {
   property: string;
@@ -40,14 +49,15 @@ export type PathSegment = RegExp | Predicate;
 
 export type Path = PathSegment[];
 
-export type FilePath = [RegExp] | [RegExp, RegExp];
+export type FilePath = [RegExp];
 
-export type MergeType = 'header' | 'table';
+export type MergeType = 'header' | 'table' | 'key';
 
 export interface GettableOptions {
   merge_type?: MergeType[];
   direction?: Direction;
   key?: RegExp;
+  replacements?: Replacements;
 }
 
 export interface Gettable {
@@ -72,6 +82,28 @@ export type SchemaBase = Omit<Schema, 'created_at' | 'updated_at'>;
 
 /**
  * ```haskell
+ * isReplacement :: a -> bool
+ * ```
+ */
+export const isReplacement = (a: unknown): a is Replacement =>
+  allPass([isDictionary, propSatisfies(isRegExp, 'pattern'), propIs(String)])(
+    a
+  );
+
+/**
+ * ```haskell
+ * isReplacements :: a -> bool
+ * ```
+ */
+export const isReplacements = (a: unknown): a is Replacements =>
+  allPass([
+    isDictionary,
+    propSatisfiesIfExists(allPass([isArray, all(isReplacement)]), 'keys'),
+    propSatisfiesIfExists(allPass([isArray, all(isReplacement)]), 'values'),
+  ])(a);
+
+/**
+ * ```haskell
  * isProperty :: a -> bool
  * ```
  */
@@ -87,10 +119,7 @@ export const isPredicate = (a: unknown): a is Predicate =>
   allPass([
     isNotNil,
     propIs(RegExp, 'value'),
-    anyPass([
-      pipe(has('properties'), not),
-      propSatisfies(allPass([isArray, all(isProperty)]), 'properties'),
-    ]),
+    propSatisfiesIfExists(allPass([isArray, all(isProperty)]), 'properties'),
   ])(a);
 
 /**
@@ -115,11 +144,7 @@ export const isPath = (a: unknown): a is Path =>
  * ```
  */
 export const isFilePath = (a: unknown): a is FilePath =>
-  allPass([
-    isArray,
-    all(isRegExp),
-    pipe(length, anyPass([equals(1), equals(2)])),
-  ])(a);
+  allPass([isArray, all(isRegExp), pipe(length, equals(1))])(a);
 
 /**
  * ```haskell
@@ -135,7 +160,7 @@ export const isFilePathArray = (a: unknown): a is FilePath[] =>
  * ```
  */
 export const isMergeType = (a: unknown): a is MergeType =>
-  anyPass([isString, equals('header'), equals('table')])(a);
+  allPass([isString, anyPass(map(equals, ['header', 'table', 'key']))])(a);
 
 /**
  * ```haskell
@@ -163,6 +188,7 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(isMergeTypeArray, 'merge_type'),
     propSatisfiesIfExists(isDirection, 'direction'),
     propSatisfiesIfExists(isRegExp, 'key'),
+    propSatisfiesIfExists(isReplacements, 'replacements'),
   ])(a);
 
 /**

@@ -9,7 +9,7 @@ import {
   ForestByPage,
   Descendant,
 } from '../../../../src/DocumentAnnotation';
-import { Tree } from '../../../../src/Comparable';
+import { Node, Tree } from '../../../../src/Comparable';
 import {
   flatten,
   keys,
@@ -20,8 +20,13 @@ import {
   replace,
   values,
 } from 'ramda';
-import { Gettable, Gettables, Schema } from '../../../../src/Schema';
-import { gettable, gettables, schema } from './Schema';
+import {
+  Gettable,
+  Gettables,
+  Replacements,
+  Schema,
+} from '../../../../src/Schema';
+import { gettable, gettables, replacements, schema } from './Schema';
 
 const tableByColumnsId = '60fc0465-527a-4a03-ad18-958cd5056b00';
 const tableByRowsId = '5ad93d23-e4a0-41d7-b212-850d74c66d68';
@@ -120,6 +125,9 @@ export const getTree: IO.IO<Tree> = () =>
     mappings
   ) as any) as Tree;
 
+// getReplacements :: IO Path
+export const getReplacements: IO.IO<Replacements> = () => replacements;
+
 // getGettable :: IO Gettable
 export const getGettable: IO.IO<Gettable> = () => gettable;
 
@@ -128,6 +136,12 @@ export const getGettables: IO.IO<Gettables> = () => gettables;
 
 // getSchema :: IO Schema
 export const getSchema: IO.IO<Schema> = () => schema;
+
+// getTranslationNode :: IO Node
+export const getTranslationNode: IO.IO<Node> = () => {
+  const buffer = fs.readFileSync(path.join(__dirname, 'Node.json'));
+  return JSON.parse((buffer as unknown) as string);
+};
 
 // getComparableNode :: IO Node
 export const getComparableNode: IO.IO<Tree> = () => ({

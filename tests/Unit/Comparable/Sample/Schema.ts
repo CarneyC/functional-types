@@ -1,8 +1,29 @@
-import { FilePath, Gettable, Gettables, Schema } from '../../../../src/Schema';
+import {
+  FilePath,
+  Gettable,
+  Gettables,
+  Replacements,
+  Schema,
+} from '../../../../src/Schema';
 
 export const file: FilePath = [
   /^hk_allianz_flexi_asia_bond_am_factsheet_en_\d+.pdf$/,
 ];
+
+export const replacements: Replacements = {
+  keys: [
+    {
+      pattern: /^NAV.*$/,
+      value: 'nav',
+    },
+  ],
+  values: [
+    {
+      pattern: /^.*(\d) Year(s*).*$/,
+      value: '$1_year$2',
+    },
+  ],
+};
 
 export const gettable: Gettable = {
   file,
