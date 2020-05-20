@@ -1,7 +1,9 @@
 import {
+  allPass,
   concat,
   Dictionary,
   ifElse,
+  is,
   isEmpty,
   map,
   mapObjIndexed,
@@ -14,7 +16,7 @@ import * as R from 'fp-ts/lib/Reader';
 import * as E from 'fp-ts/lib/Either';
 import * as A from 'fp-ts/lib/Array';
 import { sequenceS } from 'fp-ts/lib/Apply';
-import { isArray, isNumber, isRegExp, isString } from '../Types';
+import * as T from '../Types';
 
 export type Serializable =
   | string
@@ -41,6 +43,14 @@ export const serializeRegExp: (regExp: RegExp) => string = pipe(
 
 /**
  * ```haskell
+ * isRegExp :: a -> bool
+ * ```
+ */
+export const isRegExp = (a: unknown): boolean =>
+  allPass([is(String), regExpTest(/^__REGEXP__\/.*\/$/)])(a);
+
+/**
+ * ```haskell
  * deserializeRegExp :: String -> Either RegExp Error
  * ```
  */
@@ -48,7 +58,7 @@ export const deserializeRegExp: (
   regExpStr: string
 ) => E.Either<Error, RegExp> = pipe(
   E.fromPredicate(
-    regExpTest(/^__REGEXP__\/.*\/$/),
+    isRegExp,
     () => new Error('String is not a serialized RegExp instance.')
   ),
   E.chain(
@@ -64,8 +74,8 @@ export const deserializeRegExp: (
  * ```
  */
 export function serialize(value: Serializable): Deserializable {
-  if (isRegExp(value)) return serializeRegExp(value);
-  if (isString(value) || isNumber(value)) return value;
+  if (T.isRegExp(value)) return serializeRegExp(value);
+  if (T.isString(value) || T.isNumber(value)) return value;
   return map(serialize, value) as Deserializable[] | Dictionary<Deserializable>;
 }
 
@@ -78,14 +88,14 @@ export function serialize(value: Serializable): Deserializable {
 export function deserialize(
   value: Deserializable
 ): E.Either<Error, Serializable> {
-  if (isString(value)) {
+  if (T.isString(value)) {
     return pipe(
       deserializeRegExp,
       E.orElse<Error, string | RegExp, never>(() => E.right(value))
     )(value);
   }
-  if (isNumber(value)) return E.right(value);
-  if (isArray(value)) {
+  if (T.isNumber(value)) return E.right(value);
+  if (T.isArray(value)) {
     return pipe(map(deserialize), A.array.sequence(E.either))(value);
   }
   return pipe(

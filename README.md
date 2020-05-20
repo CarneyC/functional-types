@@ -29,6 +29,7 @@
 * ["Response"](#modules_response_md)
 * ["Schema"](#modules_schema_md)
 * ["Serialize/Arbitraries"](#modules_serialize_arbitraries_md)
+* ["Serialize/Schema"](#modules_serialize_schema_md)
 * ["Serialize/index"](#modules_serialize_index_md)
 * ["String"](#modules_string_md)
 * ["TableAnnotation"](#modules_tableannotation_md)
@@ -1541,6 +1542,316 @@ ___
 • **updated_at**: *string*
 
 Defined in src/Schema.ts:78
+
+
+<a name="interfaces_serialize_schema_gettablemd"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md) › [Gettable](#interfaces_serialize_schema_gettablemd)
+
+## Interface: Gettable
+
+### Hierarchy
+
+* **Gettable**
+
+### Index
+
+#### Properties
+
+* [attribute](#attribute)
+* [file](#file)
+* [options](#optional-options)
+
+### Properties
+
+####  attribute
+
+• **attribute**: *[Path](#path)*
+
+Defined in src/Serialize/Schema.ts:60
+
+___
+
+####  file
+
+• **file**: *[FilePath](#filepath)*
+
+Defined in src/Serialize/Schema.ts:59
+
+___
+
+#### `Optional` options
+
+• **options**? : *[GettableOptions](#interfaces_serialize_schema_gettableoptionsmd)*
+
+Defined in src/Serialize/Schema.ts:61
+
+
+<a name="interfaces_serialize_schema_gettableoptionsmd"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md) › [GettableOptions](#interfaces_serialize_schema_gettableoptionsmd)
+
+## Interface: GettableOptions
+
+### Hierarchy
+
+* **GettableOptions**
+
+### Index
+
+#### Properties
+
+* [direction](#optional-direction)
+* [key](#optional-key)
+* [merge_type](#optional-merge_type)
+* [replacements](#optional-replacements)
+
+### Properties
+
+#### `Optional` direction
+
+• **direction**? : *[Direction](#direction)*
+
+Defined in src/Serialize/Schema.ts:53
+
+___
+
+#### `Optional` key
+
+• **key**? : *string*
+
+Defined in src/Serialize/Schema.ts:54
+
+___
+
+#### `Optional` merge_type
+
+• **merge_type**? : *[MergeType](#mergetype)[]*
+
+Defined in src/Serialize/Schema.ts:52
+
+___
+
+#### `Optional` replacements
+
+• **replacements**? : *[Replacements](#interfaces_serialize_schema_replacementsmd)*
+
+Defined in src/Serialize/Schema.ts:55
+
+
+<a name="interfaces_serialize_schema_predicatemd"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md) › [Predicate](#interfaces_serialize_schema_predicatemd)
+
+## Interface: Predicate
+
+### Hierarchy
+
+* **Predicate**
+
+### Index
+
+#### Properties
+
+* [properties](#optional-properties)
+* [value](#value)
+
+### Properties
+
+#### `Optional` properties
+
+• **properties**? : *[Property](#interfaces_serialize_schema_propertymd)[]*
+
+Defined in src/Serialize/Schema.ts:42
+
+___
+
+####  value
+
+• **value**: *string*
+
+Defined in src/Serialize/Schema.ts:41
+
+
+<a name="interfaces_serialize_schema_propertymd"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md) › [Property](#interfaces_serialize_schema_propertymd)
+
+## Interface: Property
+
+### Hierarchy
+
+* **Property**
+
+### Index
+
+#### Properties
+
+* [pattern](#pattern)
+* [property](#property)
+
+### Properties
+
+####  pattern
+
+• **pattern**: *string*
+
+Defined in src/Serialize/Schema.ts:37
+
+___
+
+####  property
+
+• **property**: *string*
+
+Defined in src/Serialize/Schema.ts:36
+
+
+<a name="interfaces_serialize_schema_replacementmd"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md) › [Replacement](#interfaces_serialize_schema_replacementmd)
+
+## Interface: Replacement
+
+### Hierarchy
+
+* **Replacement**
+
+### Index
+
+#### Properties
+
+* [pattern](#pattern)
+* [value](#value)
+
+### Properties
+
+####  pattern
+
+• **pattern**: *string*
+
+Defined in src/Serialize/Schema.ts:26
+
+___
+
+####  value
+
+• **value**: *string*
+
+Defined in src/Serialize/Schema.ts:27
+
+
+<a name="interfaces_serialize_schema_replacementsmd"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md) › [Replacements](#interfaces_serialize_schema_replacementsmd)
+
+## Interface: Replacements
+
+### Hierarchy
+
+* **Replacements**
+
+### Index
+
+#### Properties
+
+* [keys](#optional-keys)
+* [values](#optional-values)
+
+### Properties
+
+#### `Optional` keys
+
+• **keys**? : *[Replacement](#interfaces_serialize_schema_replacementmd)[]*
+
+Defined in src/Serialize/Schema.ts:31
+
+___
+
+#### `Optional` values
+
+• **values**? : *[Replacement](#interfaces_serialize_schema_replacementmd)[]*
+
+Defined in src/Serialize/Schema.ts:32
+
+
+<a name="interfaces_serialize_schema_schemamd"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md) › [Schema](#interfaces_serialize_schema_schemamd)
+
+## Interface: Schema
+
+### Hierarchy
+
+* **Schema**
+
+### Index
+
+#### Properties
+
+* [created_at](#created_at)
+* [file_type](#file_type)
+* [files](#files)
+* [gettables](#gettables)
+* [id](#id)
+* [name](#name)
+* [updated_at](#updated_at)
+
+### Properties
+
+####  created_at
+
+• **created_at**: *string*
+
+Defined in src/Serialize/Schema.ts:72
+
+___
+
+####  file_type
+
+• **file_type**: *[DocumentType](#documenttype)*
+
+Defined in src/Serialize/Schema.ts:71
+
+___
+
+####  files
+
+• **files**: *[FilePath](#filepath)[]*
+
+Defined in src/Serialize/Schema.ts:70
+
+___
+
+####  gettables
+
+• **gettables**: *[Gettables](#gettables)*
+
+Defined in src/Serialize/Schema.ts:69
+
+___
+
+####  id
+
+• **id**: *string*
+
+Defined in src/Serialize/Schema.ts:67
+
+___
+
+####  name
+
+• **name**: *string*
+
+Defined in src/Serialize/Schema.ts:68
+
+___
+
+####  updated_at
+
+• **updated_at**: *string*
+
+Defined in src/Serialize/Schema.ts:73
 
 
 <a name="interfaces_tableannotation_tableannotationmd"></a>
@@ -6849,7 +7160,7 @@ Defined in src/Schema.ts:81
 
 ▸ **isDirection**(`a`: unknown): *a is Direction*
 
-Defined in src/Schema.ts:178
+Defined in src/Schema.ts:180
 
 ```haskell
 isDirection :: a -> bool
@@ -6869,7 +7180,7 @@ ___
 
 ▸ **isFilePath**(`a`: unknown): *a is FilePath*
 
-Defined in src/Schema.ts:146
+Defined in src/Schema.ts:148
 
 ```haskell
 isFilePath :: a -> bool
@@ -6889,7 +7200,7 @@ ___
 
 ▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
 
-Defined in src/Schema.ts:154
+Defined in src/Schema.ts:156
 
 ```haskell
 isFilePathArray :: a -> bool
@@ -6909,7 +7220,7 @@ ___
 
 ▸ **isGettable**(`a`: unknown): *a is Gettable*
 
-Defined in src/Schema.ts:199
+Defined in src/Schema.ts:201
 
 ```haskell
 isGettable :: a -> bool
@@ -6929,7 +7240,7 @@ ___
 
 ▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
 
-Defined in src/Schema.ts:186
+Defined in src/Schema.ts:188
 
 ```haskell
 isGettableOptions :: a -> bool
@@ -6949,7 +7260,7 @@ ___
 
 ▸ **isGettables**(`a`: unknown): *a is Gettables*
 
-Defined in src/Schema.ts:211
+Defined in src/Schema.ts:213
 
 ```haskell
 isGettables :: a -> bool
@@ -6969,7 +7280,7 @@ ___
 
 ▸ **isMergeType**(`a`: unknown): *a is MergeType*
 
-Defined in src/Schema.ts:162
+Defined in src/Schema.ts:164
 
 ```haskell
 isMergeType :: a -> bool
@@ -6989,7 +7300,7 @@ ___
 
 ▸ **isMergeTypeArray**(`a`: unknown): *a is MergeType[]*
 
-Defined in src/Schema.ts:170
+Defined in src/Schema.ts:172
 
 ```haskell
 isMergeTypeArray :: a -> bool
@@ -7009,7 +7320,7 @@ ___
 
 ▸ **isPath**(`a`: unknown): *a is Path*
 
-Defined in src/Schema.ts:138
+Defined in src/Schema.ts:140
 
 ```haskell
 isPath :: a -> bool
@@ -7029,7 +7340,7 @@ ___
 
 ▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
 
-Defined in src/Schema.ts:130
+Defined in src/Schema.ts:132
 
 ```haskell
 isPathSegment :: a -> bool
@@ -7049,7 +7360,7 @@ ___
 
 ▸ **isPredicate**(`a`: unknown): *a is Predicate*
 
-Defined in src/Schema.ts:118
+Defined in src/Schema.ts:120
 
 ```haskell
 isPredicate :: a -> bool
@@ -7069,7 +7380,7 @@ ___
 
 ▸ **isProperty**(`a`: unknown): *a is Property*
 
-Defined in src/Schema.ts:110
+Defined in src/Schema.ts:112
 
 ```haskell
 isProperty :: a -> bool
@@ -7109,7 +7420,7 @@ ___
 
 ▸ **isReplacements**(`a`: unknown): *a is Replacements*
 
-Defined in src/Schema.ts:98
+Defined in src/Schema.ts:100
 
 ```haskell
 isReplacements :: a -> bool
@@ -7129,7 +7440,7 @@ ___
 
 ▸ **isSchema**(`a`: unknown): *a is Schema*
 
-Defined in src/Schema.ts:234
+Defined in src/Schema.ts:236
 
 ```haskell
 isSchema :: a -> bool
@@ -7149,7 +7460,7 @@ ___
 
 ▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
 
-Defined in src/Schema.ts:219
+Defined in src/Schema.ts:221
 
 ```haskell
 isSchemaBase :: a -> bool
@@ -7169,7 +7480,7 @@ ___
 
 ▸ **makeSchema**(`schemaBase`: [SchemaBase](#schemabase)): *(Anonymous function)*
 
-Defined in src/Schema.ts:246
+Defined in src/Schema.ts:248
 
 ```haskell
 makeSchema :: SchemaBase -> IO Schema
@@ -7239,6 +7550,7 @@ Defined in src/Serialize/Arbitraries.ts:8
 #### Functions
 
 * [deserialize](#deserialize)
+* [isRegExp](#const-isregexp)
 * [serialize](#serialize)
 
 ### Type aliases
@@ -7247,7 +7559,7 @@ Defined in src/Serialize/Arbitraries.ts:8
 
 Ƭ **Deserializable**: *string | number | [Deserializable](#deserializable)[] | Dictionary‹[Deserializable](#deserializable)›*
 
-Defined in src/Serialize/index.ts:26
+Defined in src/Serialize/index.ts:28
 
 ___
 
@@ -7255,7 +7567,7 @@ ___
 
 Ƭ **Serializable**: *string | number | RegExp | [Serializable](#serializable)[] | Dictionary‹[Serializable](#serializable)›*
 
-Defined in src/Serialize/index.ts:19
+Defined in src/Serialize/index.ts:21
 
 ### Variables
 
@@ -7263,7 +7575,7 @@ Defined in src/Serialize/index.ts:19
 
 • **deserializeRegExp**: *function* = pipe(
   E.fromPredicate(
-    regExpTest(/^__REGEXP__\/.*\/$/),
+    isRegExp,
     () => new Error('String is not a serialized RegExp instance.')
   ),
   E.chain(
@@ -7273,7 +7585,7 @@ Defined in src/Serialize/index.ts:19
   )
 )
 
-Defined in src/Serialize/index.ts:47
+Defined in src/Serialize/index.ts:57
 
 ```haskell
 deserializeRegExp :: String -> Either RegExp Error
@@ -7298,7 +7610,7 @@ ___
   concat('__REGEXP__')
 )
 
-Defined in src/Serialize/index.ts:37
+Defined in src/Serialize/index.ts:39
 
 ```haskell
 serializeRegExp :: RegExp -> String
@@ -7320,7 +7632,7 @@ Name | Type |
 
 ▸ **deserialize**(`value`: [Deserializable](#deserializable)): *E.Either‹Error, [Serializable](#serializable)›*
 
-Defined in src/Serialize/index.ts:78
+Defined in src/Serialize/index.ts:88
 
 ```haskell
 deserialize :: Deserializable -> Either Serializable Error
@@ -7336,11 +7648,31 @@ Name | Type |
 
 ___
 
+#### `Const` isRegExp
+
+▸ **isRegExp**(`a`: unknown): *boolean*
+
+Defined in src/Serialize/index.ts:49
+
+```haskell
+isRegExp :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *boolean*
+
+___
+
 ####  serialize
 
 ▸ **serialize**(`value`: [Serializable](#serializable)): *[Deserializable](#deserializable)*
 
-Defined in src/Serialize/index.ts:66
+Defined in src/Serialize/index.ts:76
 
 ```haskell
 serialize :: Serializable -> Deserializable
@@ -7353,6 +7685,391 @@ Name | Type |
 `value` | [Serializable](#serializable) |
 
 **Returns:** *[Deserializable](#deserializable)*
+
+
+<a name="modules_serialize_schema_md"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md)
+
+## Module: "Serialize/Schema"
+
+### Index
+
+#### Interfaces
+
+* [Gettable](#interfaces_serialize_schema_gettablemd)
+* [GettableOptions](#interfaces_serialize_schema_gettableoptionsmd)
+* [Predicate](#interfaces_serialize_schema_predicatemd)
+* [Property](#interfaces_serialize_schema_propertymd)
+* [Replacement](#interfaces_serialize_schema_replacementmd)
+* [Replacements](#interfaces_serialize_schema_replacementsmd)
+* [Schema](#interfaces_serialize_schema_schemamd)
+
+#### Type aliases
+
+* [FilePath](#filepath)
+* [Gettables](#gettables)
+* [Path](#path)
+* [PathSegment](#pathsegment)
+* [SchemaBase](#schemabase)
+
+#### Functions
+
+* [deserialize](#const-deserialize)
+* [isFilePath](#const-isfilepath)
+* [isFilePathArray](#const-isfilepatharray)
+* [isGettable](#const-isgettable)
+* [isGettableOptions](#const-isgettableoptions)
+* [isGettables](#const-isgettables)
+* [isPath](#const-ispath)
+* [isPathSegment](#const-ispathsegment)
+* [isPredicate](#const-ispredicate)
+* [isProperty](#const-isproperty)
+* [isReplacement](#const-isreplacement)
+* [isReplacements](#const-isreplacements)
+* [isSchema](#const-isschema)
+* [isSchemaBase](#const-isschemabase)
+* [serialize](#const-serialize)
+
+### Type aliases
+
+####  FilePath
+
+Ƭ **FilePath**: *[string]*
+
+Defined in src/Serialize/Schema.ts:49
+
+___
+
+####  Gettables
+
+Ƭ **Gettables**: *Dictionary‹[Gettable](#interfaces_serialize_schema_gettablemd)›*
+
+Defined in src/Serialize/Schema.ts:64
+
+___
+
+####  Path
+
+Ƭ **Path**: *[PathSegment](#pathsegment)[]*
+
+Defined in src/Serialize/Schema.ts:47
+
+___
+
+####  PathSegment
+
+Ƭ **PathSegment**: *string | [Predicate](#interfaces_serialize_schema_predicatemd)*
+
+Defined in src/Serialize/Schema.ts:45
+
+___
+
+####  SchemaBase
+
+Ƭ **SchemaBase**: *Omit‹[Schema](#interfaces_serialize_schema_schemamd), "created_at" | "updated_at"›*
+
+Defined in src/Serialize/Schema.ts:76
+
+### Functions
+
+#### `Const` deserialize
+
+▸ **deserialize**(`deserializable`: [Schema](#interfaces_serialize_schema_schemamd)): *[Schema](#interfaces_schema_schemamd)*
+
+Defined in src/Serialize/Schema.ts:233
+
+```haskell
+deserialize :: Schema -> SerializableSchema
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`deserializable` | [Schema](#interfaces_serialize_schema_schemamd) |
+
+**Returns:** *[Schema](#interfaces_schema_schemamd)*
+
+___
+
+#### `Const` isFilePath
+
+▸ **isFilePath**(`a`: unknown): *a is FilePath*
+
+Defined in src/Serialize/Schema.ts:145
+
+```haskell
+isFilePath :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is FilePath*
+
+___
+
+#### `Const` isFilePathArray
+
+▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
+
+Defined in src/Serialize/Schema.ts:153
+
+```haskell
+isFilePathArray :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is FilePath[]*
+
+___
+
+#### `Const` isGettable
+
+▸ **isGettable**(`a`: unknown): *a is Gettable*
+
+Defined in src/Serialize/Schema.ts:174
+
+```haskell
+isGettable :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Gettable*
+
+___
+
+#### `Const` isGettableOptions
+
+▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
+
+Defined in src/Serialize/Schema.ts:161
+
+```haskell
+isGettableOptions :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is GettableOptions*
+
+___
+
+#### `Const` isGettables
+
+▸ **isGettables**(`a`: unknown): *a is Gettables*
+
+Defined in src/Serialize/Schema.ts:186
+
+```haskell
+isGettables :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Gettables*
+
+___
+
+#### `Const` isPath
+
+▸ **isPath**(`a`: unknown): *a is Path*
+
+Defined in src/Serialize/Schema.ts:137
+
+```haskell
+isPath :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Path*
+
+___
+
+#### `Const` isPathSegment
+
+▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
+
+Defined in src/Serialize/Schema.ts:129
+
+```haskell
+isPathSegment :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is PathSegment*
+
+___
+
+#### `Const` isPredicate
+
+▸ **isPredicate**(`a`: unknown): *a is Predicate*
+
+Defined in src/Serialize/Schema.ts:117
+
+```haskell
+isPredicate :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Predicate*
+
+___
+
+#### `Const` isProperty
+
+▸ **isProperty**(`a`: unknown): *a is Property*
+
+Defined in src/Serialize/Schema.ts:107
+
+```haskell
+isProperty :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Property*
+
+___
+
+#### `Const` isReplacement
+
+▸ **isReplacement**(`a`: unknown): *a is Replacement*
+
+Defined in src/Serialize/Schema.ts:83
+
+```haskell
+isReplacement :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Replacement*
+
+___
+
+#### `Const` isReplacements
+
+▸ **isReplacements**(`a`: unknown): *a is Replacements*
+
+Defined in src/Serialize/Schema.ts:95
+
+```haskell
+isReplacements :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Replacements*
+
+___
+
+#### `Const` isSchema
+
+▸ **isSchema**(`a`: unknown): *a is Schema*
+
+Defined in src/Serialize/Schema.ts:209
+
+```haskell
+isSchema :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Schema*
+
+___
+
+#### `Const` isSchemaBase
+
+▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
+
+Defined in src/Serialize/Schema.ts:194
+
+```haskell
+isSchemaBase :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is SchemaBase*
+
+___
+
+#### `Const` serialize
+
+▸ **serialize**(`serializable`: [Schema](#interfaces_schema_schemamd)): *[Schema](#interfaces_serialize_schema_schemamd)*
+
+Defined in src/Serialize/Schema.ts:221
+
+```haskell
+serialize :: SerializableSchema -> Schema
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`serializable` | [Schema](#interfaces_schema_schemamd) |
+
+**Returns:** *[Schema](#interfaces_serialize_schema_schemamd)*
 
 
 <a name="modules_string_md"></a>

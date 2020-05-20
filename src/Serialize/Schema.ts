@@ -1,32 +1,29 @@
+import { Direction } from '../Comparable';
 import {
+  all,
   allPass,
+  anyPass,
   Dictionary,
+  equals,
+  length,
   pipe,
   propIs,
   propSatisfies,
-  all,
-  anyPass,
-  clone,
-  length,
-  equals,
   values,
-  map,
 } from 'ramda';
-import { Direction } from './Comparable';
-import { DocumentType, isDocumentType } from './FileType';
-import { getCurrentISOString } from './DateTime';
-import * as IO from 'fp-ts/lib/IO';
+import { DocumentType, isDocumentType } from '../FileType';
+import { isDirection, isMergeTypeArray, MergeType } from '../Schema';
+import * as S from './index';
+import * as Deserialized from '../Schema';
 import {
   isArray,
   isDictionary,
   isNotNil,
-  isRegExp,
-  isString,
   propSatisfiesIfExists,
-} from './Types';
+} from '../Types';
 
 export interface Replacement {
-  pattern: RegExp;
+  pattern: string;
   value: string;
 }
 
@@ -37,26 +34,24 @@ export interface Replacements {
 
 export interface Property {
   property: string;
-  pattern: RegExp;
+  pattern: string;
 }
 
 export interface Predicate {
-  value: RegExp;
+  value: string;
   properties?: Property[];
 }
 
-export type PathSegment = RegExp | Predicate;
+export type PathSegment = string | Predicate;
 
 export type Path = PathSegment[];
 
-export type FilePath = [RegExp];
-
-export type MergeType = 'header' | 'table' | 'key';
+export type FilePath = [string];
 
 export interface GettableOptions {
   merge_type?: MergeType[];
   direction?: Direction;
-  key?: RegExp;
+  key?: string;
   replacements?: Replacements;
 }
 
@@ -88,7 +83,7 @@ export type SchemaBase = Omit<Schema, 'created_at' | 'updated_at'>;
 export const isReplacement = (a: unknown): a is Replacement =>
   allPass([
     isDictionary,
-    propSatisfies(isRegExp, 'pattern'),
+    propSatisfies(S.isRegExp, 'pattern'),
     propIs(String, 'value'),
   ])(a);
 
@@ -110,7 +105,9 @@ export const isReplacements = (a: unknown): a is Replacements =>
  * ```
  */
 export const isProperty = (a: unknown): a is Property =>
-  allPass([propIs(String, 'property'), propIs(RegExp, 'pattern')])(a);
+  allPass([propIs(String, 'property'), propSatisfies(S.isRegExp, 'pattern')])(
+    a
+  );
 
 /**
  * ```haskell
@@ -120,7 +117,7 @@ export const isProperty = (a: unknown): a is Property =>
 export const isPredicate = (a: unknown): a is Predicate =>
   allPass([
     isNotNil,
-    propIs(RegExp, 'value'),
+    propSatisfies(S.isRegExp, 'value'),
     propSatisfiesIfExists(allPass([isArray, all(isProperty)]), 'properties'),
   ])(a);
 
@@ -130,7 +127,7 @@ export const isPredicate = (a: unknown): a is Predicate =>
  * ```
  */
 export const isPathSegment = (a: unknown): a is PathSegment =>
-  anyPass([isRegExp, isPredicate])(a);
+  anyPass([S.isRegExp, isPredicate])(a);
 
 /**
  * ```haskell
@@ -146,7 +143,7 @@ export const isPath = (a: unknown): a is Path =>
  * ```
  */
 export const isFilePath = (a: unknown): a is FilePath =>
-  allPass([isArray, all(isRegExp), pipe(length, equals(1))])(a);
+  allPass([isArray, all(S.isRegExp), pipe(length, equals(1))])(a);
 
 /**
  * ```haskell
@@ -158,30 +155,6 @@ export const isFilePathArray = (a: unknown): a is FilePath[] =>
 
 /**
  * ```haskell
- * isMergeType :: a -> bool
- * ```
- */
-export const isMergeType = (a: unknown): a is MergeType =>
-  allPass([isString, anyPass(map(equals, ['header', 'table', 'key']))])(a);
-
-/**
- * ```haskell
- * isMergeTypeArray :: a -> bool
- * ```
- */
-export const isMergeTypeArray = (a: unknown): a is MergeType[] =>
-  allPass([isArray, all(isMergeType)])(a);
-
-/**
- * ```haskell
- * isDirection :: a -> bool
- * ```
- */
-export const isDirection = (a: unknown): a is Direction =>
-  anyPass([isString, equals('row'), equals('column')])(a);
-
-/**
- * ```haskell
  * isGettableOptions :: a -> bool
  * ```
  */
@@ -189,7 +162,7 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
   allPass([
     propSatisfiesIfExists(isMergeTypeArray, 'merge_type'),
     propSatisfiesIfExists(isDirection, 'direction'),
-    propSatisfiesIfExists(isRegExp, 'key'),
+    propSatisfiesIfExists(S.isRegExp, 'key'),
     propSatisfiesIfExists(isReplacements, 'replacements'),
   ])(a);
 
@@ -242,16 +215,24 @@ export const isSchema = (a: unknown): a is Schema =>
 
 /**
  * ```haskell
- * makeSchema :: SchemaBase -> IO Schema
+ * serialize :: SerializableSchema -> Schema
  * ```
  */
-export const makeSchema: (schemaBase: SchemaBase) => IO.IO<Schema> = (
-  schemaBase: SchemaBase
-) => (): Schema => {
-  const timestamp = getCurrentISOString();
-  return {
-    ...clone(schemaBase),
-    created_at: timestamp,
-    updated_at: timestamp,
-  };
-};
+export const serialize: (serializable: Deserialized.Schema) => Schema = (
+  serializable
+) =>
+  (S.serialize(
+    (serializable as unknown) as S.Serializable
+  ) as unknown) as Schema;
+
+/**
+ * ```haskell
+ * deserialize :: Schema -> SerializableSchema
+ * ```
+ */
+export const deserialize: (deserializable: Schema) => Deserialized.Schema = (
+  deserializable
+) =>
+  (S.deserialize(
+    (deserializable as unknown) as S.Deserializable
+  ) as unknown) as Deserialized.Schema;
