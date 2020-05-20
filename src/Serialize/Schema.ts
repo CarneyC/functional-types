@@ -11,6 +11,7 @@ import {
   propSatisfies,
   values,
 } from 'ramda';
+import * as E from 'fp-ts/lib/Either';
 import { DocumentType, isDocumentType } from '../FileType';
 import { isDirection, isMergeTypeArray, MergeType } from '../Schema';
 import * as S from './index';
@@ -230,9 +231,15 @@ export const serialize: (serializable: Deserialized.Schema) => Schema = (
  * deserialize :: Schema -> SerializableSchema
  * ```
  */
-export const deserialize: (deserializable: Schema) => Deserialized.Schema = (
-  deserializable
-) =>
-  (S.deserialize(
-    (deserializable as unknown) as S.Deserializable
-  ) as unknown) as Deserialized.Schema;
+export const deserialize: (
+  deserializable: Schema
+) => E.Either<Error, Deserialized.Schema> = (deserializable) =>
+  pipe(
+    S.deserialize,
+    E.chain(
+      E.fromPredicate(
+        Deserialized.isSchema,
+        () => new Error('Object is not a schema.')
+      )
+    )
+  )((deserializable as unknown) as S.Deserializable);
