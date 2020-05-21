@@ -19,6 +19,7 @@ import * as IO from 'fp-ts/lib/IO';
 import {
   isArray,
   isDictionary,
+  isNat,
   isNotNil,
   isRegExp,
   isString,
@@ -58,6 +59,7 @@ export interface GettableOptions {
   direction?: Direction;
   key?: RegExp;
   replacements?: Replacements;
+  unnest?: number;
 }
 
 export interface Gettable {
@@ -191,6 +193,7 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(isDirection, 'direction'),
     propSatisfiesIfExists(isRegExp, 'key'),
     propSatisfiesIfExists(isReplacements, 'replacements'),
+    propSatisfiesIfExists(isNat, 'unnest'),
   ])(a);
 
 /**

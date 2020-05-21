@@ -26,7 +26,13 @@ import {
   Replacements,
   Schema,
 } from '../../../../src/Schema';
-import { gettable, gettables, replacements, schema } from './Schema';
+import {
+  gettable,
+  gettables,
+  mergeGettable,
+  replacements,
+  schema,
+} from './Schema';
 
 const tableByColumnsId = '60fc0465-527a-4a03-ad18-958cd5056b00';
 const tableByRowsId = '5ad93d23-e4a0-41d7-b212-850d74c66d68';
@@ -131,6 +137,9 @@ export const getReplacements: IO.IO<Replacements> = () => replacements;
 // getGettable :: IO Gettable
 export const getGettable: IO.IO<Gettable> = () => gettable;
 
+// getMergeGettable :: IO Gettable
+export const getMergeGettable: IO.IO<Gettable> = () => mergeGettable;
+
 // getGettables :: IO Gettables
 export const getGettables: IO.IO<Gettables> = () => gettables;
 
@@ -145,22 +154,20 @@ export const getTranslationNode: IO.IO<Node> = () => {
 
 // getComparableNode :: IO Node
 export const getComparableNode: IO.IO<Tree> = () => ({
-  'NAV-NAV (%)': {
-    'Year to Date': {
-      value: '7.76',
-    },
-    '1 Year': {
-      value: '6.31',
-    },
-    '3 Years': {
-      value: '7.39',
-    },
-    '5 Years': {
-      value: '13.23',
-    },
-    'Since Inception': {
-      value: '21.93',
-    },
+  'Year to Date': {
+    value: '7.76',
+  },
+  '1 Year': {
+    value: '6.31',
+  },
+  '3 Years': {
+    value: '7.39',
+  },
+  '5 Years': {
+    value: '13.23',
+  },
+  'Since Inception': {
+    value: '21.93',
   },
 });
 
@@ -169,22 +176,20 @@ export const getComparableTree: IO.IO<Tree> = () => ({
   performance: {
     cumulative_returns: getComparableNode(),
     calendar_year_returns: {
-      'NAV-NAV (%)': {
-        '2018': {
-          value: '-4.78',
-        },
-        '2017': {
-          value: '6.69',
-        },
-        '2016': {
-          value: '5.82',
-        },
-        '2015': {
-          value: '0.44',
-        },
-        '2014': {
-          value: '0.81',
-        },
+      '2018': {
+        value: '-4.78',
+      },
+      '2017': {
+        value: '6.69',
+      },
+      '2016': {
+        value: '5.82',
+      },
+      '2015': {
+        value: '0.44',
+      },
+      '2014': {
+        value: '0.81',
       },
     },
   },

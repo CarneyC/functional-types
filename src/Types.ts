@@ -8,6 +8,7 @@ import {
   is,
   isNil,
   keys,
+  lte,
   not,
   pipe,
   propSatisfies,
@@ -44,6 +45,14 @@ export const isRegExp = (a: unknown): a is RegExp => is(RegExp)(a);
  * ```
  */
 export const isNumber = (a: unknown): a is number => is(Number)(a);
+
+/**
+ * ```haskell
+ * isNat :: a -> bool
+ * ```
+ */
+export const isNat = (a: unknown): a is number =>
+  allPass([isNumber, lte(0)])(a);
 
 /**
  * ```haskell

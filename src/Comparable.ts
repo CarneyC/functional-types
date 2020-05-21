@@ -46,6 +46,7 @@ import {
   reduce,
   reject,
   replace,
+  T,
   test as regExpTest,
   toPairs,
   unless,
@@ -63,6 +64,7 @@ import {
   isArray,
   isDictionary,
   isNotNil,
+  isRegExp,
   isString,
   propSatisfiesIfExists,
 } from './Types';
@@ -246,11 +248,7 @@ export const splitTable: (
       const table = fromTableCell(cell);
       return assocPath(path, table, acc);
     }, {} as Tree),
-    mapObjIndexed((tree: Tree, key) =>
-      mergeKey
-        ? unnest(tree)
-        : assoc(table.intersectHeader.text, makeLeaf(key), tree)
-    )
+    mapObjIndexed((tree: Tree) => (mergeKey ? unnest(tree) : tree))
   )(table);
 };
 
@@ -562,13 +560,30 @@ export const view: (comparable: Comparable) => ComparableView = evolve({
 
 /**
  * ```haskell
+ * hasMergeType :: MergeType -> Reader Gettable Bool
+ * ```
+ */
+const hasMergeType: (
+  mergeType: S.MergeType
+) => R.Reader<S.Gettable, boolean> = (mergeType) =>
+  pathSatisfies(allPass([is(Array), includes(mergeType)]), [
+    'options',
+    'merge_type',
+  ]);
+
+/**
+ * ```haskell
  * getPredicateFromGettable :: Gettable -> Predicate
  * ```
  */
-const getPredicateFromGettable: (gettable: S.Gettable) => Predicate = pipe(
-  prop('attribute'),
-  last,
-  ifElse(isNil, F, regExpTest)
+const getPredicateFromGettable: (gettable: S.Gettable) => Predicate = ifElse(
+  hasMergeType('table'),
+  () => T,
+  pipe(
+    prop('attribute'),
+    last,
+    ifElse(isRegExp, regExpTest, () => F)
+  )
 );
 
 /**
@@ -582,18 +597,6 @@ const getKeyPredicateFromGettable: (
   path<RegExp>(['options', 'key']),
   unless(isNil, regExpTest)
 );
-
-/**
- * ```haskell
- * getMergeKeyFromGettable :: Gettable -> Bool
- * ```
- */
-const getMergeKeyFromGettable: (
-  gettable: S.Gettable
-) => boolean = pathSatisfies(allPass([is(Array), includes('header')]), [
-  'options',
-  'merge_type',
-]);
 
 /**
  * ```haskell
@@ -615,7 +618,7 @@ export const getLeafOptionsFromGettable: (
 ) => FromLeafOptions = applySpec({
   predicate: getPredicateFromGettable,
   key: getKeyPredicateFromGettable,
-  mergeKey: getMergeKeyFromGettable,
+  mergeKey: hasMergeType('header'),
   splitBy: getDirectionFromGettable,
 });
 
@@ -758,6 +761,77 @@ export const translateTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
 
 /**
  * ```haskell
+ * mergeTree :: Tree -> Tree
+ * ```
+ */
+const mergeTree: (tree: Tree) => Tree = pipe(
+  values as R.Reader<Tree, Tree[]>,
+  reduce<Tree, Tree>((acc, tree) => mergeDeepRight(acc, tree) as Tree, {})
+);
+
+/**
+ * ```haskell
+ * mergeTreeFromGettable :: Tree -> Reader FromBranchOptions Tree
+ * ```
+ */
+const mergeTreeFromGettable: (tree: Tree) => R.Reader<S.Gettable, Tree> = (
+  tree
+) =>
+  ifElse(
+    hasMergeType('table'),
+    () => mergeTree(tree),
+    () => tree
+  );
+
+/**
+ * ```haskell
+ * mergeTreeFromGettables :: Tree -> Reader Gettables Tree
+ * ```
+ */
+const mergeTreeFromGettables: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
+  tree
+) => (gettables): Tree =>
+  mapObjIndexed((node, key) => {
+    if (isLeaf(node)) return node;
+    const gettable = gettables[key];
+    return gettable ? mergeTreeFromGettable(node)(gettable) : node;
+  }, tree);
+
+/**
+ * ```haskell
+ * unnestFrom :: Node Number -> Tree
+ * ```
+ */
+const unnestNode: (node: Node, depth: number) => Node = (node, depth) => {
+  if (depth <= 0 || isLeaf(node)) return node;
+  const tree = pipe(
+    toPairs as R.Reader<Tree, [string, Node][]>,
+    reduce<[string, Node], Tree>((acc, [key, child]) => {
+      return isLeaf(child)
+        ? assoc(key, child, acc)
+        : (mergeDeepRight(acc, child) as Tree);
+    }, {})
+  )(node);
+  return unnestNode(tree, depth - 1);
+};
+
+/**
+ * ```haskell
+ * unnestFromGettables :: Tree -> Reader Gettables Tree
+ * ```
+ */
+const unnestTreeFromGettables: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
+  tree
+) => (gettables): Tree =>
+  mapObjIndexed((node, key) => {
+    if (isLeaf(node)) return node;
+    const gettable = gettables[key];
+    const unnest = gettable?.options?.unnest || 0;
+    return unnestNode(node, unnest);
+  }, tree);
+
+/**
+ * ```haskell
  * applyGettables :: ForestByLabel -> Reader Gettables Tree
  * ```
  */
@@ -775,6 +849,8 @@ export const applyGettables: (
   ),
   R.map(filter(O.isSome)),
   R.map(mapObjIndexed((some: O.Some<Node>) => some.value)),
+  R.chain(mergeTreeFromGettables),
+  R.chain(unnestTreeFromGettables),
   R.chain(translateTree)
 );
 

@@ -42,6 +42,36 @@ export const gettable: Gettable = {
   ],
   options: {
     direction: 'row',
+    unnest: 1,
+  },
+};
+
+export const mergeGettable: Gettable = {
+  file,
+  attribute: [
+    {
+      value: /^portfolio$/,
+      properties: [
+        {
+          property: 'title',
+          pattern: /^Portfolio Analysis$/,
+        },
+      ],
+    },
+    {
+      value: /^split_cell$/,
+      properties: [
+        {
+          property: 'title',
+          pattern: /^Statistics/,
+        },
+      ],
+    },
+    /^table$/,
+  ],
+  options: {
+    merge_type: ['table'],
+    direction: 'row',
   },
 };
 
@@ -64,6 +94,7 @@ export const gettables: Gettables = {
     ],
     options: {
       direction: 'row',
+      unnest: 1,
     },
   },
   'portfolio.credit_rating_allocation': {
@@ -164,24 +195,7 @@ export const gettables: Gettables = {
       direction: 'row',
     },
   },
-  'portfolio.statistics_summary': {
-    file,
-    attribute: [
-      {
-        value: /^portfolio$/,
-        properties: [
-          {
-            property: 'title',
-            pattern: /^Portfolio Analysis$/,
-          },
-        ],
-      },
-      /^title$/,
-    ],
-    options: {
-      direction: 'row',
-    },
-  },
+  'portfolio.statistics_summary': mergeGettable,
   'portfolio.dividend_history': {
     file,
     attribute: [

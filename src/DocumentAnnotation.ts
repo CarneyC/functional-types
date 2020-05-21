@@ -417,13 +417,11 @@ export const makeTable: (
 
   const rowHeaders: Cell[] = pipe(
     splitByYs(ys),
-    reject(containedBy(headerRow)),
     map(pipe(label, makeCell)),
     sequenceReaderIO
   )(headerColumn)(page)();
   const columnHeaders: Cell[] = pipe(
     splitByXs(xs),
-    reject(containedBy(headerColumn)),
     map(pipe(label, makeCell)),
     sequenceReaderIO
   )(headerRow)(page)();
@@ -433,11 +431,9 @@ export const makeTable: (
     columnHeaders[column];
 
   const cellById: TableCellById = pipe(
-    reject(containedBy(headerRow)),
     mapIndexed((poly: Poly, row: number): RIO.ReaderIO<Page, TableCell>[] =>
       pipe(
         splitByXs(xs),
-        reject(containedBy(headerColumn)),
         mapIndexed(
           (poly: Poly, column: number): RIO.ReaderIO<Page, TableCell> =>
             pipe(

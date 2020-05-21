@@ -31,7 +31,9 @@ describe('DocumentAnnotation', function () {
         Sample.getHeaderColumns()
       );
 
-      expect(actualColumnHeaders).to.be.like(expectedColumnHeaders);
+      expect(actualColumnHeaders).to.include.deep.members(
+        expectedColumnHeaders
+      );
     });
 
     it('should return the correct row headers', function () {
@@ -40,7 +42,7 @@ describe('DocumentAnnotation', function () {
 
       const expectedRowHeaders = map(D.makeTextCell, Sample.getHeaderRows());
 
-      expect(actualRowHeaders).to.be.like(expectedRowHeaders);
+      expect(actualRowHeaders).to.include.deep.members(expectedRowHeaders);
     });
 
     it('should return the correct intersect header', function () {
@@ -84,7 +86,7 @@ describe('DocumentAnnotation', function () {
         ['53.1', 10, 1],
       ]);
 
-      expect(actualTableCells).to.have.deep.members(expectedTableCells);
+      expect(actualTableCells).to.include.deep.members(expectedTableCells);
     });
   });
 

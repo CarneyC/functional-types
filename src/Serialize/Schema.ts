@@ -19,6 +19,7 @@ import * as Deserialized from '../Schema';
 import {
   isArray,
   isDictionary,
+  isNat,
   isNotNil,
   propSatisfiesIfExists,
 } from '../Types';
@@ -54,6 +55,7 @@ export interface GettableOptions {
   direction?: Direction;
   key?: string;
   replacements?: Replacements;
+  unnest?: number;
 }
 
 export interface Gettable {
@@ -165,6 +167,7 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(isDirection, 'direction'),
     propSatisfiesIfExists(S.isRegExp, 'key'),
     propSatisfiesIfExists(isReplacements, 'replacements'),
+    propSatisfiesIfExists(isNat, 'unnest'),
   ])(a);
 
 /**

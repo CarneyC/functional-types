@@ -2,6 +2,7 @@ import chai from 'chai';
 import * as C from '../../../src/Comparable';
 import * as Sample from './Sample';
 import * as R from 'fp-ts/lib/Reader';
+import * as O from 'fp-ts/lib/Option';
 import { keys, pipe, prop, test as regExpTest } from 'ramda';
 import chaiLike from 'chai-like';
 import chaiThings from 'chai-things';
@@ -9,6 +10,7 @@ import {
   DocumentAnnotation,
   mergeForestByPage,
 } from '../../../src/DocumentAnnotation';
+import { Gettable } from '../../../src/Schema';
 
 chai.use(chaiLike);
 chai.use(chaiThings);
@@ -306,17 +308,23 @@ describe('Comparable', function () {
   });
 
   describe('#applyPath()', function () {
-    it('should return the Node at the end of the Path', function () {
-      const gettable = Sample.getGettable();
-      const forest = Sample.getCompleteForest();
+    let getNodeFromGettable: R.Reader<Gettable, O.Option<C.Node>>;
 
-      const actualNode = pipe(
+    before(function () {
+      const forest = Sample.getCompleteForestByPage();
+      getNodeFromGettable = pipe(
         pipe(
-          C.fromForest,
+          C.fromForestByPage,
           R.local(pipe(C.getLeafOptionsFromGettable, (value) => [value]))
         ),
         R.chain(pipe(C.applyPath, R.local(prop('attribute'))))
-      )(forest)(gettable);
+      )(forest);
+    });
+
+    it('should return the Node at the end of the Path', function () {
+      const gettable = Sample.getGettable();
+
+      const actualNode = getNodeFromGettable(gettable);
 
       const expectedNode = Sample.getComparableNode();
 
@@ -343,7 +351,7 @@ describe('Comparable', function () {
   });
 
   describe('#applySchema()', function () {
-    it('should return a Tree with appropriate table values.', function () {
+    it('should return a Tree with appropriate table values split by files.', function () {
       const schema = Sample.getSchema();
       const annotations = [annotation, completeAnnotation, complexAnnotation];
 
