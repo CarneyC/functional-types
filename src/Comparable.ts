@@ -37,10 +37,12 @@ import {
   mapObjIndexed,
   mergeAll,
   mergeDeepRight,
+  not,
   path,
   pathSatisfies,
   pipe,
   prop,
+  propEq,
   propIs,
   propSatisfies,
   reduce,
@@ -155,7 +157,10 @@ export const isLeaf = (a: unknown): a is Leaf =>
  * ```
  */
 export function isTree(a: unknown): a is Tree {
-  return pipe(values, allPass([is(Array), all(anyPass([isTree, isLeaf]))]))(a);
+  return allPass([
+    is(Object),
+    pipe(values, allPass([is(Array), all(anyPass([isTree, isLeaf]))])),
+  ])(a);
 }
 
 /**
@@ -220,13 +225,26 @@ export const makeLeaf: (value: string) => Leaf = (value) => ({
 
 /**
  * ```haskell
- * unnest :: Tree -> Tree
+ * unnest :: String -> Reader Tree Tree
  * ```
  */
-export const unnest: (tree: Tree) => Tree = unless<Tree, Tree>(
-  isEmpty,
-  pipe(values as R.Reader<Tree, Tree[]>, head as R.Reader<Tree[], Tree>)
-);
+export const unnest: (key: string) => R.Reader<Tree, Tree> = (key: string) =>
+  unless<Tree, Tree>(
+    isEmpty,
+    pipe(
+      values as R.Reader<Tree, Tree[]>,
+      find(anyPass([isTree, pipe(propEq('value', key), not)])) as R.Reader<
+        Tree[],
+        Tree
+      >
+    )
+  );
+
+/**
+ * ```haskell
+ * splitTable :: Table -> Reader Direction Tree
+ * ```
+ */
 
 /**
  * ```haskell
@@ -246,9 +264,13 @@ export const splitTable: (
     reduce((acc: Tree, cell: D.TableCell): Tree => {
       const path = getPath(cell);
       const table = fromTableCell(cell);
-      return assocPath(path, table, acc);
+      const key = last(path);
+      return key === table.value ? acc : assocPath(path, table, acc);
     }, {} as Tree),
-    mapObjIndexed((tree: Tree) => (mergeKey ? unnest(tree) : tree))
+    mapObjIndexed((tree: Tree, key: string) => {
+      const result = unnest(key)(tree);
+      return mergeKey ? result || tree : tree;
+    })
   )(table);
 };
 

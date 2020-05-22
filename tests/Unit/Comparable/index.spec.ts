@@ -5,10 +5,7 @@ import * as R from 'fp-ts/lib/Reader';
 import { keys, pipe, prop, test as regExpTest } from 'ramda';
 import chaiLike from 'chai-like';
 import chaiThings from 'chai-things';
-import {
-  DocumentAnnotation,
-  mergeForestByPage,
-} from '../../../src/DocumentAnnotation';
+import { DocumentAnnotation } from '../../../src/DocumentAnnotation';
 
 chai.use(chaiLike);
 chai.use(chaiThings);
@@ -32,7 +29,7 @@ describe('Comparable', function () {
         const actualKeys = keys(tree);
         const expectedKeys = Sample.getShareClasses();
 
-        expect(actualKeys).to.have.members(expectedKeys);
+        expect(actualKeys).to.include.members(expectedKeys);
       });
 
       it('should return a tree with keys matching its the key predicate', function () {
@@ -44,7 +41,7 @@ describe('Comparable', function () {
         const actualKeys = Sample.keysOf(tree);
         const expectedKeys = Sample.getISINs();
 
-        expect(actualKeys).to.have.members(expectedKeys);
+        expect(actualKeys).to.include.members(expectedKeys);
       });
 
       it('should contain the original key as value of its intersect header', function () {
@@ -83,7 +80,7 @@ describe('Comparable', function () {
           'H2-SGD',
         ];
 
-        expect(actualKeys).to.have.members(expectedKeys);
+        expect(actualKeys).to.include.members(expectedKeys);
       });
 
       it('should return a tree with keys matching its the key predicate', function () {
@@ -105,7 +102,7 @@ describe('Comparable', function () {
           '4.56%',
         ];
 
-        expect(actualKeys).to.have.members(expectedKeys);
+        expect(actualKeys).to.include.members(expectedKeys);
       });
     });
   });
@@ -194,9 +191,6 @@ describe('Comparable', function () {
               'Statistics Summary': {
                 value: 'Statistics Summary',
               },
-              'Dividend History?': {
-                value: 'Dividend History?',
-              },
             },
           },
         };
@@ -207,7 +201,7 @@ describe('Comparable', function () {
       it('should return a nested tree with table matching the predicates', function () {
         const actualTree = fromBranch([
           {
-            predicate: regExpTest(/^Sector Allocation \(%\)/),
+            predicate: regExpTest(/^Currency Allocation/),
             splitBy: 'row',
             mergeKey: true,
           },
@@ -220,17 +214,16 @@ describe('Comparable', function () {
 
         const expectedTree = {
           bar_chart: {
-            'Sector Allocation (%)': {
-              CORPORATE: C.makeLeaf('10.0'),
+            'Currency Allocation (%)': {
+              USD: C.makeLeaf('97.7'),
             },
             'Credit Rating Allocation (%)': {
-              AAA: C.makeLeaf('61.9'),
+              BB: C.makeLeaf('11.3'),
             },
           },
           split_cell: {
             title: {
               'Statistics Summary': C.makeLeaf('Statistics Summary'),
-              'Dividend History?': C.makeLeaf('Dividend History?'),
             },
           },
         };
@@ -242,14 +235,14 @@ describe('Comparable', function () {
 
   describe('#fromForest()', function () {
     it('should return a Tree when no format options is provided', function () {
-      const forest = Sample.getComplexForest();
+      const forest = Sample.getForestByLabel();
       const result = C.fromForest(forest)([]);
 
       expect(result).to.satisfy(C.isTree);
     });
 
     it('should return a Tree when some format options is provided', function () {
-      const forest = Sample.getComplexForest();
+      const forest = Sample.getForestByLabel();
       const result = C.fromForest(forest)([
         {
           predicate: regExpTest(/Sector Allocation/),
@@ -279,7 +272,7 @@ describe('Comparable', function () {
   describe('#getLeafOptionsFromGettable()', function () {
     it('should return a LeafOptions which when provided to fromForest retrieve the appropriate Tree', function () {
       const gettable = Sample.getGettable();
-      const forest = Sample.getCompleteForest();
+      const forest = Sample.getForestByLabel();
       const leafOptions = C.getLeafOptionsFromGettable(gettable);
 
       const actualTree = C.fromForest(forest)([leafOptions]);
@@ -297,10 +290,10 @@ describe('Comparable', function () {
 
   describe('#applyPath()', function () {
     it('should return the Node at the end of the Path', function () {
-      const forest = Sample.getCompleteForestByPage();
+      const forest = Sample.getForestByLabel();
       const getNodeFromGettable = pipe(
         pipe(
-          C.fromForestByPage,
+          C.fromForestByLabel,
           R.local(pipe(C.getLeafOptionsFromGettable, (value) => [value]))
         ),
         R.chain(pipe(C.applyPath, R.local(prop('attribute'))))
@@ -312,7 +305,9 @@ describe('Comparable', function () {
       const expectedNode = Sample.getComparableNode();
 
       expect(actualNode).to.be.like({
-        value: expectedNode,
+        value: {
+          'NAV-NAV (%)': expectedNode,
+        },
       });
     });
   });
@@ -320,12 +315,9 @@ describe('Comparable', function () {
   describe('#applyGettables()', function () {
     it('should return a Tree with appropriate table values.', function () {
       const gettables = Sample.getGettables();
-      const forestByPage = Sample.getCompleteForestByPage();
+      const forest = Sample.getForestByLabel();
 
-      const actualTree = pipe(
-        mergeForestByPage,
-        C.applyGettables
-      )(forestByPage)(gettables);
+      const actualTree = C.applyGettables(forest)(gettables);
 
       const expectedTree = Sample.getFlatComparableTree();
 
@@ -360,19 +352,15 @@ describe('Comparable', function () {
 
   describe('With DocumentAnnotations', function () {
     let annotation: DocumentAnnotation;
-    let complexAnnotation: DocumentAnnotation;
-    let completeAnnotation: DocumentAnnotation;
 
     before(function () {
       annotation = Sample.getDocumentAnnotation();
-      complexAnnotation = Sample.getComplexDocumentAnnotation();
-      completeAnnotation = Sample.getCompleteDocumentAnnotation();
     });
 
     describe('#applySchema()', function () {
       it('should return a Tree with appropriate table values split by files.', function () {
         const schema = Sample.getSchema();
-        const annotations = [annotation, completeAnnotation, complexAnnotation];
+        const annotations = [annotation];
 
         const actualTreeByFile = C.applySchema(annotations)(schema);
 
@@ -387,7 +375,7 @@ describe('Comparable', function () {
     describe('#makeComparables()', function () {
       it('should contains a Comparable with appropriate table values.', function () {
         const schema = Sample.getSchema();
-        const annotations = [annotation, completeAnnotation, complexAnnotation];
+        const annotations = [annotation];
 
         const actualComparables = C.makeComparables(annotations)(schema)();
 

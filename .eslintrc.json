@@ -13,7 +13,6 @@
   },
   "rules": {
     "no-use-before-define": "off",
-    "@typescript-eslint/camelcase": ["error", { "properties": "never" }],
     "@typescript-eslint/no-empty-interface": "off"
   }
 }

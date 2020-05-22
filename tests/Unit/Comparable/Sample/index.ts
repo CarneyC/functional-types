@@ -5,18 +5,27 @@ import {
   Branch,
   DocumentAnnotation,
   Table,
-  Forest,
   ForestByPage,
   Descendant,
+  mergeForestByPage,
+  ForestByLabel,
 } from '../../../../src/DocumentAnnotation';
+import * as R from 'fp-ts/lib/Reader';
 import { Node, Tree } from '../../../../src/Comparable';
 import {
+  allPass,
+  find,
   flatten,
   keys,
   map,
   mapObjIndexed,
   mergeAll,
+  path as getPath,
+  pathSatisfies,
   pipe,
+  prop,
+  propEq,
+  test as regExpTest,
   replace,
   values,
 } from 'ramda';
@@ -33,9 +42,7 @@ import {
   replacements,
   schema,
 } from './Schema';
-
-const tableByColumnsId = '60fc0465-527a-4a03-ad18-958cd5056b00';
-const tableByRowsId = '5ad93d23-e4a0-41d7-b212-850d74c66d68';
+import { Leaf } from '../../../../lib/DocumentAnnotation';
 
 // getDocumentAnnotation :: IO DocumentAnnotation
 export const getDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
@@ -45,60 +52,45 @@ export const getDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
   return JSON.parse((buffer as unknown) as string);
 };
 
-// getComplexDocumentAnnotation :: IO DocumentAnnotation
-export const getComplexDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
-  const buffer = fs.readFileSync(
-    path.join(__dirname, 'ComplexDocumentAnnotation.json')
-  );
-  return JSON.parse((buffer as unknown) as string);
-};
-
-// getCompleteDocumentAnnotation :: IO DocumentAnnotation
-export const getCompleteDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
-  const buffer = fs.readFileSync(
-    path.join(__dirname, 'CompleteDocumentAnnotation.json')
-  );
-  return JSON.parse((buffer as unknown) as string);
-};
-
 // getForestByPage :: IO ForestByPage
 export const getForestByPage: IO.IO<ForestByPage> = () =>
   getDocumentAnnotation().forestByPage;
 
-// getComplexForestByPage :: IO ForestByPage
-export const getComplexForestByPage: IO.IO<ForestByPage> = () =>
-  getComplexDocumentAnnotation().forestByPage;
-
-// getCompleteForestByPage :: IO ForestByPage
-export const getCompleteForestByPage: IO.IO<ForestByPage> = () =>
-  getCompleteDocumentAnnotation().forestByPage;
-
-// getForest :: IO Forest
-export const getForest: IO.IO<Forest> = () => getForestByPage()[1];
-
-// getComplexForest :: IO Forest
-export const getComplexForest: IO.IO<Forest> = () =>
-  getComplexForestByPage()[0];
-
-// getCompleteForest :: IO Forest
-export const getCompleteForest: IO.IO<Forest> = () =>
-  getCompleteForestByPage()[0];
+// getForestByLabel :: IO ForestByLabel
+export const getForestByLabel: IO.IO<ForestByLabel> = pipe(
+  getForestByPage,
+  mergeForestByPage
+);
 
 // getDescendant :: IO Descendant
 export const getDescendant: IO.IO<Descendant> = () =>
-  getForest()[tableByColumnsId] as Descendant;
+  getForestByLabel()['fund_details'] as Descendant;
 
 // getBranch :: IO Branch
 export const getBranch: IO.IO<Branch> = () =>
-  getComplexForest()['bc279842-13b8-483c-8ea4-8f35679b77ec'] as Branch;
+  getForestByLabel()['portfolio'] as Branch;
 
 // getTableByColumns :: IO Table
-export const getTableByColumns: IO.IO<Table> = () =>
-  (getForest()[tableByColumnsId] as Branch).children[1] as Table;
+export const getTableByColumns: IO.IO<Table> = pipe(
+  getDescendant,
+  prop('children'),
+  find(propEq('label', 'table')) as R.Reader<Leaf[], Table>
+);
 
 // getTableByRows :: IO Table
-export const getTableByRows: IO.IO<Table> = () =>
-  (getForest()[tableByRowsId] as Branch).children[0] as Table;
+export const getTableByRows: IO.IO<Table> = pipe(
+  getForestByLabel,
+  getPath<Leaf[]>(['portfolio', 'children']),
+  find(
+    allPass([
+      propEq('label', 'table'),
+      pathSatisfies(regExpTest(/Dividend History/), [
+        'intersectHeader',
+        'text',
+      ]),
+    ])
+  ) as R.Reader<Leaf[], Table>
+);
 
 // keysOf :: Tree -> [String]
 export const keysOf: (comparable: Tree) => string[] = pipe(
