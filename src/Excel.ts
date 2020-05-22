@@ -7,13 +7,34 @@ import {
   map,
   not,
   pipe,
+  propIs,
   values,
 } from 'ramda';
+import { isNotNil } from './Types';
+
+export interface Position {
+  file: string;
+  sheet: string;
+  cell: string;
+}
 
 export type Cell = string;
 export type Row = Dictionary<Cell>;
 export type Sheet = Row[];
 export type Excel = Dictionary<Sheet>;
+
+/**
+ * ```haskell
+ * isPosition :: a -> bool
+ * ```
+ */
+export const isPosition = (a: unknown): a is Position =>
+  allPass([
+    isNotNil,
+    propIs(String, 'file'),
+    propIs(String, 'sheet'),
+    propIs(String, 'cell'),
+  ])(a);
 
 /**
  * ```haskell

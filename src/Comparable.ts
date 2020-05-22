@@ -70,6 +70,7 @@ import {
   isString,
   propSatisfiesIfExists,
 } from './Types';
+import { isPosition } from './Excel';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
@@ -78,6 +79,7 @@ export type Mapping = Dictionary<string>;
 
 export interface Metadata {
   bounding_poly?: Poly;
+  excel_position?: Position;
 }
 
 export interface Leaf {
@@ -137,7 +139,11 @@ interface PartitionedGettables {
  * ```
  */
 export const isMetadata = (a: unknown): a is Metadata =>
-  allPass([is(Object), propSatisfiesIfExists(isPoly, 'bounding_poly')])(a);
+  allPass([
+    is(Object),
+    propSatisfiesIfExists(isPoly, 'bounding_poly'),
+    propSatisfiesIfExists(isPosition, 'excel_position'),
+  ])(a);
 
 /**
  * ```haskell
