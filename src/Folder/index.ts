@@ -50,6 +50,10 @@ export interface Reference {
   file: string;
 }
 
+export interface FolderReference {
+  folder: string;
+}
+
 export type File = Attributes & { metadata: Metadata };
 
 export type FilesByType = Record<FT.DocumentType, File[]>;
@@ -224,3 +228,31 @@ export const getFileNameFromId: (id: string) => string = pipe(
   split('/'),
   last as R.Reader<string[], string>
 );
+
+/**
+ * ```haskell
+ * makeFolderReference :: String -> FolderReference
+ * ```
+ */
+export const makeFolderReference: (folder: string) => FolderReference = (
+  folder
+) => ({
+  folder,
+});
+
+/**
+ * ```haskell
+ * isFolderReference :: a -> bool
+ * ```
+ */
+export const isFolderReference = (a: unknown): a is FolderReference =>
+  allPass([is(Object), propIs(String, 'folder')])(a);
+
+/**
+ * ```haskell
+ * getFolderFromReference :: FolderReference -> String
+ * ```
+ */
+export const getFolderFromReference: (
+  reference: FolderReference
+) => string = prop('folder');

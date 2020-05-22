@@ -988,6 +988,31 @@ ___
 Defined in src/Folder/index.ts:25
 
 
+<a name="interfaces_folder_index_folderreferencemd"></a>
+
+[functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [FolderReference](#interfaces_folder_index_folderreferencemd)
+
+## Interface: FolderReference
+
+### Hierarchy
+
+* **FolderReference**
+
+### Index
+
+#### Properties
+
+* [folder](#folder)
+
+### Properties
+
+####  folder
+
+• **folder**: *string*
+
+Defined in src/Folder/index.ts:54
+
+
 <a name="interfaces_folder_index_metadatamd"></a>
 
 [functional-types](#globalsmd) › ["Folder/index"](#modules_folder_index_md) › [Metadata](#interfaces_folder_index_metadatamd)
@@ -6059,6 +6084,7 @@ Defined in src/Folder/Arbitraries.ts:15
 
 * [Attributes](#interfaces_folder_index_attributesmd)
 * [Folder](#interfaces_folder_index_foldermd)
+* [FolderReference](#interfaces_folder_index_folderreferencemd)
 * [Metadata](#interfaces_folder_index_metadatamd)
 * [Reference](#interfaces_folder_index_referencemd)
 
@@ -6071,6 +6097,7 @@ Defined in src/Folder/Arbitraries.ts:15
 
 * [getAttributesFromName](#const-getattributesfromname)
 * [getFileNameFromId](#const-getfilenamefromid)
+* [getFolderFromReference](#const-getfolderfromreference)
 
 #### Functions
 
@@ -6079,9 +6106,11 @@ Defined in src/Folder/Arbitraries.ts:15
 * [isFileArray](#const-isfilearray)
 * [isFilesByType](#const-isfilesbytype)
 * [isFolder](#const-isfolder)
+* [isFolderReference](#const-isfolderreference)
 * [isMetadata](#const-ismetadata)
 * [isReference](#const-isreference)
 * [make](#const-make)
+* [makeFolderReference](#const-makefolderreference)
 * [makeReference](#const-makereference)
 
 ### Type aliases
@@ -6090,7 +6119,7 @@ Defined in src/Folder/Arbitraries.ts:15
 
 Ƭ **File**: *[Attributes](#interfaces_folder_index_attributesmd) & object*
 
-Defined in src/Folder/index.ts:53
+Defined in src/Folder/index.ts:57
 
 ___
 
@@ -6098,7 +6127,7 @@ ___
 
 Ƭ **FilesByType**: *Record‹FT.DocumentType, [File](#file)[]›*
 
-Defined in src/Folder/index.ts:55
+Defined in src/Folder/index.ts:59
 
 ### Variables
 
@@ -6120,7 +6149,7 @@ Defined in src/Folder/index.ts:55
   })
 )
 
-Defined in src/Folder/index.ts:162
+Defined in src/Folder/index.ts:166
 
 ```haskell
 getAttributesFromName :: String -> Either Attributes Error
@@ -6145,7 +6174,7 @@ ___
   last as R.Reader<string[], string>
 )
 
-Defined in src/Folder/index.ts:223
+Defined in src/Folder/index.ts:227
 
 ```haskell
 getFileNameFromId :: String -> String
@@ -6161,13 +6190,35 @@ Name | Type |
 ------ | ------ |
 `id` | string |
 
+___
+
+#### `Const` getFolderFromReference
+
+• **getFolderFromReference**: *function* = prop('folder')
+
+Defined in src/Folder/index.ts:256
+
+```haskell
+getFolderFromReference :: FolderReference -> String
+```
+
+##### Type declaration:
+
+▸ (`reference`: [FolderReference](#interfaces_folder_index_folderreferencemd)): *string*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`reference` | [FolderReference](#interfaces_folder_index_folderreferencemd) |
+
 ### Functions
 
 #### `Const` fromMetadata
 
 ▸ **fromMetadata**(`metadata`: [Metadata](#interfaces_folder_index_metadatamd)): *Left‹Error› | Right‹object›*
 
-Defined in src/Folder/index.ts:185
+Defined in src/Folder/index.ts:189
 
 ```haskell
 fromMetadata :: Metadata -> Either
@@ -6187,7 +6238,7 @@ ___
 
 ▸ **isFile**(`a`: unknown): *a is File*
 
-Defined in src/Folder/index.ts:135
+Defined in src/Folder/index.ts:139
 
 ```haskell
 isFile :: a -> bool
@@ -6207,7 +6258,7 @@ ___
 
 ▸ **isFileArray**(`a`: unknown): *a is File[]*
 
-Defined in src/Folder/index.ts:143
+Defined in src/Folder/index.ts:147
 
 ```haskell
 isFileArray :: a -> bool
@@ -6227,7 +6278,7 @@ ___
 
 ▸ **isFilesByType**(`a`: unknown): *a is FilesByType*
 
-Defined in src/Folder/index.ts:151
+Defined in src/Folder/index.ts:155
 
 ```haskell
 isFilesByType :: a -> bool
@@ -6247,7 +6298,7 @@ ___
 
 ▸ **isFolder**(`a`: unknown): *a is Folder*
 
-Defined in src/Folder/index.ts:62
+Defined in src/Folder/index.ts:66
 
 ```haskell
 isFolder -> bool
@@ -6263,11 +6314,31 @@ Name | Type |
 
 ___
 
+#### `Const` isFolderReference
+
+▸ **isFolderReference**(`a`: unknown): *a is FolderReference*
+
+Defined in src/Folder/index.ts:248
+
+```haskell
+isFolderReference :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is FolderReference*
+
+___
+
 #### `Const` isMetadata
 
 ▸ **isMetadata**(`a`: unknown): *a is Metadata*
 
-Defined in src/Folder/index.ts:112
+Defined in src/Folder/index.ts:116
 
 ```haskell
 isMetadata :: a -> bool
@@ -6287,7 +6358,7 @@ ___
 
 ▸ **isReference**(`a`: unknown): *a is Reference*
 
-Defined in src/Folder/index.ts:206
+Defined in src/Folder/index.ts:210
 
 ```haskell
 isReference :: a -> bool
@@ -6307,7 +6378,7 @@ ___
 
 ▸ **make**(`name`: string): *(Anonymous function)*
 
-Defined in src/Folder/index.ts:76
+Defined in src/Folder/index.ts:80
 
 ```haskell
 make :: String -> Folder
@@ -6323,11 +6394,33 @@ Name | Type |
 
 ___
 
+#### `Const` makeFolderReference
+
+▸ **makeFolderReference**(`folder`: string): *object*
+
+Defined in src/Folder/index.ts:237
+
+```haskell
+makeFolderReference :: String -> FolderReference
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`folder` | string |
+
+**Returns:** *object*
+
+* **folder**: *string*
+
+___
+
 #### `Const` makeReference
 
 ▸ **makeReference**(`file`: string): *object*
 
-Defined in src/Folder/index.ts:214
+Defined in src/Folder/index.ts:218
 
 ```haskell
 makeReference :: String -> Reference
@@ -8419,7 +8512,7 @@ ___
   map(fromVisionParagraph),
   A.array.sequence(IO.io),
   IO.map(
-    reduce<Page, Page>((acc: Page, page: Page) => mergeDeepLeft(acc, page), {
+    reduce((acc: Page, page: Page) => mergeDeepLeft(acc, page) as Page, {
       wordsById: {},
       paragraphsById: {},
     })

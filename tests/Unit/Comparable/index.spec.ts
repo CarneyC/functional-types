@@ -2,7 +2,6 @@ import chai from 'chai';
 import * as C from '../../../src/Comparable';
 import * as Sample from './Sample';
 import * as R from 'fp-ts/lib/Reader';
-import * as O from 'fp-ts/lib/Option';
 import { keys, pipe, prop, test as regExpTest } from 'ramda';
 import chaiLike from 'chai-like';
 import chaiThings from 'chai-things';
@@ -10,23 +9,12 @@ import {
   DocumentAnnotation,
   mergeForestByPage,
 } from '../../../src/DocumentAnnotation';
-import { Gettable } from '../../../src/Schema';
 
 chai.use(chaiLike);
 chai.use(chaiThings);
 const { expect } = chai;
 
 describe('Comparable', function () {
-  let annotation: DocumentAnnotation;
-  let complexAnnotation: DocumentAnnotation;
-  let completeAnnotation: DocumentAnnotation;
-
-  before(function () {
-    annotation = Sample.getDocumentAnnotation();
-    complexAnnotation = Sample.getComplexDocumentAnnotation();
-    completeAnnotation = Sample.getCompleteDocumentAnnotation();
-  });
-
   describe('#fromTable()', function () {
     let fromTable: R.Reader<C.FromTableOptions, C.Tree>;
 
@@ -308,24 +296,19 @@ describe('Comparable', function () {
   });
 
   describe('#applyPath()', function () {
-    let getNodeFromGettable: R.Reader<Gettable, O.Option<C.Node>>;
-
-    before(function () {
+    it('should return the Node at the end of the Path', function () {
       const forest = Sample.getCompleteForestByPage();
-      getNodeFromGettable = pipe(
+      const getNodeFromGettable = pipe(
         pipe(
           C.fromForestByPage,
           R.local(pipe(C.getLeafOptionsFromGettable, (value) => [value]))
         ),
         R.chain(pipe(C.applyPath, R.local(prop('attribute'))))
       )(forest);
-    });
 
-    it('should return the Node at the end of the Path', function () {
       const gettable = Sample.getGettable();
 
       const actualNode = getNodeFromGettable(gettable);
-
       const expectedNode = Sample.getComparableNode();
 
       expect(actualNode).to.be.like({
@@ -347,21 +330,6 @@ describe('Comparable', function () {
       const expectedTree = Sample.getFlatComparableTree();
 
       expect(actualTree).to.be.like(expectedTree);
-    });
-  });
-
-  describe('#applySchema()', function () {
-    it('should return a Tree with appropriate table values split by files.', function () {
-      const schema = Sample.getSchema();
-      const annotations = [annotation, completeAnnotation, complexAnnotation];
-
-      const actualTreeByFile = C.applySchema(annotations)(schema);
-
-      const expectedTreeByFile = {
-        'hk_allianz_flexi_asia_bond_am_factsheet_en_201908.pdf': Sample.getFlatComparableTree(),
-      };
-
-      expect(actualTreeByFile).to.be.like(expectedTreeByFile);
     });
   });
 
@@ -390,22 +358,49 @@ describe('Comparable', function () {
     });
   });
 
-  describe('#makeComparables()', function () {
-    it('should contains a Comparable with appropriate table values.', function () {
-      const schema = Sample.getSchema();
-      const annotations = [annotation, completeAnnotation, complexAnnotation];
+  describe('With DocumentAnnotations', function () {
+    let annotation: DocumentAnnotation;
+    let complexAnnotation: DocumentAnnotation;
+    let completeAnnotation: DocumentAnnotation;
 
-      const actualComparables = C.makeComparables(annotations)(schema)();
+    before(function () {
+      annotation = Sample.getDocumentAnnotation();
+      complexAnnotation = Sample.getComplexDocumentAnnotation();
+      completeAnnotation = Sample.getCompleteDocumentAnnotation();
+    });
 
-      const expectedComparable = {
-        schema_id: 'generic_factsheet_en',
-        files: ['hk_allianz_flexi_asia_bond_am_factsheet_en_201908.pdf'],
-        attributes: Sample.getFlatComparableTree(),
-      };
+    describe('#applySchema()', function () {
+      it('should return a Tree with appropriate table values split by files.', function () {
+        const schema = Sample.getSchema();
+        const annotations = [annotation, completeAnnotation, complexAnnotation];
 
-      expect(actualComparables)
-        .to.be.an('array')
-        .that.contains.something.like(expectedComparable);
+        const actualTreeByFile = C.applySchema(annotations)(schema);
+
+        const expectedTreeByFile = {
+          'hk_allianz_flexi_asia_bond_am_factsheet_en_201908.pdf': Sample.getFlatComparableTree(),
+        };
+
+        expect(actualTreeByFile).to.be.like(expectedTreeByFile);
+      });
+    });
+
+    describe('#makeComparables()', function () {
+      it('should contains a Comparable with appropriate table values.', function () {
+        const schema = Sample.getSchema();
+        const annotations = [annotation, completeAnnotation, complexAnnotation];
+
+        const actualComparables = C.makeComparables(annotations)(schema)();
+
+        const expectedComparable = {
+          schema_id: 'generic_factsheet_en',
+          files: ['hk_allianz_flexi_asia_bond_am_factsheet_en_201908.pdf'],
+          attributes: Sample.getFlatComparableTree(),
+        };
+
+        expect(actualComparables)
+          .to.be.an('array')
+          .that.contains.something.like(expectedComparable);
+      });
     });
   });
 });

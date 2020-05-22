@@ -272,7 +272,7 @@ export const fromVisionPage: (page: Vision.Page) => IO.IO<Page> = pipe(
   map(fromVisionParagraph),
   A.array.sequence(IO.io),
   IO.map(
-    reduce<Page, Page>((acc: Page, page: Page) => mergeDeepLeft(acc, page), {
+    reduce((acc: Page, page: Page) => mergeDeepLeft(acc, page) as Page, {
       wordsById: {},
       paragraphsById: {},
     })
