@@ -87,19 +87,19 @@ export interface Leaf {
   metadata?: Metadata;
 }
 
-export interface Tree {
-  [index: string]: Node;
+export interface Tree<T = Leaf> {
+  [index: string]: Node<T>;
 }
 
-export type TreeByFile = Dictionary<Tree>;
+export type TreeByFile<T = Leaf> = Dictionary<Tree<T>>;
 
-export type Node = Tree | Leaf;
+export type Node<T = Leaf> = Tree<T> | T;
 
-export interface Comparable {
+export interface Comparable<T = Leaf> {
   id: string;
   schema_id: string;
   files: string[];
-  attributes: Tree;
+  attributes: Tree<T>;
   created_at: string;
   updated_at: string;
 }

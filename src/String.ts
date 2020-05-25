@@ -6,4 +6,4 @@ import * as IO from 'fp-ts/lib/IO';
  * getRandomId: IO String
  * ```
  */
-export const getRandomId: IO.IO<string> = uuid;
+export const getRandomId: IO.IO<string> = () => uuid();

@@ -48,7 +48,11 @@
 
 [functional-types](#globalsmd) › ["Comparable"](#modules_comparable_md) › [Comparable](#interfaces_comparable_comparablemd)
 
-## Interface: Comparable
+## Interface: Comparable <**T**>
+
+### Type parameters
+
+▪ **T**
 
 ### Hierarchy
 
@@ -69,7 +73,7 @@
 
 ####  attributes
 
-• **attributes**: *[Tree](#interfaces_comparable_treemd)*
+• **attributes**: *[Tree](#interfaces_comparable_treemd)‹T›*
 
 Defined in src/Comparable.ts:102
 
@@ -361,7 +365,11 @@ Defined in src/Comparable.ts:115
 
 [functional-types](#globalsmd) › ["Comparable"](#modules_comparable_md) › [Tree](#interfaces_comparable_treemd)
 
-## Interface: Tree
+## Interface: Tree <**T**>
+
+### Type parameters
+
+▪ **T**
 
 ### Hierarchy
 
@@ -369,7 +377,7 @@ Defined in src/Comparable.ts:115
 
 ### Indexable
 
-* \[ **index**: *string*\]: [Node](#node)
+* \[ **index**: *string*\]: [Node](#node)‹T›
 
 
 <a name="interfaces_documentannotation_branchmd"></a>
@@ -3723,7 +3731,7 @@ ___
 
 ####  Node
 
-Ƭ **Node**: *[Tree](#interfaces_comparable_treemd) | [Leaf](#interfaces_comparable_leafmd)*
+Ƭ **Node**: *[Tree](#interfaces_comparable_treemd)‹T› | T*
 
 Defined in src/Comparable.ts:96
 
@@ -3757,7 +3765,7 @@ ___
 
 ####  TreeByFile
 
-Ƭ **TreeByFile**: *Dictionary‹[Tree](#interfaces_comparable_treemd)›*
+Ƭ **TreeByFile**: *Dictionary‹[Tree](#interfaces_comparable_treemd)‹T››*
 
 Defined in src/Comparable.ts:94
 
@@ -4136,7 +4144,7 @@ Name | Type |
 
 #### `Const` applyPath
 
-▸ **applyPath**(`node`: [Tree](#interfaces_comparable_treemd) | [Leaf](#interfaces_comparable_leafmd)): *(Anonymous function)*
+▸ **applyPath**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
 Defined in src/Comparable.ts:708
 
@@ -4148,7 +4156,7 @@ applyPath :: Tree -> Reader Path (Option Tree)
 
 Name | Type |
 ------ | ------ |
-`node` | [Tree](#interfaces_comparable_treemd) &#124; [Leaf](#interfaces_comparable_leafmd) |
+`node` | [Leaf](#interfaces_comparable_leafmd) &#124; [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 
 **Returns:** *(Anonymous function)*
 
@@ -4156,7 +4164,7 @@ ___
 
 #### `Const` findKeyFromPredicate
 
-▸ **findKeyFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)): *(Anonymous function)*
+▸ **findKeyFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
 Defined in src/Comparable.ts:290
 
@@ -4168,7 +4176,7 @@ findKeyFromPredicate :: Tree -> Reader Predicate (Option String)
 
 Name | Type |
 ------ | ------ |
-`tree` | [Tree](#interfaces_comparable_treemd) |
+`tree` | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 
 **Returns:** *(Anonymous function)*
 
@@ -4176,7 +4184,7 @@ ___
 
 #### `Const` findNodeFromPredicate
 
-▸ **findNodeFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)): *Reader‹function, None | Some‹[Tree](#interfaces_comparable_treemd) | [Leaf](#interfaces_comparable_leafmd)››*
+▸ **findNodeFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹function, None | Some‹[Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›››*
 
 Defined in src/Comparable.ts:302
 
@@ -4188,9 +4196,9 @@ findNodeFromPredicate :: Tree -> Reader Predicate (Option Node)
 
 Name | Type |
 ------ | ------ |
-`tree` | [Tree](#interfaces_comparable_treemd) |
+`tree` | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 
-**Returns:** *Reader‹function, None | Some‹[Tree](#interfaces_comparable_treemd) | [Leaf](#interfaces_comparable_leafmd)››*
+**Returns:** *Reader‹function, None | Some‹[Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›››*
 
 ___
 
@@ -4262,7 +4270,7 @@ ___
 
 #### `Const` getKeyFromPredicate
 
-▸ **getKeyFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)): *Reader‹function, None | Some‹string››*
+▸ **getKeyFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹function, None | Some‹string››*
 
 Defined in src/Comparable.ts:316
 
@@ -4274,7 +4282,7 @@ getKeyFromPredicate :: Tree -> Reader Predicate (Option String)
 
 Name | Type |
 ------ | ------ |
-`tree` | [Tree](#interfaces_comparable_treemd) |
+`tree` | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 
 **Returns:** *Reader‹function, None | Some‹string››*
 
@@ -4390,7 +4398,7 @@ ___
 
 #### `Const` makeComparable
 
-▸ **makeComparable**(`tree`: [Tree](#interfaces_comparable_treemd), `file`: string): *(Anonymous function)*
+▸ **makeComparable**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›, `file`: string): *(Anonymous function)*
 
 Defined in src/Comparable.ts:972
 
@@ -4402,7 +4410,7 @@ makeComparables :: (Tree, String) -> ReaderIO Schema Comparable
 
 Name | Type |
 ------ | ------ |
-`tree` | [Tree](#interfaces_comparable_treemd) |
+`tree` | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 `file` | string |
 
 **Returns:** *(Anonymous function)*
@@ -4481,7 +4489,7 @@ ___
 
 #### `Const` satisfyProperties
 
-▸ **satisfyProperties**(`node`: [Tree](#interfaces_comparable_treemd) | [Leaf](#interfaces_comparable_leafmd)): *function*
+▸ **satisfyProperties**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *function*
 
 Defined in src/Comparable.ts:692
 
@@ -4493,7 +4501,7 @@ satisfyProperties :: Tree -> Reader [Property] Bool
 
 Name | Type |
 ------ | ------ |
-`node` | [Tree](#interfaces_comparable_treemd) &#124; [Leaf](#interfaces_comparable_leafmd) |
+`node` | [Leaf](#interfaces_comparable_leafmd) &#124; [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 
 **Returns:** *function*
 
@@ -4509,7 +4517,7 @@ ___
 
 #### `Const` setKeys
 
-▸ **setKeys**(`tree`: [Tree](#interfaces_comparable_treemd)): *Reader‹[FromTableOptions](#interfaces_comparable_fromtableoptionsmd), object›*
+▸ **setKeys**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹[FromTableOptions](#interfaces_comparable_fromtableoptionsmd), object›*
 
 Defined in src/Comparable.ts:342
 
@@ -4521,7 +4529,7 @@ setKeys :: Tree -> Reader PredicateStr Tree
 
 Name | Type |
 ------ | ------ |
-`tree` | [Tree](#interfaces_comparable_treemd) |
+`tree` | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 
 **Returns:** *Reader‹[FromTableOptions](#interfaces_comparable_fromtableoptionsmd), object›*
 
@@ -4549,7 +4557,7 @@ ___
 
 #### `Const` translateNode
 
-▸ **translateNode**(`node`: [Tree](#interfaces_comparable_treemd) | [Leaf](#interfaces_comparable_leafmd)): *(Anonymous function)*
+▸ **translateNode**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
 Defined in src/Comparable.ts:756
 
@@ -4561,7 +4569,7 @@ translateNode :: Node -> Reader Path Node
 
 Name | Type |
 ------ | ------ |
-`node` | [Tree](#interfaces_comparable_treemd) &#124; [Leaf](#interfaces_comparable_leafmd) |
+`node` | [Leaf](#interfaces_comparable_leafmd) &#124; [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 
 **Returns:** *(Anonymous function)*
 
@@ -4569,7 +4577,7 @@ ___
 
 #### `Const` translateTree
 
-▸ **translateTree**(`tree`: [Tree](#interfaces_comparable_treemd)): *(Anonymous function)*
+▸ **translateTree**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
 Defined in src/Comparable.ts:781
 
@@ -4581,7 +4589,7 @@ translateTree :: Tree -> Reader Gettables Tree
 
 Name | Type |
 ------ | ------ |
-`tree` | [Tree](#interfaces_comparable_treemd) |
+`tree` | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)› |
 
 **Returns:** *(Anonymous function)*
 
@@ -8273,21 +8281,23 @@ Name | Type |
 
 ### Index
 
-#### Variables
+#### Functions
 
 * [getRandomId](#const-getrandomid)
 
-### Variables
+### Functions
 
 #### `Const` getRandomId
 
-• **getRandomId**: *IO‹string›* = uuid
+▸ **getRandomId**(): *string*
 
 Defined in src/String.ts:9
 
 ```haskell
 getRandomId: IO String
 ```
+
+**Returns:** *string*
 
 
 <a name="modules_tableannotation_md"></a>
