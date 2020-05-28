@@ -40,6 +40,7 @@
 * ["Vision"](#modules_vision_md)
 * ["fp-ts/ReaderIO"](#modules_fp_ts_readerio_md)
 * ["fp-ts/TaskEither"](#modules_fp_ts_taskeither_md)
+* ["index"](#modules_index_md)
 
 # Interfaces
 
@@ -313,7 +314,7 @@ ___
 
 #### `Optional` excel_position
 
-• **excel_position**? : *Position*
+• **excel_position**? : *[Position](#interfaces_excel_positionmd)*
 
 Defined in src/Comparable.ts:82
 
@@ -6690,6 +6691,74 @@ Name | Type |
 `task` | Task‹A› |
 
 **Returns:** *TaskEither‹Error, A›*
+
+
+<a name="modules_index_md"></a>
+
+[functional-types](#globalsmd) › ["index"](#modules_index_md)
+
+## Module: "index"
+
+### Index
+
+#### References
+
+* [isArray](#isarray)
+* [isDictionary](#isdictionary)
+* [isNat](#isnat)
+* [isNotNil](#isnotnil)
+* [isNumber](#isnumber)
+* [isRegExp](#isregexp)
+* [isString](#isstring)
+* [propSatisfiesIfExists](#propsatisfiesifexists)
+
+### References
+
+####  isArray
+
+• **isArray**:
+
+___
+
+####  isDictionary
+
+• **isDictionary**:
+
+___
+
+####  isNat
+
+• **isNat**:
+
+___
+
+####  isNotNil
+
+• **isNotNil**:
+
+___
+
+####  isNumber
+
+• **isNumber**:
+
+___
+
+####  isRegExp
+
+• **isRegExp**:
+
+___
+
+####  isString
+
+• **isString**:
+
+___
+
+####  propSatisfiesIfExists
+
+• **propSatisfiesIfExists**:
 
 
 <a name="modules_json_md"></a>

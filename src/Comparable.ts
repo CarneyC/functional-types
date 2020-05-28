@@ -70,7 +70,7 @@ import {
   isString,
   propSatisfiesIfExists,
 } from './Types';
-import { isPosition } from './Excel';
+import { isPosition, Position } from './Excel';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;
