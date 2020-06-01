@@ -51,6 +51,7 @@ import {
   T,
   test as regExpTest,
   toPairs,
+  uniq,
   unless,
   values,
   when,
@@ -128,8 +129,12 @@ export interface FromLeafOptions extends FromTableOptions {
 
 export type FromBranchOptions = FromLeafOptions[];
 
-interface PartitionedGettables {
-  annotation: D.DocumentAnnotation;
+export interface Annotation {
+  file: string;
+}
+
+export interface PartitionedGettables<T extends Annotation> {
+  annotation: T;
   gettables: S.Gettables;
 }
 
@@ -775,6 +780,85 @@ export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
 
 /**
  * ```haskell
+ * applyGettables :: ForestByLabel -> Reader Gettables Tree
+ * ```
+ */
+export const applyGettables: (
+  forest: D.ForestByLabel
+) => R.Reader<S.Gettables, Tree> = pipe(
+  pipe(fromForestByLabel, R.local(getBranchOptionsFromGettables)),
+  R.map<Tree, R.Reader<S.Gettable, O.Option<Node>>>(
+    pipe(applyPath, R.local<S.Gettable, S.Path>(prop('attribute')))
+  ),
+  R.chain(
+    mapObjIndexed as (
+      fa: R.Reader<S.Gettable, O.Option<Node>>
+    ) => R.Reader<S.Gettables, Dictionary<O.Option<Node>>>
+  ),
+  R.map(filter(O.isSome)),
+  R.map(mapObjIndexed((some: O.Some<Node>) => some.value))
+);
+
+/**
+ * ```haskell
+ * findNamesSatisfyingFilePath :: [String] -> Reader FilePath [String]
+ * ```
+ */
+const findNamesSatisfyingFilePath: (
+  files: string[]
+) => R.Reader<S.FilePath, string[]> = (files) => ([
+  path,
+  ...others
+]): string[] => {
+  return isEmpty(others) ? filter(regExpTest(path), files) : [];
+};
+
+/**
+ * ```haskell
+ * partitionGettables :: [DocumentAnnotation] -> Reader Gettables (Dictionary Gettables)
+ * ```
+ */
+export const partitionGettables: <T extends Annotation>(
+  annotations: T[]
+) => R.Reader<S.Gettables, Dictionary<PartitionedGettables<T>>> = <
+  T extends Annotation
+>(
+  annotations: T[]
+) => {
+  const annotationByFile: Record<string, T> = pipe(
+    groupBy(pipe(prop('file'), getFileNameFromId)),
+    mapObjIndexed<T[], T>(head)
+  )(annotations);
+
+  const files: string[] = keys(annotationByFile);
+
+  return pipe(
+    toPairs as R.Reader<S.Gettables, [string, S.Gettable][]>,
+    reduce<[string, S.Gettable], Dictionary<S.Gettables>>(
+      (acc, [property, gettable]) => {
+        return pipe(
+          prop('file'),
+          findNamesSatisfyingFilePath(files),
+          reduce<string, Dictionary<S.Gettables>>(
+            (acc, filename) =>
+              assocPath([filename, property], clone(gettable), acc),
+            acc
+          )
+        )(gettable);
+      },
+      {}
+    ),
+    dissoc(''),
+    mapObjIndexed<S.Gettables[], S.Gettables>(mergeAll),
+    mapObjIndexed<S.Gettables, PartitionedGettables<T>>((gettables, file) => ({
+      annotation: prop(file, annotationByFile),
+      gettables,
+    }))
+  );
+};
+
+/**
+ * ```haskell
  * translateTree :: Tree -> Reader Gettables Tree
  * ```
  */
@@ -860,84 +944,50 @@ const unnestTreeFromGettables: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
 
 /**
  * ```haskell
- * applyGettables :: ForestByLabel -> Reader Gettables Tree
+ * postProcessTree :: Tree -> Reader Gettables Tree
  * ```
  */
-export const applyGettables: (
-  forest: D.ForestByLabel
-) => R.Reader<S.Gettables, Tree> = pipe(
-  pipe(fromForestByLabel, R.local(getBranchOptionsFromGettables)),
-  R.map<Tree, R.Reader<S.Gettable, O.Option<Node>>>(
-    pipe(applyPath, R.local<S.Gettable, S.Path>(prop('attribute')))
-  ),
-  R.chain(
-    mapObjIndexed as (
-      fa: R.Reader<S.Gettable, O.Option<Node>>
-    ) => R.Reader<S.Gettables, Dictionary<O.Option<Node>>>
-  ),
-  R.map(filter(O.isSome)),
-  R.map(mapObjIndexed((some: O.Some<Node>) => some.value)),
-  R.chain(mergeTreeFromGettables),
+const postProcessTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = pipe(
+  mergeTreeFromGettables,
   R.chain(unnestTreeFromGettables),
   R.chain(translateTree)
 );
 
 /**
  * ```haskell
- * findNamesSatisfyingFilePath :: [String] -> Reader FilePath [String]
+ * applySchemaWith :: Reader (PartitionedGettables A) Tree -> [A] -> Reader Schema TreeByFile
  * ```
  */
-const findNamesSatisfyingFilePath: (
-  files: string[]
-) => R.Reader<S.FilePath, string[]> = (files) => ([
-  path,
-  ...others
-]): string[] => {
-  return isEmpty(others) ? filter(regExpTest(path), files) : [];
-};
+export const applySchemaWith: <A extends Annotation>(
+  fa: (annotation: A) => R.Reader<S.Gettables, Tree>
+) => (annotations: A[]) => R.Reader<S.Schema, TreeByFile> = <
+  A extends Annotation
+>(
+  fa: (annotation: A) => R.Reader<S.Gettables, Tree>
+) =>
+  pipe(
+    pipe(
+      partitionGettables,
+      R.local(prop('gettables') as R.Reader<S.Schema, S.Gettables>)
+    ),
+    R.map(
+      mapObjIndexed<PartitionedGettables<A>, Tree>(
+        ({ annotation, gettables }) =>
+          pipe(fa, R.chain(postProcessTree))(annotation)(gettables)
+      )
+    )
+  );
 
 /**
  * ```haskell
- * partitionGettables :: [DocumentAnnotation] -> Reader Gettables (Dictionary Gettables)
+ * applySchemaToDocumentAnnotations :: [DocumentAnnotation] -> Reader Schema TreeByFile
  * ```
  */
-export const partitionGettables: (
+export const applySchemaToDocumentAnnotations: (
   annotations: D.DocumentAnnotation[]
-) => R.Reader<S.Gettables, Dictionary<PartitionedGettables>> = (
-  annotations
-) => {
-  const annotationByFile: Record<string, D.DocumentAnnotation> = pipe(
-    groupBy(pipe(prop('file'), getFileNameFromId)),
-    mapObjIndexed<D.DocumentAnnotation[], D.DocumentAnnotation>(head)
-  )(annotations);
-
-  const files: string[] = keys(annotationByFile);
-
-  return pipe(
-    toPairs as R.Reader<S.Gettables, [string, S.Gettable][]>,
-    reduce<[string, S.Gettable], Dictionary<S.Gettables>>(
-      (acc, [property, gettable]) => {
-        return pipe(
-          prop('file'),
-          findNamesSatisfyingFilePath(files),
-          reduce<string, Dictionary<S.Gettables>>(
-            (acc, filename) =>
-              assocPath([filename, property], clone(gettable), acc),
-            acc
-          )
-        )(gettable);
-      },
-      {}
-    ),
-    dissoc(''),
-    mapObjIndexed<S.Gettables[], S.Gettables>(mergeAll),
-    mapObjIndexed<S.Gettables, PartitionedGettables>((gettables, file) => ({
-      annotation: prop(file, annotationByFile),
-      gettables,
-    }))
-  );
-};
-
+) => R.Reader<S.Schema, TreeByFile> = applySchemaWith(
+  pipe(prop('forestByPage'), D.mergeForestByPage, applyGettables)
+);
 /**
  * ```haskell
  * applySchema :: [DocumentAnnotation] -> Reader Schema TreeByFile
@@ -945,21 +995,7 @@ export const partitionGettables: (
  */
 export const applySchema: (
   annotations: D.DocumentAnnotation[]
-) => R.Reader<S.Schema, TreeByFile> = pipe(
-  pipe(
-    partitionGettables,
-    R.local(prop('gettables') as R.Reader<S.Schema, S.Gettables>)
-  ),
-  R.map(
-    mapObjIndexed<PartitionedGettables, Tree>(({ annotation, gettables }) =>
-      pipe(
-        prop('forestByPage'),
-        D.mergeForestByPage,
-        applyGettables
-      )(annotation)(gettables)
-    )
-  )
-);
+) => R.Reader<S.Schema, TreeByFile> = applySchemaToDocumentAnnotations;
 
 /**
  * ```haskell
@@ -985,6 +1021,26 @@ export const makeComparable: (
 
 /**
  * ```haskell
+ * mergeComparables :: [Comparable] -> Comparable
+ * ```
+ */
+export const mergeComparables: (
+  comparables: Comparable[]
+) => O.Option<Comparable> = pipe(
+  reduce<
+    Comparable | Record<string, unknown>,
+    Comparable | Record<string, unknown>
+  >((acc, value) => mergeDeepRight(acc, value), {}),
+  O.fromPredicate(isComparable),
+  O.map(
+    evolve({
+      files: uniq,
+    }) as R.Reader<Comparable, Comparable>
+  )
+);
+
+/**
+ * ```haskell
  * makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
  * ```
  */
@@ -999,6 +1055,21 @@ export const makeComparables: (
       ),
       values,
       RIO.sequenceReaderIO
+    )
+  ),
+  RIO.chain(
+    pipe(
+      (comparables: Comparable[]): R.Reader<S.Schema, Comparable[]> =>
+        when(pathSatisfies(equals(true), ['options', 'merge']), () =>
+          pipe(
+            mergeComparables,
+            O.fold(
+              () => [],
+              (comparable) => [comparable]
+            )
+          )(comparables)
+        ),
+      RIO.fromReader
     )
   )
 );

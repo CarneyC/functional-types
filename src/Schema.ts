@@ -70,12 +70,17 @@ export interface Gettable {
 
 export type Gettables = Dictionary<Gettable>;
 
+export interface SchemaOptions {
+  merge?: boolean;
+}
+
 export interface Schema {
   id: string;
   name: string;
   gettables: Gettables;
   files: FilePath[];
   file_type: DocumentType;
+  options?: SchemaOptions;
   created_at: string;
   updated_at: string;
 }
@@ -218,6 +223,14 @@ export const isGettables = (a: unknown): a is Gettables =>
 
 /**
  * ```haskell
+ * isSchemaOptions :: a -> bool
+ * ```
+ */
+export const isSchemaOptions = (a: unknown): a is SchemaOptions =>
+  allPass([isDictionary, propSatisfiesIfExists(Boolean, 'merge')])(a);
+
+/**
+ * ```haskell
  * isSchemaBase :: a -> bool
  * ```
  */
@@ -229,6 +242,7 @@ export const isSchemaBase = (a: unknown): a is SchemaBase =>
     propSatisfies(isGettables, 'gettables'),
     propSatisfies(isFilePathArray, 'files'),
     propSatisfies(isDocumentType, 'file_type'),
+    propSatisfiesIfExists(isSchemaOptions, 'options'),
   ])(a);
 
 /**

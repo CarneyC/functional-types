@@ -13,7 +13,12 @@ import {
 } from 'ramda';
 import * as E from 'fp-ts/lib/Either';
 import { DocumentType, isDocumentType } from '../FileType';
-import { isDirection, isMergeTypeArray, MergeType } from '../Schema';
+import {
+  isDirection,
+  isMergeTypeArray,
+  isSchemaOptions,
+  MergeType,
+} from '../Schema';
 import * as S from './index';
 import * as Deserialized from '../Schema';
 import {
@@ -66,12 +71,17 @@ export interface Gettable {
 
 export type Gettables = Dictionary<Gettable>;
 
+export interface SchemaOptions {
+  merge?: boolean;
+}
+
 export interface Schema {
   id: string;
   name: string;
   gettables: Gettables;
   files: FilePath[];
   file_type: DocumentType;
+  options?: SchemaOptions;
   created_at: string;
   updated_at: string;
 }
@@ -203,6 +213,7 @@ export const isSchemaBase = (a: unknown): a is SchemaBase =>
     propSatisfies(isGettables, 'gettables'),
     propSatisfies(isFilePathArray, 'files'),
     propSatisfies(isDocumentType, 'file_type'),
+    propSatisfiesIfExists(isSchemaOptions, 'options'),
   ])(a);
 
 /**
