@@ -947,7 +947,9 @@ const unnestTreeFromGettables: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
  * postProcessTree :: Tree -> Reader Gettables Tree
  * ```
  */
-const postProcessTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = pipe(
+export const postProcessTree: (
+  tree: Tree
+) => R.Reader<S.Gettables, Tree> = pipe(
   mergeTreeFromGettables,
   R.chain(unnestTreeFromGettables),
   R.chain(translateTree)
@@ -1057,19 +1059,20 @@ export const makeComparables: (
       RIO.sequenceReaderIO
     )
   ),
-  RIO.chain(
+  RIO.chainReaderK(
     pipe(
-      (comparables: Comparable[]): R.Reader<S.Schema, Comparable[]> =>
-        when(pathSatisfies(equals(true), ['options', 'merge']), () =>
-          pipe(
-            mergeComparables,
-            O.fold(
-              () => [],
-              (comparable) => [comparable]
-            )
-          )(comparables)
-        ),
-      RIO.fromReader
+      (comparables: Comparable[]): R.Reader<S.Schema, Comparable[]> => (
+        schema
+      ) =>
+        pathSatisfies(equals(true), ['options', 'merge'], schema)
+          ? pipe(
+              mergeComparables,
+              O.fold(
+                () => [],
+                (comparable) => [comparable]
+              )
+            )(comparables)
+          : comparables
     )
   )
 );

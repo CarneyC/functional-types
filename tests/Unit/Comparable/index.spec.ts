@@ -317,7 +317,10 @@ describe('Comparable', function () {
       const gettables = Sample.getGettables();
       const forest = Sample.getForestByLabel();
 
-      const actualTree = C.applyGettables(forest)(gettables);
+      const actualTree = pipe(
+        C.applyGettables,
+        R.chain(C.postProcessTree)
+      )(forest)(gettables);
 
       const expectedTree = Sample.getFlatComparableTree();
 

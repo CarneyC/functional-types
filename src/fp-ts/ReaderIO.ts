@@ -25,18 +25,27 @@ export const chainIOK: <A, B>(
 
 /**
  * ```haskell
+ * map :: ( A -> Reader R B ) -> ReaderIO R A -> ReaderIO R B
+ * ```
+ */
+export const chainReaderK = <R, A, B>(
+  f: (a: A) => R.Reader<R, B>
+): ((fa: ReaderIO<R, A>) => ReaderIO<R, B>) =>
+  R.chain<R, IO.IO<A>, IO.IO<B>>((ma) => (r: R): IO.IO<B> =>
+    IO.map<A, B>((a) => f(a)(r))(ma)
+  );
+
+/**
+ * ```haskell
  * chain :: ( A -> ReaderIO R B ) -> ReaderIO R A -> ReaderIO R B
  * ```
  */
-export const chain: <R, A, B>(
-  r: (a: A) => ReaderIO<R, B>
-) => (r: ReaderIO<R, A>) => ReaderIO<R, B> = pipe(IO.chain, R.chain) as <
-  R,
-  A,
-  B
->(
-  r: (a: A) => ReaderIO<R, B>
-) => (r: ReaderIO<R, A>) => ReaderIO<R, B>;
+export const chain = <R, A, B>(
+  f: (a: A) => ReaderIO<R, B>
+): ((fa: ReaderIO<R, A>) => ReaderIO<R, B>) =>
+  R.chain<R, IO.IO<A>, IO.IO<B>>((ma) => (r: R): IO.IO<B> =>
+    IO.chain<A, B>((a) => f(a)(r))(ma)
+  );
 
 /**
  * ```haskell
