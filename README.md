@@ -45,6 +45,31 @@
 # Interfaces
 
 
+<a name="interfaces_comparable_annotationmd"></a>
+
+[functional-types](#globalsmd) › ["Comparable"](#modules_comparable_md) › [Annotation](#interfaces_comparable_annotationmd)
+
+## Interface: Annotation
+
+### Hierarchy
+
+* **Annotation**
+
+### Index
+
+#### Properties
+
+* [file](#file)
+
+### Properties
+
+####  file
+
+• **file**: *string*
+
+Defined in src/Comparable.ts:133
+
+
 <a name="interfaces_comparable_comparablemd"></a>
 
 [functional-types](#globalsmd) › ["Comparable"](#modules_comparable_md) › [Comparable](#interfaces_comparable_comparablemd)
@@ -76,7 +101,7 @@
 
 • **attributes**: *[Tree](#interfaces_comparable_treemd)‹T›*
 
-Defined in src/Comparable.ts:102
+Defined in src/Comparable.ts:103
 
 ___
 
@@ -84,7 +109,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in src/Comparable.ts:103
+Defined in src/Comparable.ts:104
 
 ___
 
@@ -92,7 +117,7 @@ ___
 
 • **files**: *string[]*
 
-Defined in src/Comparable.ts:101
+Defined in src/Comparable.ts:102
 
 ___
 
@@ -100,7 +125,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Comparable.ts:99
+Defined in src/Comparable.ts:100
 
 ___
 
@@ -108,7 +133,7 @@ ___
 
 • **schema_id**: *string*
 
-Defined in src/Comparable.ts:100
+Defined in src/Comparable.ts:101
 
 ___
 
@@ -116,7 +141,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Comparable.ts:104
+Defined in src/Comparable.ts:105
 
 
 <a name="interfaces_comparable_comparableviewmd"></a>
@@ -143,7 +168,7 @@ Defined in src/Comparable.ts:104
 
 • **attributes**: *[TreeView](#treeview)*
 
-Defined in src/Comparable.ts:110
+Defined in src/Comparable.ts:111
 
 
 <a name="interfaces_comparable_fromleafoptionsmd"></a>
@@ -175,7 +200,7 @@ Defined in src/Comparable.ts:110
 
 *Inherited from [FromTableOptions](#interfaces_comparable_fromtableoptionsmd).[key](#optional-key)*
 
-Defined in src/Comparable.ts:120
+Defined in src/Comparable.ts:121
 
 ___
 
@@ -185,7 +210,7 @@ ___
 
 *Inherited from [FromTableOptions](#interfaces_comparable_fromtableoptionsmd).[mergeKey](#optional-mergekey)*
 
-Defined in src/Comparable.ts:121
+Defined in src/Comparable.ts:122
 
 ___
 
@@ -193,7 +218,7 @@ ___
 
 • **predicate**: *[Predicate](#predicate)*
 
-Defined in src/Comparable.ts:126
+Defined in src/Comparable.ts:127
 
 ___
 
@@ -203,7 +228,7 @@ ___
 
 *Inherited from [FromTableOptions](#interfaces_comparable_fromtableoptionsmd).[splitBy](#splitby)*
 
-Defined in src/Comparable.ts:122
+Defined in src/Comparable.ts:123
 
 
 <a name="interfaces_comparable_fromtableoptionsmd"></a>
@@ -232,7 +257,7 @@ Defined in src/Comparable.ts:122
 
 • **key**? : *[Predicate](#predicate)*
 
-Defined in src/Comparable.ts:120
+Defined in src/Comparable.ts:121
 
 ___
 
@@ -240,7 +265,7 @@ ___
 
 • **mergeKey**? : *boolean*
 
-Defined in src/Comparable.ts:121
+Defined in src/Comparable.ts:122
 
 ___
 
@@ -248,7 +273,7 @@ ___
 
 • **splitBy**: *[Direction](#direction)*
 
-Defined in src/Comparable.ts:122
+Defined in src/Comparable.ts:123
 
 
 <a name="interfaces_comparable_leafmd"></a>
@@ -274,7 +299,7 @@ Defined in src/Comparable.ts:122
 
 • **metadata**? : *[Metadata](#interfaces_comparable_metadatamd)*
 
-Defined in src/Comparable.ts:87
+Defined in src/Comparable.ts:88
 
 ___
 
@@ -282,7 +307,7 @@ ___
 
 • **value**: *string*
 
-Defined in src/Comparable.ts:86
+Defined in src/Comparable.ts:87
 
 
 <a name="interfaces_comparable_metadatamd"></a>
@@ -308,7 +333,7 @@ Defined in src/Comparable.ts:86
 
 • **bounding_poly**? : *[Poly](#poly)*
 
-Defined in src/Comparable.ts:81
+Defined in src/Comparable.ts:82
 
 ___
 
@@ -316,7 +341,45 @@ ___
 
 • **excel_position**? : *[Position](#interfaces_excel_positionmd)*
 
-Defined in src/Comparable.ts:82
+Defined in src/Comparable.ts:83
+
+
+<a name="interfaces_comparable_partitionedgettablesmd"></a>
+
+[functional-types](#globalsmd) › ["Comparable"](#modules_comparable_md) › [PartitionedGettables](#interfaces_comparable_partitionedgettablesmd)
+
+## Interface: PartitionedGettables <**T**>
+
+### Type parameters
+
+▪ **T**: *[Annotation](#interfaces_comparable_annotationmd)*
+
+### Hierarchy
+
+* **PartitionedGettables**
+
+### Index
+
+#### Properties
+
+* [annotation](#annotation)
+* [gettables](#gettables)
+
+### Properties
+
+####  annotation
+
+• **annotation**: *T*
+
+Defined in src/Comparable.ts:137
+
+___
+
+####  gettables
+
+• **gettables**: *S.Gettables*
+
+Defined in src/Comparable.ts:138
 
 
 <a name="interfaces_comparable_partitionsmd"></a>
@@ -343,7 +406,7 @@ Defined in src/Comparable.ts:82
 
 • **branchByLabel**: *Dictionary‹[Branch](#interfaces_documentannotation_branchmd)›*
 
-Defined in src/Comparable.ts:114
+Defined in src/Comparable.ts:115
 
 ___
 
@@ -351,7 +414,7 @@ ___
 
 • **cellByLabel**: *Dictionary‹D.CellByName›*
 
-Defined in src/Comparable.ts:116
+Defined in src/Comparable.ts:117
 
 ___
 
@@ -359,7 +422,7 @@ ___
 
 • **tableByLabel**: *Dictionary‹D.TableByName›*
 
-Defined in src/Comparable.ts:115
+Defined in src/Comparable.ts:116
 
 
 <a name="interfaces_comparable_treemd"></a>
@@ -1580,6 +1643,7 @@ Defined in src/Schema.ts:36
 * [gettables](#gettables)
 * [id](#id)
 * [name](#name)
+* [options](#optional-options)
 * [updated_at](#updated_at)
 
 ### Properties
@@ -1588,7 +1652,7 @@ Defined in src/Schema.ts:36
 
 • **created_at**: *string*
 
-Defined in src/Schema.ts:79
+Defined in src/Schema.ts:84
 
 ___
 
@@ -1596,7 +1660,7 @@ ___
 
 • **file_type**: *[DocumentType](#documenttype)*
 
-Defined in src/Schema.ts:78
+Defined in src/Schema.ts:82
 
 ___
 
@@ -1604,7 +1668,7 @@ ___
 
 • **files**: *[FilePath](#filepath)[]*
 
-Defined in src/Schema.ts:77
+Defined in src/Schema.ts:81
 
 ___
 
@@ -1612,7 +1676,7 @@ ___
 
 • **gettables**: *[Gettables](#gettables)*
 
-Defined in src/Schema.ts:76
+Defined in src/Schema.ts:80
 
 ___
 
@@ -1620,7 +1684,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Schema.ts:74
+Defined in src/Schema.ts:78
 
 ___
 
@@ -1628,7 +1692,15 @@ ___
 
 • **name**: *string*
 
-Defined in src/Schema.ts:75
+Defined in src/Schema.ts:79
+
+___
+
+#### `Optional` options
+
+• **options**? : *[SchemaOptions](#interfaces_schema_schemaoptionsmd)*
+
+Defined in src/Schema.ts:83
 
 ___
 
@@ -1636,7 +1708,32 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Schema.ts:80
+Defined in src/Schema.ts:85
+
+
+<a name="interfaces_schema_schemaoptionsmd"></a>
+
+[functional-types](#globalsmd) › ["Schema"](#modules_schema_md) › [SchemaOptions](#interfaces_schema_schemaoptionsmd)
+
+## Interface: SchemaOptions
+
+### Hierarchy
+
+* **SchemaOptions**
+
+### Index
+
+#### Properties
+
+* [merge](#optional-merge)
+
+### Properties
+
+#### `Optional` merge
+
+• **merge**? : *boolean*
+
+Defined in src/Schema.ts:74
 
 
 <a name="interfaces_serialize_schema_gettablemd"></a>
@@ -1663,7 +1760,7 @@ Defined in src/Schema.ts:80
 
 • **attribute**: *[Path](#path)*
 
-Defined in src/Serialize/Schema.ts:63
+Defined in src/Serialize/Schema.ts:68
 
 ___
 
@@ -1671,7 +1768,7 @@ ___
 
 • **file**: *[FilePath](#filepath)*
 
-Defined in src/Serialize/Schema.ts:62
+Defined in src/Serialize/Schema.ts:67
 
 ___
 
@@ -1679,7 +1776,7 @@ ___
 
 • **options**? : *[GettableOptions](#interfaces_serialize_schema_gettableoptionsmd)*
 
-Defined in src/Serialize/Schema.ts:64
+Defined in src/Serialize/Schema.ts:69
 
 
 <a name="interfaces_serialize_schema_gettableoptionsmd"></a>
@@ -1708,7 +1805,7 @@ Defined in src/Serialize/Schema.ts:64
 
 • **direction**? : *[Direction](#direction)*
 
-Defined in src/Serialize/Schema.ts:55
+Defined in src/Serialize/Schema.ts:60
 
 ___
 
@@ -1716,7 +1813,7 @@ ___
 
 • **key**? : *string*
 
-Defined in src/Serialize/Schema.ts:56
+Defined in src/Serialize/Schema.ts:61
 
 ___
 
@@ -1724,7 +1821,7 @@ ___
 
 • **merge_type**? : *[MergeType](#mergetype)[]*
 
-Defined in src/Serialize/Schema.ts:54
+Defined in src/Serialize/Schema.ts:59
 
 ___
 
@@ -1732,7 +1829,7 @@ ___
 
 • **replacements**? : *[Replacements](#interfaces_serialize_schema_replacementsmd)*
 
-Defined in src/Serialize/Schema.ts:57
+Defined in src/Serialize/Schema.ts:62
 
 ___
 
@@ -1740,7 +1837,7 @@ ___
 
 • **unnest**? : *number*
 
-Defined in src/Serialize/Schema.ts:58
+Defined in src/Serialize/Schema.ts:63
 
 
 <a name="interfaces_serialize_schema_predicatemd"></a>
@@ -1766,7 +1863,7 @@ Defined in src/Serialize/Schema.ts:58
 
 • **properties**? : *[Property](#interfaces_serialize_schema_propertymd)[]*
 
-Defined in src/Serialize/Schema.ts:44
+Defined in src/Serialize/Schema.ts:49
 
 ___
 
@@ -1774,7 +1871,7 @@ ___
 
 • **value**: *string*
 
-Defined in src/Serialize/Schema.ts:43
+Defined in src/Serialize/Schema.ts:48
 
 
 <a name="interfaces_serialize_schema_propertymd"></a>
@@ -1800,7 +1897,7 @@ Defined in src/Serialize/Schema.ts:43
 
 • **pattern**: *string*
 
-Defined in src/Serialize/Schema.ts:39
+Defined in src/Serialize/Schema.ts:44
 
 ___
 
@@ -1808,7 +1905,7 @@ ___
 
 • **property**: *string*
 
-Defined in src/Serialize/Schema.ts:38
+Defined in src/Serialize/Schema.ts:43
 
 
 <a name="interfaces_serialize_schema_replacementmd"></a>
@@ -1834,7 +1931,7 @@ Defined in src/Serialize/Schema.ts:38
 
 • **pattern**: *string*
 
-Defined in src/Serialize/Schema.ts:28
+Defined in src/Serialize/Schema.ts:33
 
 ___
 
@@ -1842,7 +1939,7 @@ ___
 
 • **value**: *string*
 
-Defined in src/Serialize/Schema.ts:29
+Defined in src/Serialize/Schema.ts:34
 
 
 <a name="interfaces_serialize_schema_replacementsmd"></a>
@@ -1868,7 +1965,7 @@ Defined in src/Serialize/Schema.ts:29
 
 • **keys**? : *[Replacement](#interfaces_serialize_schema_replacementmd)[]*
 
-Defined in src/Serialize/Schema.ts:33
+Defined in src/Serialize/Schema.ts:38
 
 ___
 
@@ -1876,7 +1973,7 @@ ___
 
 • **values**? : *[Replacement](#interfaces_serialize_schema_replacementmd)[]*
 
-Defined in src/Serialize/Schema.ts:34
+Defined in src/Serialize/Schema.ts:39
 
 
 <a name="interfaces_serialize_schema_schemamd"></a>
@@ -1899,6 +1996,7 @@ Defined in src/Serialize/Schema.ts:34
 * [gettables](#gettables)
 * [id](#id)
 * [name](#name)
+* [options](#optional-options)
 * [updated_at](#updated_at)
 
 ### Properties
@@ -1907,7 +2005,7 @@ Defined in src/Serialize/Schema.ts:34
 
 • **created_at**: *string*
 
-Defined in src/Serialize/Schema.ts:75
+Defined in src/Serialize/Schema.ts:85
 
 ___
 
@@ -1915,7 +2013,7 @@ ___
 
 • **file_type**: *[DocumentType](#documenttype)*
 
-Defined in src/Serialize/Schema.ts:74
+Defined in src/Serialize/Schema.ts:83
 
 ___
 
@@ -1923,7 +2021,7 @@ ___
 
 • **files**: *[FilePath](#filepath)[]*
 
-Defined in src/Serialize/Schema.ts:73
+Defined in src/Serialize/Schema.ts:82
 
 ___
 
@@ -1931,7 +2029,7 @@ ___
 
 • **gettables**: *[Gettables](#gettables)*
 
-Defined in src/Serialize/Schema.ts:72
+Defined in src/Serialize/Schema.ts:81
 
 ___
 
@@ -1939,7 +2037,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Serialize/Schema.ts:70
+Defined in src/Serialize/Schema.ts:79
 
 ___
 
@@ -1947,7 +2045,15 @@ ___
 
 • **name**: *string*
 
-Defined in src/Serialize/Schema.ts:71
+Defined in src/Serialize/Schema.ts:80
+
+___
+
+#### `Optional` options
+
+• **options**? : *[SchemaOptions](#interfaces_serialize_schema_schemaoptionsmd)*
+
+Defined in src/Serialize/Schema.ts:84
 
 ___
 
@@ -1955,7 +2061,32 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Serialize/Schema.ts:76
+Defined in src/Serialize/Schema.ts:86
+
+
+<a name="interfaces_serialize_schema_schemaoptionsmd"></a>
+
+[functional-types](#globalsmd) › ["Serialize/Schema"](#modules_serialize_schema_md) › [SchemaOptions](#interfaces_serialize_schema_schemaoptionsmd)
+
+## Interface: SchemaOptions
+
+### Hierarchy
+
+* **SchemaOptions**
+
+### Index
+
+#### Properties
+
+* [merge](#optional-merge)
+
+### Properties
+
+#### `Optional` merge
+
+• **merge**? : *boolean*
+
+Defined in src/Serialize/Schema.ts:75
 
 
 <a name="interfaces_tableannotation_tableannotationmd"></a>
@@ -3642,12 +3773,14 @@ Defined in src/Vision.ts:175
 
 #### Interfaces
 
+* [Annotation](#interfaces_comparable_annotationmd)
 * [Comparable](#interfaces_comparable_comparablemd)
 * [ComparableView](#interfaces_comparable_comparableviewmd)
 * [FromLeafOptions](#interfaces_comparable_fromleafoptionsmd)
 * [FromTableOptions](#interfaces_comparable_fromtableoptionsmd)
 * [Leaf](#interfaces_comparable_leafmd)
 * [Metadata](#interfaces_comparable_metadatamd)
+* [PartitionedGettables](#interfaces_comparable_partitionedgettablesmd)
 * [Partitions](#interfaces_comparable_partitionsmd)
 * [Tree](#interfaces_comparable_treemd)
 
@@ -3666,6 +3799,7 @@ Defined in src/Vision.ts:175
 
 * [applyGettables](#const-applygettables)
 * [applySchema](#const-applyschema)
+* [applySchemaToDocumentAnnotations](#const-applyschematodocumentannotations)
 * [fromForest](#const-fromforest)
 * [fromForestByLabel](#const-fromforestbylabel)
 * [fromForestByPage](#const-fromforestbypage)
@@ -3676,11 +3810,14 @@ Defined in src/Vision.ts:175
 * [getLeafOptionsFromGettable](#const-getleafoptionsfromgettable)
 * [getPredicateFromPathSegment](#const-getpredicatefrompathsegment)
 * [makeComparables](#const-makecomparables)
+* [mergeComparables](#const-mergecomparables)
+* [postProcessTree](#const-postprocesstree)
 * [view](#const-view)
 
 #### Functions
 
 * [applyPath](#const-applypath)
+* [applySchemaWith](#const-applyschemawith)
 * [findKeyFromPredicate](#const-findkeyfrompredicate)
 * [findNodeFromPredicate](#const-findnodefrompredicate)
 * [fromBranch](#frombranch)
@@ -3710,7 +3847,7 @@ Defined in src/Vision.ts:175
 
 Ƭ **Direction**: *"column" | "row"*
 
-Defined in src/Comparable.ts:75
+Defined in src/Comparable.ts:76
 
 ___
 
@@ -3718,7 +3855,7 @@ ___
 
 Ƭ **FromBranchOptions**: *[FromLeafOptions](#interfaces_comparable_fromleafoptionsmd)[]*
 
-Defined in src/Comparable.ts:129
+Defined in src/Comparable.ts:130
 
 ___
 
@@ -3726,7 +3863,7 @@ ___
 
 Ƭ **Mapping**: *Dictionary‹string›*
 
-Defined in src/Comparable.ts:78
+Defined in src/Comparable.ts:79
 
 ___
 
@@ -3734,7 +3871,7 @@ ___
 
 Ƭ **Node**: *[Tree](#interfaces_comparable_treemd)‹T› | T*
 
-Defined in src/Comparable.ts:96
+Defined in src/Comparable.ts:97
 
 ___
 
@@ -3742,7 +3879,7 @@ ___
 
 Ƭ **Path**: *[Predicate](#predicate)[]*
 
-Defined in src/Comparable.ts:77
+Defined in src/Comparable.ts:78
 
 ___
 
@@ -3750,7 +3887,7 @@ ___
 
 Ƭ **Predicate**: *function*
 
-Defined in src/Comparable.ts:76
+Defined in src/Comparable.ts:77
 
 ##### Type declaration:
 
@@ -3768,7 +3905,7 @@ ___
 
 Ƭ **TreeByFile**: *Dictionary‹[Tree](#interfaces_comparable_treemd)‹T››*
 
-Defined in src/Comparable.ts:94
+Defined in src/Comparable.ts:95
 
 ___
 
@@ -3776,7 +3913,7 @@ ___
 
 Ƭ **TreeView**: *Dictionary‹[TreeView](#treeview) | string›*
 
-Defined in src/Comparable.ts:107
+Defined in src/Comparable.ts:108
 
 ### Variables
 
@@ -3793,13 +3930,10 @@ Defined in src/Comparable.ts:107
     ) => R.Reader<S.Gettables, Dictionary<O.Option<Node>>>
   ),
   R.map(filter(O.isSome)),
-  R.map(mapObjIndexed((some: O.Some<Node>) => some.value)),
-  R.chain(mergeTreeFromGettables),
-  R.chain(unnestTreeFromGettables),
-  R.chain(translateTree)
+  R.map(mapObjIndexed((some: O.Some<Node>) => some.value))
 )
 
-Defined in src/Comparable.ts:866
+Defined in src/Comparable.ts:786
 
 ```haskell
 applyGettables :: ForestByLabel -> Reader Gettables Tree
@@ -3819,26 +3953,36 @@ ___
 
 #### `Const` applySchema
 
-• **applySchema**: *function* = pipe(
-  pipe(
-    partitionGettables,
-    R.local(prop('gettables') as R.Reader<S.Schema, S.Gettables>)
-  ),
-  R.map(
-    mapObjIndexed<PartitionedGettables, Tree>(({ annotation, gettables }) =>
-      pipe(
-        prop('forestByPage'),
-        D.mergeForestByPage,
-        applyGettables
-      )(annotation)(gettables)
-    )
-  )
-)
+• **applySchema**: *function* = applySchemaToDocumentAnnotations
 
-Defined in src/Comparable.ts:946
+Defined in src/Comparable.ts:998
 
 ```haskell
 applySchema :: [DocumentAnnotation] -> Reader Schema TreeByFile
+```
+
+##### Type declaration:
+
+▸ (`annotations`: [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)[]): *Reader‹[Schema](#interfaces_schema_schemamd), [TreeByFile](#treebyfile)›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`annotations` | [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)[] |
+
+___
+
+#### `Const` applySchemaToDocumentAnnotations
+
+• **applySchemaToDocumentAnnotations**: *function* = applySchemaWith(
+  pipe(prop('forestByPage'), D.mergeForestByPage, applyGettables)
+)
+
+Defined in src/Comparable.ts:988
+
+```haskell
+applySchemaToDocumentAnnotations :: [DocumentAnnotation] -> Reader Schema TreeByFile
 ```
 
 ##### Type declaration:
@@ -3857,7 +4001,7 @@ ___
 
 • **fromForest**: *function* = pipe(D.mergeForest, fromForestByLabel)
 
-Defined in src/Comparable.ts:555
+Defined in src/Comparable.ts:560
 
 ```haskell
 fromForest :: Forest -> Reader FromBranchOptions Tree
@@ -3882,7 +4026,7 @@ ___
   sequenceS(R.reader)
 )
 
-Defined in src/Comparable.ts:543
+Defined in src/Comparable.ts:548
 
 ```haskell
 fromForestByLabel :: ForestByLabel -> Reader FromBranchOptions Tree
@@ -3907,7 +4051,7 @@ ___
   fromForestByLabel
 )
 
-Defined in src/Comparable.ts:564
+Defined in src/Comparable.ts:569
 
 ```haskell
 fromForestByPage :: ForestByPage -> Reader FromBranchOptions Tree
@@ -3929,7 +4073,7 @@ ___
 
 • **fromTable**: *function* = pipe(splitTable, R.chain(setKeys))
 
-Defined in src/Comparable.ts:363
+Defined in src/Comparable.ts:368
 
 ```haskell
 fromTable :: Table -> Reader FromTableOptions Tree
@@ -3967,7 +4111,7 @@ ___
   )
 )
 
-Defined in src/Comparable.ts:463
+Defined in src/Comparable.ts:468
 
 ```haskell
 fromTableByName :: TableByName -> Reader FromBranchOptions Tree
@@ -3992,7 +4136,7 @@ ___
   map(getLeafOptionsFromGettable)
 )
 
-Defined in src/Comparable.ts:658
+Defined in src/Comparable.ts:663
 
 ```haskell
 getBranchOptionsFromGettables :: Gettables -> FromBranchOptions
@@ -4019,7 +4163,7 @@ ___
   sequenceS(R.reader)
 )
 
-Defined in src/Comparable.ts:328
+Defined in src/Comparable.ts:333
 
 ```haskell
 getKeysFromPredicate :: Tree -> Reader Predicate String
@@ -4046,7 +4190,7 @@ ___
   splitBy: getDirectionFromGettable,
 })
 
-Defined in src/Comparable.ts:644
+Defined in src/Comparable.ts:649
 
 ```haskell
 getLeafOptionsFromGettable :: Gettable -> FromLeafOptions
@@ -4068,7 +4212,7 @@ ___
 
 • **getPredicateFromPathSegment**: *function* = pipe(when(S.isPredicate, prop('value')), regExpTest)
 
-Defined in src/Comparable.ts:670
+Defined in src/Comparable.ts:675
 
 ```haskell
 getPredicateFromPathSegment :: PathSegment -> Predicate
@@ -4098,10 +4242,26 @@ ___
       values,
       RIO.sequenceReaderIO
     )
+  ),
+  RIO.chainReaderK(
+    pipe(
+      (comparables: Comparable[]): R.Reader<S.Schema, Comparable[]> => (
+        schema
+      ) =>
+        pathSatisfies(equals(true), ['options', 'merge'], schema)
+          ? pipe(
+              mergeComparables,
+              O.fold(
+                () => [],
+                (comparable) => [comparable]
+              )
+            )(comparables)
+          : comparables
+    )
   )
 )
 
-Defined in src/Comparable.ts:991
+Defined in src/Comparable.ts:1049
 
 ```haskell
 makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
@@ -4119,13 +4279,72 @@ Name | Type |
 
 ___
 
+#### `Const` mergeComparables
+
+• **mergeComparables**: *function* = pipe(
+  reduce<
+    Comparable | Record<string, unknown>,
+    Comparable | Record<string, unknown>
+  >((acc, value) => mergeDeepRight(acc, value), {}),
+  O.fromPredicate(isComparable),
+  O.map(
+    evolve({
+      files: uniq,
+    }) as R.Reader<Comparable, Comparable>
+  )
+)
+
+Defined in src/Comparable.ts:1029
+
+```haskell
+mergeComparables :: [Comparable] -> Comparable
+```
+
+##### Type declaration:
+
+▸ (`comparables`: [Comparable](#interfaces_comparable_comparablemd)[]): *O.Option‹[Comparable](#interfaces_comparable_comparablemd)›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`comparables` | [Comparable](#interfaces_comparable_comparablemd)[] |
+
+___
+
+#### `Const` postProcessTree
+
+• **postProcessTree**: *function* = pipe(
+  mergeTreeFromGettables,
+  R.chain(unnestTreeFromGettables),
+  R.chain(translateTree)
+)
+
+Defined in src/Comparable.ts:950
+
+```haskell
+postProcessTree :: Tree -> Reader Gettables Tree
+```
+
+##### Type declaration:
+
+▸ (`tree`: [Tree](#interfaces_comparable_treemd)): *Reader‹S.Gettables, [Tree](#interfaces_comparable_treemd)›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`tree` | [Tree](#interfaces_comparable_treemd) |
+
+___
+
 #### `Const` view
 
 • **view**: *function* = evolve({
   attributes: viewTree,
 })
 
-Defined in src/Comparable.ts:585
+Defined in src/Comparable.ts:590
 
 ```haskell
 view :: Comparable -> ComparableView
@@ -4147,7 +4366,7 @@ Name | Type |
 
 ▸ **applyPath**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:708
+Defined in src/Comparable.ts:713
 
 ```haskell
 applyPath :: Tree -> Reader Path (Option Tree)
@@ -4163,11 +4382,49 @@ Name | Type |
 
 ___
 
+#### `Const` applySchemaWith
+
+▸ **applySchemaWith**<**A**>(`fa`: function): *function*
+
+Defined in src/Comparable.ts:965
+
+```haskell
+applySchemaWith :: Reader (PartitionedGettables A) Tree -> [A] -> Reader Schema TreeByFile
+```
+
+**Type parameters:**
+
+▪ **A**: *[Annotation](#interfaces_comparable_annotationmd)*
+
+**Parameters:**
+
+▪ **fa**: *function*
+
+▸ (`annotation`: A): *Reader‹S.Gettables, [Tree](#interfaces_comparable_treemd)›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`annotation` | A |
+
+**Returns:** *function*
+
+▸ (`x0`: V0): *T2*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`x0` | V0 |
+
+___
+
 #### `Const` findKeyFromPredicate
 
 ▸ **findKeyFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:290
+Defined in src/Comparable.ts:295
 
 ```haskell
 findKeyFromPredicate :: Tree -> Reader Predicate (Option String)
@@ -4187,7 +4444,7 @@ ___
 
 ▸ **findNodeFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹function, None | Some‹[Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›››*
 
-Defined in src/Comparable.ts:302
+Defined in src/Comparable.ts:307
 
 ```haskell
 findNodeFromPredicate :: Tree -> Reader Predicate (Option Node)
@@ -4207,7 +4464,7 @@ ___
 
 ▸ **fromBranch**(`branch`: [Branch](#interfaces_documentannotation_branchmd)): *Reader‹[FromBranchOptions](#frombranchoptions), [Tree](#interfaces_comparable_treemd)›*
 
-Defined in src/Comparable.ts:510
+Defined in src/Comparable.ts:515
 
 ```haskell
 fromBranch :: Branch -> Reader FromBranchOptions Tree
@@ -4227,7 +4484,7 @@ ___
 
 ▸ **fromCell**(`cell`: [Cell](#interfaces_documentannotation_cellmd)): *object*
 
-Defined in src/Comparable.ts:488
+Defined in src/Comparable.ts:493
 
 ```haskell
 fromCell :: Cell -> Node
@@ -4253,7 +4510,7 @@ ___
 
 ▸ **fromCellByName**(`cells`: Dictionary‹[Cell](#interfaces_documentannotation_cellmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:502
+Defined in src/Comparable.ts:507
 
 ```haskell
 fromCellByName :: CellByName -> Reader FromBranchOptions Node
@@ -4273,7 +4530,7 @@ ___
 
 ▸ **getKeyFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹function, None | Some‹string››*
 
-Defined in src/Comparable.ts:316
+Defined in src/Comparable.ts:321
 
 ```haskell
 getKeyFromPredicate :: Tree -> Reader Predicate (Option String)
@@ -4293,7 +4550,7 @@ ___
 
 ▸ **getTableOptions**(`key`: string): *function*
 
-Defined in src/Comparable.ts:452
+Defined in src/Comparable.ts:457
 
 ```haskell
 getTableOptions :: String -> Reader FromBranchOptions (Option FromTableOptions)
@@ -4321,7 +4578,7 @@ ___
 
 ▸ **isComparable**(`a`: unknown): *a is Comparable*
 
-Defined in src/Comparable.ts:177
+Defined in src/Comparable.ts:182
 
 ```haskell
 isComparable :: a -> bool
@@ -4341,7 +4598,7 @@ ___
 
 ▸ **isLeaf**(`a`: unknown): *a is Leaf*
 
-Defined in src/Comparable.ts:153
+Defined in src/Comparable.ts:158
 
 ```haskell
 isLeaf :: a -> bool
@@ -4361,7 +4618,7 @@ ___
 
 ▸ **isMetadata**(`a`: unknown): *a is Metadata*
 
-Defined in src/Comparable.ts:141
+Defined in src/Comparable.ts:146
 
 ```haskell
 isMetadata :: a -> bool
@@ -4381,7 +4638,7 @@ ___
 
 ▸ **isTree**(`a`: unknown): *a is Tree*
 
-Defined in src/Comparable.ts:165
+Defined in src/Comparable.ts:170
 
 ```haskell
 isTree :: a -> bool
@@ -4401,7 +4658,7 @@ ___
 
 ▸ **makeComparable**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›, `file`: string): *(Anonymous function)*
 
-Defined in src/Comparable.ts:972
+Defined in src/Comparable.ts:1010
 
 ```haskell
 makeComparables :: (Tree, String) -> ReaderIO Schema Comparable
@@ -4422,7 +4679,7 @@ ___
 
 ▸ **makeLeaf**(`value`: string): *object*
 
-Defined in src/Comparable.ts:228
+Defined in src/Comparable.ts:233
 
 ```haskell
 makeLeaf :: String -> Leaf
@@ -4444,7 +4701,7 @@ ___
 
 ▸ **partition**(`branch`: [Branch](#interfaces_documentannotation_branchmd)): *(Anonymous function)*
 
-Defined in src/Comparable.ts:430
+Defined in src/Comparable.ts:435
 
 ```haskell
 partition :: Descendant -> Reader FromBranchOptions Format DescendantByLabel
@@ -4462,19 +4719,23 @@ ___
 
 #### `Const` partitionGettables
 
-▸ **partitionGettables**(`annotations`: [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)[]): *function*
+▸ **partitionGettables**<**T**>(`annotations`: T[]): *function*
 
-Defined in src/Comparable.ts:906
+Defined in src/Comparable.ts:823
 
 ```haskell
 partitionGettables :: [DocumentAnnotation] -> Reader Gettables (Dictionary Gettables)
 ```
 
+**Type parameters:**
+
+▪ **T**: *[Annotation](#interfaces_comparable_annotationmd)*
+
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`annotations` | [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)[] |
+`annotations` | T[] |
 
 **Returns:** *function*
 
@@ -4492,7 +4753,7 @@ ___
 
 ▸ **satisfyProperties**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *function*
 
-Defined in src/Comparable.ts:692
+Defined in src/Comparable.ts:697
 
 ```haskell
 satisfyProperties :: Tree -> Reader [Property] Bool
@@ -4520,7 +4781,7 @@ ___
 
 ▸ **setKeys**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹[FromTableOptions](#interfaces_comparable_fromtableoptionsmd), object›*
 
-Defined in src/Comparable.ts:342
+Defined in src/Comparable.ts:347
 
 ```haskell
 setKeys :: Tree -> Reader PredicateStr Tree
@@ -4540,7 +4801,7 @@ ___
 
 ▸ **splitTable**(`table`: [Table](#interfaces_documentannotation_tablemd)): *(Anonymous function)*
 
-Defined in src/Comparable.ts:262
+Defined in src/Comparable.ts:267
 
 ```haskell
 splitTable :: Table -> Reader Direction Tree
@@ -4560,7 +4821,7 @@ ___
 
 ▸ **translateNode**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:756
+Defined in src/Comparable.ts:761
 
 ```haskell
 translateNode :: Node -> Reader Path Node
@@ -4580,7 +4841,7 @@ ___
 
 ▸ **translateTree**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:781
+Defined in src/Comparable.ts:865
 
 ```haskell
 translateTree :: Tree -> Reader Gettables Tree
@@ -4600,7 +4861,7 @@ ___
 
 ▸ **unnest**(`key`: string): *function*
 
-Defined in src/Comparable.ts:237
+Defined in src/Comparable.ts:242
 
 ```haskell
 unnest :: String -> Reader Tree Tree
@@ -4628,7 +4889,7 @@ ___
 
 ▸ **viewTree**(`tree`: [Tree](#interfaces_comparable_treemd)): *[TreeView](#treeview)*
 
-Defined in src/Comparable.ts:576
+Defined in src/Comparable.ts:581
 
 ```haskell
 viewTree :: Tree -> TreeView
@@ -6541,10 +6802,13 @@ Name | Type |
 #### Variables
 
 * [chainIOK](#const-chainiok)
+* [fromReader](#const-fromreader)
 * [map](#const-map)
 
 #### Functions
 
+* [chain](#const-chain)
+* [chainReaderK](#const-chainreaderk)
 * [sequenceReaderIO](#const-sequencereaderio)
 
 ### Type aliases
@@ -6561,7 +6825,11 @@ Defined in src/fp-ts/ReaderIO.ts:6
 
 • **chainIOK**: *function* = pipe(IO.chain, R.map)
 
-Defined in src/fp-ts/ReaderIO.ts:14
+Defined in src/fp-ts/ReaderIO.ts:22
+
+```haskell
+map :: ( A -> IO B ) -> ReaderIO R A -> ReaderIO R B
+```
 
 ##### Type declaration:
 
@@ -6599,11 +6867,45 @@ Name | Type |
 
 ___
 
+#### `Const` fromReader
+
+• **fromReader**: *function* = R.map(
+  IO.of
+)
+
+Defined in src/fp-ts/ReaderIO.ts:55
+
+```haskell
+fromReader :: Reader R A -> ReaderIO R A
+```
+
+##### Type declaration:
+
+▸ <**R**, **A**>(`r`: Reader‹R, A›): *[ReaderIO](#readerio)‹R, A›*
+
+**Type parameters:**
+
+▪ **R**
+
+▪ **A**
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`r` | Reader‹R, A› |
+
+___
+
 #### `Const` map
 
 • **map**: *function* = pipe(IO.map, R.map)
 
-Defined in src/fp-ts/ReaderIO.ts:9
+Defined in src/fp-ts/ReaderIO.ts:13
+
+```haskell
+map :: ( A -> B ) -> ReaderIO R A -> ReaderIO R B
+```
 
 ##### Type declaration:
 
@@ -6639,11 +6941,99 @@ Name | Type |
 
 ### Functions
 
+#### `Const` chain
+
+▸ **chain**<**R**, **A**, **B**>(`f`: function): *function*
+
+Defined in src/fp-ts/ReaderIO.ts:43
+
+```haskell
+chain :: ( A -> ReaderIO R B ) -> ReaderIO R A -> ReaderIO R B
+```
+
+**Type parameters:**
+
+▪ **R**
+
+▪ **A**
+
+▪ **B**
+
+**Parameters:**
+
+▪ **f**: *function*
+
+▸ (`a`: A): *[ReaderIO](#readerio)‹R, B›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *function*
+
+▸ (`fa`: [ReaderIO](#readerio)‹R, A›): *[ReaderIO](#readerio)‹R, B›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`fa` | [ReaderIO](#readerio)‹R, A› |
+
+___
+
+#### `Const` chainReaderK
+
+▸ **chainReaderK**<**R**, **A**, **B**>(`f`: function): *function*
+
+Defined in src/fp-ts/ReaderIO.ts:31
+
+```haskell
+map :: ( A -> Reader R B ) -> ReaderIO R A -> ReaderIO R B
+```
+
+**Type parameters:**
+
+▪ **R**
+
+▪ **A**
+
+▪ **B**
+
+**Parameters:**
+
+▪ **f**: *function*
+
+▸ (`a`: A): *Reader‹R, B›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | A |
+
+**Returns:** *function*
+
+▸ (`fa`: [ReaderIO](#readerio)‹R, A›): *[ReaderIO](#readerio)‹R, B›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`fa` | [ReaderIO](#readerio)‹R, A› |
+
+___
+
 #### `Const` sequenceReaderIO
 
 ▸ **sequenceReaderIO**<**R**, **A**>(`r`: [ReaderIO](#readerio)‹R, A›[]): *[ReaderIO](#readerio)‹R, A[]›*
 
-Defined in src/fp-ts/ReaderIO.ts:19
+Defined in src/fp-ts/ReaderIO.ts:64
+
+```haskell
+sequenceReaderIO :: [Reader a IO] -> Reader a [IO]
+```
 
 **Type parameters:**
 
@@ -7346,6 +7736,7 @@ Name | Type |
 * [Replacement](#interfaces_schema_replacementmd)
 * [Replacements](#interfaces_schema_replacementsmd)
 * [Schema](#interfaces_schema_schemamd)
+* [SchemaOptions](#interfaces_schema_schemaoptionsmd)
 
 #### Type aliases
 
@@ -7374,6 +7765,7 @@ Name | Type |
 * [isReplacements](#const-isreplacements)
 * [isSchema](#const-isschema)
 * [isSchemaBase](#const-isschemabase)
+* [isSchemaOptions](#const-isschemaoptions)
 * [makeSchema](#const-makeschema)
 
 ### Type aliases
@@ -7422,7 +7814,7 @@ ___
 
 Ƭ **SchemaBase**: *Omit‹[Schema](#interfaces_schema_schemamd), "created_at" | "updated_at"›*
 
-Defined in src/Schema.ts:83
+Defined in src/Schema.ts:88
 
 ### Functions
 
@@ -7430,7 +7822,7 @@ Defined in src/Schema.ts:83
 
 ▸ **isDirection**(`a`: unknown): *a is Direction*
 
-Defined in src/Schema.ts:182
+Defined in src/Schema.ts:187
 
 ```haskell
 isDirection :: a -> bool
@@ -7450,7 +7842,7 @@ ___
 
 ▸ **isFilePath**(`a`: unknown): *a is FilePath*
 
-Defined in src/Schema.ts:150
+Defined in src/Schema.ts:155
 
 ```haskell
 isFilePath :: a -> bool
@@ -7470,7 +7862,7 @@ ___
 
 ▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
 
-Defined in src/Schema.ts:158
+Defined in src/Schema.ts:163
 
 ```haskell
 isFilePathArray :: a -> bool
@@ -7490,7 +7882,7 @@ ___
 
 ▸ **isGettable**(`a`: unknown): *a is Gettable*
 
-Defined in src/Schema.ts:204
+Defined in src/Schema.ts:209
 
 ```haskell
 isGettable :: a -> bool
@@ -7510,7 +7902,7 @@ ___
 
 ▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
 
-Defined in src/Schema.ts:190
+Defined in src/Schema.ts:195
 
 ```haskell
 isGettableOptions :: a -> bool
@@ -7530,7 +7922,7 @@ ___
 
 ▸ **isGettables**(`a`: unknown): *a is Gettables*
 
-Defined in src/Schema.ts:216
+Defined in src/Schema.ts:221
 
 ```haskell
 isGettables :: a -> bool
@@ -7550,7 +7942,7 @@ ___
 
 ▸ **isMergeType**(`a`: unknown): *a is MergeType*
 
-Defined in src/Schema.ts:166
+Defined in src/Schema.ts:171
 
 ```haskell
 isMergeType :: a -> bool
@@ -7570,7 +7962,7 @@ ___
 
 ▸ **isMergeTypeArray**(`a`: unknown): *a is MergeType[]*
 
-Defined in src/Schema.ts:174
+Defined in src/Schema.ts:179
 
 ```haskell
 isMergeTypeArray :: a -> bool
@@ -7590,7 +7982,7 @@ ___
 
 ▸ **isPath**(`a`: unknown): *a is Path*
 
-Defined in src/Schema.ts:142
+Defined in src/Schema.ts:147
 
 ```haskell
 isPath :: a -> bool
@@ -7610,7 +8002,7 @@ ___
 
 ▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
 
-Defined in src/Schema.ts:134
+Defined in src/Schema.ts:139
 
 ```haskell
 isPathSegment :: a -> bool
@@ -7630,7 +8022,7 @@ ___
 
 ▸ **isPredicate**(`a`: unknown): *a is Predicate*
 
-Defined in src/Schema.ts:122
+Defined in src/Schema.ts:127
 
 ```haskell
 isPredicate :: a -> bool
@@ -7650,7 +8042,7 @@ ___
 
 ▸ **isProperty**(`a`: unknown): *a is Property*
 
-Defined in src/Schema.ts:114
+Defined in src/Schema.ts:119
 
 ```haskell
 isProperty :: a -> bool
@@ -7670,7 +8062,7 @@ ___
 
 ▸ **isReplacement**(`a`: unknown): *a is Replacement*
 
-Defined in src/Schema.ts:90
+Defined in src/Schema.ts:95
 
 ```haskell
 isReplacement :: a -> bool
@@ -7690,7 +8082,7 @@ ___
 
 ▸ **isReplacements**(`a`: unknown): *a is Replacements*
 
-Defined in src/Schema.ts:102
+Defined in src/Schema.ts:107
 
 ```haskell
 isReplacements :: a -> bool
@@ -7710,7 +8102,7 @@ ___
 
 ▸ **isSchema**(`a`: unknown): *a is Schema*
 
-Defined in src/Schema.ts:239
+Defined in src/Schema.ts:253
 
 ```haskell
 isSchema :: a -> bool
@@ -7730,7 +8122,7 @@ ___
 
 ▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
 
-Defined in src/Schema.ts:224
+Defined in src/Schema.ts:237
 
 ```haskell
 isSchemaBase :: a -> bool
@@ -7746,11 +8138,31 @@ Name | Type |
 
 ___
 
+#### `Const` isSchemaOptions
+
+▸ **isSchemaOptions**(`a`: unknown): *a is SchemaOptions*
+
+Defined in src/Schema.ts:229
+
+```haskell
+isSchemaOptions :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is SchemaOptions*
+
+___
+
 #### `Const` makeSchema
 
 ▸ **makeSchema**(`schemaBase`: [SchemaBase](#schemabase)): *(Anonymous function)*
 
-Defined in src/Schema.ts:251
+Defined in src/Schema.ts:265
 
 ```haskell
 makeSchema :: SchemaBase -> IO Schema
@@ -7974,6 +8386,7 @@ Name | Type |
 * [Replacement](#interfaces_serialize_schema_replacementmd)
 * [Replacements](#interfaces_serialize_schema_replacementsmd)
 * [Schema](#interfaces_serialize_schema_schemamd)
+* [SchemaOptions](#interfaces_serialize_schema_schemaoptionsmd)
 
 #### Type aliases
 
@@ -8007,7 +8420,7 @@ Name | Type |
 
 Ƭ **FilePath**: *[string]*
 
-Defined in src/Serialize/Schema.ts:51
+Defined in src/Serialize/Schema.ts:56
 
 ___
 
@@ -8015,7 +8428,7 @@ ___
 
 Ƭ **Gettables**: *Dictionary‹[Gettable](#interfaces_serialize_schema_gettablemd)›*
 
-Defined in src/Serialize/Schema.ts:67
+Defined in src/Serialize/Schema.ts:72
 
 ___
 
@@ -8023,7 +8436,7 @@ ___
 
 Ƭ **Path**: *[PathSegment](#pathsegment)[]*
 
-Defined in src/Serialize/Schema.ts:49
+Defined in src/Serialize/Schema.ts:54
 
 ___
 
@@ -8031,7 +8444,7 @@ ___
 
 Ƭ **PathSegment**: *string | [Predicate](#interfaces_serialize_schema_predicatemd)*
 
-Defined in src/Serialize/Schema.ts:47
+Defined in src/Serialize/Schema.ts:52
 
 ___
 
@@ -8039,7 +8452,7 @@ ___
 
 Ƭ **SchemaBase**: *Omit‹[Schema](#interfaces_serialize_schema_schemamd), "created_at" | "updated_at"›*
 
-Defined in src/Serialize/Schema.ts:79
+Defined in src/Serialize/Schema.ts:89
 
 ### Functions
 
@@ -8047,7 +8460,7 @@ Defined in src/Serialize/Schema.ts:79
 
 ▸ **deserialize**(`deserializable`: [Schema](#interfaces_serialize_schema_schemamd)): *Left‹Error› | Right‹[Schema](#interfaces_schema_schemamd)›*
 
-Defined in src/Serialize/Schema.ts:239
+Defined in src/Serialize/Schema.ts:250
 
 ```haskell
 deserialize :: Schema -> SerializableSchema
@@ -8067,7 +8480,7 @@ ___
 
 ▸ **isFilePath**(`a`: unknown): *a is FilePath*
 
-Defined in src/Serialize/Schema.ts:148
+Defined in src/Serialize/Schema.ts:158
 
 ```haskell
 isFilePath :: a -> bool
@@ -8087,7 +8500,7 @@ ___
 
 ▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
 
-Defined in src/Serialize/Schema.ts:156
+Defined in src/Serialize/Schema.ts:166
 
 ```haskell
 isFilePathArray :: a -> bool
@@ -8107,7 +8520,7 @@ ___
 
 ▸ **isGettable**(`a`: unknown): *a is Gettable*
 
-Defined in src/Serialize/Schema.ts:178
+Defined in src/Serialize/Schema.ts:188
 
 ```haskell
 isGettable :: a -> bool
@@ -8127,7 +8540,7 @@ ___
 
 ▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
 
-Defined in src/Serialize/Schema.ts:164
+Defined in src/Serialize/Schema.ts:174
 
 ```haskell
 isGettableOptions :: a -> bool
@@ -8147,7 +8560,7 @@ ___
 
 ▸ **isGettables**(`a`: unknown): *a is Gettables*
 
-Defined in src/Serialize/Schema.ts:190
+Defined in src/Serialize/Schema.ts:200
 
 ```haskell
 isGettables :: a -> bool
@@ -8167,7 +8580,7 @@ ___
 
 ▸ **isPath**(`a`: unknown): *a is Path*
 
-Defined in src/Serialize/Schema.ts:140
+Defined in src/Serialize/Schema.ts:150
 
 ```haskell
 isPath :: a -> bool
@@ -8187,7 +8600,7 @@ ___
 
 ▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
 
-Defined in src/Serialize/Schema.ts:132
+Defined in src/Serialize/Schema.ts:142
 
 ```haskell
 isPathSegment :: a -> bool
@@ -8207,7 +8620,7 @@ ___
 
 ▸ **isPredicate**(`a`: unknown): *a is Predicate*
 
-Defined in src/Serialize/Schema.ts:120
+Defined in src/Serialize/Schema.ts:130
 
 ```haskell
 isPredicate :: a -> bool
@@ -8227,7 +8640,7 @@ ___
 
 ▸ **isProperty**(`a`: unknown): *a is Property*
 
-Defined in src/Serialize/Schema.ts:110
+Defined in src/Serialize/Schema.ts:120
 
 ```haskell
 isProperty :: a -> bool
@@ -8247,7 +8660,7 @@ ___
 
 ▸ **isReplacement**(`a`: unknown): *a is Replacement*
 
-Defined in src/Serialize/Schema.ts:86
+Defined in src/Serialize/Schema.ts:96
 
 ```haskell
 isReplacement :: a -> bool
@@ -8267,7 +8680,7 @@ ___
 
 ▸ **isReplacements**(`a`: unknown): *a is Replacements*
 
-Defined in src/Serialize/Schema.ts:98
+Defined in src/Serialize/Schema.ts:108
 
 ```haskell
 isReplacements :: a -> bool
@@ -8287,7 +8700,7 @@ ___
 
 ▸ **isSchema**(`a`: unknown): *a is Schema*
 
-Defined in src/Serialize/Schema.ts:213
+Defined in src/Serialize/Schema.ts:224
 
 ```haskell
 isSchema :: a -> bool
@@ -8307,7 +8720,7 @@ ___
 
 ▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
 
-Defined in src/Serialize/Schema.ts:198
+Defined in src/Serialize/Schema.ts:208
 
 ```haskell
 isSchemaBase :: a -> bool
@@ -8327,7 +8740,7 @@ ___
 
 ▸ **serialize**(`serializable`: [Schema](#interfaces_schema_schemamd)): *[Schema](#interfaces_serialize_schema_schemamd)*
 
-Defined in src/Serialize/Schema.ts:225
+Defined in src/Serialize/Schema.ts:236
 
 ```haskell
 serialize :: SerializableSchema -> Schema
