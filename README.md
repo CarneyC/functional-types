@@ -1407,7 +1407,7 @@ Defined in src/Response.ts:21
 
 • **attribute**: *[Path](#path)*
 
-Defined in src/Schema.ts:67
+Defined in src/Schema.ts:68
 
 ___
 
@@ -1415,7 +1415,7 @@ ___
 
 • **file**: *[FilePath](#filepath)*
 
-Defined in src/Schema.ts:66
+Defined in src/Schema.ts:67
 
 ___
 
@@ -1423,7 +1423,7 @@ ___
 
 • **options**? : *[GettableOptions](#interfaces_schema_gettableoptionsmd)*
 
-Defined in src/Schema.ts:68
+Defined in src/Schema.ts:69
 
 
 <a name="interfaces_schema_gettableoptionsmd"></a>
@@ -1441,6 +1441,7 @@ Defined in src/Schema.ts:68
 #### Properties
 
 * [direction](#optional-direction)
+* [end](#optional-end)
 * [key](#optional-key)
 * [merge_type](#optional-merge_type)
 * [replacements](#optional-replacements)
@@ -1453,6 +1454,14 @@ Defined in src/Schema.ts:68
 • **direction**? : *[Direction](#direction)*
 
 Defined in src/Schema.ts:59
+
+___
+
+#### `Optional` end
+
+• **end**? : *RegExp*
+
+Defined in src/Schema.ts:63
 
 ___
 
@@ -1652,7 +1661,7 @@ Defined in src/Schema.ts:36
 
 • **created_at**: *string*
 
-Defined in src/Schema.ts:84
+Defined in src/Schema.ts:85
 
 ___
 
@@ -1660,7 +1669,7 @@ ___
 
 • **file_type**: *[DocumentType](#documenttype)*
 
-Defined in src/Schema.ts:82
+Defined in src/Schema.ts:83
 
 ___
 
@@ -1668,7 +1677,7 @@ ___
 
 • **files**: *[FilePath](#filepath)[]*
 
-Defined in src/Schema.ts:81
+Defined in src/Schema.ts:82
 
 ___
 
@@ -1676,7 +1685,7 @@ ___
 
 • **gettables**: *[Gettables](#gettables)*
 
-Defined in src/Schema.ts:80
+Defined in src/Schema.ts:81
 
 ___
 
@@ -1684,7 +1693,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Schema.ts:78
+Defined in src/Schema.ts:79
 
 ___
 
@@ -1692,7 +1701,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Schema.ts:79
+Defined in src/Schema.ts:80
 
 ___
 
@@ -1700,7 +1709,7 @@ ___
 
 • **options**? : *[SchemaOptions](#interfaces_schema_schemaoptionsmd)*
 
-Defined in src/Schema.ts:83
+Defined in src/Schema.ts:84
 
 ___
 
@@ -1708,7 +1717,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Schema.ts:85
+Defined in src/Schema.ts:86
 
 
 <a name="interfaces_schema_schemaoptionsmd"></a>
@@ -1733,7 +1742,7 @@ Defined in src/Schema.ts:85
 
 • **merge**? : *boolean*
 
-Defined in src/Schema.ts:74
+Defined in src/Schema.ts:75
 
 
 <a name="interfaces_serialize_schema_gettablemd"></a>
@@ -1760,7 +1769,7 @@ Defined in src/Schema.ts:74
 
 • **attribute**: *[Path](#path)*
 
-Defined in src/Serialize/Schema.ts:68
+Defined in src/Serialize/Schema.ts:69
 
 ___
 
@@ -1768,7 +1777,7 @@ ___
 
 • **file**: *[FilePath](#filepath)*
 
-Defined in src/Serialize/Schema.ts:67
+Defined in src/Serialize/Schema.ts:68
 
 ___
 
@@ -1776,7 +1785,7 @@ ___
 
 • **options**? : *[GettableOptions](#interfaces_serialize_schema_gettableoptionsmd)*
 
-Defined in src/Serialize/Schema.ts:69
+Defined in src/Serialize/Schema.ts:70
 
 
 <a name="interfaces_serialize_schema_gettableoptionsmd"></a>
@@ -1794,6 +1803,7 @@ Defined in src/Serialize/Schema.ts:69
 #### Properties
 
 * [direction](#optional-direction)
+* [end](#optional-end)
 * [key](#optional-key)
 * [merge_type](#optional-merge_type)
 * [replacements](#optional-replacements)
@@ -1806,6 +1816,14 @@ Defined in src/Serialize/Schema.ts:69
 • **direction**? : *[Direction](#direction)*
 
 Defined in src/Serialize/Schema.ts:60
+
+___
+
+#### `Optional` end
+
+• **end**? : *string*
+
+Defined in src/Serialize/Schema.ts:64
 
 ___
 
@@ -2005,7 +2023,7 @@ Defined in src/Serialize/Schema.ts:39
 
 • **created_at**: *string*
 
-Defined in src/Serialize/Schema.ts:85
+Defined in src/Serialize/Schema.ts:86
 
 ___
 
@@ -2013,7 +2031,7 @@ ___
 
 • **file_type**: *[DocumentType](#documenttype)*
 
-Defined in src/Serialize/Schema.ts:83
+Defined in src/Serialize/Schema.ts:84
 
 ___
 
@@ -2021,7 +2039,7 @@ ___
 
 • **files**: *[FilePath](#filepath)[]*
 
-Defined in src/Serialize/Schema.ts:82
+Defined in src/Serialize/Schema.ts:83
 
 ___
 
@@ -2029,7 +2047,7 @@ ___
 
 • **gettables**: *[Gettables](#gettables)*
 
-Defined in src/Serialize/Schema.ts:81
+Defined in src/Serialize/Schema.ts:82
 
 ___
 
@@ -2037,7 +2055,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Serialize/Schema.ts:79
+Defined in src/Serialize/Schema.ts:80
 
 ___
 
@@ -2045,7 +2063,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Serialize/Schema.ts:80
+Defined in src/Serialize/Schema.ts:81
 
 ___
 
@@ -2053,7 +2071,7 @@ ___
 
 • **options**? : *[SchemaOptions](#interfaces_serialize_schema_schemaoptionsmd)*
 
-Defined in src/Serialize/Schema.ts:84
+Defined in src/Serialize/Schema.ts:85
 
 ___
 
@@ -2061,7 +2079,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Serialize/Schema.ts:86
+Defined in src/Serialize/Schema.ts:87
 
 
 <a name="interfaces_serialize_schema_schemaoptionsmd"></a>
@@ -2086,7 +2104,7 @@ Defined in src/Serialize/Schema.ts:86
 
 • **merge**? : *boolean*
 
-Defined in src/Serialize/Schema.ts:75
+Defined in src/Serialize/Schema.ts:76
 
 
 <a name="interfaces_tableannotation_tableannotationmd"></a>
@@ -7782,7 +7800,7 @@ ___
 
 Ƭ **Gettables**: *Dictionary‹[Gettable](#interfaces_schema_gettablemd)›*
 
-Defined in src/Schema.ts:71
+Defined in src/Schema.ts:72
 
 ___
 
@@ -7814,7 +7832,7 @@ ___
 
 Ƭ **SchemaBase**: *Omit‹[Schema](#interfaces_schema_schemamd), "created_at" | "updated_at"›*
 
-Defined in src/Schema.ts:88
+Defined in src/Schema.ts:89
 
 ### Functions
 
@@ -7822,7 +7840,7 @@ Defined in src/Schema.ts:88
 
 ▸ **isDirection**(`a`: unknown): *a is Direction*
 
-Defined in src/Schema.ts:187
+Defined in src/Schema.ts:188
 
 ```haskell
 isDirection :: a -> bool
@@ -7842,7 +7860,7 @@ ___
 
 ▸ **isFilePath**(`a`: unknown): *a is FilePath*
 
-Defined in src/Schema.ts:155
+Defined in src/Schema.ts:156
 
 ```haskell
 isFilePath :: a -> bool
@@ -7862,7 +7880,7 @@ ___
 
 ▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
 
-Defined in src/Schema.ts:163
+Defined in src/Schema.ts:164
 
 ```haskell
 isFilePathArray :: a -> bool
@@ -7882,7 +7900,7 @@ ___
 
 ▸ **isGettable**(`a`: unknown): *a is Gettable*
 
-Defined in src/Schema.ts:209
+Defined in src/Schema.ts:211
 
 ```haskell
 isGettable :: a -> bool
@@ -7902,7 +7920,7 @@ ___
 
 ▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
 
-Defined in src/Schema.ts:195
+Defined in src/Schema.ts:196
 
 ```haskell
 isGettableOptions :: a -> bool
@@ -7922,7 +7940,7 @@ ___
 
 ▸ **isGettables**(`a`: unknown): *a is Gettables*
 
-Defined in src/Schema.ts:221
+Defined in src/Schema.ts:223
 
 ```haskell
 isGettables :: a -> bool
@@ -7942,7 +7960,7 @@ ___
 
 ▸ **isMergeType**(`a`: unknown): *a is MergeType*
 
-Defined in src/Schema.ts:171
+Defined in src/Schema.ts:172
 
 ```haskell
 isMergeType :: a -> bool
@@ -7962,7 +7980,7 @@ ___
 
 ▸ **isMergeTypeArray**(`a`: unknown): *a is MergeType[]*
 
-Defined in src/Schema.ts:179
+Defined in src/Schema.ts:180
 
 ```haskell
 isMergeTypeArray :: a -> bool
@@ -7982,7 +8000,7 @@ ___
 
 ▸ **isPath**(`a`: unknown): *a is Path*
 
-Defined in src/Schema.ts:147
+Defined in src/Schema.ts:148
 
 ```haskell
 isPath :: a -> bool
@@ -8002,7 +8020,7 @@ ___
 
 ▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
 
-Defined in src/Schema.ts:139
+Defined in src/Schema.ts:140
 
 ```haskell
 isPathSegment :: a -> bool
@@ -8022,7 +8040,7 @@ ___
 
 ▸ **isPredicate**(`a`: unknown): *a is Predicate*
 
-Defined in src/Schema.ts:127
+Defined in src/Schema.ts:128
 
 ```haskell
 isPredicate :: a -> bool
@@ -8042,7 +8060,7 @@ ___
 
 ▸ **isProperty**(`a`: unknown): *a is Property*
 
-Defined in src/Schema.ts:119
+Defined in src/Schema.ts:120
 
 ```haskell
 isProperty :: a -> bool
@@ -8062,7 +8080,7 @@ ___
 
 ▸ **isReplacement**(`a`: unknown): *a is Replacement*
 
-Defined in src/Schema.ts:95
+Defined in src/Schema.ts:96
 
 ```haskell
 isReplacement :: a -> bool
@@ -8082,7 +8100,7 @@ ___
 
 ▸ **isReplacements**(`a`: unknown): *a is Replacements*
 
-Defined in src/Schema.ts:107
+Defined in src/Schema.ts:108
 
 ```haskell
 isReplacements :: a -> bool
@@ -8102,7 +8120,7 @@ ___
 
 ▸ **isSchema**(`a`: unknown): *a is Schema*
 
-Defined in src/Schema.ts:253
+Defined in src/Schema.ts:255
 
 ```haskell
 isSchema :: a -> bool
@@ -8122,7 +8140,7 @@ ___
 
 ▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
 
-Defined in src/Schema.ts:237
+Defined in src/Schema.ts:239
 
 ```haskell
 isSchemaBase :: a -> bool
@@ -8142,7 +8160,7 @@ ___
 
 ▸ **isSchemaOptions**(`a`: unknown): *a is SchemaOptions*
 
-Defined in src/Schema.ts:229
+Defined in src/Schema.ts:231
 
 ```haskell
 isSchemaOptions :: a -> bool
@@ -8162,7 +8180,7 @@ ___
 
 ▸ **makeSchema**(`schemaBase`: [SchemaBase](#schemabase)): *(Anonymous function)*
 
-Defined in src/Schema.ts:265
+Defined in src/Schema.ts:267
 
 ```haskell
 makeSchema :: SchemaBase -> IO Schema
@@ -8428,7 +8446,7 @@ ___
 
 Ƭ **Gettables**: *Dictionary‹[Gettable](#interfaces_serialize_schema_gettablemd)›*
 
-Defined in src/Serialize/Schema.ts:72
+Defined in src/Serialize/Schema.ts:73
 
 ___
 
@@ -8452,7 +8470,7 @@ ___
 
 Ƭ **SchemaBase**: *Omit‹[Schema](#interfaces_serialize_schema_schemamd), "created_at" | "updated_at"›*
 
-Defined in src/Serialize/Schema.ts:89
+Defined in src/Serialize/Schema.ts:90
 
 ### Functions
 
@@ -8460,7 +8478,7 @@ Defined in src/Serialize/Schema.ts:89
 
 ▸ **deserialize**(`deserializable`: [Schema](#interfaces_serialize_schema_schemamd)): *Left‹Error› | Right‹[Schema](#interfaces_schema_schemamd)›*
 
-Defined in src/Serialize/Schema.ts:250
+Defined in src/Serialize/Schema.ts:252
 
 ```haskell
 deserialize :: Schema -> SerializableSchema
@@ -8480,7 +8498,7 @@ ___
 
 ▸ **isFilePath**(`a`: unknown): *a is FilePath*
 
-Defined in src/Serialize/Schema.ts:158
+Defined in src/Serialize/Schema.ts:159
 
 ```haskell
 isFilePath :: a -> bool
@@ -8500,7 +8518,7 @@ ___
 
 ▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
 
-Defined in src/Serialize/Schema.ts:166
+Defined in src/Serialize/Schema.ts:167
 
 ```haskell
 isFilePathArray :: a -> bool
@@ -8520,7 +8538,7 @@ ___
 
 ▸ **isGettable**(`a`: unknown): *a is Gettable*
 
-Defined in src/Serialize/Schema.ts:188
+Defined in src/Serialize/Schema.ts:190
 
 ```haskell
 isGettable :: a -> bool
@@ -8540,7 +8558,7 @@ ___
 
 ▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
 
-Defined in src/Serialize/Schema.ts:174
+Defined in src/Serialize/Schema.ts:175
 
 ```haskell
 isGettableOptions :: a -> bool
@@ -8560,7 +8578,7 @@ ___
 
 ▸ **isGettables**(`a`: unknown): *a is Gettables*
 
-Defined in src/Serialize/Schema.ts:200
+Defined in src/Serialize/Schema.ts:202
 
 ```haskell
 isGettables :: a -> bool
@@ -8580,7 +8598,7 @@ ___
 
 ▸ **isPath**(`a`: unknown): *a is Path*
 
-Defined in src/Serialize/Schema.ts:150
+Defined in src/Serialize/Schema.ts:151
 
 ```haskell
 isPath :: a -> bool
@@ -8600,7 +8618,7 @@ ___
 
 ▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
 
-Defined in src/Serialize/Schema.ts:142
+Defined in src/Serialize/Schema.ts:143
 
 ```haskell
 isPathSegment :: a -> bool
@@ -8620,7 +8638,7 @@ ___
 
 ▸ **isPredicate**(`a`: unknown): *a is Predicate*
 
-Defined in src/Serialize/Schema.ts:130
+Defined in src/Serialize/Schema.ts:131
 
 ```haskell
 isPredicate :: a -> bool
@@ -8640,7 +8658,7 @@ ___
 
 ▸ **isProperty**(`a`: unknown): *a is Property*
 
-Defined in src/Serialize/Schema.ts:120
+Defined in src/Serialize/Schema.ts:121
 
 ```haskell
 isProperty :: a -> bool
@@ -8660,7 +8678,7 @@ ___
 
 ▸ **isReplacement**(`a`: unknown): *a is Replacement*
 
-Defined in src/Serialize/Schema.ts:96
+Defined in src/Serialize/Schema.ts:97
 
 ```haskell
 isReplacement :: a -> bool
@@ -8680,7 +8698,7 @@ ___
 
 ▸ **isReplacements**(`a`: unknown): *a is Replacements*
 
-Defined in src/Serialize/Schema.ts:108
+Defined in src/Serialize/Schema.ts:109
 
 ```haskell
 isReplacements :: a -> bool
@@ -8700,7 +8718,7 @@ ___
 
 ▸ **isSchema**(`a`: unknown): *a is Schema*
 
-Defined in src/Serialize/Schema.ts:224
+Defined in src/Serialize/Schema.ts:226
 
 ```haskell
 isSchema :: a -> bool
@@ -8720,7 +8738,7 @@ ___
 
 ▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
 
-Defined in src/Serialize/Schema.ts:208
+Defined in src/Serialize/Schema.ts:210
 
 ```haskell
 isSchemaBase :: a -> bool
@@ -8740,7 +8758,7 @@ ___
 
 ▸ **serialize**(`serializable`: [Schema](#interfaces_schema_schemamd)): *[Schema](#interfaces_serialize_schema_schemamd)*
 
-Defined in src/Serialize/Schema.ts:236
+Defined in src/Serialize/Schema.ts:238
 
 ```haskell
 serialize :: SerializableSchema -> Schema

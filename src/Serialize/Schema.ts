@@ -61,6 +61,7 @@ export interface GettableOptions {
   key?: string;
   replacements?: Replacements;
   unnest?: number;
+  end?: string;
 }
 
 export interface Gettable {
@@ -178,6 +179,7 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(S.isRegExp, 'key'),
     propSatisfiesIfExists(isReplacements, 'replacements'),
     propSatisfiesIfExists(isNat, 'unnest'),
+    propSatisfiesIfExists(S.isRegExp, 'end'),
   ])(a);
 
 /**
