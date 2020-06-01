@@ -8,9 +8,10 @@ import {
   not,
   pipe,
   propIs,
+  propSatisfies,
   values,
 } from 'ramda';
-import { isNotNil } from './Types';
+import { isDictionary, isNotNil, isString } from './Types';
 
 export interface Position {
   file: string;
@@ -21,7 +22,12 @@ export interface Position {
 export type Cell = string;
 export type Row = Dictionary<Cell>;
 export type Sheet = Row[];
-export type Excel = Dictionary<Sheet>;
+export type SheetByName = Dictionary<Sheet>;
+
+export interface Excel {
+  file: string;
+  sheetByName: SheetByName;
+}
 
 /**
  * ```haskell
@@ -62,8 +68,20 @@ export const isSheet = (a: unknown): a is Row =>
 
 /**
  * ```haskell
+ * isSheetByName :: a -> bool
+ * ```
+ */
+export const isSheetByName = (a: unknown): a is SheetByName =>
+  pipe(values, all(isSheet))(a);
+
+/**
+ * ```haskell
  * isExcel :: a -> bool
  * ```
  */
 export const isExcel = (a: unknown): a is Excel =>
-  pipe(values, all(isSheet))(a);
+  allPass([
+    isDictionary,
+    propSatisfies(isSheetByName, 'sheetByName'),
+    propSatisfies(isString, 'file'),
+  ])(a);

@@ -965,6 +965,40 @@ ___
 Defined in src/DocumentAnnotation.ts:77
 
 
+<a name="interfaces_excel_excelmd"></a>
+
+[functional-types](#globalsmd) › ["Excel"](#modules_excel_md) › [Excel](#interfaces_excel_excelmd)
+
+## Interface: Excel
+
+### Hierarchy
+
+* **Excel**
+
+### Index
+
+#### Properties
+
+* [file](#file)
+* [sheetByName](#sheetbyname)
+
+### Properties
+
+####  file
+
+• **file**: *string*
+
+Defined in src/Excel.ts:28
+
+___
+
+####  sheetByName
+
+• **sheetByName**: *[SheetByName](#sheetbyname)*
+
+Defined in src/Excel.ts:29
+
+
 <a name="interfaces_excel_positionmd"></a>
 
 [functional-types](#globalsmd) › ["Excel"](#modules_excel_md) › [Position](#interfaces_excel_positionmd)
@@ -989,7 +1023,7 @@ Defined in src/DocumentAnnotation.ts:77
 
 • **cell**: *string*
 
-Defined in src/Excel.ts:18
+Defined in src/Excel.ts:19
 
 ___
 
@@ -997,7 +1031,7 @@ ___
 
 • **file**: *string*
 
-Defined in src/Excel.ts:16
+Defined in src/Excel.ts:17
 
 ___
 
@@ -1005,7 +1039,7 @@ ___
 
 • **sheet**: *string*
 
-Defined in src/Excel.ts:17
+Defined in src/Excel.ts:18
 
 
 <a name="interfaces_folder_index_attributesmd"></a>
@@ -5788,14 +5822,15 @@ Name | Type |
 
 #### Interfaces
 
+* [Excel](#interfaces_excel_excelmd)
 * [Position](#interfaces_excel_positionmd)
 
 #### Type aliases
 
 * [Cell](#cell)
-* [Excel](#excel)
 * [Row](#row)
 * [Sheet](#sheet)
+* [SheetByName](#sheetbyname)
 
 #### Functions
 
@@ -5804,6 +5839,7 @@ Name | Type |
 * [isPosition](#const-isposition)
 * [isRow](#const-isrow)
 * [isSheet](#const-issheet)
+* [isSheetByName](#const-issheetbyname)
 
 ### Type aliases
 
@@ -5811,15 +5847,7 @@ Name | Type |
 
 Ƭ **Cell**: *string*
 
-Defined in src/Excel.ts:21
-
-___
-
-####  Excel
-
-Ƭ **Excel**: *Dictionary‹[Sheet](#sheet)›*
-
-Defined in src/Excel.ts:24
+Defined in src/Excel.ts:22
 
 ___
 
@@ -5827,7 +5855,7 @@ ___
 
 Ƭ **Row**: *Dictionary‹[Cell](#cell)›*
 
-Defined in src/Excel.ts:22
+Defined in src/Excel.ts:23
 
 ___
 
@@ -5835,7 +5863,15 @@ ___
 
 Ƭ **Sheet**: *[Row](#row)[]*
 
-Defined in src/Excel.ts:23
+Defined in src/Excel.ts:24
+
+___
+
+####  SheetByName
+
+Ƭ **SheetByName**: *Dictionary‹[Sheet](#sheet)›*
+
+Defined in src/Excel.ts:25
 
 ### Functions
 
@@ -5843,7 +5879,7 @@ Defined in src/Excel.ts:23
 
 ▸ **isCell**(`a`: unknown): *a is Row*
 
-Defined in src/Excel.ts:44
+Defined in src/Excel.ts:50
 
 ```haskell
 isCell :: a -> bool
@@ -5863,7 +5899,7 @@ ___
 
 ▸ **isExcel**(`a`: unknown): *a is Excel*
 
-Defined in src/Excel.ts:68
+Defined in src/Excel.ts:82
 
 ```haskell
 isExcel :: a -> bool
@@ -5883,7 +5919,7 @@ ___
 
 ▸ **isPosition**(`a`: unknown): *a is Position*
 
-Defined in src/Excel.ts:31
+Defined in src/Excel.ts:37
 
 ```haskell
 isPosition :: a -> bool
@@ -5903,7 +5939,7 @@ ___
 
 ▸ **isRow**(`a`: unknown): *a is Row*
 
-Defined in src/Excel.ts:52
+Defined in src/Excel.ts:58
 
 ```haskell
 isRow :: a -> bool
@@ -5923,7 +5959,7 @@ ___
 
 ▸ **isSheet**(`a`: unknown): *a is Row*
 
-Defined in src/Excel.ts:60
+Defined in src/Excel.ts:66
 
 ```haskell
 isSheet :: a -> bool
@@ -5936,6 +5972,26 @@ Name | Type |
 `a` | unknown |
 
 **Returns:** *a is Row*
+
+___
+
+#### `Const` isSheetByName
+
+▸ **isSheetByName**(`a`: unknown): *a is SheetByName*
+
+Defined in src/Excel.ts:74
+
+```haskell
+isSheetByName :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is SheetByName*
 
 
 <a name="modules_filetype_md"></a>
