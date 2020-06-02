@@ -80,7 +80,7 @@ export interface Schema {
   id: string;
   name: string;
   gettables: Gettables;
-  files: Dictionary<FilePath>;
+  files: FilePath[];
   file_type: DocumentType;
   options?: SchemaOptions;
   created_at: string;
@@ -235,27 +235,42 @@ export const isSchema = (a: unknown): a is Schema =>
  * serialize :: SerializableSchema -> Schema
  * ```
  */
-export const serialize: (serializable: Deserialized.Schema) => Schema = (
-  serializable
-) =>
-  (S.serialize(
+export function serialize(serializable: Deserialized.Schema): Schema;
+export function serialize(serializable: Deserialized.SchemaBase): SchemaBase;
+
+export function serialize(
+  serializable: Deserialized.Schema | Deserialized.SchemaBase
+): Schema | SchemaBase {
+  return (S.serialize(
     (serializable as unknown) as S.Serializable
   ) as unknown) as Schema;
+}
 
 /**
  * ```haskell
  * deserialize :: Schema -> SerializableSchema
  * ```
  */
-export const deserialize: (
+export function deserialize(
+  deserializable: SchemaBase
+): E.Either<Error, Deserialized.SchemaBase>;
+
+export function deserialize(
   deserializable: Schema
-) => E.Either<Error, Deserialized.Schema> = (deserializable) =>
-  pipe(
+): E.Either<Error, Deserialized.Schema>;
+
+export function deserialize(
+  deserializable: Schema | SchemaBase
+): E.Either<Error, Deserialized.Schema | Deserialized.SchemaBase> {
+  return pipe(
     S.deserialize,
     E.chain(
       E.fromPredicate(
-        Deserialized.isSchema,
+        isSchema(deserializable)
+          ? Deserialized.isSchema
+          : Deserialized.isSchemaBase,
         () => new Error('Object is not a schema.')
       )
     )
   )((deserializable as unknown) as S.Deserializable);
+}
