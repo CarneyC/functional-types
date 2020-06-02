@@ -2071,7 +2071,7 @@ ___
 
 ####  files
 
-• **files**: *Dictionary‹[FilePath](#filepath)›*
+• **files**: *[FilePath](#filepath)[]*
 
 Defined in src/Serialize/Schema.ts:83
 
@@ -8524,7 +8524,7 @@ Name | Type |
 
 #### Functions
 
-* [deserialize](#const-deserialize)
+* [deserialize](#deserialize)
 * [isFilePath](#const-isfilepath)
 * [isFilePathArray](#const-isfilepatharray)
 * [isGettable](#const-isgettable)
@@ -8538,7 +8538,7 @@ Name | Type |
 * [isReplacements](#const-isreplacements)
 * [isSchema](#const-isschema)
 * [isSchemaBase](#const-isschemabase)
-* [serialize](#const-serialize)
+* [serialize](#serialize)
 
 ### Type aliases
 
@@ -8582,11 +8582,11 @@ Defined in src/Serialize/Schema.ts:90
 
 ### Functions
 
-#### `Const` deserialize
+####  deserialize
 
-▸ **deserialize**(`deserializable`: [Schema](#interfaces_serialize_schema_schemamd)): *Left‹Error› | Right‹[Schema](#interfaces_schema_schemamd)›*
+▸ **deserialize**(`deserializable`: [SchemaBase](#schemabase)): *E.Either‹Error, Deserialized.SchemaBase›*
 
-Defined in src/Serialize/Schema.ts:252
+Defined in src/Serialize/Schema.ts:254
 
 ```haskell
 deserialize :: Schema -> SerializableSchema
@@ -8596,9 +8596,21 @@ deserialize :: Schema -> SerializableSchema
 
 Name | Type |
 ------ | ------ |
+`deserializable` | [SchemaBase](#schemabase) |
+
+**Returns:** *E.Either‹Error, Deserialized.SchemaBase›*
+
+▸ **deserialize**(`deserializable`: [Schema](#interfaces_serialize_schema_schemamd)): *E.Either‹Error, [Schema](#interfaces_schema_schemamd)›*
+
+Defined in src/Serialize/Schema.ts:258
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
 `deserializable` | [Schema](#interfaces_serialize_schema_schemamd) |
 
-**Returns:** *Left‹Error› | Right‹[Schema](#interfaces_schema_schemamd)›*
+**Returns:** *E.Either‹Error, [Schema](#interfaces_schema_schemamd)›*
 
 ___
 
@@ -8862,7 +8874,7 @@ Name | Type |
 
 ___
 
-#### `Const` serialize
+####  serialize
 
 ▸ **serialize**(`serializable`: [Schema](#interfaces_schema_schemamd)): *[Schema](#interfaces_serialize_schema_schemamd)*
 
@@ -8879,6 +8891,18 @@ Name | Type |
 `serializable` | [Schema](#interfaces_schema_schemamd) |
 
 **Returns:** *[Schema](#interfaces_serialize_schema_schemamd)*
+
+▸ **serialize**(`serializable`: Deserialized.SchemaBase): *[SchemaBase](#schemabase)*
+
+Defined in src/Serialize/Schema.ts:239
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`serializable` | Deserialized.SchemaBase |
+
+**Returns:** *[SchemaBase](#schemabase)*
 
 
 <a name="modules_string_md"></a>
