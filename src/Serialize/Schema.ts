@@ -1,21 +1,16 @@
 import { Direction } from '../Comparable';
 import {
-  addIndex,
   all,
   allPass,
   anyPass,
-  assoc,
   Dictionary,
   equals,
-  evolve,
   length,
   pipe,
   propIs,
   propSatisfies,
-  reduce,
   values,
 } from 'ramda';
-import * as R from 'fp-ts/lib/Reader';
 import * as E from 'fp-ts/lib/Either';
 import { DocumentType, isDocumentType } from '../FileType';
 import {
@@ -169,8 +164,8 @@ export const isFilePath = (a: unknown): a is FilePath =>
  * isFilePathArray :: a -> bool
  * ```
  */
-export const isFilePathDictionary = (a: unknown): a is FilePath[] =>
-  allPass([isDictionary, pipe(values, all(isFilePath))])(a);
+export const isFilePathArray = (a: unknown): a is FilePath[] =>
+  allPass([isArray, all(isFilePath)])(a);
 
 /**
  * ```haskell
@@ -218,7 +213,7 @@ export const isSchemaBase = (a: unknown): a is SchemaBase =>
     propIs(String, 'id'),
     propIs(String, 'name'),
     propSatisfies(isGettables, 'gettables'),
-    propSatisfies(isFilePathDictionary, 'files'),
+    propSatisfies(isFilePathArray, 'files'),
     propSatisfies(isDocumentType, 'file_type'),
     propSatisfiesIfExists(isSchemaOptions, 'options'),
   ])(a);
@@ -237,10 +232,10 @@ export const isSchema = (a: unknown): a is Schema =>
 
 /**
  * ```haskell
- * serializeSchema :: SerializableSchema -> Schema
+ * serialize :: SerializableSchema -> Schema
  * ```
  */
-const serializeSchema: (serializable: Deserialized.Schema) => Schema = (
+export const serialize: (serializable: Deserialized.Schema) => Schema = (
   serializable
 ) =>
   (S.serialize(
@@ -249,44 +244,10 @@ const serializeSchema: (serializable: Deserialized.Schema) => Schema = (
 
 /**
  * ```haskell
- * serializeFilePaths :: [FilePath] -> Dictionary FilePath
+ * deserialize :: Schema -> SerializableSchema
  * ```
  */
-const serializeFilePaths: (
-  filePaths: FilePath[]
-) => Dictionary<FilePath> = addIndex(reduce)(
-  (acc: Dictionary<FilePath>, filePath: FilePath, index: number) =>
-    assoc(index.toString(), filePath, acc),
-  {} as Dictionary<FilePath>
-) as (filePaths: FilePath[]) => Dictionary<FilePath>;
-
-/**
- * ```haskell
- * serialize :: SerializableSchema -> Schema
- * ```
- */
-export const serialize: (serializable: Deserialized.Schema) => Schema = pipe(
-  serializeSchema,
-  evolve({
-    files: serializeFilePaths,
-  }) as R.Reader<Schema, Schema>
-);
-
-/**
- * ```haskell
- * deserializeFilePaths :: Dictionary FilePath -> [FilePath]
- * ```
- */
-const deserializeFilePaths: (
-  filePaths: Dictionary<FilePath>
-) => FilePath[] = values;
-
-/**
- * ```haskell
- * deserializeSchema :: Schema -> SerializableSchema
- * ```
- */
-const deserializeSchema: (
+export const deserialize: (
   deserializable: Schema
 ) => E.Either<Error, Deserialized.Schema> = (deserializable) =>
   pipe(
@@ -298,19 +259,3 @@ const deserializeSchema: (
       )
     )
   )((deserializable as unknown) as S.Deserializable);
-
-/**
- * ```haskell
- * deserialize :: Schema -> SerializableSchema
- * ```
- */
-export const deserialize: (
-  deserializable: Schema
-) => E.Either<Error, Deserialized.Schema> = pipe(
-  deserializeSchema,
-  E.map(
-    evolve({
-      files: deserializeFilePaths,
-    }) as R.Reader<Deserialized.Schema, Deserialized.Schema>
-  )
-);

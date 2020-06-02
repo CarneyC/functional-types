@@ -1,5 +1,7 @@
 import {
+  addIndex,
   allPass,
+  assoc,
   concat,
   Dictionary,
   ifElse,
@@ -8,9 +10,11 @@ import {
   map,
   mapObjIndexed,
   pipe,
+  reduce,
   replace,
   test as regExpTest,
   toString,
+  values,
 } from 'ramda';
 import * as R from 'fp-ts/lib/Reader';
 import * as E from 'fp-ts/lib/Either';
@@ -67,6 +71,25 @@ export const deserializeRegExp: (
     )
   )
 );
+
+/**
+ * ```haskell
+ * serializeArray :: [A] -> Dictionary A
+ * ```
+ */
+export const serializeArray = <A>(array: A[]): Dictionary<A> =>
+  addIndex(reduce)(
+    (acc: Dictionary<A>, array: A, index: number) =>
+      assoc(index.toString(), array, acc),
+    {} as Dictionary<A>
+  )(array) as Dictionary<A>;
+
+/**
+ * ```haskell
+ * deserializeArray :: Dictionary A -> [A]
+ * ```
+ */
+export const deserializeArray: <A>(array: Dictionary<A>) => A[] = values;
 
 /**
  * ```haskell
