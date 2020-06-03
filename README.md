@@ -4007,7 +4007,7 @@ ___
 
 • **applySchema**: *function* = applySchemaToDocumentAnnotations
 
-Defined in src/Comparable.ts:998
+Defined in src/Comparable.ts:997
 
 ```haskell
 applySchema :: [DocumentAnnotation] -> Reader Schema TreeByFile
@@ -4031,7 +4031,7 @@ ___
   pipe(prop('forestByPage'), D.mergeForestByPage, applyGettables)
 )
 
-Defined in src/Comparable.ts:988
+Defined in src/Comparable.ts:987
 
 ```haskell
 applySchemaToDocumentAnnotations :: [DocumentAnnotation] -> Reader Schema TreeByFile
@@ -4298,7 +4298,7 @@ ___
   RIO.chainReaderK(
     pipe(
       (comparables: Comparable[]): R.Reader<S.Schema, Comparable[]> => (
-        schema
+        schema: S.Schema
       ) =>
         pathSatisfies(equals(true), ['options', 'merge'], schema)
           ? pipe(
@@ -4313,7 +4313,7 @@ ___
   )
 )
 
-Defined in src/Comparable.ts:1049
+Defined in src/Comparable.ts:1048
 
 ```haskell
 makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
@@ -4346,7 +4346,7 @@ ___
   )
 )
 
-Defined in src/Comparable.ts:1029
+Defined in src/Comparable.ts:1028
 
 ```haskell
 mergeComparables :: [Comparable] -> Comparable
@@ -4372,7 +4372,7 @@ ___
   R.chain(translateTree)
 )
 
-Defined in src/Comparable.ts:950
+Defined in src/Comparable.ts:949
 
 ```haskell
 postProcessTree :: Tree -> Reader Gettables Tree
@@ -4438,7 +4438,7 @@ ___
 
 ▸ **applySchemaWith**<**A**>(`fa`: function): *function*
 
-Defined in src/Comparable.ts:965
+Defined in src/Comparable.ts:964
 
 ```haskell
 applySchemaWith :: Reader (PartitionedGettables A) Tree -> [A] -> Reader Schema TreeByFile
@@ -4710,7 +4710,7 @@ ___
 
 ▸ **makeComparable**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›, `file`: string): *(Anonymous function)*
 
-Defined in src/Comparable.ts:1010
+Defined in src/Comparable.ts:1009
 
 ```haskell
 makeComparables :: (Tree, String) -> ReaderIO Schema Comparable

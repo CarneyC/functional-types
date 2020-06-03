@@ -293,7 +293,7 @@ export const splitTable: (
 export const findKeyFromPredicate: (
   tree: Tree
 ) => R.Reader<Predicate, O.Option<string>> = (tree) => (
-  pred
+  pred: Predicate
 ): O.Option<string> =>
   pipe(keys, find(pred), O.fromPredicate<string>(isNotNil))(tree);
 
@@ -433,7 +433,7 @@ const getPathFromTree: (
 export const partition: (
   branch: D.Branch
 ) => R.Reader<FromBranchOptions, Partitions> = (branch) => (
-  options
+  options: FromBranchOptions
 ): Partitions => {
   const mergeOptions = filter(
     (options: FromLeafOptions) => options.mergeKey === true,
@@ -712,7 +712,7 @@ export const satisfyProperties: (
  */
 export const applyPath: (node: Node) => R.Reader<S.Path, O.Option<Node>> = (
   node
-) => (path): O.Option<Node> => {
+) => (path: S.Path): O.Option<Node> => {
   if (isEmpty(path)) return O.some(node);
 
   const [segment, ...pathSegments] = path;
@@ -760,7 +760,7 @@ const applyReplacement: (value: string) => R.Reader<S.Replacement[], string> = (
  */
 export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
   node
-) => (replacements) => {
+) => (replacements: S.Replacements) => {
   const { values, keys } = replacements;
   return pipe(
     unless(
@@ -864,12 +864,11 @@ export const partitionGettables: <T extends Annotation>(
  */
 export const translateTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
   tree
-) => (gettables): Tree =>
-  mapObjIndexed(
-    (node, key) =>
-      translateNode(node)(gettables[key].options.replacements || {}),
-    tree
-  );
+) => (gettables: S.Gettables): Tree =>
+  mapObjIndexed((node, key) => {
+    const replacements = gettables[key].options?.replacements;
+    return replacements ? translateNode(node)(replacements) : node;
+  }, tree);
 
 /**
  * ```haskell
@@ -1008,7 +1007,7 @@ export const makeComparable: (
   tree: Tree,
   file: string
 ) => RIO.ReaderIO<S.Schema, Comparable> = (tree, file) => (
-  schema
+  schema: S.Schema
 ) => (): Comparable => {
   const timestamp = getCurrentISOString();
   return {
@@ -1062,7 +1061,7 @@ export const makeComparables: (
   RIO.chainReaderK(
     pipe(
       (comparables: Comparable[]): R.Reader<S.Schema, Comparable[]> => (
-        schema
+        schema: S.Schema
       ) =>
         pathSatisfies(equals(true), ['options', 'merge'], schema)
           ? pipe(
