@@ -17,6 +17,7 @@ import {
 import * as FT from '../FileType';
 import * as R from 'fp-ts/lib/Reader';
 import * as E from 'fp-ts/lib/Either';
+import { isArray, isString } from '../Types';
 
 export interface Folder {
   id: string;
@@ -52,6 +53,10 @@ export interface Reference {
 
 export interface FolderReference {
   folder: string;
+}
+
+export interface FileReferences extends FolderReference {
+  files: string[];
 }
 
 export type File = Attributes & { metadata: Metadata };
@@ -209,6 +214,18 @@ export const fromMetadata: (metadata: Metadata) => E.Either<Error, File> = (
  */
 export const isReference = (a: unknown): a is Reference =>
   allPass([is(Object), propIs(String, 'file')])(a);
+
+/**
+ * ```haskell
+ * isFileReferences :: a -> bool
+ * ```
+ */
+export const isFileReferences = (a: unknown): a is FileReferences =>
+  allPass([
+    is(Object),
+    propIs(String, 'folder'),
+    propSatisfies(allPass([isArray, all(isString)]), 'files'),
+  ])(a);
 
 /**
  * ```haskell
