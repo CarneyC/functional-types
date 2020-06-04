@@ -1,3 +1,6 @@
+import { getCurrentISOString } from './DateTime';
+import { getRandomId } from './String';
+import { isPoly, Poly, sortPoly } from './Vertex';
 import * as Vision from './Vision';
 import * as A from 'fp-ts/lib/Array';
 import * as IO from 'fp-ts/lib/IO';
@@ -26,9 +29,6 @@ import {
   trim,
   values,
 } from 'ramda';
-import { isPoly, Poly, sortPoly } from './Vertex';
-import { getRandomId } from './String';
-import { getCurrentISOString } from './DateTime';
 
 export type BreakType =
   | 'UNKNOWN'

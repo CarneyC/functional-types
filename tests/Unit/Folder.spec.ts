@@ -1,7 +1,7 @@
+import { make, isFolder } from '../../src/Folder';
+import * as Arb from '../../src/Folder/Arbitraries';
 import chai from 'chai';
 import fc from 'fast-check';
-import * as Arb from '../../src/Folder/Arbitraries';
-import { make, isFolder } from '../../src/Folder';
 
 const { expect } = chai;
 

@@ -1,4 +1,3 @@
-import fc, { Arbitrary } from 'fast-check';
 import {
   BoundingBox,
   getCornersFromPoly,
@@ -8,6 +7,7 @@ import {
   toRectangle,
   Vertex,
 } from './index';
+import fc, { Arbitrary } from 'fast-check';
 import { apply } from 'ramda';
 
 const number = (): Arbitrary<number> => fc.double(1);

@@ -1,7 +1,7 @@
+import { includesAll } from '../../src/Array';
+import { arrays } from '../../src/Array/Arbitraries';
 import chai from 'chai';
 import fc from 'fast-check';
-import { arrays } from '../../src/Array/Arbitraries';
-import { includesAll } from '../../src/Array';
 
 const { expect } = chai;
 

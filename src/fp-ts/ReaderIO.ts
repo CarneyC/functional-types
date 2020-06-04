@@ -1,7 +1,7 @@
-import * as R from 'fp-ts/lib/Reader';
-import * as IO from 'fp-ts/lib/IO';
-import { pipe } from 'ramda';
 import { array } from 'fp-ts/lib/Array';
+import * as IO from 'fp-ts/lib/IO';
+import * as R from 'fp-ts/lib/Reader';
+import { pipe } from 'ramda';
 
 export type ReaderIO<R, A> = R.Reader<R, IO.IO<A>>;
 

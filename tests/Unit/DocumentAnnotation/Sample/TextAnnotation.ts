@@ -1,5 +1,4 @@
-import { TextAnnotation } from '../../../../src/TextAnnotation';
-import { Page } from '../../../../src/TextAnnotation';
+import { TextAnnotation, Page } from '../../../../src/TextAnnotation';
 
 export const page: Page = {
   wordsById: {

@@ -1,10 +1,10 @@
-import fc from 'fast-check';
-import chai from 'chai';
-import * as Arb from '../../src/Serialize/Arbitraries';
 import { deserialize, serialize } from '../../src/Serialize';
+import * as Arb from '../../src/Serialize/Arbitraries';
 import * as S from '../../src/Serialize/Schema';
-import * as E from 'fp-ts/lib/Either';
+import chai from 'chai';
 import chaiLike from 'chai-like';
+import fc from 'fast-check';
+import * as E from 'fp-ts/lib/Either';
 
 chai.use(chaiLike);
 const { expect } = chai;

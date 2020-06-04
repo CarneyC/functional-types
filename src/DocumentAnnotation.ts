@@ -1,13 +1,37 @@
+import { getCurrentISOString } from './DateTime';
+import * as RIO from './fp-ts/ReaderIO';
+import { sequenceReaderIO } from './fp-ts/ReaderIO';
+import { getRandomId } from './String';
+import { BoundingBoxes, TableAnnotation } from './TableAnnotation';
 import {
   getTextFromWords,
   isWordArray,
   Page,
   Word,
   WordsById,
+  TextAnnotation,
 } from './TextAnnotation';
-import * as RIO from './fp-ts/ReaderIO';
-import * as O from 'fp-ts/lib/Option';
+import {
+  getXs,
+  getYs,
+  hasHeaderColumn,
+  hasHeaderRow,
+  hasRowsOrColumns,
+  intersects,
+  containedBy,
+  isPoly,
+  LabeledBoundingBox,
+  Poly,
+  splitByXs,
+  splitByYs,
+  getChildlessBoundingBoxes,
+  unions,
+} from './Vertex';
+import { sequenceS } from 'fp-ts/lib/Apply';
 import * as A from 'fp-ts/lib/Array';
+import * as IO from 'fp-ts/lib/IO';
+import * as O from 'fp-ts/lib/Option';
+import * as R from 'fp-ts/lib/Reader';
 import {
   addIndex,
   all,
@@ -42,30 +66,6 @@ import {
   values,
   zip,
 } from 'ramda';
-import {
-  getXs,
-  getYs,
-  hasHeaderColumn,
-  hasHeaderRow,
-  hasRowsOrColumns,
-  intersects,
-  containedBy,
-  isPoly,
-  LabeledBoundingBox,
-  Poly,
-  splitByXs,
-  splitByYs,
-  getChildlessBoundingBoxes,
-  unions,
-} from './Vertex';
-import * as IO from 'fp-ts/lib/IO';
-import * as R from 'fp-ts/lib/Reader';
-import { getCurrentISOString } from './DateTime';
-import { getRandomId } from './String';
-import { sequenceReaderIO } from './fp-ts/ReaderIO';
-import { BoundingBoxes, TableAnnotation } from './TableAnnotation';
-import { TextAnnotation } from './TextAnnotation';
-import { sequenceS } from 'fp-ts/lib/Apply';
 
 export interface Node {
   id: string;
@@ -299,7 +299,7 @@ export const makeNode: (boundingBox: LabeledBoundingBox) => IO.IO<Node> = ({
  */
 export const makeCell: (
   boundingBox: LabeledBoundingBox
-) => RIO.ReaderIO<Page, Cell> = (boundingBox) => (page): IO.IO<Cell> => {
+) => RIO.ReaderIO<Page, Cell> = (boundingBox) => (page: Page): IO.IO<Cell> => {
   const words: Word[] = pipe(
     prop('wordsById'),
     values as (wordsById: WordsById) => Word[],
@@ -580,7 +580,7 @@ type Tuple = [BoundingBoxes, Page];
 export const makeForestByPage: (
   tableAnnotation: TableAnnotation
 ) => RIO.ReaderIO<TextAnnotation, ForestByPage> = (tableAnnotation) => (
-  textAnnotation
+  textAnnotation: TextAnnotation
 ): IO.IO<ForestByPage> => {
   const tuple: Tuple[] = zip(
     tableAnnotation.boundingBoxesByPage,

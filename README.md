@@ -3875,7 +3875,7 @@ Defined in src/Vision.ts:175
 
 ▸ **arrays**(): *Arbitrary‹object›*
 
-Defined in src/Array/Arbitraries.ts:5
+Defined in src/Array/Arbitraries.ts:4
 
 **Returns:** *Arbitrary‹object›*
 
@@ -3896,13 +3896,17 @@ Defined in src/Array/Arbitraries.ts:5
 
 #### `Const` includesAll
 
-▸ **includesAll**(`a`: A[]): *(Anonymous function)*
+▸ **includesAll**<**A**>(`a`: A[]): *(Anonymous function)*
 
 Defined in src/Array/index.ts:9
 
 ```haskell
 includesAll :: [a] -> Reader [a] bool
 ```
+
+**Type parameters:**
+
+▪ **A**
 
 **Parameters:**
 
@@ -8390,7 +8394,7 @@ Name | Type |
 
 ▸ **regExp**(): *Arbitrary‹RegExp›*
 
-Defined in src/Serialize/Arbitraries.ts:5
+Defined in src/Serialize/Arbitraries.ts:4
 
 **Returns:** *Arbitrary‹RegExp›*
 
@@ -8400,7 +8404,7 @@ ___
 
 ▸ **serializable**(): *Arbitrary‹[Serializable](#serializable)›*
 
-Defined in src/Serialize/Arbitraries.ts:8
+Defined in src/Serialize/Arbitraries.ts:7
 
 **Returns:** *Arbitrary‹[Serializable](#serializable)›*
 

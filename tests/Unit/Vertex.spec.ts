@@ -1,6 +1,3 @@
-import chai from 'chai';
-import fc from 'fast-check';
-import * as Arb from '../../src/Vertex/Arbitraries';
 import {
   BoundingBox,
   ratioContaining,
@@ -11,6 +8,9 @@ import {
   WithHeaderColumn,
   WithHeaderRow,
 } from '../../src/Vertex';
+import * as Arb from '../../src/Vertex/Arbitraries';
+import chai from 'chai';
+import fc from 'fast-check';
 import * as E from 'fp-ts/lib/Either';
 import { identity } from 'ramda';
 

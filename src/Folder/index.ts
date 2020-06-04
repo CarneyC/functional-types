@@ -1,6 +1,10 @@
-import { getRandomId } from '../String';
 import { getCurrentISOString } from '../DateTime';
+import * as FT from '../FileType';
+import { getRandomId } from '../String';
+import { isArray, isString } from '../Types';
+import * as E from 'fp-ts/lib/Either';
 import * as IO from 'fp-ts/lib/IO';
+import * as R from 'fp-ts/lib/Reader';
 import {
   all,
   allPass,
@@ -14,10 +18,6 @@ import {
   propSatisfies,
   split,
 } from 'ramda';
-import * as FT from '../FileType';
-import * as R from 'fp-ts/lib/Reader';
-import * as E from 'fp-ts/lib/Either';
-import { isArray, isString } from '../Types';
 
 export interface Folder {
   id: string;

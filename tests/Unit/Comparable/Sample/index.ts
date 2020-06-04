@@ -1,6 +1,12 @@
-import * as IO from 'fp-ts/lib/IO';
-import fs from 'fs';
-import path from 'path';
+import {
+  gettable,
+  gettables,
+  mergeGettable,
+  replacements,
+  schema,
+} from './Schema';
+import { Leaf } from '../../../../lib/DocumentAnnotation';
+import { Node, Tree } from '../../../../src/Comparable';
 import {
   Branch,
   DocumentAnnotation,
@@ -10,8 +16,14 @@ import {
   mergeForestByPage,
   ForestByLabel,
 } from '../../../../src/DocumentAnnotation';
+import {
+  Gettable,
+  Gettables,
+  Replacements,
+  Schema,
+} from '../../../../src/Schema';
+import * as IO from 'fp-ts/lib/IO';
 import * as R from 'fp-ts/lib/Reader';
-import { Node, Tree } from '../../../../src/Comparable';
 import {
   allPass,
   find,
@@ -29,20 +41,8 @@ import {
   replace,
   values,
 } from 'ramda';
-import {
-  Gettable,
-  Gettables,
-  Replacements,
-  Schema,
-} from '../../../../src/Schema';
-import {
-  gettable,
-  gettables,
-  mergeGettable,
-  replacements,
-  schema,
-} from './Schema';
-import { Leaf } from '../../../../lib/DocumentAnnotation';
+import fs from 'fs';
+import path from 'path';
 
 // getDocumentAnnotation :: IO DocumentAnnotation
 export const getDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {

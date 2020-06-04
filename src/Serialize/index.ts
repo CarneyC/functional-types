@@ -1,3 +1,8 @@
+import * as T from '../Types';
+import { sequenceS } from 'fp-ts/lib/Apply';
+import * as A from 'fp-ts/lib/Array';
+import * as E from 'fp-ts/lib/Either';
+import * as R from 'fp-ts/lib/Reader';
 import {
   addIndex,
   allPass,
@@ -16,11 +21,6 @@ import {
   toString,
   values,
 } from 'ramda';
-import * as R from 'fp-ts/lib/Reader';
-import * as E from 'fp-ts/lib/Either';
-import * as A from 'fp-ts/lib/Array';
-import { sequenceS } from 'fp-ts/lib/Apply';
-import * as T from '../Types';
 
 export type Serializable =
   | string

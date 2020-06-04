@@ -1,3 +1,8 @@
+import * as E from 'fp-ts/lib/Either';
+import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
+import * as O from 'fp-ts/lib/Option';
+import * as R from 'fp-ts/lib/Reader';
+import * as RE from 'fp-ts/lib/ReaderEither';
 import {
   all,
   allPass,
@@ -36,11 +41,6 @@ import {
   propEq,
   tail,
 } from 'ramda';
-import * as R from 'fp-ts/lib/Reader';
-import * as RE from 'fp-ts/lib/ReaderEither';
-import * as E from 'fp-ts/lib/Either';
-import * as O from 'fp-ts/lib/Option';
-import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 
 export interface Vertex {
   x: number;
@@ -749,7 +749,7 @@ export const contains: (
  * ```
  */
 export const splitByYs: (ys: number[]) => R.Reader<Poly, Poly[]> = (ys) => (
-  poly
+  poly: Poly
 ): Poly[] => {
   const { x0, y0, x1, y1 } = toRectangle(poly);
   return pipe(
@@ -766,7 +766,7 @@ export const splitByYs: (ys: number[]) => R.Reader<Poly, Poly[]> = (ys) => (
  * ```
  */
 export const splitByXs: (xs: number[]) => R.Reader<Poly, Poly[]> = (xs) => (
-  poly
+  poly: Poly
 ): Poly[] => {
   const { x0, y0, x1, y1 } = toRectangle(poly);
   return pipe(

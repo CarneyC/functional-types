@@ -1,3 +1,5 @@
+import * as E from 'fp-ts/lib/Either';
+import * as R from 'fp-ts/lib/Reader';
 import {
   allPass,
   anyPass,
@@ -13,8 +15,6 @@ import {
   unless,
   when,
 } from 'ramda';
-import * as E from 'fp-ts/lib/Either';
-import * as R from 'fp-ts/lib/Reader';
 
 export interface Success<T> {
   message: string;

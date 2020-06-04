@@ -1,4 +1,21 @@
+import * as S from './index';
 import { Direction } from '../Comparable';
+import { DocumentType, isDocumentType } from '../FileType';
+import {
+  isDirection,
+  isMergeTypeArray,
+  isSchemaOptions,
+  MergeType,
+} from '../Schema';
+import * as Deserialized from '../Schema';
+import {
+  isArray,
+  isDictionary,
+  isNat,
+  isNotNil,
+  propSatisfiesIfExists,
+} from '../Types';
+import * as E from 'fp-ts/lib/Either';
 import {
   all,
   allPass,
@@ -11,23 +28,6 @@ import {
   propSatisfies,
   values,
 } from 'ramda';
-import * as E from 'fp-ts/lib/Either';
-import { DocumentType, isDocumentType } from '../FileType';
-import {
-  isDirection,
-  isMergeTypeArray,
-  isSchemaOptions,
-  MergeType,
-} from '../Schema';
-import * as S from './index';
-import * as Deserialized from '../Schema';
-import {
-  isArray,
-  isDictionary,
-  isNat,
-  isNotNil,
-  propSatisfiesIfExists,
-} from '../Types';
 
 export interface Replacement {
   pattern: string;

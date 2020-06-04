@@ -1,22 +1,22 @@
-import * as IO from 'fp-ts/lib/IO';
-import {
-  BoundingBoxes,
-  TableAnnotation,
-  toBoundingBoxes,
-} from '../../../../src/TableAnnotation';
 import {
   tableBoundingBox,
   tableAnnotation,
   titleBoundingBox,
   groupBoundingBox,
 } from './TableAnnotation';
-import { Page, TextAnnotation } from '../../../../src/TextAnnotation';
 import { page, textAnnotation } from './TextAnnotation';
-import { LabeledBoundingBox } from '../../../../src/Vertex';
 import {
   makeTextTableCell,
   TextTableCell,
 } from '../../../../src/DocumentAnnotation';
+import {
+  BoundingBoxes,
+  TableAnnotation,
+  toBoundingBoxes,
+} from '../../../../src/TableAnnotation';
+import { Page, TextAnnotation } from '../../../../src/TextAnnotation';
+import { LabeledBoundingBox } from '../../../../src/Vertex';
+import * as IO from 'fp-ts/lib/IO';
 import { is } from 'ramda';
 
 // getTableBoundingBox :: IO TableAnnotation

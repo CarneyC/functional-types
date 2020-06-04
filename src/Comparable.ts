@@ -1,9 +1,25 @@
-import * as R from 'fp-ts/lib/Reader';
-import * as O from 'fp-ts/lib/Option';
-import * as RE from 'fp-ts/lib/ReaderEither';
-import * as E from 'fp-ts/lib/Either';
+import { getCurrentISOString } from './DateTime';
 import * as D from './DocumentAnnotation';
+import { isPosition, Position } from './Excel';
+import { getFileNameFromId } from './Folder';
 import * as RIO from './fp-ts/ReaderIO';
+import * as S from './Schema';
+import { PathSegment } from './Schema';
+import { getRandomId } from './String';
+import {
+  isArray,
+  isDictionary,
+  isNotNil,
+  isRegExp,
+  isString,
+  propSatisfiesIfExists,
+} from './Types';
+import { isPoly, Poly, unionOf } from './Vertex';
+import { sequenceS } from 'fp-ts/lib/Apply';
+import * as E from 'fp-ts/lib/Either';
+import * as O from 'fp-ts/lib/Option';
+import * as R from 'fp-ts/lib/Reader';
+import * as RE from 'fp-ts/lib/ReaderEither';
 import {
   __,
   all,
@@ -56,22 +72,6 @@ import {
   values,
   when,
 } from 'ramda';
-import { isPoly, Poly, unionOf } from './Vertex';
-import { sequenceS } from 'fp-ts/lib/Apply';
-import * as S from './Schema';
-import { PathSegment } from './Schema';
-import { getFileNameFromId } from './Folder';
-import { getCurrentISOString } from './DateTime';
-import { getRandomId } from './String';
-import {
-  isArray,
-  isDictionary,
-  isNotNil,
-  isRegExp,
-  isString,
-  propSatisfiesIfExists,
-} from './Types';
-import { isPosition, Position } from './Excel';
 
 export type Direction = 'column' | 'row';
 export type Predicate = (value: string) => boolean;

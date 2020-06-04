@@ -1,13 +1,13 @@
-import chai from 'chai';
-import * as D from '../../../src/DocumentAnnotation';
 import * as Sample from './Sample';
-import * as IO from 'fp-ts/lib/IO';
-import * as RIO from '../../../src/fp-ts/ReaderIO';
-import chaiLike from 'chai-like';
-import { all, apply, map, pipe, values } from 'ramda';
-import { LabeledBoundingBox } from '../../../src/Vertex';
-import { BoundingBoxes } from '../../../src/TableAnnotation';
 import { getTableAnnotation, getTextAnnotation } from './Sample';
+import * as D from '../../../src/DocumentAnnotation';
+import * as RIO from '../../../src/fp-ts/ReaderIO';
+import { BoundingBoxes } from '../../../src/TableAnnotation';
+import { LabeledBoundingBox } from '../../../src/Vertex';
+import chai from 'chai';
+import chaiLike from 'chai-like';
+import * as IO from 'fp-ts/lib/IO';
+import { all, apply, map, pipe, values } from 'ramda';
 
 chai.use(chaiLike);
 const { expect } = chai;

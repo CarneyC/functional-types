@@ -6,5 +6,6 @@ import { difference, isEmpty, pipe } from 'ramda';
  * includesAll :: [a] -> Reader [a] bool
  * ```
  */
-export const includesAll: <A>(a: A[]) => R.Reader<A[], boolean> = (a) => (b) =>
-  pipe(difference(a), isEmpty)(b);
+export const includesAll: <A>(a: A[]) => R.Reader<A[], boolean> = <A>(
+  a: A[]
+) => (b: A[]): boolean => pipe(difference(a), isEmpty)(b);

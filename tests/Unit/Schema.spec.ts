@@ -1,7 +1,7 @@
-import fc from 'fast-check';
-import chai from 'chai';
-import { isSchema } from '../../src/Schema';
 import { getSchema } from './Comparable/Sample';
+import { isSchema } from '../../src/Schema';
+import chai from 'chai';
+import fc from 'fast-check';
 
 const { expect } = chai;
 

@@ -1,3 +1,16 @@
+import { Direction } from './Comparable';
+import { getCurrentISOString } from './DateTime';
+import { DocumentType, isDocumentType } from './FileType';
+import {
+  isArray,
+  isDictionary,
+  isNat,
+  isNotNil,
+  isRegExp,
+  isString,
+  propSatisfiesIfExists,
+} from './Types';
+import * as IO from 'fp-ts/lib/IO';
 import {
   allPass,
   Dictionary,
@@ -12,19 +25,6 @@ import {
   values,
   map,
 } from 'ramda';
-import { Direction } from './Comparable';
-import { DocumentType, isDocumentType } from './FileType';
-import { getCurrentISOString } from './DateTime';
-import * as IO from 'fp-ts/lib/IO';
-import {
-  isArray,
-  isDictionary,
-  isNat,
-  isNotNil,
-  isRegExp,
-  isString,
-  propSatisfiesIfExists,
-} from './Types';
 
 export interface Replacement {
   pattern: RegExp;

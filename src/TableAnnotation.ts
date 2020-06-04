@@ -1,3 +1,5 @@
+import { getCurrentISOString } from './DateTime';
+import { getRandomId } from './String';
 import { isLabeledBoundingBox, LabeledBoundingBox, WithHeader } from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import {
@@ -12,8 +14,6 @@ import {
   reduce,
   values,
 } from 'ramda';
-import { getRandomId } from './String';
-import { getCurrentISOString } from './DateTime';
 
 export type BoundingBoxes = Dictionary<
   WithHeader<LabeledBoundingBox> | LabeledBoundingBox

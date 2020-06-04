@@ -1,6 +1,6 @@
-import fc, { Arbitrary } from 'fast-check';
 import { File, FilesByType, Folder, make, Metadata } from './index';
 import { fileTypes } from '../FileType';
+import fc, { Arbitrary } from 'fast-check';
 
 export const invalidFolderObject = (): Arbitrary<Record<string, any>> =>
   fc

@@ -1,6 +1,5 @@
-import fc from 'fast-check';
-import { Arbitrary } from 'fast-check';
 import { Serializable } from './index';
+import fc, { Arbitrary } from 'fast-check';
 
 export const regExp = (): Arbitrary<RegExp> =>
   fc.hexaString().map((value) => new RegExp(value));

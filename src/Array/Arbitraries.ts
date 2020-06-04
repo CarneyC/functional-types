@@ -1,5 +1,4 @@
-import fc from 'fast-check';
-import { Arbitrary } from 'fast-check';
+import fc, { Arbitrary } from 'fast-check';
 import { max } from 'ramda';
 
 export const arrays = (): Arbitrary<{ array: string[]; subArray: string[] }> =>

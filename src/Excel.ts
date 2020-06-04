@@ -1,3 +1,4 @@
+import { isDictionary, isNotNil, isString } from './Types';
 import {
   all,
   allPass,
@@ -11,7 +12,6 @@ import {
   propSatisfies,
   values,
 } from 'ramda';
-import { isDictionary, isNotNil, isString } from './Types';
 
 export interface Position {
   file: string;

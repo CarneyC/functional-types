@@ -1,11 +1,11 @@
-import chai from 'chai';
-import * as C from '../../../src/Comparable';
 import * as Sample from './Sample';
-import * as R from 'fp-ts/lib/Reader';
-import { keys, pipe, prop, test as regExpTest } from 'ramda';
+import * as C from '../../../src/Comparable';
+import { DocumentAnnotation } from '../../../src/DocumentAnnotation';
+import chai from 'chai';
 import chaiLike from 'chai-like';
 import chaiThings from 'chai-things';
-import { DocumentAnnotation } from '../../../src/DocumentAnnotation';
+import * as R from 'fp-ts/lib/Reader';
+import { keys, pipe, prop, test as regExpTest } from 'ramda';
 
 chai.use(chaiLike);
 chai.use(chaiThings);
