@@ -40,6 +40,7 @@
 * ["Vertex/Arbitraries"](#modules_vertex_arbitraries_md)
 * ["Vertex/index"](#modules_vertex_index_md)
 * ["Vision"](#modules_vision_md)
+* ["fp-ts/Reader"](#modules_fp_ts_reader_md)
 * ["fp-ts/ReaderIO"](#modules_fp_ts_readerio_md)
 * ["fp-ts/TaskEither"](#modules_fp_ts_taskeither_md)
 * ["index"](#modules_index_md)
@@ -6983,6 +6984,61 @@ Name | Type |
 **Returns:** *object*
 
 * **file**: *string*
+
+
+<a name="modules_fp_ts_reader_md"></a>
+
+[functional-types](#globalsmd) › ["fp-ts/Reader"](#modules_fp_ts_reader_md)
+
+## Module: "fp-ts/Reader"
+
+### Index
+
+#### Functions
+
+* [flip](#const-flip)
+
+### Functions
+
+#### `Const` flip
+
+▸ **flip**<**R**, **A**, **B**>(`fa`: function): *function*
+
+Defined in src/fp-ts/Reader.ts:8
+
+```haskell
+flip :: (A -> Reader R B) -> (R -> Reader A B)
+```
+
+**Type parameters:**
+
+▪ **R**
+
+▪ **A**
+
+▪ **B**
+
+**Parameters:**
+
+▪ **fa**: *function*
+
+▸ (`ma`: A): *Reader‹R, B›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`ma` | A |
+
+**Returns:** *function*
+
+▸ (`ma`: R): *Reader‹A, B›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`ma` | R |
 
 
 <a name="modules_fp_ts_readerio_md"></a>
