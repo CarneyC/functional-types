@@ -146,7 +146,7 @@ export type SchemaTransducer<A extends Annotation> = (
   annotations: A[]
 ) => R.Reader<S.Schema, TreeByFile>;
 
-export type ComparableMaker<A extends Annotation> = (
+export type MakeComparables<A extends Annotation> = (
   annotations: A[]
 ) => RIO.ReaderIO<S.Schema, Comparable[]>;
 
@@ -1057,7 +1057,7 @@ export const mergeComparables: (
  */
 export const makeComparablesWith: <A extends Annotation>(
   fa: SchemaTransducer<A>
-) => ComparableMaker<A> = (fa) =>
+) => MakeComparables<A> = (fa) =>
   pipe(
     fa,
     R.chain(
@@ -1092,6 +1092,6 @@ export const makeComparablesWith: <A extends Annotation>(
  * makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
  * ```
  */
-export const makeComparables: ComparableMaker<D.DocumentAnnotation> = makeComparablesWith(
+export const makeComparables: MakeComparables<D.DocumentAnnotation> = makeComparablesWith(
   applySchema
 );

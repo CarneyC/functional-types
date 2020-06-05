@@ -3942,9 +3942,9 @@ Name | Type |
 #### Type aliases
 
 * [AnnotationTransducer](#annotationtransducer)
-* [ComparableMaker](#comparablemaker)
 * [Direction](#direction)
 * [FromBranchOptions](#frombranchoptions)
+* [MakeComparables](#makecomparables)
 * [Mapping](#mapping)
 * [Node](#node)
 * [Path](#path)
@@ -4020,24 +4020,6 @@ Name | Type |
 
 ___
 
-####  ComparableMaker
-
-Ƭ **ComparableMaker**: *function*
-
-Defined in src/Comparable.ts:149
-
-##### Type declaration:
-
-▸ (`annotations`: A[]): *RIO.ReaderIO‹[Schema](#interfaces_schema_schemamd), [Comparable](#interfaces_comparable_comparablemd)[]›*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`annotations` | A[] |
-
-___
-
 ####  Direction
 
 Ƭ **Direction**: *"column" | "row"*
@@ -4051,6 +4033,24 @@ ___
 Ƭ **FromBranchOptions**: *[FromLeafOptions](#interfaces_comparable_fromleafoptionsmd)[]*
 
 Defined in src/Comparable.ts:130
+
+___
+
+####  MakeComparables
+
+Ƭ **MakeComparables**: *function*
+
+Defined in src/Comparable.ts:149
+
+##### Type declaration:
+
+▸ (`annotations`: A[]): *RIO.ReaderIO‹[Schema](#interfaces_schema_schemamd), [Comparable](#interfaces_comparable_comparablemd)[]›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`annotations` | A[] |
 
 ___
 
@@ -4445,7 +4445,7 @@ ___
 
 #### `Const` makeComparables
 
-• **makeComparables**: *[ComparableMaker](#comparablemaker)‹[DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)›* = makeComparablesWith(
+• **makeComparables**: *[MakeComparables](#makecomparables)‹[DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)›* = makeComparablesWith(
   applySchema
 )
 
