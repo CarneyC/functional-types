@@ -1,6 +1,7 @@
 import { getCurrentISOString } from './DateTime';
 import * as D from './DocumentAnnotation';
 import { isPosition, Position } from './Excel';
+import * as FT from './FileType';
 import { getFileNameFromId } from './Folder';
 import * as RIO from './fp-ts/ReaderIO';
 import * as S from './Schema';
@@ -8,6 +9,7 @@ import { PathSegment } from './Schema';
 import { getRandomId } from './String';
 import {
   isArray,
+  isArraySatisfying,
   isDictionary,
   isNotNil,
   isRegExp,
@@ -105,6 +107,11 @@ export interface Comparable<T = Leaf> {
   updated_at: string;
 }
 
+export type ComparablesByType<T = Leaf> = Record<
+  FT.DocumentType,
+  Comparable<T>[]
+>;
+
 export type TreeView = Dictionary<TreeView | string>;
 
 export interface ComparableView extends Omit<Comparable, 'attributes'> {
@@ -199,6 +206,21 @@ export const isComparable = (a: unknown): a is Comparable =>
     propSatisfies(isTree, 'attributes'),
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
+  ])(a);
+
+/**
+ * ```haskell
+ * isComparablesByType :: a -> bool
+ * ```
+ */
+export const isComparablesByType = (a: unknown): a is ComparablesByType =>
+  allPass([
+    is(Object),
+    ...map(propSatisfies(isArraySatisfying(isComparable)), [
+      'pdf',
+      'json',
+      'excel',
+    ]),
   ])(a);
 
 /**
