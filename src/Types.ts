@@ -14,6 +14,23 @@ import {
   propSatisfies,
 } from 'ramda';
 
+export type ArrayPredicate<T> = (a: unknown) => a is T[];
+
+/**
+ * ```haskell
+ * isArraySatisfying :: a ->  bool
+ * ```
+ */
+export function isArraySatisfying<T>(
+  predicate: (a: unknown) => a is T
+): ArrayPredicate<T>;
+
+export function isArraySatisfying(
+  predicate: (a: unknown) => boolean
+): ArrayPredicate<unknown> {
+  return allPass([isArray, all(predicate)]) as ArrayPredicate<unknown>;
+}
+
 /**
  * ```haskell
  * propSatisfiesIfExists :: (Pred, String) -> Reader a bool
@@ -75,20 +92,3 @@ export const isArray = (a: unknown): a is unknown[] => is(Array)(a);
  */
 export const isDictionary = (a: unknown): a is Dictionary<unknown> =>
   allPass([is(Object), pipe(keys, all(isString))])(a);
-
-/**
- * ```haskell
- * isArraySatisfying :: a ->  bool
- * ```
- */
-export function isArraySatisfying<T>(
-  predicate: (a: unknown) => a is T,
-  a: unknown
-): a is T[];
-
-export function isArraySatisfying(
-  predicate: (a: unknown) => boolean,
-  a: unknown
-): a is unknown[] {
-  return allPass([isArray, all(predicate)])(a);
-}

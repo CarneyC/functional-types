@@ -7347,6 +7347,7 @@ Name | Type |
 
 #### References
 
+* [ArrayPredicate](#arraypredicate)
 * [isArray](#isarray)
 * [isArraySatisfying](#isarraysatisfying)
 * [isDictionary](#isdictionary)
@@ -7358,6 +7359,12 @@ Name | Type |
 * [propSatisfiesIfExists](#propsatisfiesifexists)
 
 ### References
+
+####  ArrayPredicate
+
+• **ArrayPredicate**:
+
+___
 
 ####  isArray
 
@@ -9775,6 +9782,10 @@ Name | Type |
 
 ### Index
 
+#### Type aliases
+
+* [ArrayPredicate](#arraypredicate)
+
 #### Variables
 
 * [isNotNil](#const-isnotnil)
@@ -9790,13 +9801,31 @@ Name | Type |
 * [isString](#const-isstring)
 * [propSatisfiesIfExists](#const-propsatisfiesifexists)
 
+### Type aliases
+
+####  ArrayPredicate
+
+Ƭ **ArrayPredicate**: *function*
+
+Defined in src/Types.ts:17
+
+##### Type declaration:
+
+▸ (`a`: unknown): *a is T[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
 ### Variables
 
 #### `Const` isNotNil
 
 • **isNotNil**: *function* = pipe(isNil, not)
 
-Defined in src/Types.ts:33
+Defined in src/Types.ts:50
 
 ```haskell
 isNotNil :: a -> bool
@@ -9818,7 +9847,7 @@ Name | Type |
 
 ▸ **isArray**(`a`: unknown): *a is unknown[]*
 
-Defined in src/Types.ts:69
+Defined in src/Types.ts:86
 
 ```haskell
 isArray :: a -> bool
@@ -9836,9 +9865,9 @@ ___
 
 ####  isArraySatisfying
 
-▸ **isArraySatisfying**<**T**>(`predicate`: function, `a`: unknown): *a is T[]*
+▸ **isArraySatisfying**<**T**>(`predicate`: function): *[ArrayPredicate](#arraypredicate)‹T›*
 
-Defined in src/Types.ts:84
+Defined in src/Types.ts:24
 
 ```haskell
 isArraySatisfying :: a ->  bool
@@ -9860,9 +9889,7 @@ Name | Type |
 ------ | ------ |
 `a` | unknown |
 
-▪ **a**: *unknown*
-
-**Returns:** *a is T[]*
+**Returns:** *[ArrayPredicate](#arraypredicate)‹T›*
 
 ___
 
@@ -9870,7 +9897,7 @@ ___
 
 ▸ **isDictionary**(`a`: unknown): *a is Dictionary<unknown>*
 
-Defined in src/Types.ts:76
+Defined in src/Types.ts:93
 
 ```haskell
 isDictionary :: a -> bool
@@ -9890,7 +9917,7 @@ ___
 
 ▸ **isNat**(`a`: unknown): *a is number*
 
-Defined in src/Types.ts:54
+Defined in src/Types.ts:71
 
 ```haskell
 isNat :: a -> bool
@@ -9910,7 +9937,7 @@ ___
 
 ▸ **isNumber**(`a`: unknown): *a is number*
 
-Defined in src/Types.ts:47
+Defined in src/Types.ts:64
 
 ```haskell
 isNumber :: a -> bool
@@ -9930,7 +9957,7 @@ ___
 
 ▸ **isRegExp**(`a`: unknown): *a is RegExp*
 
-Defined in src/Types.ts:40
+Defined in src/Types.ts:57
 
 ```haskell
 isRegExp :: a -> bool
@@ -9950,7 +9977,7 @@ ___
 
 ▸ **isString**(`a`: unknown): *a is string*
 
-Defined in src/Types.ts:62
+Defined in src/Types.ts:79
 
 ```haskell
 isString :: a -> bool
@@ -9970,7 +9997,7 @@ ___
 
 ▸ **propSatisfiesIfExists**(`pred`: function, `name`: string): *function*
 
-Defined in src/Types.ts:25
+Defined in src/Types.ts:42
 
 ```haskell
 propSatisfiesIfExists :: (Pred, String) -> Reader a bool
