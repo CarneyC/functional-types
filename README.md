@@ -3942,6 +3942,7 @@ Name | Type |
 #### Type aliases
 
 * [AnnotationTransducer](#annotationtransducer)
+* [ComparableMaker](#comparablemaker)
 * [Direction](#direction)
 * [FromBranchOptions](#frombranchoptions)
 * [Mapping](#mapping)
@@ -4016,6 +4017,24 @@ Defined in src/Comparable.ts:141
 Name | Type |
 ------ | ------ |
 `annotation` | A |
+
+___
+
+####  ComparableMaker
+
+Ƭ **ComparableMaker**: *function*
+
+Defined in src/Comparable.ts:149
+
+##### Type declaration:
+
+▸ (`annotations`: A[]): *RIO.ReaderIO‹[Schema](#interfaces_schema_schemamd), [Comparable](#interfaces_comparable_comparablemd)[]›*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`annotations` | A[] |
 
 ___
 
@@ -4127,7 +4146,7 @@ Defined in src/Comparable.ts:108
   R.map(mapObjIndexed((some: O.Some<Node>) => some.value))
 )
 
-Defined in src/Comparable.ts:794
+Defined in src/Comparable.ts:798
 
 ```haskell
 applyGettables :: ForestByLabel -> Reader Gettables Tree
@@ -4149,7 +4168,7 @@ ___
 
 • **applySchema**: *function* = applySchemaToDocumentAnnotations
 
-Defined in src/Comparable.ts:1003
+Defined in src/Comparable.ts:1007
 
 ```haskell
 applySchema :: [DocumentAnnotation] -> Reader Schema TreeByFile
@@ -4173,7 +4192,7 @@ ___
   pipe(prop('forestByPage'), D.mergeForestByPage, applyGettables)
 )
 
-Defined in src/Comparable.ts:993
+Defined in src/Comparable.ts:997
 
 ```haskell
 applySchemaToDocumentAnnotations :: [DocumentAnnotation] -> Reader Schema TreeByFile
@@ -4195,7 +4214,7 @@ ___
 
 • **fromForest**: *function* = pipe(D.mergeForest, fromForestByLabel)
 
-Defined in src/Comparable.ts:568
+Defined in src/Comparable.ts:572
 
 ```haskell
 fromForest :: Forest -> Reader FromBranchOptions Tree
@@ -4220,7 +4239,7 @@ ___
   sequenceS(R.reader)
 )
 
-Defined in src/Comparable.ts:556
+Defined in src/Comparable.ts:560
 
 ```haskell
 fromForestByLabel :: ForestByLabel -> Reader FromBranchOptions Tree
@@ -4245,7 +4264,7 @@ ___
   fromForestByLabel
 )
 
-Defined in src/Comparable.ts:577
+Defined in src/Comparable.ts:581
 
 ```haskell
 fromForestByPage :: ForestByPage -> Reader FromBranchOptions Tree
@@ -4267,7 +4286,7 @@ ___
 
 • **fromTable**: *function* = pipe(splitTable, R.chain(setKeys))
 
-Defined in src/Comparable.ts:376
+Defined in src/Comparable.ts:380
 
 ```haskell
 fromTable :: Table -> Reader FromTableOptions Tree
@@ -4305,7 +4324,7 @@ ___
   )
 )
 
-Defined in src/Comparable.ts:476
+Defined in src/Comparable.ts:480
 
 ```haskell
 fromTableByName :: TableByName -> Reader FromBranchOptions Tree
@@ -4330,7 +4349,7 @@ ___
   map(getLeafOptionsFromGettable)
 )
 
-Defined in src/Comparable.ts:671
+Defined in src/Comparable.ts:675
 
 ```haskell
 getBranchOptionsFromGettables :: Gettables -> FromBranchOptions
@@ -4357,7 +4376,7 @@ ___
   sequenceS(R.reader)
 )
 
-Defined in src/Comparable.ts:341
+Defined in src/Comparable.ts:345
 
 ```haskell
 getKeysFromPredicate :: Tree -> Reader Predicate String
@@ -4384,7 +4403,7 @@ ___
   splitBy: getDirectionFromGettable,
 })
 
-Defined in src/Comparable.ts:657
+Defined in src/Comparable.ts:661
 
 ```haskell
 getLeafOptionsFromGettable :: Gettable -> FromLeafOptions
@@ -4406,7 +4425,7 @@ ___
 
 • **getPredicateFromPathSegment**: *function* = pipe(when(S.isPredicate, prop('value')), regExpTest)
 
-Defined in src/Comparable.ts:683
+Defined in src/Comparable.ts:687
 
 ```haskell
 getPredicateFromPathSegment :: PathSegment -> Predicate
@@ -4426,23 +4445,15 @@ ___
 
 #### `Const` makeComparables
 
-• **makeComparables**: *function* = makeComparablesWith(applySchema)
+• **makeComparables**: *[ComparableMaker](#comparablemaker)‹[DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)›* = makeComparablesWith(
+  applySchema
+)
 
-Defined in src/Comparable.ts:1091
+Defined in src/Comparable.ts:1095
 
 ```haskell
 makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
 ```
-
-##### Type declaration:
-
-▸ (`annotations`: [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)[]): *RIO.ReaderIO‹[Schema](#interfaces_schema_schemamd), [Comparable](#interfaces_comparable_comparablemd)[]›*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`annotations` | [DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)[] |
 
 ___
 
@@ -4461,7 +4472,7 @@ ___
   )
 )
 
-Defined in src/Comparable.ts:1034
+Defined in src/Comparable.ts:1038
 
 ```haskell
 mergeComparables :: [Comparable] -> Comparable
@@ -4487,7 +4498,7 @@ ___
   R.chain(translateTree)
 )
 
-Defined in src/Comparable.ts:957
+Defined in src/Comparable.ts:961
 
 ```haskell
 postProcessTree :: Tree -> Reader Gettables Tree
@@ -4511,7 +4522,7 @@ ___
   attributes: viewTree,
 })
 
-Defined in src/Comparable.ts:598
+Defined in src/Comparable.ts:602
 
 ```haskell
 view :: Comparable -> ComparableView
@@ -4533,7 +4544,7 @@ Name | Type |
 
 ▸ **applyPath**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:721
+Defined in src/Comparable.ts:725
 
 ```haskell
 applyPath :: Tree -> Reader Path (Option Tree)
@@ -4553,7 +4564,7 @@ ___
 
 ▸ **applySchemaWith**<**A**>(`fa`: function): *function*
 
-Defined in src/Comparable.ts:972
+Defined in src/Comparable.ts:976
 
 ```haskell
 applySchemaWith :: Reader (PartitionedGettables A) Tree -> [A] -> Reader Schema TreeByFile
@@ -4591,7 +4602,7 @@ ___
 
 ▸ **findKeyFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:303
+Defined in src/Comparable.ts:307
 
 ```haskell
 findKeyFromPredicate :: Tree -> Reader Predicate (Option String)
@@ -4611,7 +4622,7 @@ ___
 
 ▸ **findNodeFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹function, None | Some‹[Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›››*
 
-Defined in src/Comparable.ts:315
+Defined in src/Comparable.ts:319
 
 ```haskell
 findNodeFromPredicate :: Tree -> Reader Predicate (Option Node)
@@ -4631,7 +4642,7 @@ ___
 
 ▸ **fromBranch**(`branch`: [Branch](#interfaces_documentannotation_branchmd)): *Reader‹[FromBranchOptions](#frombranchoptions), [Tree](#interfaces_comparable_treemd)›*
 
-Defined in src/Comparable.ts:523
+Defined in src/Comparable.ts:527
 
 ```haskell
 fromBranch :: Branch -> Reader FromBranchOptions Tree
@@ -4651,7 +4662,7 @@ ___
 
 ▸ **fromCell**(`cell`: [Cell](#interfaces_documentannotation_cellmd)): *object*
 
-Defined in src/Comparable.ts:501
+Defined in src/Comparable.ts:505
 
 ```haskell
 fromCell :: Cell -> Node
@@ -4677,7 +4688,7 @@ ___
 
 ▸ **fromCellByName**(`cells`: Dictionary‹[Cell](#interfaces_documentannotation_cellmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:515
+Defined in src/Comparable.ts:519
 
 ```haskell
 fromCellByName :: CellByName -> Reader FromBranchOptions Node
@@ -4697,7 +4708,7 @@ ___
 
 ▸ **getKeyFromPredicate**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹function, None | Some‹string››*
 
-Defined in src/Comparable.ts:329
+Defined in src/Comparable.ts:333
 
 ```haskell
 getKeyFromPredicate :: Tree -> Reader Predicate (Option String)
@@ -4717,7 +4728,7 @@ ___
 
 ▸ **getTableOptions**(`key`: string): *function*
 
-Defined in src/Comparable.ts:465
+Defined in src/Comparable.ts:469
 
 ```haskell
 getTableOptions :: String -> Reader FromBranchOptions (Option FromTableOptions)
@@ -4745,7 +4756,7 @@ ___
 
 ▸ **isComparable**(`a`: unknown): *a is Comparable*
 
-Defined in src/Comparable.ts:190
+Defined in src/Comparable.ts:194
 
 ```haskell
 isComparable :: a -> bool
@@ -4765,7 +4776,7 @@ ___
 
 ▸ **isLeaf**(`a`: unknown): *a is Leaf*
 
-Defined in src/Comparable.ts:166
+Defined in src/Comparable.ts:170
 
 ```haskell
 isLeaf :: a -> bool
@@ -4785,7 +4796,7 @@ ___
 
 ▸ **isMetadata**(`a`: unknown): *a is Metadata*
 
-Defined in src/Comparable.ts:154
+Defined in src/Comparable.ts:158
 
 ```haskell
 isMetadata :: a -> bool
@@ -4805,7 +4816,7 @@ ___
 
 ▸ **isTree**(`a`: unknown): *a is Tree*
 
-Defined in src/Comparable.ts:178
+Defined in src/Comparable.ts:182
 
 ```haskell
 isTree :: a -> bool
@@ -4825,7 +4836,7 @@ ___
 
 ▸ **makeComparable**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›, `file`: string): *(Anonymous function)*
 
-Defined in src/Comparable.ts:1015
+Defined in src/Comparable.ts:1019
 
 ```haskell
 makeComparables :: (Tree, String) -> ReaderIO Schema Comparable
@@ -4846,7 +4857,7 @@ ___
 
 ▸ **makeComparablesWith**(`fa`: function): *function*
 
-Defined in src/Comparable.ts:1056
+Defined in src/Comparable.ts:1060
 
 ```haskell
 makeComparablesWith :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
@@ -4880,7 +4891,7 @@ ___
 
 ▸ **makeLeaf**(`value`: string): *object*
 
-Defined in src/Comparable.ts:241
+Defined in src/Comparable.ts:245
 
 ```haskell
 makeLeaf :: String -> Leaf
@@ -4902,7 +4913,7 @@ ___
 
 ▸ **partition**(`branch`: [Branch](#interfaces_documentannotation_branchmd)): *(Anonymous function)*
 
-Defined in src/Comparable.ts:443
+Defined in src/Comparable.ts:447
 
 ```haskell
 partition :: Descendant -> Reader FromBranchOptions Format DescendantByLabel
@@ -4922,7 +4933,7 @@ ___
 
 ▸ **partitionGettables**<**T**>(`annotations`: T[]): *function*
 
-Defined in src/Comparable.ts:831
+Defined in src/Comparable.ts:835
 
 ```haskell
 partitionGettables :: [DocumentAnnotation] -> Reader Gettables (Dictionary Gettables)
@@ -4954,7 +4965,7 @@ ___
 
 ▸ **satisfyProperties**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *function*
 
-Defined in src/Comparable.ts:705
+Defined in src/Comparable.ts:709
 
 ```haskell
 satisfyProperties :: Tree -> Reader [Property] Bool
@@ -4982,7 +4993,7 @@ ___
 
 ▸ **setKeys**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *Reader‹[FromTableOptions](#interfaces_comparable_fromtableoptionsmd), object›*
 
-Defined in src/Comparable.ts:355
+Defined in src/Comparable.ts:359
 
 ```haskell
 setKeys :: Tree -> Reader PredicateStr Tree
@@ -5002,7 +5013,7 @@ ___
 
 ▸ **splitTable**(`table`: [Table](#interfaces_documentannotation_tablemd)): *(Anonymous function)*
 
-Defined in src/Comparable.ts:275
+Defined in src/Comparable.ts:279
 
 ```haskell
 splitTable :: Table -> Reader Direction Tree
@@ -5022,7 +5033,7 @@ ___
 
 ▸ **translateNode**(`node`: [Leaf](#interfaces_comparable_leafmd) | [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:769
+Defined in src/Comparable.ts:773
 
 ```haskell
 translateNode :: Node -> Reader Path Node
@@ -5042,7 +5053,7 @@ ___
 
 ▸ **translateTree**(`tree`: [Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparable_leafmd)›): *(Anonymous function)*
 
-Defined in src/Comparable.ts:873
+Defined in src/Comparable.ts:877
 
 ```haskell
 translateTree :: Tree -> Reader Gettables Tree
@@ -5062,7 +5073,7 @@ ___
 
 ▸ **unnest**(`key`: string): *function*
 
-Defined in src/Comparable.ts:250
+Defined in src/Comparable.ts:254
 
 ```haskell
 unnest :: String -> Reader Tree Tree
@@ -5090,7 +5101,7 @@ ___
 
 ▸ **viewTree**(`tree`: [Tree](#interfaces_comparable_treemd)): *[TreeView](#treeview)*
 
-Defined in src/Comparable.ts:589
+Defined in src/Comparable.ts:593
 
 ```haskell
 viewTree :: Tree -> TreeView

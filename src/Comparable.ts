@@ -146,6 +146,10 @@ export type SchemaTransducer<A extends Annotation> = (
   annotations: A[]
 ) => R.Reader<S.Schema, TreeByFile>;
 
+export type ComparableMaker<A extends Annotation> = (
+  annotations: A[]
+) => RIO.ReaderIO<S.Schema, Comparable[]>;
+
 /**
  * ```haskell
  * isMetadata :: a -> bool
@@ -1053,7 +1057,7 @@ export const mergeComparables: (
  */
 export const makeComparablesWith: <A extends Annotation>(
   fa: SchemaTransducer<A>
-) => (annotations: A[]) => RIO.ReaderIO<S.Schema, Comparable[]> = (fa) =>
+) => ComparableMaker<A> = (fa) =>
   pipe(
     fa,
     R.chain(
@@ -1088,6 +1092,6 @@ export const makeComparablesWith: <A extends Annotation>(
  * makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
  * ```
  */
-export const makeComparables: (
-  annotations: D.DocumentAnnotation[]
-) => RIO.ReaderIO<S.Schema, Comparable[]> = makeComparablesWith(applySchema);
+export const makeComparables: ComparableMaker<D.DocumentAnnotation> = makeComparablesWith(
+  applySchema
+);
