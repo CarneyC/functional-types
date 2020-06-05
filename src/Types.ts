@@ -92,3 +92,10 @@ export const isArray = (a: unknown): a is unknown[] => is(Array)(a);
  */
 export const isDictionary = (a: unknown): a is Dictionary<unknown> =>
   allPass([is(Object), pipe(keys, all(isString))])(a);
+
+/**
+ * ```haskell
+ * isBoolean :: a -> bool
+ * ```
+ */
+export const isBoolean = (a: unknown): a is boolean => is(Boolean)(a);

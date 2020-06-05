@@ -25,6 +25,7 @@ import {
 export type Serializable =
   | string
   | number
+  | boolean
   | RegExp
   | Serializable[]
   | Dictionary<Serializable>;
@@ -32,6 +33,7 @@ export type Serializable =
 export type Deserializable =
   | string
   | number
+  | boolean
   | Deserializable[]
   | Dictionary<Deserializable>;
 
@@ -98,7 +100,8 @@ export const deserializeArray: <A>(array: Dictionary<A>) => A[] = values;
  */
 export function serialize(value: Serializable): Deserializable {
   if (T.isRegExp(value)) return serializeRegExp(value);
-  if (T.isString(value) || T.isNumber(value)) return value;
+  if (T.isString(value) || T.isNumber(value) || T.isBoolean(value))
+    return value;
   return map(serialize, value) as Deserializable[] | Dictionary<Deserializable>;
 }
 

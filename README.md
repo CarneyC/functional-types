@@ -7407,6 +7407,7 @@ Name | Type |
 * [ArrayPredicate](#arraypredicate)
 * [isArray](#isarray)
 * [isArraySatisfying](#isarraysatisfying)
+* [isBoolean](#isboolean)
 * [isDictionary](#isdictionary)
 * [isNat](#isnat)
 * [isNotNil](#isnotnil)
@@ -7432,6 +7433,12 @@ ___
 ####  isArraySatisfying
 
 • **isArraySatisfying**:
+
+___
+
+####  isBoolean
+
+• **isBoolean**:
 
 ___
 
@@ -8566,15 +8573,15 @@ Defined in src/Serialize/Arbitraries.ts:7
 
 ####  Deserializable
 
-Ƭ **Deserializable**: *string | number | [Deserializable](#deserializable)[] | Dictionary‹[Deserializable](#deserializable)›*
+Ƭ **Deserializable**: *string | number | boolean | [Deserializable](#deserializable)[] | Dictionary‹[Deserializable](#deserializable)›*
 
-Defined in src/Serialize/index.ts:32
+Defined in src/Serialize/index.ts:33
 
 ___
 
 ####  Serializable
 
-Ƭ **Serializable**: *string | number | RegExp | [Serializable](#serializable)[] | Dictionary‹[Serializable](#serializable)›*
+Ƭ **Serializable**: *string | number | boolean | RegExp | [Serializable](#serializable)[] | Dictionary‹[Serializable](#serializable)›*
 
 Defined in src/Serialize/index.ts:25
 
@@ -8584,7 +8591,7 @@ Defined in src/Serialize/index.ts:25
 
 • **deserializeArray**: *function* = values
 
-Defined in src/Serialize/index.ts:92
+Defined in src/Serialize/index.ts:94
 
 ```haskell
 deserializeArray :: Dictionary A -> [A]
@@ -8620,7 +8627,7 @@ ___
   )
 )
 
-Defined in src/Serialize/index.ts:61
+Defined in src/Serialize/index.ts:63
 
 ```haskell
 deserializeRegExp :: String -> Either RegExp Error
@@ -8645,7 +8652,7 @@ ___
   concat('__REGEXP__')
 )
 
-Defined in src/Serialize/index.ts:43
+Defined in src/Serialize/index.ts:45
 
 ```haskell
 serializeRegExp :: RegExp -> String
@@ -8667,7 +8674,7 @@ Name | Type |
 
 ▸ **deserialize**(`value`: [Deserializable](#deserializable)): *E.Either‹Error, [Serializable](#serializable)›*
 
-Defined in src/Serialize/index.ts:111
+Defined in src/Serialize/index.ts:114
 
 ```haskell
 deserialize :: Deserializable -> Either Serializable Error
@@ -8687,7 +8694,7 @@ ___
 
 ▸ **isRegExp**(`a`: unknown): *boolean*
 
-Defined in src/Serialize/index.ts:53
+Defined in src/Serialize/index.ts:55
 
 ```haskell
 isRegExp :: a -> bool
@@ -8707,7 +8714,7 @@ ___
 
 ▸ **serialize**(`value`: [Serializable](#serializable)): *[Deserializable](#deserializable)*
 
-Defined in src/Serialize/index.ts:99
+Defined in src/Serialize/index.ts:101
 
 ```haskell
 serialize :: Serializable -> Deserializable
@@ -8727,7 +8734,7 @@ ___
 
 ▸ **serializeArray**<**A**>(`array`: A[]): *Dictionary‹A›*
 
-Defined in src/Serialize/index.ts:80
+Defined in src/Serialize/index.ts:82
 
 ```haskell
 serializeArray :: [A] -> Dictionary A
@@ -9851,6 +9858,7 @@ Name | Type |
 
 * [isArray](#const-isarray)
 * [isArraySatisfying](#isarraysatisfying)
+* [isBoolean](#const-isboolean)
 * [isDictionary](#const-isdictionary)
 * [isNat](#const-isnat)
 * [isNumber](#const-isnumber)
@@ -9947,6 +9955,26 @@ Name | Type |
 `a` | unknown |
 
 **Returns:** *[ArrayPredicate](#arraypredicate)‹T›*
+
+___
+
+#### `Const` isBoolean
+
+▸ **isBoolean**(`a`: unknown): *a is boolean*
+
+Defined in src/Types.ts:101
+
+```haskell
+isBoolean :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is boolean*
 
 ___
 
