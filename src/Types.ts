@@ -98,4 +98,5 @@ export const isDictionary = (a: unknown): a is Dictionary<unknown> =>
  * isBoolean :: a -> bool
  * ```
  */
-export const isBoolean = (a: unknown): a is boolean => is(Boolean)(a);
+export const isBoolean = (a: unknown): a is boolean =>
+  a === true || a === false;
