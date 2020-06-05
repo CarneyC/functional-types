@@ -7348,6 +7348,7 @@ Name | Type |
 #### References
 
 * [isArray](#isarray)
+* [isArraySatisfying](#isarraysatisfying)
 * [isDictionary](#isdictionary)
 * [isNat](#isnat)
 * [isNotNil](#isnotnil)
@@ -7361,6 +7362,12 @@ Name | Type |
 ####  isArray
 
 • **isArray**:
+
+___
+
+####  isArraySatisfying
+
+• **isArraySatisfying**:
 
 ___
 
@@ -9775,6 +9782,7 @@ Name | Type |
 #### Functions
 
 * [isArray](#const-isarray)
+* [isArraySatisfying](#isarraysatisfying)
 * [isDictionary](#const-isdictionary)
 * [isNat](#const-isnat)
 * [isNumber](#const-isnumber)
@@ -9823,6 +9831,38 @@ Name | Type |
 `a` | unknown |
 
 **Returns:** *a is unknown[]*
+
+___
+
+####  isArraySatisfying
+
+▸ **isArraySatisfying**<**T**>(`predicate`: function, `a`: unknown): *a is T[]*
+
+Defined in src/Types.ts:84
+
+```haskell
+isArraySatisfying :: a ->  bool
+```
+
+**Type parameters:**
+
+▪ **T**
+
+**Parameters:**
+
+▪ **predicate**: *function*
+
+▸ (`a`: unknown): *a is T*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+▪ **a**: *unknown*
+
+**Returns:** *a is T[]*
 
 ___
 

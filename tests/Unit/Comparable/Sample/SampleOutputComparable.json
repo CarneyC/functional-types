@@ -1,0 +1,2028 @@
+{
+    "IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx": {
+        "asset_allocation": {
+            "Equities": {
+                "Asset Allocation": {
+                    "value": "Equities",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A5"
+                        }
+                    }
+                },
+                "# of Issues": {
+                    "value": 70,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B5"
+                        }
+                    }
+                },
+                "% Total Portfolio": {
+                    "value": 0.3469,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C5"
+                        }
+                    }
+                }
+            },
+            "Corporates": {
+                "Asset Allocation": {
+                    "value": "Corporates",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A6"
+                        }
+                    }
+                },
+                "# of Issues": {
+                    "value": 74,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B6"
+                        }
+                    }
+                },
+                "% Total Portfolio": {
+                    "value": 0.3139,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C6"
+                        }
+                    }
+                }
+            },
+            "Convertibles": {
+                "Asset Allocation": {
+                    "value": "Convertibles",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A7"
+                        }
+                    }
+                },
+                "# of Issues": {
+                    "value": 115,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B7"
+                        }
+                    }
+                },
+                "% Total Portfolio": {
+                    "value": 0.3395,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C7"
+                        }
+                    }
+                }
+            },
+            "": {
+                "Asset Allocation": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A8"
+                        }
+                    }
+                },
+                "# of Issues": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B8"
+                        }
+                    }
+                },
+                "% Total Portfolio": {
+                    "value": 1.0003000000000002,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C8"
+                        }
+                    }
+                }
+            }
+        },
+        "rating_allocation_high_yield_bond": {},
+        "rating_allocation_convertible_bonds": {
+            "AAA:": {
+                "Credit Quality - Convertibles": {
+                    "value": "AAA:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A195"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C195"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D195"
+                        }
+                    }
+                }
+            },
+            "AA:": {
+                "Credit Quality - Convertibles": {
+                    "value": "AA:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A196"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C196"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D196"
+                        }
+                    }
+                }
+            },
+            "A:": {
+                "Credit Quality - Convertibles": {
+                    "value": "A:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A197"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C197"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D197"
+                        }
+                    }
+                }
+            },
+            "BBB:": {
+                "Credit Quality - Convertibles": {
+                    "value": "BBB:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A198"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0919,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C198"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": 0.0847318,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D198"
+                        }
+                    }
+                }
+            },
+            "BB:": {
+                "Credit Quality - Convertibles": {
+                    "value": "BB:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A199"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.041,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C199"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": 0.037802,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D199"
+                        }
+                    }
+                }
+            },
+            "B:": {
+                "Credit Quality - Convertibles": {
+                    "value": "B:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A200"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.1026,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C200"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": 0.09459719999999999,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D200"
+                        }
+                    }
+                }
+            },
+            "CCC:": {
+                "Credit Quality - Convertibles": {
+                    "value": "CCC:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A201"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C201"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D201"
+                        }
+                    }
+                }
+            },
+            "Not rated:": {
+                "Credit Quality - Convertibles": {
+                    "value": "Not rated:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A202"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.7645,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C202"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": 0.704869,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D202"
+                        }
+                    }
+                }
+            },
+            "Cash:": {
+                "Credit Quality - Convertibles": {
+                    "value": "Cash:",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A203"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C203"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio w Cash": {
+                    "value": 0.078,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D203"
+                        }
+                    }
+                }
+            }
+        },
+        "sector_allocation_equities_equity_securities": {
+            "COMMUNICATION SERVICES": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "COMMUNICATION SERVICES",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A60"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.108,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C60"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.1165,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D60"
+                        }
+                    }
+                }
+            },
+            "CONSUMER DISCRETIONARY": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "CONSUMER DISCRETIONARY",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A61"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.1401,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C61"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.1407,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D61"
+                        }
+                    }
+                }
+            },
+            "CONSUMER STAPLES": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "CONSUMER STAPLES",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A62"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0325,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C62"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.0463,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D62"
+                        }
+                    }
+                }
+            },
+            "ENERGY": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "ENERGY",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A63"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0096,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C63"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.0014,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D63"
+                        }
+                    }
+                }
+            },
+            "FINANCIALS": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "FINANCIALS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A64"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.034,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C64"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.0291,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D64"
+                        }
+                    }
+                }
+            },
+            "HEALTH CARE": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "HEALTH CARE",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A65"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.1665,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C65"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.151,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D65"
+                        }
+                    }
+                }
+            },
+            "INDUSTRIALS": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "INDUSTRIALS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A66"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0591,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C66"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.0801,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D66"
+                        }
+                    }
+                }
+            },
+            "INFORMATION TECHNOLOGY": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "INFORMATION TECHNOLOGY",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A67"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.3797,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C67"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.3975,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D67"
+                        }
+                    }
+                }
+            },
+            "MATERIALS": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "MATERIALS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A68"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.008,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C68"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.0125,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D68"
+                        }
+                    }
+                }
+            },
+            "REAL ESTATE": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "REAL ESTATE",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A69"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0151,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C69"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": 0.0249,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D69"
+                        }
+                    }
+                }
+            },
+            "CASH": {
+                "US Equity Sector (GICS) Breakdown": {
+                    "value": "CASH",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A70"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0473,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C70"
+                        }
+                    }
+                },
+                "% Russell 1000 Growth": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D70"
+                        }
+                    }
+                }
+            }
+        },
+        "top_5_holdings_high_yield_bonds": {},
+        "top_5_holdings_convertiable_bonds": {
+            "MICROCHIP TECHNOLOGY INC 1.625% 02/15/2027": {
+                "Top 10 Convertible Issues": {
+                    "value": "MICROCHIP TECHNOLOGY INC 1.625% 02/15/2027",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A147"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "595017AF1",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B147"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0254,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C147"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0084,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D147"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "ELECTRONICS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E147"
+                        }
+                    }
+                }
+            },
+            "TESLA INC 1.25% 03/01/2021": {
+                "Top 10 Convertible Issues": {
+                    "value": "TESLA INC 1.25% 03/01/2021",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A148"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "88160RAC5",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B148"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0231,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C148"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0077,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D148"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "AUTOMAKERS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E148"
+                        }
+                    }
+                }
+            },
+            "BANK OF AMERICA CORP 7.25% 04/30/2198": {
+                "Top 10 Convertible Issues": {
+                    "value": "BANK OF AMERICA CORP 7.25% 04/30/2198",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A149"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "B2PB3Z7",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B149"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0223,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C149"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0074,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D149"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "BANKING",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E149"
+                        }
+                    }
+                }
+            },
+            "BROADCOM INC 8% 09/30/2022": {
+                "Top 10 Convertible Issues": {
+                    "value": "BROADCOM INC 8% 09/30/2022",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A150"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "BKTDW14",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B150"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0171,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C150"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0057,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D150"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "ELECTRONICS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E150"
+                        }
+                    }
+                }
+            },
+            "CROWN CASTLE INTL CORP 6.875% 08/01/2020": {
+                "Top 10 Convertible Issues": {
+                    "value": "CROWN CASTLE INTL CORP 6.875% 08/01/2020",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A151"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "BF0C7S7",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B151"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.016,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C151"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0053,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D151"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "TELECOM - WIRELESS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E151"
+                        }
+                    }
+                }
+            },
+            "DEXCOM INC 0.75% 12/01/2023": {
+                "Top 10 Convertible Issues": {
+                    "value": "DEXCOM INC 0.75% 12/01/2023",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A152"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "252131AH0",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B152"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.016,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C152"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0053,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D152"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "MEDICAL PRODUCTS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E152"
+                        }
+                    }
+                }
+            },
+            "AKAMAI TECHNOLOGIES INC 0.125% 05/01/2025": {
+                "Top 10 Convertible Issues": {
+                    "value": "AKAMAI TECHNOLOGIES INC 0.125% 05/01/2025",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A153"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "00971TAJ0",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B153"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0157,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C153"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0052,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D153"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "SOFTWARE/SERVICES",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E153"
+                        }
+                    }
+                }
+            },
+            "DANAHER CORP 4.75% 04/15/2022": {
+                "Top 10 Convertible Issues": {
+                    "value": "DANAHER CORP 4.75% 04/15/2022",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A154"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "BJRJK13",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B154"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0156,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C154"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0052,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D154"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "MEDICAL PRODUCTS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E154"
+                        }
+                    }
+                }
+            },
+            "INSULET CORPORATION 0.375% 09/01/2026": {
+                "Top 10 Convertible Issues": {
+                    "value": "INSULET CORPORATION 0.375% 09/01/2026",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A155"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "45784PAJ0",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B155"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0147,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C155"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0049,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D155"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "MEDICAL PRODUCTS",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E155"
+                        }
+                    }
+                }
+            },
+            "SQUARE INC 0.5% 05/15/2023": {
+                "Top 10 Convertible Issues": {
+                    "value": "SQUARE INC 0.5% 05/15/2023",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A156"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "852234AD5",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B156"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.014,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C156"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0046,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D156"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "SOFTWARE/SERVICES",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E156"
+                        }
+                    }
+                }
+            }
+        },
+        "top_5_holdings_equities_equity_securities": {
+            "AMAZON.COM INC": {
+                "Top 10 US Equity Issues": {
+                    "value": "AMAZON.COM INC",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A48"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": 23135106,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B48"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0439,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C48"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0144,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D48"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "CONSUMER DISCRETIONARY",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E48"
+                        }
+                    }
+                }
+            },
+            "MICROSOFT CORP": {
+                "Top 10 US Equity Issues": {
+                    "value": "MICROSOFT CORP",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A49"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": 594918104,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B49"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0408,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C49"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0134,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D49"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "INFORMATION TECHNOLOGY",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E49"
+                        }
+                    }
+                }
+            },
+            "APPLE INC": {
+                "Top 10 US Equity Issues": {
+                    "value": "APPLE INC",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A50"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": 37833100,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B50"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0403,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C50"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0132,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D50"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "INFORMATION TECHNOLOGY",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E50"
+                        }
+                    }
+                }
+            },
+            "ALPHABET INC-CL A": {
+                "Top 10 US Equity Issues": {
+                    "value": "ALPHABET INC-CL A",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A51"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "02079K305",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B51"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0392,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C51"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0129,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D51"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "COMMUNICATION SERVICES",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E51"
+                        }
+                    }
+                }
+            },
+            "FACEBOOK INC-CLASS A": {
+                "Top 10 US Equity Issues": {
+                    "value": "FACEBOOK INC-CLASS A",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A52"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "30303M102",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B52"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0311,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C52"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0102,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D52"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "COMMUNICATION SERVICES",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E52"
+                        }
+                    }
+                }
+            },
+            "NETFLIX INC": {
+                "Top 10 US Equity Issues": {
+                    "value": "NETFLIX INC",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A53"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "64110L106",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B53"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.03,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C53"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0099,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D53"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "COMMUNICATION SERVICES",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E53"
+                        }
+                    }
+                }
+            },
+            "VISA INC-CLASS A SHARES": {
+                "Top 10 US Equity Issues": {
+                    "value": "VISA INC-CLASS A SHARES",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A54"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "92826C839",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B54"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.026,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C54"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0085,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D54"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "INFORMATION TECHNOLOGY",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E54"
+                        }
+                    }
+                }
+            },
+            "NVIDIA CORP": {
+                "Top 10 US Equity Issues": {
+                    "value": "NVIDIA CORP",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A55"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "67066G104",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B55"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0254,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C55"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0083,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D55"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "INFORMATION TECHNOLOGY",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E55"
+                        }
+                    }
+                }
+            },
+            "UNITEDHEALTH GROUP INC": {
+                "Top 10 US Equity Issues": {
+                    "value": "UNITEDHEALTH GROUP INC",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A56"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": "91324P102",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B56"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0224,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C56"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0074,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D56"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "HEALTH CARE",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E56"
+                        }
+                    }
+                }
+            },
+            "GILEAD SCIENCES INC": {
+                "Top 10 US Equity Issues": {
+                    "value": "GILEAD SCIENCES INC",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A57"
+                        }
+                    }
+                },
+                "Cusip": {
+                    "value": 375558103,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B57"
+                        }
+                    }
+                },
+                "% Total Sub-Portfolio": {
+                    "value": 0.0206,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C57"
+                        }
+                    }
+                },
+                "% Total Master Portfolio": {
+                    "value": 0.0068,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "D57"
+                        }
+                    }
+                },
+                "Sector - Level 4": {
+                    "value": "HEALTH CARE",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "E57"
+                        }
+                    }
+                }
+            }
+        },
+        "statistics_summary": {
+            "% of equities covered": {
+                "% of equities covered": {
+                    "value": "51-75%",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C72"
+                        }
+                    }
+                }
+            },
+            "P/E": {
+                "P/E": {
+                    "value": 19.2,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C73"
+                        }
+                    }
+                }
+            },
+            "Equity dividend yield": {
+                "Equity dividend yield": {
+                    "value": 0.0152,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C74"
+                        }
+                    }
+                }
+            },
+            "Average Convertible Coupon:": {
+                "Average Convertible Coupon:": {
+                    "value": 2.11,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B206"
+                        }
+                    }
+                }
+            },
+            "Convertible Current Yield:": {
+                "Convertible Current Yield:": {
+                    "value": 2.17,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B207"
+                        }
+                    }
+                }
+            },
+            "Conversion Premium:": {
+                "Conversion Premium:": {
+                    "value": 42.53,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B208"
+                        }
+                    }
+                }
+            }
+        },
+        "fund_details": {
+            "Equities": {
+                "Asset Allocation": {
+                    "value": "Equities",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A5"
+                        }
+                    }
+                },
+                "# of Issues": {
+                    "value": 70,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B5"
+                        }
+                    }
+                },
+                "% Total Portfolio": {
+                    "value": 0.3469,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C5"
+                        }
+                    }
+                }
+            },
+            "Corporates": {
+                "Asset Allocation": {
+                    "value": "Corporates",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A6"
+                        }
+                    }
+                },
+                "# of Issues": {
+                    "value": 74,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B6"
+                        }
+                    }
+                },
+                "% Total Portfolio": {
+                    "value": 0.3139,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C6"
+                        }
+                    }
+                }
+            },
+            "Convertibles": {
+                "Asset Allocation": {
+                    "value": "Convertibles",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A7"
+                        }
+                    }
+                },
+                "# of Issues": {
+                    "value": 115,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B7"
+                        }
+                    }
+                },
+                "% Total Portfolio": {
+                    "value": 0.3395,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C7"
+                        }
+                    }
+                }
+            },
+            "": {
+                "Asset Allocation": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "A8"
+                        }
+                    }
+                },
+                "# of Issues": {
+                    "value": "",
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "B8"
+                        }
+                    }
+                },
+                "% Total Portfolio": {
+                    "value": 1.0003000000000002,
+                    "metadata": {
+                        "excel_position": {
+                            "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                            "sheet": "STATS U-1855",
+                            "cell": "C8"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
