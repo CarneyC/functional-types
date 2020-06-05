@@ -120,7 +120,7 @@ export function deserialize(
       E.orElse<Error, string | RegExp, never>(() => E.right(value))
     )(value);
   }
-  if (T.isNumber(value)) return E.right(value);
+  if (T.isNumber(value) || T.isBoolean(value)) return E.right(value);
   if (T.isArray(value)) {
     return pipe(map(deserialize), A.array.sequence(E.either))(value);
   }
