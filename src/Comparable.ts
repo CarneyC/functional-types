@@ -138,6 +138,14 @@ export interface PartitionedGettables<T extends Annotation> {
   gettables: S.Gettables;
 }
 
+export type AnnotationTransducer<A extends Annotation> = (
+  annotation: A
+) => R.Reader<S.Gettables, Tree>;
+
+export type SchemaTransducer<A extends Annotation> = (
+  annotations: A[]
+) => R.Reader<S.Schema, TreeByFile>;
+
 /**
  * ```haskell
  * isMetadata :: a -> bool
@@ -960,10 +968,8 @@ export const postProcessTree: (
  * ```
  */
 export const applySchemaWith: <A extends Annotation>(
-  fa: (annotation: A) => R.Reader<S.Gettables, Tree>
-) => (annotations: A[]) => R.Reader<S.Schema, TreeByFile> = <
-  A extends Annotation
->(
+  fa: AnnotationTransducer<A>
+) => SchemaTransducer<A> = <A extends Annotation>(
   fa: (annotation: A) => R.Reader<S.Gettables, Tree>
 ) =>
   pipe(
@@ -1042,36 +1048,46 @@ export const mergeComparables: (
 
 /**
  * ```haskell
+ * makeComparablesWith :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
+ * ```
+ */
+export const makeComparablesWith: <A extends Annotation>(
+  fa: SchemaTransducer<A>
+) => (annotations: A[]) => RIO.ReaderIO<S.Schema, Comparable[]> = (fa) =>
+  pipe(
+    fa,
+    R.chain(
+      pipe(
+        mapObjIndexed<Tree, RIO.ReaderIO<S.Schema, Comparable>>((tree, file) =>
+          makeComparable(tree, file)
+        ),
+        values,
+        RIO.sequenceReaderIO
+      )
+    ),
+    RIO.chainReaderK(
+      pipe(
+        (comparables: Comparable[]): R.Reader<S.Schema, Comparable[]> => (
+          schema: S.Schema
+        ) =>
+          pathSatisfies(equals(true), ['options', 'merge'], schema)
+            ? pipe(
+                mergeComparables,
+                O.fold(
+                  () => [],
+                  (comparable) => [comparable]
+                )
+              )(comparables)
+            : comparables
+      )
+    )
+  );
+
+/**
+ * ```haskell
  * makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
  * ```
  */
 export const makeComparables: (
   annotations: D.DocumentAnnotation[]
-) => RIO.ReaderIO<S.Schema, Comparable[]> = pipe(
-  applySchema,
-  R.chain(
-    pipe(
-      mapObjIndexed<Tree, RIO.ReaderIO<S.Schema, Comparable>>((tree, file) =>
-        makeComparable(tree, file)
-      ),
-      values,
-      RIO.sequenceReaderIO
-    )
-  ),
-  RIO.chainReaderK(
-    pipe(
-      (comparables: Comparable[]): R.Reader<S.Schema, Comparable[]> => (
-        schema: S.Schema
-      ) =>
-        pathSatisfies(equals(true), ['options', 'merge'], schema)
-          ? pipe(
-              mergeComparables,
-              O.fold(
-                () => [],
-                (comparable) => [comparable]
-              )
-            )(comparables)
-          : comparables
-    )
-  )
-);
+) => RIO.ReaderIO<S.Schema, Comparable[]> = makeComparablesWith(applySchema);
