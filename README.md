@@ -541,7 +541,7 @@ Defined in src/ComparableSchema.ts:28
 
 ####  file_type
 
-• **file_type**: *[Pair](#interfaces_types_pairmd)‹DocumentType›*
+• **file_type**: *[Pair](#interfaces_types_pairmd)‹[DocumentType](#documenttype)›*
 
 Defined in src/Comparison.ts:33
 

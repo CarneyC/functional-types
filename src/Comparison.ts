@@ -4,7 +4,7 @@ import {
   isTreeSatisfying,
   Metadata,
 } from './Comparable';
-import { isDocumentType } from './FileType';
+import { DocumentType, isDocumentType } from './FileType';
 import {
   isDictionary,
   isNumber,
