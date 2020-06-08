@@ -197,21 +197,22 @@ export function isTreeSatisfying<T>(
 export function isTreeSatisfying(
   predicate: (a: unknown) => boolean
 ): TreePredicate<unknown> {
-  return allPass([
-    is(Object),
-    pipe(
-      values,
-      allPass([
-        is(Array),
-        all(
-          anyPass([
-            isTreeSatisfying(predicate as TypePredicate<unknown>),
-            predicate,
-          ])
-        ),
-      ])
-    ),
-  ]) as TreePredicate<unknown>;
+  return (a: unknown): a is Tree =>
+    allPass([
+      is(Object),
+      pipe(
+        values,
+        allPass([
+          is(Array),
+          all(
+            anyPass([
+              isTreeSatisfying(predicate as TypePredicate<unknown>),
+              predicate,
+            ])
+          ),
+        ])
+      ),
+    ])(a);
 }
 
 /**

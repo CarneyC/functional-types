@@ -5,7 +5,7 @@ import chai from 'chai';
 import chaiLike from 'chai-like';
 import chaiThings from 'chai-things';
 import * as R from 'fp-ts/lib/Reader';
-import { keys, pipe, prop, test as regExpTest } from 'ramda';
+import { all, keys, pipe, prop, test as regExpTest } from 'ramda';
 
 chai.use(chaiLike);
 chai.use(chaiThings);
@@ -391,6 +391,15 @@ describe('Comparable', function () {
         expect(actualComparables)
           .to.be.an('array')
           .that.contains.something.like(expectedComparable);
+      });
+
+      it('should return a Comparable.', function () {
+        const schema = Sample.getSchema();
+        const annotations = [annotation];
+
+        const actualComparables = C.makeComparables(annotations)(schema)();
+
+        expect(actualComparables).to.satisfy(all(C.isComparable));
       });
 
       it('should run without error when some of the provided annotations are empty.', function () {
