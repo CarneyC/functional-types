@@ -24,6 +24,7 @@ export type SchemaPath = RegExp | [RegExp];
 
 export interface ComparableSchema extends Pair<SchemaPath> {
   id: string;
+  name: string;
   created_at: string;
   updated_at: string;
 }
@@ -56,7 +57,7 @@ export const isSchemaPath = (a: unknown): a is SchemaPath =>
  * ```
  */
 export const isComparableSchemaBase = (a: unknown): a is ComparableSchemaBase =>
-  isPairSatisfying(isSchemaPath)(a);
+  allPass([isPairSatisfying(isSchemaPath), propIs(String, 'name')])(a);
 
 /**
  * ```haskell

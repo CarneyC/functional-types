@@ -469,6 +469,7 @@ Defined in src/Comparable.ts:124
 * [created_at](#created_at)
 * [id](#id)
 * [left](#left)
+* [name](#name)
 * [right](#right)
 * [updated_at](#updated_at)
 
@@ -478,7 +479,7 @@ Defined in src/Comparable.ts:124
 
 • **created_at**: *string*
 
-Defined in src/ComparableSchema.ts:27
+Defined in src/ComparableSchema.ts:28
 
 ___
 
@@ -500,6 +501,14 @@ Defined in src/Types.ts:20
 
 ___
 
+####  name
+
+• **name**: *string*
+
+Defined in src/ComparableSchema.ts:27
+
+___
+
 ####  right
 
 • **right**: *[SchemaPath](#schemapath)*
@@ -514,7 +523,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/ComparableSchema.ts:28
+Defined in src/ComparableSchema.ts:29
 
 
 <a name="interfaces_comparison_comparisonmd"></a>
@@ -5565,7 +5574,7 @@ Name | Type |
 
 Ƭ **ComparablePair**: *[Pair](#interfaces_types_pairmd)‹[Comparable](#interfaces_comparable_comparablemd)›*
 
-Defined in src/ComparableSchema.ts:36
+Defined in src/ComparableSchema.ts:37
 
 ___
 
@@ -5573,7 +5582,7 @@ ___
 
 Ƭ **ComparableSchemaBase**: *Omit‹[ComparableSchema](#interfaces_comparableschema_comparableschemamd), "id" | "created_at" | "updated_at"›*
 
-Defined in src/ComparableSchema.ts:31
+Defined in src/ComparableSchema.ts:32
 
 ___
 
@@ -5589,7 +5598,7 @@ Defined in src/ComparableSchema.ts:23
 
 ▸ **isComparableSchema**(`a`: unknown): *a is ComparableSchema*
 
-Defined in src/ComparableSchema.ts:66
+Defined in src/ComparableSchema.ts:67
 
 ```haskell
 isComparableSchema :: a -> bool
@@ -5609,7 +5618,7 @@ ___
 
 ▸ **isComparableSchemaBase**(`a`: unknown): *a is ComparableSchemaBase*
 
-Defined in src/ComparableSchema.ts:58
+Defined in src/ComparableSchema.ts:59
 
 ```haskell
 isComparableSchemaBase :: a -> bool
@@ -5629,7 +5638,7 @@ ___
 
 ▸ **isSchemaPath**(`a`: unknown): *a is SchemaPath*
 
-Defined in src/ComparableSchema.ts:50
+Defined in src/ComparableSchema.ts:51
 
 ```haskell
 isSchemaPath :: a -> bool
@@ -5649,7 +5658,7 @@ ___
 
 ▸ **makeComparablePairs**(`__namedParameters`: object): *function*
 
-Defined in src/ComparableSchema.ts:128
+Defined in src/ComparableSchema.ts:129
 
 ```haskell
 makeComparablePairs :: ComparableSchema -> Reader [Comparables] [ComparablePair]
@@ -5674,7 +5683,7 @@ ___
 
 ▸ **makeComparableSchema**(`base`: object): *(Anonymous function)*
 
-Defined in src/ComparableSchema.ts:111
+Defined in src/ComparableSchema.ts:112
 
 ```haskell
 makeComparableSchema :: ComparableSchemaBase -> IO ComparableSchema
@@ -5694,7 +5703,7 @@ ___
 
 ▸ **satisfySchemaPath**(`schemaPath`: RegExp‹› | [RegExp‹›]): *(Anonymous function)*
 
-Defined in src/ComparableSchema.ts:91
+Defined in src/ComparableSchema.ts:92
 
 ```haskell
 satisfySchemaPath :: SchemaPath -> Reader Schema Bool
