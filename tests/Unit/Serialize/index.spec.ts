@@ -1,10 +1,11 @@
-import { deserialize, serialize } from '../../src/Serialize';
-import * as Arb from '../../src/Serialize/Arbitraries';
-import * as S from '../../src/Serialize/Schema';
+import { Deserializable, deserialize, serialize } from '../../../src/Serialize';
+import * as Arb from '../../../src/Serialize/Arbitraries';
+import * as S from '../../../src/Serialize/Schema';
 import chai from 'chai';
 import chaiLike from 'chai-like';
 import fc from 'fast-check';
 import * as E from 'fp-ts/lib/Either';
+import { isRight } from 'fp-ts/lib/Either';
 
 chai.use(chaiLike);
 const { expect } = chai;
@@ -19,6 +20,37 @@ describe('Serialize', function () {
 
           expect(actualObject).to.deep.equal(E.right(expectedObject));
         })
+      );
+    });
+  });
+
+  describe('#deserialize()', function () {
+    it('should not deserialize a boolean', function () {
+      fc.assert(
+        fc.property(fc.boolean(), (expectedBoolean) => {
+          const actualBoolean = deserialize(expectedBoolean);
+
+          expect(actualBoolean).to.deep.equal(E.right(expectedBoolean));
+        })
+      );
+    });
+
+    it('should not deserialize a boolean in a object', function () {
+      fc.assert(
+        fc.property(
+          fc.object({
+            values: [fc.boolean()],
+          }),
+          (expectedObject) => {
+            const result = deserialize(
+              (expectedObject as unknown) as Deserializable
+            );
+
+            const actualObject = isRight(result) ? result.right : result.left;
+
+            expect(actualObject).to.deep.equal(expectedObject);
+          }
+        )
       );
     });
   });
