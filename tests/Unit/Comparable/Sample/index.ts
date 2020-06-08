@@ -52,6 +52,15 @@ export const getDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
   return JSON.parse((buffer as unknown) as string);
 };
 
+// getEmptyDocumentAnnotation :: IO DocumentAnnotation
+export const getEmptyDocumentAnnotation: IO.IO<DocumentAnnotation> = () => {
+  const annotation = getDocumentAnnotation();
+  return {
+    ...annotation,
+    forestByPage: [],
+  };
+};
+
 // getForestByPage :: IO ForestByPage
 export const getForestByPage: IO.IO<ForestByPage> = () =>
   getDocumentAnnotation().forestByPage;

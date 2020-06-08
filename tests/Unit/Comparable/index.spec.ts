@@ -392,6 +392,13 @@ describe('Comparable', function () {
           .to.be.an('array')
           .that.contains.something.like(expectedComparable);
       });
+
+      it('should run without error when some of the provided annotations are empty.', function () {
+        const schema = Sample.getSchema();
+        const annotations = [annotation, Sample.getEmptyDocumentAnnotation()];
+
+        expect(C.makeComparables(annotations)(schema)).to.not.throw;
+      });
     });
   });
 });

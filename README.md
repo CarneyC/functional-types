@@ -20,6 +20,7 @@
 * ["Array/Arbitraries"](#modules_array_arbitraries_md)
 * ["Array/index"](#modules_array_index_md)
 * ["Comparable"](#modules_comparable_md)
+* ["ComparableSchema"](#modules_comparableschema_md)
 * ["DateTime"](#modules_datetime_md)
 * ["DocumentAnnotation"](#modules_documentannotation_md)
 * ["Excel"](#modules_excel_md)
@@ -445,6 +446,40 @@ Defined in src/Comparable.ts:123
 ### Indexable
 
 * \[ **index**: *string*\]: [Node](#node)‹T›
+
+
+<a name="interfaces_comparableschema_comparableschemamd"></a>
+
+[functional-types](#globalsmd) › ["ComparableSchema"](#modules_comparableschema_md) › [ComparableSchema](#interfaces_comparableschema_comparableschemamd)
+
+## Interface: ComparableSchema
+
+### Hierarchy
+
+* **ComparableSchema**
+
+### Index
+
+#### Properties
+
+* [left](#left)
+* [right](#right)
+
+### Properties
+
+####  left
+
+• **left**: *[SchemaPath](#schemapath)*
+
+Defined in src/ComparableSchema.ts:4
+
+___
+
+####  right
+
+• **right**: *[SchemaPath](#schemapath)*
+
+Defined in src/ComparableSchema.ts:5
 
 
 <a name="interfaces_documentannotation_branchmd"></a>
@@ -5144,6 +5179,31 @@ Name | Type |
 `tree` | [Tree](#interfaces_comparable_treemd) |
 
 **Returns:** *[TreeView](#treeview)*
+
+
+<a name="modules_comparableschema_md"></a>
+
+[functional-types](#globalsmd) › ["ComparableSchema"](#modules_comparableschema_md)
+
+## Module: "ComparableSchema"
+
+### Index
+
+#### Interfaces
+
+* [ComparableSchema](#interfaces_comparableschema_comparableschemamd)
+
+#### Type aliases
+
+* [SchemaPath](#schemapath)
+
+### Type aliases
+
+####  SchemaPath
+
+Ƭ **SchemaPath**: *RegExp | [RegExp]*
+
+Defined in src/ComparableSchema.ts:1
 
 
 <a name="modules_datetime_md"></a>
