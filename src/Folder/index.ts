@@ -79,7 +79,7 @@ export const isFolder = (a: unknown): a is Folder =>
 
 /**
  * ```haskell
- * make :: String -> Folder
+ * makeComparableSchema :: String -> Folder
  * ```
  */
 export const make: (name: string) => IO.IO<Folder> = (name) => (): Folder => {

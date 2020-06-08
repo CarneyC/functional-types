@@ -52,7 +52,7 @@ export const serializeRegExp: (regExp: RegExp) => string = pipe(
  * isRegExp :: a -> bool
  * ```
  */
-export const isRegExp = (a: unknown): boolean =>
+export const isRegExp = (a: unknown): a is string =>
   allPass([is(String), regExpTest(/^__REGEXP__\/.*\/$/)])(a);
 
 /**

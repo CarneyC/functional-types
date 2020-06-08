@@ -609,7 +609,7 @@ const getFileNameIO: (
 
 /**
  * ```haskell
- * make :: TableAnnotation -> ReaderIO TextAnnotation DocumentAnnotation
+ * makeComparableSchema :: TableAnnotation -> ReaderIO TextAnnotation DocumentAnnotation
  * ```
  */
 export const make: (

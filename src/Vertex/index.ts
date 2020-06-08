@@ -35,7 +35,6 @@ import {
   sort,
   subtract,
   uniq,
-  lte,
   reduce,
   reject,
   propEq,
@@ -723,25 +722,31 @@ export const ratioContaining: (poly: Poly) => R.Reader<Poly, number> = (
 
 /**
  * ```haskell
- * containedBy :: Poly -> Reader Poly bool
- * ```
- */
-export const containedBy: (
-  poly: Poly,
-  threshold?: number
-) => R.Reader<Poly, boolean> = (poly, threshold = 0.9) =>
-  pipe(ratioContainedBy, R.map(lte(threshold)))(poly);
-
-/**
- * ```haskell
  * contains :: Poly -> Reader Poly bool
  * ```
  */
 export const contains: (
   poly: Poly,
   threshold?: number
-) => R.Reader<Poly, boolean> = (poly, threshold = 0.9) =>
-  pipe(ratioContaining, R.map(lte(threshold)))(poly);
+) => R.Reader<Poly, boolean> = (containee, threshold = 0.9) => (
+  container: Poly
+): boolean => {
+  const containerRatio = ratioContaining(containee)(container);
+  const containeeRatio = ratioContainedBy(containee)(container);
+  return containerRatio >= threshold && containerRatio > containeeRatio;
+};
+
+/**
+ * ```haskell
+ * containedBy :: Poly -> Reader Poly bool
+ * ```
+ */
+export const containedBy: (
+  poly: Poly,
+  threshold?: number
+) => R.Reader<Poly, boolean> = (container, threshold = 0.9) => (
+  containee: Poly
+): boolean => contains(containee, threshold)(container);
 
 /**
  * ```haskell

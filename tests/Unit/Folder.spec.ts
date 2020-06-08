@@ -35,7 +35,7 @@ describe('Folder', function () {
     });
   });
 
-  describe('#make()', function () {
+  describe('#makeComparableSchema()', function () {
     it('should return a folder with the given name', function () {
       fc.assert(
         fc.property(fc.string(), (name) => {

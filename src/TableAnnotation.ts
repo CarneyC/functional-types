@@ -92,7 +92,7 @@ export const toBoundingBoxes: (
 
 /**
  * ```haskell
- * make :: TableAnnotationBase -> IO TableAnnotation
+ * makeComparableSchema :: TableAnnotationBase -> IO TableAnnotation
  * ```
  */
 export const make: (

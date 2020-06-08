@@ -15,6 +15,7 @@ import {
   isRegExp,
   isString,
   propSatisfiesIfExists,
+  TypePredicate,
 } from './Types';
 import { isPoly, Poly, unionOf } from './Vertex';
 import { sequenceS } from 'fp-ts/lib/Apply';
@@ -157,6 +158,9 @@ export type MakeComparables<A extends Annotation> = (
   annotations: A[]
 ) => RIO.ReaderIO<S.Schema, Comparable[]>;
 
+export type TreePredicate<T> = TypePredicate<Tree<T>>;
+export type ComparablePredicate<T> = TypePredicate<Comparable<T>>;
+
 /**
  * ```haskell
  * isMetadata :: a -> bool
@@ -183,14 +187,64 @@ export const isLeaf = (a: unknown): a is Leaf =>
 
 /**
  * ```haskell
+ * isTreeSatisfying :: a -> bool
+ * ```
+ */
+export function isTreeSatisfying<T>(
+  predicate: TypePredicate<T>
+): TreePredicate<T>;
+
+export function isTreeSatisfying(
+  predicate: (a: unknown) => boolean
+): TreePredicate<unknown> {
+  return allPass([
+    is(Object),
+    pipe(
+      values,
+      allPass([
+        is(Array),
+        all(
+          anyPass([
+            isTreeSatisfying(predicate as TypePredicate<unknown>),
+            predicate,
+          ])
+        ),
+      ])
+    ),
+  ]) as TreePredicate<unknown>;
+}
+
+/**
+ * ```haskell
  * isTree :: a -> bool
  * ```
  */
-export function isTree(a: unknown): a is Tree {
+export const isTree: TreePredicate<Leaf> = isTreeSatisfying(isLeaf);
+
+/**
+ * ```haskell
+ * isComparableSatisfying :: a -> bool
+ * ```
+ */
+export function isComparableSatisfying<T>(
+  predicate: TypePredicate<T>
+): ComparablePredicate<T>;
+
+export function isComparableSatisfying(
+  predicate: (a: unknown) => boolean
+): ComparablePredicate<unknown> {
   return allPass([
-    is(Object),
-    pipe(values, allPass([is(Array), all(anyPass([isTree, isLeaf]))])),
-  ])(a);
+    isDictionary,
+    propIs(String, 'id'),
+    propIs(String, 'schema_id'),
+    propSatisfies(allPass([isArray, all(isString)]), 'files'),
+    propSatisfies(
+      isTreeSatisfying(predicate as TypePredicate<unknown>),
+      'attributes'
+    ),
+    propIs(String, 'created_at'),
+    propIs(String, 'updated_at'),
+  ]) as ComparablePredicate<unknown>;
 }
 
 /**
@@ -198,15 +252,9 @@ export function isTree(a: unknown): a is Tree {
  * isComparable :: a -> bool
  * ```
  */
-export const isComparable = (a: unknown): a is Comparable =>
-  allPass([
-    isDictionary,
-    propIs(String, 'schema_id'),
-    propSatisfies(allPass([isArray, all(isString)]), 'files'),
-    propSatisfies(isTree, 'attributes'),
-    propIs(String, 'created_at'),
-    propIs(String, 'updated_at'),
-  ])(a);
+export const isComparable: ComparablePredicate<Leaf> = isComparableSatisfying(
+  isLeaf
+);
 
 /**
  * ```haskell
@@ -835,17 +883,31 @@ export const applyGettables: (
 
 /**
  * ```haskell
+ * nameSatisfiesFilePath :: String -> Reader FilePath Bool
+ * ```
+ */
+export const nameSatisfiesFilePath: (
+  filepath: S.FilePath
+) => R.Reader<string, boolean> = pipe(head, regExpTest);
+
+/**
+ * ```haskell
+ * hasNameSatisfyingFilePath :: FilePath -> Reader [String] Bool
+ * ```
+ */
+export const hasNameSatisfyingFilePath: (
+  filepath: S.FilePath
+) => R.Reader<string[], boolean> = pipe(nameSatisfiesFilePath, any);
+
+/**
+ * ```haskell
  * findNamesSatisfyingFilePath :: [String] -> Reader FilePath [String]
  * ```
  */
 const findNamesSatisfyingFilePath: (
   files: string[]
-) => R.Reader<S.FilePath, string[]> = (files) => ([
-  path,
-  ...others
-]): string[] => {
-  return isEmpty(others) ? filter(regExpTest(path), files) : [];
-};
+) => R.Reader<S.FilePath, string[]> = (files) => (filepath): string[] =>
+  filter(nameSatisfiesFilePath(filepath), files);
 
 /**
  * ```haskell

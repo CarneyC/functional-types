@@ -162,7 +162,7 @@ describe('DocumentAnnotation', function () {
     });
   });
 
-  describe('#make()', function () {
+  describe('#makeComparableSchema()', function () {
     it('should return a DocumentAnnotation', function () {
       const tableAnnotation = getTableAnnotation();
       const textAnnotation = getTextAnnotation();

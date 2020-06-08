@@ -7,14 +7,25 @@ import {
   has,
   is,
   isNil,
+  join,
   keys,
   lte,
   not,
   pipe,
   propSatisfies,
+  split,
 } from 'ramda';
 
-export type ArrayPredicate<T> = (a: unknown) => a is T[];
+export interface Pair<T> {
+  left: T;
+  right: T;
+}
+
+export type TypePredicate<T> = (a: unknown) => a is T;
+
+export type ArrayPredicate<T> = TypePredicate<T[]>;
+
+export type PairPredicate<T> = TypePredicate<Pair<T>>;
 
 /**
  * ```haskell
@@ -22,7 +33,7 @@ export type ArrayPredicate<T> = (a: unknown) => a is T[];
  * ```
  */
 export function isArraySatisfying<T>(
-  predicate: (a: unknown) => a is T
+  predicate: TypePredicate<T>
 ): ArrayPredicate<T>;
 
 export function isArraySatisfying(
@@ -30,6 +41,51 @@ export function isArraySatisfying(
 ): ArrayPredicate<unknown> {
   return allPass([isArray, all(predicate)]) as ArrayPredicate<unknown>;
 }
+
+/**
+ * ```haskell
+ * isPair :: a ->  bool
+ * ```
+ */
+export const isPair = (a: unknown): a is Pair<unknown> =>
+  allPass([isDictionary, has('left'), has('right')])(a);
+
+/**
+ * ```haskell
+ * isPairSatisfying :: a ->  bool
+ * ```
+ */
+export function isPairSatisfying<T>(
+  predicate: TypePredicate<T>
+): PairPredicate<T>;
+
+export function isPairSatisfying(
+  predicate: (a: unknown) => boolean
+): PairPredicate<unknown> {
+  return allPass([
+    isPair,
+    propSatisfies(predicate, 'left'),
+    propSatisfies(predicate, 'right'),
+  ]) as PairPredicate<unknown>;
+}
+
+/**
+ * ```haskell
+ * fromPair :: Pair String -> String
+ * ```
+ */
+export const fromPair: (pair: Pair<string>) => string = ({ left, right }) =>
+  join(';', [left, right]);
+
+/**
+ * ```haskell
+ * toPair :: String -> Pair String
+ * ```
+ */
+export const toPair: (pairStr: string) => Pair<string> = pipe(
+  split(';'),
+  ([left, right]): Pair<string> => ({ left, right: right ?? '' })
+);
 
 /**
  * ```haskell
@@ -100,3 +156,11 @@ export const isDictionary = (a: unknown): a is Dictionary<unknown> =>
  */
 export const isBoolean = (a: unknown): a is boolean =>
   a === true || a === false;
+
+/**
+ * ```haskell
+ * isStringArray :: a -> bool
+ * ```
+ */
+export const isStringArray = (a: unknown): a is string[] =>
+  allPass([isArray, all(isString)])(a);
