@@ -102,7 +102,9 @@ export function deserialize(
     S.deserialize,
     E.chain(
       E.fromPredicate(
-        Deserialized.isComparableSchema,
+        isComparableSchema(deserializable)
+          ? Deserialized.isComparableSchema
+          : Deserialized.isComparableSchemaBase,
         () => new Error('Object is not a ComparableSchema.')
       )
     )
