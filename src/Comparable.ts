@@ -1177,6 +1177,7 @@ export const makeComparablesWith: <A extends Annotation>(
  * makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
  * ```
  */
-export const makeComparables: MakeComparables<D.DocumentAnnotation> = makeComparablesWith(
-  applySchema
+export const makeComparables: MakeComparables<D.DocumentAnnotation> = pipe(
+  reject(propSatisfies(isEmpty, 'forestByPage')),
+  unless(isEmpty, makeComparablesWith(applySchema))
 );

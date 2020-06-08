@@ -4837,8 +4837,9 @@ ___
 
 #### `Const` makeComparables
 
-• **makeComparables**: *[MakeComparables](#makecomparables)‹[DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)›* = makeComparablesWith(
-  applySchema
+• **makeComparables**: *[MakeComparables](#makecomparables)‹[DocumentAnnotation](#interfaces_documentannotation_documentannotationmd)›* = pipe(
+  reject(propSatisfies(isEmpty, 'forestByPage')),
+  unless(isEmpty, makeComparablesWith(applySchema))
 )
 
 Defined in src/Comparable.ts:1180
