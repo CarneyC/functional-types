@@ -2024,7 +2024,9 @@ Defined in src/Schema.ts:75
 
 ### Hierarchy
 
-* **ComparableSchema**
+* [Pair](#interfaces_types_pairmd)‹[SchemaPath](#schemapath)›
+
+  ↳ **ComparableSchema**
 
 ### Index
 
@@ -2033,6 +2035,7 @@ Defined in src/Schema.ts:75
 * [created_at](#created_at)
 * [id](#id)
 * [left](#left)
+* [name](#name)
 * [right](#right)
 * [updated_at](#updated_at)
 
@@ -2042,7 +2045,7 @@ Defined in src/Schema.ts:75
 
 • **created_at**: *string*
 
-Defined in src/Serialize/ComparableSchema.ts:14
+Defined in src/Serialize/ComparableSchema.ts:13
 
 ___
 
@@ -2058,6 +2061,16 @@ ___
 
 • **left**: *[SchemaPath](#schemapath)*
 
+*Inherited from [Pair](#interfaces_types_pairmd).[left](#left)*
+
+Defined in src/Types.ts:20
+
+___
+
+####  name
+
+• **name**: *string*
+
 Defined in src/Serialize/ComparableSchema.ts:12
 
 ___
@@ -2066,7 +2079,9 @@ ___
 
 • **right**: *[SchemaPath](#schemapath)*
 
-Defined in src/Serialize/ComparableSchema.ts:13
+*Inherited from [Pair](#interfaces_types_pairmd).[right](#right)*
+
+Defined in src/Types.ts:21
 
 ___
 
@@ -2074,7 +2089,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Serialize/ComparableSchema.ts:15
+Defined in src/Serialize/ComparableSchema.ts:14
 
 
 <a name="interfaces_serialize_schema_gettablemd"></a>
@@ -2723,6 +2738,8 @@ Defined in src/TextAnnotation.ts:55
 * **Pair**
 
   ↳ [ComparableSchema](#interfaces_comparableschema_comparableschemamd)
+
+  ↳ [ComparableSchema](#interfaces_serialize_comparableschema_comparableschemamd)
 
 ### Index
 
@@ -9324,7 +9341,7 @@ Defined in src/Serialize/Arbitraries.ts:7
 
 Ƭ **ComparableSchemaBase**: *Omit‹[ComparableSchema](#interfaces_serialize_comparableschema_comparableschemamd), "id" | "created_at" | "updated_at"›*
 
-Defined in src/Serialize/ComparableSchema.ts:18
+Defined in src/Serialize/ComparableSchema.ts:17
 
 ___
 
@@ -9340,7 +9357,7 @@ Defined in src/Serialize/ComparableSchema.ts:8
 
 ▸ **deserialize**(`deserializable`: [ComparableSchema](#interfaces_serialize_comparableschema_comparableschemamd)): *E.Either‹Error, [ComparableSchema](#interfaces_comparableschema_comparableschemamd)›*
 
-Defined in src/Serialize/ComparableSchema.ts:87
+Defined in src/Serialize/ComparableSchema.ts:86
 
 ```haskell
 deserialize :: Schema -> SerializableSchema
@@ -9356,7 +9373,7 @@ Name | Type |
 
 ▸ **deserialize**(`deserializable`: [ComparableSchemaBase](#comparableschemabase)): *E.Either‹Error, Deserialized.ComparableSchemaBase›*
 
-Defined in src/Serialize/ComparableSchema.ts:91
+Defined in src/Serialize/ComparableSchema.ts:90
 
 **Parameters:**
 
@@ -9372,7 +9389,7 @@ ___
 
 ▸ **isComparableSchema**(`a`: unknown): *a is ComparableSchema*
 
-Defined in src/Serialize/ComparableSchema.ts:51
+Defined in src/Serialize/ComparableSchema.ts:50
 
 ```haskell
 isComparableSchemaBase :: a -> bool
@@ -9392,7 +9409,7 @@ ___
 
 ▸ **isComparableSchemaBase**(`a`: unknown): *a is ComparableSchemaBase*
 
-Defined in src/Serialize/ComparableSchema.ts:43
+Defined in src/Serialize/ComparableSchema.ts:42
 
 ```haskell
 isComparableSchemaBase :: a -> bool
@@ -9412,7 +9429,7 @@ ___
 
 ▸ **isSchemaPath**(`a`: unknown): *a is SchemaPath*
 
-Defined in src/Serialize/ComparableSchema.ts:35
+Defined in src/Serialize/ComparableSchema.ts:34
 
 ```haskell
 isSchemaPath :: a -> bool
@@ -9432,7 +9449,7 @@ ___
 
 ▸ **serialize**(`serializable`: [ComparableSchema](#interfaces_comparableschema_comparableschemamd)): *[ComparableSchema](#interfaces_serialize_comparableschema_comparableschemamd)*
 
-Defined in src/Serialize/ComparableSchema.ts:64
+Defined in src/Serialize/ComparableSchema.ts:63
 
 ```haskell
 serialize :: SerializableSchema -> Schema
@@ -9448,7 +9465,7 @@ Name | Type |
 
 ▸ **serialize**(`serializable`: Deserialized.ComparableSchemaBase): *[ComparableSchemaBase](#comparableschemabase)*
 
-Defined in src/Serialize/ComparableSchema.ts:68
+Defined in src/Serialize/ComparableSchema.ts:67
 
 **Parameters:**
 

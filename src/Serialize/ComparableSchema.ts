@@ -1,16 +1,15 @@
 import { isRegExp } from './index';
 import * as S from './index';
 import * as Deserialized from '../ComparableSchema';
-import { isArraySatisfying, isPairSatisfying } from '../Types';
+import { isArraySatisfying, isPairSatisfying, Pair } from '../Types';
 import * as E from 'fp-ts/lib/Either';
 import { allPass, anyPass, pipe, propIs } from 'ramda';
 
 export type SchemaPath = string | [string];
 
-export interface ComparableSchema {
+export interface ComparableSchema extends Pair<SchemaPath> {
   id: string;
-  left: SchemaPath;
-  right: SchemaPath;
+  name: string;
   created_at: string;
   updated_at: string;
 }
@@ -41,7 +40,7 @@ export const isSchemaPath = (a: unknown): a is SchemaPath =>
  * ```
  */
 export const isComparableSchemaBase = (a: unknown): a is ComparableSchemaBase =>
-  isPairSatisfying(isSchemaPath)(a);
+  allPass([isPairSatisfying(isSchemaPath), propIs(String, 'name')])(a);
 
 /**
  * ```haskell
