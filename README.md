@@ -479,7 +479,7 @@ Defined in src/Comparable.ts:124
 
 • **created_at**: *string*
 
-Defined in src/ComparableSchema.ts:28
+Defined in src/ComparableSchema.ts:27
 
 ___
 
@@ -487,7 +487,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/ComparableSchema.ts:26
+Defined in src/ComparableSchema.ts:25
 
 ___
 
@@ -505,7 +505,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/ComparableSchema.ts:27
+Defined in src/ComparableSchema.ts:26
 
 ___
 
@@ -523,7 +523,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/ComparableSchema.ts:29
+Defined in src/ComparableSchema.ts:28
 
 
 <a name="interfaces_comparison_comparisonmd"></a>
@@ -5591,15 +5591,15 @@ Name | Type |
 
 Ƭ **ComparablePair**: *[Pair](#interfaces_types_pairmd)‹[Comparable](#interfaces_comparable_comparablemd)›*
 
-Defined in src/ComparableSchema.ts:37
+Defined in src/ComparableSchema.ts:36
 
 ___
 
 ####  ComparableSchemaBase
 
-Ƭ **ComparableSchemaBase**: *Omit‹[ComparableSchema](#interfaces_comparableschema_comparableschemamd), "id" | "created_at" | "updated_at"›*
+Ƭ **ComparableSchemaBase**: *Omit‹[ComparableSchema](#interfaces_comparableschema_comparableschemamd), "created_at" | "updated_at"›*
 
-Defined in src/ComparableSchema.ts:32
+Defined in src/ComparableSchema.ts:31
 
 ___
 
@@ -5607,7 +5607,7 @@ ___
 
 Ƭ **SchemaPath**: *RegExp | [RegExp]*
 
-Defined in src/ComparableSchema.ts:23
+Defined in src/ComparableSchema.ts:22
 
 ### Functions
 
@@ -5615,7 +5615,7 @@ Defined in src/ComparableSchema.ts:23
 
 ▸ **isComparableSchema**(`a`: unknown): *a is ComparableSchema*
 
-Defined in src/ComparableSchema.ts:67
+Defined in src/ComparableSchema.ts:70
 
 ```haskell
 isComparableSchema :: a -> bool
@@ -5635,7 +5635,7 @@ ___
 
 ▸ **isComparableSchemaBase**(`a`: unknown): *a is ComparableSchemaBase*
 
-Defined in src/ComparableSchema.ts:59
+Defined in src/ComparableSchema.ts:58
 
 ```haskell
 isComparableSchemaBase :: a -> bool
@@ -5655,7 +5655,7 @@ ___
 
 ▸ **isSchemaPath**(`a`: unknown): *a is SchemaPath*
 
-Defined in src/ComparableSchema.ts:51
+Defined in src/ComparableSchema.ts:50
 
 ```haskell
 isSchemaPath :: a -> bool
@@ -5675,7 +5675,7 @@ ___
 
 ▸ **makeComparablePairs**(`__namedParameters`: object): *function*
 
-Defined in src/ComparableSchema.ts:129
+Defined in src/ComparableSchema.ts:131
 
 ```haskell
 makeComparablePairs :: ComparableSchema -> Reader [Comparables] [ComparablePair]
@@ -5700,7 +5700,7 @@ ___
 
 ▸ **makeComparableSchema**(`base`: object): *(Anonymous function)*
 
-Defined in src/ComparableSchema.ts:112
+Defined in src/ComparableSchema.ts:115
 
 ```haskell
 makeComparableSchema :: ComparableSchemaBase -> IO ComparableSchema
@@ -5720,7 +5720,7 @@ ___
 
 ▸ **satisfySchemaPath**(`schemaPath`: RegExp‹› | [RegExp‹›]): *(Anonymous function)*
 
-Defined in src/ComparableSchema.ts:92
+Defined in src/ComparableSchema.ts:95
 
 ```haskell
 satisfySchemaPath :: SchemaPath -> Reader Schema Bool
@@ -9339,7 +9339,7 @@ Defined in src/Serialize/Arbitraries.ts:7
 
 ####  ComparableSchemaBase
 
-Ƭ **ComparableSchemaBase**: *Omit‹[ComparableSchema](#interfaces_serialize_comparableschema_comparableschemamd), "id" | "created_at" | "updated_at"›*
+Ƭ **ComparableSchemaBase**: *Omit‹[ComparableSchema](#interfaces_serialize_comparableschema_comparableschemamd), "created_at" | "updated_at"›*
 
 Defined in src/Serialize/ComparableSchema.ts:17
 
@@ -9357,7 +9357,7 @@ Defined in src/Serialize/ComparableSchema.ts:8
 
 ▸ **deserialize**(`deserializable`: [ComparableSchema](#interfaces_serialize_comparableschema_comparableschemamd)): *E.Either‹Error, [ComparableSchema](#interfaces_comparableschema_comparableschemamd)›*
 
-Defined in src/Serialize/ComparableSchema.ts:86
+Defined in src/Serialize/ComparableSchema.ts:89
 
 ```haskell
 deserialize :: Schema -> SerializableSchema
@@ -9373,7 +9373,7 @@ Name | Type |
 
 ▸ **deserialize**(`deserializable`: [ComparableSchemaBase](#comparableschemabase)): *E.Either‹Error, Deserialized.ComparableSchemaBase›*
 
-Defined in src/Serialize/ComparableSchema.ts:90
+Defined in src/Serialize/ComparableSchema.ts:93
 
 **Parameters:**
 
@@ -9389,7 +9389,7 @@ ___
 
 ▸ **isComparableSchema**(`a`: unknown): *a is ComparableSchema*
 
-Defined in src/Serialize/ComparableSchema.ts:50
+Defined in src/Serialize/ComparableSchema.ts:54
 
 ```haskell
 isComparableSchemaBase :: a -> bool
@@ -9449,7 +9449,7 @@ ___
 
 ▸ **serialize**(`serializable`: [ComparableSchema](#interfaces_comparableschema_comparableschemamd)): *[ComparableSchema](#interfaces_serialize_comparableschema_comparableschemamd)*
 
-Defined in src/Serialize/ComparableSchema.ts:63
+Defined in src/Serialize/ComparableSchema.ts:66
 
 ```haskell
 serialize :: SerializableSchema -> Schema
@@ -9465,7 +9465,7 @@ Name | Type |
 
 ▸ **serialize**(`serializable`: Deserialized.ComparableSchemaBase): *[ComparableSchemaBase](#comparableschemabase)*
 
-Defined in src/Serialize/ComparableSchema.ts:67
+Defined in src/Serialize/ComparableSchema.ts:70
 
 **Parameters:**
 

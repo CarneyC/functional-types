@@ -16,7 +16,7 @@ export interface ComparableSchema extends Pair<SchemaPath> {
 
 export type ComparableSchemaBase = Omit<
   ComparableSchema,
-  'id' | 'created_at' | 'updated_at'
+  'created_at' | 'updated_at'
 >;
 
 /**
@@ -40,7 +40,11 @@ export const isSchemaPath = (a: unknown): a is SchemaPath =>
  * ```
  */
 export const isComparableSchemaBase = (a: unknown): a is ComparableSchemaBase =>
-  allPass([isPairSatisfying(isSchemaPath), propIs(String, 'name')])(a);
+  allPass([
+    isPairSatisfying(isSchemaPath),
+    propIs(String, 'id'),
+    propIs(String, 'name'),
+  ])(a);
 
 /**
  * ```haskell
@@ -50,7 +54,6 @@ export const isComparableSchemaBase = (a: unknown): a is ComparableSchemaBase =>
 export const isComparableSchema = (a: unknown): a is ComparableSchema =>
   allPass([
     isComparableSchemaBase,
-    propIs(String, 'id'),
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
   ])(a);

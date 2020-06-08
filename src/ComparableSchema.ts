@@ -1,7 +1,6 @@
 import * as C from './Comparable';
 import { Comparable } from './Comparable';
 import { getCurrentISOString } from './DateTime';
-import { getRandomId } from './String';
 import { isArraySatisfying, isPairSatisfying, isRegExp, Pair } from './Types';
 import * as IO from 'fp-ts/lib/IO';
 import * as R from 'fp-ts/lib/Reader';
@@ -31,7 +30,7 @@ export interface ComparableSchema extends Pair<SchemaPath> {
 
 export type ComparableSchemaBase = Omit<
   ComparableSchema,
-  'id' | 'created_at' | 'updated_at'
+  'created_at' | 'updated_at'
 >;
 
 export type ComparablePair = Pair<Comparable>;
@@ -57,7 +56,11 @@ export const isSchemaPath = (a: unknown): a is SchemaPath =>
  * ```
  */
 export const isComparableSchemaBase = (a: unknown): a is ComparableSchemaBase =>
-  allPass([isPairSatisfying(isSchemaPath), propIs(String, 'name')])(a);
+  allPass([
+    isPairSatisfying(isSchemaPath),
+    propIs(String, 'id'),
+    propIs(String, 'name'),
+  ])(a);
 
 /**
  * ```haskell
@@ -113,7 +116,6 @@ export const makeComparableSchema: (
   const time = getCurrentISOString();
   return {
     ...clone(base),
-    id: getRandomId(),
     created_at: time,
     updated_at: time,
   };
