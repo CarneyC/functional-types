@@ -1,9 +1,4 @@
-import {
-  Comparable,
-  isMetadata,
-  isTreeSatisfying,
-  Metadata,
-} from './Comparable';
+import * as C from './Comparable';
 import { DocumentType, isDocumentType } from './FileType';
 import {
   isDictionary,
@@ -13,7 +8,7 @@ import {
   isStringArray,
   Pair,
 } from './Types';
-import { allPass, flip, includes, propIs, propSatisfies } from 'ramda';
+import { allPass, anyPass, flip, includes, propIs, propSatisfies } from 'ramda';
 
 export type Severity = 'error' | 'warning';
 
@@ -23,11 +18,15 @@ export interface Leaf {
   details: string;
   value: Pair<string>;
   order: Pair<number>;
-  metadata: Metadata;
+  metadata: C.Metadata;
 }
 
+export type Node = C.Node<Leaf>;
+
+export type Tree = C.Tree<Leaf>;
+
 export interface Comparison
-  extends Omit<Comparable<Leaf>, 'files' | 'schema_id' | 'file_type'> {
+  extends Omit<C.Comparable<Leaf>, 'files' | 'schema_id' | 'file_type'> {
   files: Pair<string[]>;
   schema_id: Pair<string>;
   file_type: Pair<DocumentType>;
@@ -54,8 +53,23 @@ export const isLeaf = (a: unknown): a is Leaf =>
     propIs(String, 'details'),
     propSatisfies(isPairSatisfying(isString), 'value'),
     propSatisfies(isPairSatisfying(isNumber), 'order'),
-    propSatisfies(isMetadata, 'metadata'),
+    propSatisfies(C.isMetadata, 'metadata'),
   ])(a);
+
+/**
+ * ```haskell
+ * isTree :: a -> bool
+ * ```
+ */
+export const isTree = (a: unknown): a is Tree => C.isTreeSatisfying(isLeaf)(a);
+
+/**
+ * ```haskell
+ * isNode :: a -> bool
+ * ```
+ */
+export const isNode = (a: unknown): a is Node =>
+  anyPass([C.isTreeSatisfying(isLeaf), isLeaf])(a);
 
 /**
  * ```haskell
@@ -69,7 +83,7 @@ export function isComparison(a: unknown): a is Comparison {
     propIs(isPairSatisfying(isString), 'schema_id'),
     propSatisfies(isPairSatisfying(isStringArray), 'files'),
     propSatisfies(isPairSatisfying(isDocumentType), 'file_type'),
-    propSatisfies(isTreeSatisfying(isLeaf), 'attributes'),
+    propSatisfies(C.isTreeSatisfying(isLeaf), 'attributes'),
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
   ])(a);

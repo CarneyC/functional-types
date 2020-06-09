@@ -552,7 +552,7 @@ Defined in src/ComparableSchema.ts:28
 
 • **file_type**: *[Pair](#interfaces_types_pairmd)‹[DocumentType](#documenttype)›*
 
-Defined in src/Comparison.ts:33
+Defined in src/Comparison.ts:32
 
 ___
 
@@ -560,7 +560,7 @@ ___
 
 • **files**: *[Pair](#interfaces_types_pairmd)‹string[]›*
 
-Defined in src/Comparison.ts:31
+Defined in src/Comparison.ts:30
 
 ___
 
@@ -568,7 +568,7 @@ ___
 
 • **schema_id**: *[Pair](#interfaces_types_pairmd)‹string›*
 
-Defined in src/Comparison.ts:32
+Defined in src/Comparison.ts:31
 
 
 <a name="interfaces_comparison_leafmd"></a>
@@ -598,7 +598,7 @@ Defined in src/Comparison.ts:32
 
 • **details**: *string*
 
-Defined in src/Comparison.ts:23
+Defined in src/Comparison.ts:18
 
 ___
 
@@ -606,7 +606,7 @@ ___
 
 • **label**: *string*
 
-Defined in src/Comparison.ts:21
+Defined in src/Comparison.ts:16
 
 ___
 
@@ -614,7 +614,7 @@ ___
 
 • **metadata**: *[Metadata](#interfaces_comparable_metadatamd)*
 
-Defined in src/Comparison.ts:26
+Defined in src/Comparison.ts:21
 
 ___
 
@@ -622,7 +622,7 @@ ___
 
 • **order**: *[Pair](#interfaces_types_pairmd)‹number›*
 
-Defined in src/Comparison.ts:25
+Defined in src/Comparison.ts:20
 
 ___
 
@@ -630,7 +630,7 @@ ___
 
 • **severity**: *[Severity](#severity)*
 
-Defined in src/Comparison.ts:22
+Defined in src/Comparison.ts:17
 
 ___
 
@@ -638,7 +638,7 @@ ___
 
 • **value**: *[Pair](#interfaces_types_pairmd)‹string›*
 
-Defined in src/Comparison.ts:24
+Defined in src/Comparison.ts:19
 
 
 <a name="interfaces_documentannotation_branchmd"></a>
@@ -6002,21 +6002,41 @@ Name | Type |
 
 #### Type aliases
 
+* [Node](#node)
 * [Severity](#severity)
+* [Tree](#tree)
 
 #### Functions
 
 * [isComparison](#iscomparison)
 * [isLeaf](#const-isleaf)
+* [isNode](#const-isnode)
 * [isSeverity](#const-isseverity)
+* [isTree](#const-istree)
 
 ### Type aliases
+
+####  Node
+
+Ƭ **Node**: *C.Node‹[Leaf](#interfaces_comparison_leafmd)›*
+
+Defined in src/Comparison.ts:24
+
+___
 
 ####  Severity
 
 Ƭ **Severity**: *"error" | "warning"*
 
-Defined in src/Comparison.ts:18
+Defined in src/Comparison.ts:13
+
+___
+
+####  Tree
+
+Ƭ **Tree**: *[Tree](#interfaces_comparable_treemd)‹[Leaf](#interfaces_comparison_leafmd)›*
+
+Defined in src/Comparison.ts:26
 
 ### Functions
 
@@ -6024,7 +6044,7 @@ Defined in src/Comparison.ts:18
 
 ▸ **isComparison**(`a`: unknown): *a is Comparison*
 
-Defined in src/Comparison.ts:65
+Defined in src/Comparison.ts:79
 
 ```haskell
 isComparison :: a -> bool
@@ -6044,7 +6064,7 @@ ___
 
 ▸ **isLeaf**(`a`: unknown): *a is Leaf*
 
-Defined in src/Comparison.ts:49
+Defined in src/Comparison.ts:48
 
 ```haskell
 isLeaf :: a -> bool
@@ -6060,11 +6080,31 @@ Name | Type |
 
 ___
 
+#### `Const` isNode
+
+▸ **isNode**(`a`: unknown): *a is Node*
+
+Defined in src/Comparison.ts:71
+
+```haskell
+isNode :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Node*
+
+___
+
 #### `Const` isSeverity
 
 ▸ **isSeverity**(`a`: unknown): *a is Severity*
 
-Defined in src/Comparison.ts:41
+Defined in src/Comparison.ts:40
 
 ```haskell
 isSeverity :: a -> bool
@@ -6077,6 +6117,26 @@ Name | Type |
 `a` | unknown |
 
 **Returns:** *a is Severity*
+
+___
+
+#### `Const` isTree
+
+▸ **isTree**(`a`: unknown): *a is Tree*
+
+Defined in src/Comparison.ts:64
+
+```haskell
+isTree :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Tree*
 
 
 <a name="modules_datetime_md"></a>
