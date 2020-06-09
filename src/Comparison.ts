@@ -80,7 +80,7 @@ export function isComparison(a: unknown): a is Comparison {
   return allPass([
     isDictionary,
     propIs(String, 'id'),
-    propIs(isPairSatisfying(isString), 'schema_id'),
+    propSatisfies(isPairSatisfying(isString), 'schema_id'),
     propSatisfies(isPairSatisfying(isStringArray), 'files'),
     propSatisfies(isPairSatisfying(isDocumentType), 'file_type'),
     propSatisfies(C.isTreeSatisfying(isLeaf), 'attributes'),
