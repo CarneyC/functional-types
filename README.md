@@ -5040,8 +5040,8 @@ ___
   R.chain(unnestTreeFromGettables),
   R.chain(rejectsTree),
   R.chain(filtersTree),
-  R.chain(liftTree),
-  R.chain(translateTree)
+  R.chain(translateTree),
+  R.chain(liftTree)
 )
 
 Defined in src/Comparable.ts:1170

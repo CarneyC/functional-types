@@ -1174,8 +1174,8 @@ export const postProcessTree: (
   R.chain(unnestTreeFromGettables),
   R.chain(rejectsTree),
   R.chain(filtersTree),
-  R.chain(liftTree),
-  R.chain(translateTree)
+  R.chain(translateTree),
+  R.chain(liftTree)
 );
 
 /**
