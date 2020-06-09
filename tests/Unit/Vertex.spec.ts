@@ -7,6 +7,7 @@ import {
   withHeader,
   WithHeaderColumn,
   WithHeaderRow,
+  areaOf,
 } from '../../src/Vertex';
 import * as Arb from '../../src/Vertex/Arbitraries';
 import chai from 'chai';
@@ -149,6 +150,17 @@ describe('Vertex', function () {
         {
           examples: [[[makePoly(0, 0, 0.3, 0.3), makePoly(0.1, 0.1, 0.5, 1)]]],
         }
+      );
+    });
+  });
+
+  describe('#areaOf()', function () {
+    it('should return 0 if all four corners are the same', function () {
+      fc.assert(
+        fc.property(Arb.vertex(), (vertex) => {
+          const actualArea = areaOf([vertex, vertex, vertex, vertex]);
+          expect(actualArea).to.be.equal(0);
+        })
       );
     });
   });

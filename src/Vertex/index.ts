@@ -39,6 +39,7 @@ import {
   reject,
   propEq,
   tail,
+  gte,
 } from 'ramda';
 
 export interface Vertex {
@@ -601,6 +602,13 @@ export const areaOf: (poly: Poly) => number = converge(multiply, [
   widthOf,
   heightOf,
 ]);
+
+/**
+ * ```haskell
+ * isEmpty :: Poly -> Bool
+ * ```
+ */
+export const isEmptyPoly: (poly: Poly) => boolean = pipe(areaOf, gte(0));
 
 /**
  * ```haskell

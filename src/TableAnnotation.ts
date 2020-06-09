@@ -1,17 +1,25 @@
 import { getCurrentISOString } from './DateTime';
 import { getRandomId } from './String';
-import { isLabeledBoundingBox, LabeledBoundingBox, WithHeader } from './Vertex';
+import {
+  isEmptyPoly,
+  isLabeledBoundingBox,
+  LabeledBoundingBox,
+  WithHeader,
+} from './Vertex';
 import * as IO from 'fp-ts/lib/IO';
 import {
   all,
   allPass,
   assoc,
   Dictionary,
+  evolve,
   is,
+  map,
   pipe,
   propIs,
   propSatisfies,
   reduce,
+  reject,
   values,
 } from 'ramda';
 
@@ -89,6 +97,16 @@ export const toBoundingBoxes: (
   (acc: BoundingBoxes, value) => assoc(value.id, value, acc),
   {}
 );
+/**
+ * ```haskell
+ * rejectsEmptyBoundingBoxes :: TableAnnotationBase -> TableAnnotationBase
+ * ```
+ */
+export const rejectsEmptyBoundingBoxes: <A extends TableAnnotationBase>(
+  annotations: A
+) => A = evolve({
+  boundingBoxesByPage: map(reject(propSatisfies(isEmptyPoly, 'boundingPoly'))),
+}) as <A extends TableAnnotationBase>(annotations: A) => A;
 
 /**
  * ```haskell
@@ -102,11 +120,11 @@ export const make: (
   boundingBoxesByPage,
 }) => (): TableAnnotation => {
   const timestamp = getCurrentISOString();
-  return {
+  return rejectsEmptyBoundingBoxes({
     id: getRandomId(),
     file,
     boundingBoxesByPage,
     created_at: timestamp,
     updated_at: timestamp,
-  };
+  });
 };
