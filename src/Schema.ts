@@ -3,6 +3,7 @@ import { getCurrentISOString } from './DateTime';
 import { DocumentType, isDocumentType } from './FileType';
 import {
   isArray,
+  isArraySatisfying,
   isDictionary,
   isNat,
   isNotNil,
@@ -36,6 +37,11 @@ export interface Replacements {
   values?: Replacement[];
 }
 
+export interface Filters {
+  keys?: RegExp[];
+  values?: RegExp[];
+}
+
 export interface Property {
   property: string;
   pattern: RegExp;
@@ -60,6 +66,9 @@ export interface GettableOptions {
   key?: RegExp;
   replacements?: Replacements;
   unnest?: number;
+  lifts?: RegExp[];
+  rejects?: Filters;
+  filters?: Filters;
   end?: RegExp;
 }
 
@@ -110,6 +119,18 @@ export const isReplacements = (a: unknown): a is Replacements =>
     isDictionary,
     propSatisfiesIfExists(allPass([isArray, all(isReplacement)]), 'keys'),
     propSatisfiesIfExists(allPass([isArray, all(isReplacement)]), 'values'),
+  ])(a);
+
+/**
+ * ```haskell
+ * isFilters :: a -> bool
+ * ```
+ */
+export const isFilters = (a: unknown): a is Filters =>
+  allPass([
+    isDictionary,
+    propSatisfiesIfExists(isArraySatisfying(isRegExp), 'keys'),
+    propSatisfiesIfExists(isArraySatisfying(isRegExp), 'values'),
   ])(a);
 
 /**
@@ -200,6 +221,9 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(isRegExp, 'key'),
     propSatisfiesIfExists(isReplacements, 'replacements'),
     propSatisfiesIfExists(isNat, 'unnest'),
+    propSatisfiesIfExists(isArraySatisfying(isRegExp), 'lifts'),
+    propSatisfiesIfExists(isFilters, 'rejects'),
+    propSatisfiesIfExists(isFilters, 'filters'),
     propSatisfiesIfExists(isRegExp, 'end'),
   ])(a);
 

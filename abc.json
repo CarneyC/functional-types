@@ -1,0 +1,3553 @@
+{
+  "message": "Comparison Created",
+  "payload": {
+    "id": "0d058a73-3673-43b0-bed1-343320f3750e",
+    "file_type": { "left": "pdf", "right": "excel" },
+    "files": {
+      "left": [
+        "hk_allianz_selection_income_and_growth_factsheet_en_202003.pdf"
+      ],
+      "right": ["IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx"]
+    },
+    "schema_id": {
+      "left": "bond_factsheet_english",
+      "right": "hk_selection_income_and_growth"
+    },
+    "attributes": {
+      "fund_details": {
+        "HK0000211927": {
+          "2015": {
+            "value": "1.85",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "11.97",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "17.03",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "-2.36",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "19.92",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "14",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "-10.83",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "-3.66",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "15.26",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "35.39",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "46.93",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000211927"
+        },
+        "HK0000532074": {
+          "2015": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "1",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000532074"
+        },
+        "HK0000532082": {
+          "2015": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "259",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "1",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000532082"
+        },
+        "HK0000535291": {
+          "2015": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "1",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000535291"
+        },
+        "HK0000535309": {
+          "2015": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "1",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000535309"
+        },
+        "HK0000535317": {
+          "2015": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "1",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000535317"
+        },
+        "HK0000535325": {
+          "2015": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "1",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000535325"
+        },
+        "HK0000535341": {
+          "2015": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "1",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000535341"
+        },
+        "HK0000535333": {
+          "2015": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Share Class 5": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Manager": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Fund Size 6": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Number of Holdings": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Base Currency": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Subscription Fee (Sales\nCharge)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Management Fee": {
+            "value": "1.25",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Unit NAV": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Inception Date": {
+            "value": "1",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Dividend Frequency 3": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "ISIN Code": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Bloomberg Ticker": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Cumulative Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "HK0000535333"
+        },
+        "Equities": {
+          "Asset Allocation": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A5"
+              }
+            }
+          },
+          "# of Issues": {
+            "value": "70",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B5"
+              }
+            }
+          },
+          "% Total Portfolio": {
+            "value": "0.3469",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C5"
+              }
+            }
+          },
+          "label": "Equities"
+        },
+        "Corporates": {
+          "Asset Allocation": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A6"
+              }
+            }
+          },
+          "# of Issues": {
+            "value": "74",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B6"
+              }
+            }
+          },
+          "% Total Portfolio": {
+            "value": "0.3139",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C6"
+              }
+            }
+          },
+          "label": "Corporates"
+        },
+        "Convertiable Bonds": {
+          "Asset Allocation": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A7"
+              }
+            }
+          },
+          "# of Issues": {
+            "value": "115",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B7"
+              }
+            }
+          },
+          "% Total Portfolio": {
+            "value": "0.3395",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C7"
+              }
+            }
+          },
+          "label": "Convertiable Bonds"
+        },
+        "": {
+          "Asset Allocation": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A8"
+              }
+            }
+          },
+          "# of Issues": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B8"
+              }
+            }
+          },
+          "% Total Portfolio": {
+            "value": "1.0003000000000002",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C8"
+              }
+            }
+          },
+          "label": ""
+        },
+        "label": "fund_details"
+      },
+      "asset_allocation": {
+        "EQUITIES / EQUITY": {
+          "Asset Allocation (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "": {
+            "value": "34.7",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "EQUITIES / EQUITY"
+        },
+        "SECURITIES": {
+          "Asset Allocation (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "SECURITIES"
+        },
+        "CONVERTIBLE BONDS": {
+          "Asset Allocation (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "": {
+            "value": "34",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "CONVERTIBLE BONDS"
+        },
+        "CORPORATE BONDS": {
+          "Asset Allocation (%)": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "": {
+            "value": "314",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "CORPORATE BONDS"
+        },
+        "Equities": {
+          "Asset Allocation": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A5"
+              }
+            }
+          },
+          "# of Issues": {
+            "value": "70",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B5"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.3469",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C5"
+              }
+            }
+          },
+          "label": "Equities"
+        },
+        "Corporates": {
+          "Asset Allocation": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A6"
+              }
+            }
+          },
+          "# of Issues": {
+            "value": "74",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B6"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.3139",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C6"
+              }
+            }
+          },
+          "label": "Corporates"
+        },
+        "Convertibles": {
+          "Asset Allocation": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A7"
+              }
+            }
+          },
+          "# of Issues": {
+            "value": "115",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B7"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.3395",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C7"
+              }
+            }
+          },
+          "label": "Convertibles"
+        },
+        "": {
+          "Asset Allocation": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A8"
+              }
+            }
+          },
+          "# of Issues": {
+            "value": "0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B8"
+              }
+            }
+          },
+          "TODO": {
+            "value": "1.0003000000000002",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C8"
+              }
+            }
+          },
+          "label": ""
+        },
+        "label": "asset_allocation"
+      },
+      "rating_allocation_convertible_bonds": {
+        "AAA": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A195"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C195"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D195"
+              }
+            }
+          },
+          "label": "AAA"
+        },
+        "AA": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A196"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C196"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D196"
+              }
+            }
+          },
+          "label": "AA"
+        },
+        "A": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A197"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C197"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D197"
+              }
+            }
+          },
+          "label": "A"
+        },
+        "BBB": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A198"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0919;0.0919",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C198"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.0847318;0.0847318",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D198"
+              }
+            }
+          },
+          "label": "BBB"
+        },
+        "BB": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A199"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.041;0.041",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C199"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.037802;0.037802",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D199"
+              }
+            }
+          },
+          "label": "BB"
+        },
+        "B": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A200"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.1026;0.1026",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C200"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.09459719999999999;0.09459719999999999",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D200"
+              }
+            }
+          },
+          "label": "B"
+        },
+        "CCC": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A201"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C201"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D201"
+              }
+            }
+          },
+          "label": "CCC"
+        },
+        "NOT RATED": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A202"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.7645;0.7645",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C202"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.704869;0.704869",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D202"
+              }
+            }
+          },
+          "label": "NOT RATED"
+        },
+        "LIQUIDITY": {
+          "Credit Quality - Convertibles": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A203"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C203"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.078;0.078",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D203"
+              }
+            }
+          },
+          "label": "LIQUIDITY"
+        },
+        "label": "rating_allocation_convertible_bonds"
+      },
+      "statistics_summary": {
+        "% of equities covered": {
+          "value": "51;51",
+          "metadata": {
+            "excel_position": {
+              "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+              "sheet": "STATS U-1855",
+              "cell": "C72"
+            }
+          }
+        },
+        "P/E": {
+          "value": "19.2;19.2",
+          "metadata": {
+            "excel_position": {
+              "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+              "sheet": "STATS U-1855",
+              "cell": "C73"
+            }
+          }
+        },
+        "Dividend Yield - Equities / Equity Securities": {
+          "value": "0.0152;0.0152",
+          "metadata": {
+            "excel_position": {
+              "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+              "sheet": "STATS U-1855",
+              "cell": "C74"
+            }
+          }
+        },
+        "Average Coupon - Convertible Bonds": {
+          "value": "2.11;2.11",
+          "metadata": {
+            "excel_position": {
+              "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+              "sheet": "STATS U-1855",
+              "cell": "B206"
+            }
+          }
+        },
+        "Convertible Current Yield:": {
+          "value": "2.17;2.17",
+          "metadata": {
+            "excel_position": {
+              "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+              "sheet": "STATS U-1855",
+              "cell": "B207"
+            }
+          }
+        },
+        "Conversion Premium:": {
+          "value": "42.53;42.53",
+          "metadata": {
+            "excel_position": {
+              "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+              "sheet": "STATS U-1855",
+              "cell": "B208"
+            }
+          }
+        },
+        "label": "statistics_summary"
+      },
+      "top_5_holdings_equities_equity_securities": {
+        "AMAZON.COM INC": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A48"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "23135106;23135106",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B48"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0439;0.0439",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C48"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0144;0.0144",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D48"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E48"
+              }
+            }
+          },
+          "label": "AMAZON.COM INC"
+        },
+        "MICROSOFT CORP": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A49"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "594918104;594918104",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B49"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0408;0.0408",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C49"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0134;0.0134",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D49"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E49"
+              }
+            }
+          },
+          "label": "MICROSOFT CORP"
+        },
+        "APPLE INC": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A50"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "37833100;37833100",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B50"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0403;0.0403",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C50"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0132;0.0132",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D50"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E50"
+              }
+            }
+          },
+          "label": "APPLE INC"
+        },
+        "ALPHABET INC-CL A": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A51"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "2079;2079",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B51"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0392;0.0392",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C51"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0129;0.0129",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D51"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E51"
+              }
+            }
+          },
+          "label": "ALPHABET INC-CL A"
+        },
+        "FACEBOOK INC-CLASS A": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A52"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "30303;30303",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B52"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0311;0.0311",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C52"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0102;0.0102",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D52"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E52"
+              }
+            }
+          },
+          "label": "FACEBOOK INC-CLASS A"
+        },
+        "NETFLIX INC": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A53"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "64110;64110",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B53"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.03;0.03",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C53"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0099;0.0099",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D53"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E53"
+              }
+            }
+          },
+          "label": "NETFLIX INC"
+        },
+        "VISA INC-CLASS A SHARES": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A54"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "92826;92826",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B54"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.026;0.026",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C54"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0085;0.0085",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D54"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E54"
+              }
+            }
+          },
+          "label": "VISA INC-CLASS A SHARES"
+        },
+        "NVIDIA CORP": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A55"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "67066;67066",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B55"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0254;0.0254",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C55"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0083;0.0083",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D55"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E55"
+              }
+            }
+          },
+          "label": "NVIDIA CORP"
+        },
+        "UNITEDHEALTH GROUP INC": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A56"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "91324;91324",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B56"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0224;0.0224",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C56"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0074;0.0074",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D56"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E56"
+              }
+            }
+          },
+          "label": "UNITEDHEALTH GROUP INC"
+        },
+        "GILEAD SCIENCES INC": {
+          "Top 10 US Equity Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A57"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "375558103;375558103",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B57"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0206;0.0206",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C57"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0068;0.0068",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D57"
+              }
+            }
+          },
+          "Sector": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E57"
+              }
+            }
+          },
+          "label": "GILEAD SCIENCES INC"
+        },
+        "label": "top_5_holdings_equities_equity_securities"
+      },
+      "top_5_holdings_high_yield_bonds": {
+        "label": "top_5_holdings_high_yield_bonds"
+      },
+      "rating_allocation_high_yield_bond": {
+        "label": "rating_allocation_high_yield_bond"
+      },
+      "sector_allocation_equities_equity_securities": {
+        "COMMUNICATION SERVICES": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A60"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.108;0.108",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C60"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.1165;0.1165",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D60"
+              }
+            }
+          },
+          "label": "COMMUNICATION SERVICES"
+        },
+        "CONSUMER DISCRETIONARY": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A61"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.1401;0.1401",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C61"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.1407;0.1407",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D61"
+              }
+            }
+          },
+          "label": "CONSUMER DISCRETIONARY"
+        },
+        "CONSUMER STAPLES": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A62"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.0325;0.0325",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C62"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.0463;0.0463",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D62"
+              }
+            }
+          },
+          "label": "CONSUMER STAPLES"
+        },
+        "ENERGY": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A63"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.0096;0.0096",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C63"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.0014;0.0014",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D63"
+              }
+            }
+          },
+          "label": "ENERGY"
+        },
+        "FINANCIALS": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A64"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.034;0.034",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C64"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.0291;0.0291",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D64"
+              }
+            }
+          },
+          "label": "FINANCIALS"
+        },
+        "HEALTH CARE": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A65"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.1665;0.1665",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C65"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.151;0.151",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D65"
+              }
+            }
+          },
+          "label": "HEALTH CARE"
+        },
+        "INDUSTRIALS": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A66"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.0591;0.0591",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C66"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.0801;0.0801",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D66"
+              }
+            }
+          },
+          "label": "INDUSTRIALS"
+        },
+        "INFORMATION TECHNOLOGY": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A67"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.3797;0.3797",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C67"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.3975;0.3975",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D67"
+              }
+            }
+          },
+          "label": "INFORMATION TECHNOLOGY"
+        },
+        "MATERIALS": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A68"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.008;0.008",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C68"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.0125;0.0125",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D68"
+              }
+            }
+          },
+          "label": "MATERIALS"
+        },
+        "REAL ESTATE": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A69"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.0151;0.0151",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C69"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0.0249;0.0249",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D69"
+              }
+            }
+          },
+          "label": "REAL ESTATE"
+        },
+        "CASH": {
+          "US Equity Sector (GICS) Breakdown": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A70"
+              }
+            }
+          },
+          "TODO": {
+            "value": "0.0473;0.0473",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C70"
+              }
+            }
+          },
+          "% Russell 1000 Growth": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D70"
+              }
+            }
+          },
+          "label": "CASH"
+        },
+        "label": "sector_allocation_equities_equity_securities"
+      },
+      "top_5_holdings_convertiable_bonds": {
+        "MICROCHIP TECHNOLOGY INC 1.625% 02/15/2027": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A147"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "595017;595017",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B147"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0254;0.0254",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C147"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0084;0.0084",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D147"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E147"
+              }
+            }
+          },
+          "label": "MICROCHIP TECHNOLOGY INC 1.625% 02/15/2027"
+        },
+        "TESLA INC 1.25% 03/01/2021": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A148"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "88160;88160",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B148"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0231;0.0231",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C148"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0077;0.0077",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D148"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E148"
+              }
+            }
+          },
+          "label": "TESLA INC 1.25% 03/01/2021"
+        },
+        "BANK OF AMERICA CORP 7.25% 04/30/2198": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A149"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B149"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0223;0.0223",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C149"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0074;0.0074",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D149"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E149"
+              }
+            }
+          },
+          "label": "BANK OF AMERICA CORP 7.25% 04/30/2198"
+        },
+        "BROADCOM INC 8% 09/30/2022": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A150"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B150"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0171;0.0171",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C150"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0057;0.0057",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D150"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E150"
+              }
+            }
+          },
+          "label": "BROADCOM INC 8% 09/30/2022"
+        },
+        "CROWN CASTLE INTL CORP 6.875% 08/01/2020": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A151"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B151"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.016;0.016",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C151"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0053;0.0053",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D151"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E151"
+              }
+            }
+          },
+          "label": "CROWN CASTLE INTL CORP 6.875% 08/01/2020"
+        },
+        "DEXCOM INC 0.75% 12/01/2023": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A152"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "252131;252131",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B152"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.016;0.016",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C152"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0053;0.0053",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D152"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E152"
+              }
+            }
+          },
+          "label": "DEXCOM INC 0.75% 12/01/2023"
+        },
+        "AKAMAI TECHNOLOGIES INC 0.125% 05/01/2025": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A153"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "971;971",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B153"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0157;0.0157",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C153"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0052;0.0052",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D153"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E153"
+              }
+            }
+          },
+          "label": "AKAMAI TECHNOLOGIES INC 0.125% 05/01/2025"
+        },
+        "DANAHER CORP 4.75% 04/15/2022": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A154"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B154"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0156;0.0156",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C154"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0052;0.0052",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D154"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E154"
+              }
+            }
+          },
+          "label": "DANAHER CORP 4.75% 04/15/2022"
+        },
+        "INSULET CORPORATION 0.375% 09/01/2026": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A155"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "45784;45784",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B155"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.0147;0.0147",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C155"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0049;0.0049",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D155"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E155"
+              }
+            }
+          },
+          "label": "INSULET CORPORATION 0.375% 09/01/2026"
+        },
+        "SQUARE INC 0.5% 05/15/2023": {
+          "Top 10 Convertible Issues": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "A156"
+              }
+            }
+          },
+          "Cusip": {
+            "value": "852234;852234",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "B156"
+              }
+            }
+          },
+          "% Total Sub-Portfolio": {
+            "value": "0.014;0.014",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "C156"
+              }
+            }
+          },
+          "PERCENTAGE": {
+            "value": "0.0046;0.0046",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "D156"
+              }
+            }
+          },
+          "Sector - Level 4": {
+            "value": "0;0",
+            "metadata": {
+              "excel_position": {
+                "file": "781b1463-88f6-469b-813e-3b6c279a560b/IG_Selection_HK_Fund_U-1855_Stats_03_2020.xlsx",
+                "sheet": "STATS U-1855",
+                "cell": "E156"
+              }
+            }
+          },
+          "label": "SQUARE INC 0.5% 05/15/2023"
+        },
+        "label": "top_5_holdings_convertiable_bonds"
+      },
+      "calendar_year_returns": {
+        "nav_nav": {
+          "2015": {
+            "value": "1.85",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2016": {
+            "value": "11.97",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2017": {
+            "value": "17.03",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2018": {
+            "value": "-2.36",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "2019": {
+            "value": "19.92",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Calendar Year Returns": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "nav_nav"
+        },
+        "label": "calendar_year_returns"
+      },
+      "cumulative_returns": {
+        "nav_nav": {
+          "Cumulative Returns": {
+            "value": "0",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Year to Date": {
+            "value": "-10.83",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "1 Year": {
+            "value": "-3.66",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "3 Years": {
+            "value": "15.26",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "5 Years": {
+            "value": "35.39",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "Since Inception": {
+            "value": "46.93",
+            "metadata": {
+              "excel_position": { "file": "", "sheet": "", "cell": "" }
+            }
+          },
+          "label": "nav_nav"
+        },
+        "label": "cumulative_returns"
+      }
+    },
+    "created_at": "Tue Jun 09 2020 05:11:42 GMT+0000 (Coordinated Universal Time)",
+    "updated_at": "Tue Jun 09 2020 05:11:42 GMT+0000 (Coordinated Universal Time)"
+  }
+}

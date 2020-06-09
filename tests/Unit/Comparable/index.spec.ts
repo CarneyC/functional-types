@@ -353,6 +353,90 @@ describe('Comparable', function () {
     });
   });
 
+  describe('#liftNode()', function () {
+    it('should return a node with its matching leaves lifted one level.', function () {
+      const node = {
+        root: {
+          root_child: {
+            target: {
+              value: '5',
+            },
+            not_target: {
+              value: '0',
+            },
+          },
+          root_favorite_child: {
+            not_target: {
+              target: {
+                value: '1',
+              },
+            },
+            not_target_number_two: {
+              value: '0',
+            },
+            parents: {
+              grand_parents: {
+                target_two: {
+                  value: '2',
+                },
+              },
+            },
+          },
+          root_least_favorite_child: {
+            not_target: {
+              value: '99',
+            },
+            not_target_number_two: {
+              value: '0',
+            },
+          },
+        },
+        others: {
+          other_child: {
+            value: '10',
+          },
+        },
+      };
+
+      const actualNode = C.liftNode(node)([/^target$/, /^target_two$/]);
+      const expectedNode = {
+        root: {
+          root_child: {
+            value: '5',
+          },
+          root_favorite_child: {
+            not_target: {
+              value: '1',
+            },
+            not_target_number_two: {
+              value: '0',
+            },
+            parents: {
+              grand_parents: {
+                value: '2',
+              },
+            },
+          },
+          root_least_favorite_child: {
+            not_target: {
+              value: '99',
+            },
+            not_target_number_two: {
+              value: '0',
+            },
+          },
+        },
+        others: {
+          other_child: {
+            value: '10',
+          },
+        },
+      };
+
+      expect(actualNode).to.deep.equal(expectedNode);
+    });
+  });
+
   describe('With DocumentAnnotations', function () {
     let annotation: DocumentAnnotation;
 

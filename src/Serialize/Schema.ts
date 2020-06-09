@@ -10,6 +10,7 @@ import {
 import * as Deserialized from '../Schema';
 import {
   isArray,
+  isArraySatisfying,
   isDictionary,
   isNat,
   isNotNil,
@@ -39,6 +40,11 @@ export interface Replacements {
   values?: Replacement[];
 }
 
+export interface Filters {
+  keys?: string[];
+  values?: string[];
+}
+
 export interface Property {
   property: string;
   pattern: string;
@@ -61,6 +67,9 @@ export interface GettableOptions {
   key?: string;
   replacements?: Replacements;
   unnest?: number;
+  lifts?: string[];
+  rejects?: Filters;
+  filters?: Filters;
   end?: string;
 }
 
@@ -111,6 +120,18 @@ export const isReplacements = (a: unknown): a is Replacements =>
     isDictionary,
     propSatisfiesIfExists(allPass([isArray, all(isReplacement)]), 'keys'),
     propSatisfiesIfExists(allPass([isArray, all(isReplacement)]), 'values'),
+  ])(a);
+
+/**
+ * ```haskell
+ * isFilters :: a -> bool
+ * ```
+ */
+export const isFilters = (a: unknown): a is Filters =>
+  allPass([
+    isDictionary,
+    propSatisfiesIfExists(isArraySatisfying(S.isRegExp), 'keys'),
+    propSatisfiesIfExists(isArraySatisfying(S.isRegExp), 'values'),
   ])(a);
 
 /**
@@ -179,6 +200,9 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(S.isRegExp, 'key'),
     propSatisfiesIfExists(isReplacements, 'replacements'),
     propSatisfiesIfExists(isNat, 'unnest'),
+    propSatisfiesIfExists(isArraySatisfying(S.isRegExp), 'lifts'),
+    propSatisfiesIfExists(isFilters, 'rejects'),
+    propSatisfiesIfExists(isFilters, 'filters'),
     propSatisfiesIfExists(S.isRegExp, 'end'),
   ])(a);
 

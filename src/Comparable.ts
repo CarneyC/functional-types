@@ -3,6 +3,7 @@ import * as D from './DocumentAnnotation';
 import { isPosition, Position } from './Excel';
 import * as FT from './FileType';
 import { getFileNameFromId } from './Folder';
+import { flip } from './fp-ts/Reader';
 import * as RIO from './fp-ts/ReaderIO';
 import * as S from './Schema';
 import { PathSegment } from './Schema';
@@ -382,16 +383,16 @@ export const findKeyFromPredicate: (
 
 /**
  * ```haskell
- * findNodeFromPredicate :: Tree -> Reader Predicate (Option Node)
+ * findLeafFromPredicate :: Tree -> Reader Predicate (Option Node)
  * ```
  */
-export const findNodeFromPredicate: (
+export const findLeafFromPredicate: (
   node: Tree
-) => R.Reader<Predicate, O.Option<Node>> = (tree) =>
+) => R.Reader<Predicate, O.Option<Leaf>> = (tree) =>
   pipe(
     filter(isLeaf) as R.Reader<Tree, Dictionary<Leaf>>,
     findKeyFromPredicate,
-    R.map(O.map<string, Node>(pipe(prop(__, tree))))
+    R.map(O.map<string, Leaf>((key: string) => tree[key] as Leaf))
   )(tree);
 
 /**
@@ -827,12 +828,11 @@ const applyReplacement: (value: string) => R.Reader<S.Replacement[], string> = (
   value
 ) =>
   pipe(
-    find(({ pattern }: S.Replacement) => regExpTest(pattern, value)),
-    ifElse(
-      isNil,
-      () => value,
-      ({ pattern, value: replaceValue }: S.Replacement) =>
-        replace(pattern, replaceValue, value)
+    filter(({ pattern }: S.Replacement) => regExpTest(pattern, value)),
+    reduce<S.Replacement, string>(
+      (acc, { pattern, value: replaceValue }) =>
+        replace(pattern, replaceValue, acc),
+      value
     )
   );
 
@@ -843,7 +843,7 @@ const applyReplacement: (value: string) => R.Reader<S.Replacement[], string> = (
  */
 export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
   node
-) => (replacements: S.Replacements) => {
+) => (replacements: S.Replacements): Node => {
   const { values, keys } = replacements;
   return pipe(
     unless(
@@ -855,6 +855,91 @@ export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
           const translatedKey = applyReplacement(key)(replaceList);
           const translatedChild = translateNode(child)(replacements);
           return assoc(translatedKey, translatedChild, acc);
+        }, {})
+      )
+    )
+  )(node);
+};
+
+/**
+ * ```haskell
+ * matchRegExps :: [RegExp] -> Reader String Bool
+ * ```
+ */
+const matchRegExps: (regExps: RegExp[]) => R.Reader<string, boolean> = pipe(
+  map(regExpTest),
+  anyPass
+);
+
+/**
+ * ```haskell
+ * liftNode :: Node -> Reader Path Node
+ * ```
+ */
+export const liftNode: (node: Node) => R.Reader<RegExp[], Node> = (node) => (
+  regExps: RegExp[]
+): Node => {
+  if (isTree(node)) {
+    const isMatch = matchRegExps(regExps);
+    const leaf = findLeafFromPredicate(node)(isMatch);
+    return O.getOrElse<Node>(() =>
+      mapObjIndexed(flip(liftNode)(regExps), node)
+    )(leaf);
+  } else {
+    return node;
+  }
+};
+
+/**
+ * ```haskell
+ * rejectsNode :: Node -> Reader Filters Node
+ * ```
+ */
+export const rejectsNode: (node: Node) => R.Reader<S.Filters, Node> = (
+  node
+) => (filters: S.Filters): Node => {
+  const { values, keys } = filters;
+  return pipe(
+    unless(
+      isLeaf,
+      pipe(
+        toPairs,
+        reduce<[string, Node], Tree>((acc, [key, child]) => {
+          const regExps = (isLeaf(child) ? values : keys) || [];
+          if (matchRegExps(regExps)(key)) {
+            return acc;
+          } else {
+            const rejectedChild = rejectsNode(child)(filters);
+            return assoc(key, rejectedChild, acc);
+          }
+        }, {})
+      )
+    )
+  )(node);
+};
+
+/**
+ * ```haskell
+ * filtersNode :: Node -> Reader Filters Node
+ * ```
+ */
+export const filtersNode: (node: Node) => R.Reader<S.Filters, Node> = (
+  node
+) => (filters: S.Filters): Node => {
+  const { values, keys } = filters;
+  return pipe(
+    unless(
+      isLeaf,
+      pipe(
+        toPairs,
+        reduce<[string, Node], Tree>((acc, [key, child]) => {
+          const regExps = (isLeaf(child) ? values : keys) || [];
+          if (matchRegExps(regExps)(key)) {
+            const filteredChild = filtersNode(child)(filters);
+            return assoc(key, filteredChild, acc);
+          } else {
+            return acc;
+          }
         }, {})
       )
     )
@@ -969,6 +1054,45 @@ export const translateTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
 
 /**
  * ```haskell
+ * liftTree :: Tree -> Reader Gettables Tree
+ * ```
+ */
+export const liftTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = (tree) => (
+  gettables: S.Gettables
+): Tree =>
+  mapObjIndexed((node, key) => {
+    const lifts = gettables[key].options?.lifts;
+    return lifts ? liftNode(node)(lifts) : node;
+  }, tree);
+
+/**
+ * ```haskell
+ * rejectsTree :: Tree -> Reader Gettables Tree
+ * ```
+ */
+export const rejectsTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
+  tree
+) => (gettables: S.Gettables): Tree =>
+  mapObjIndexed((node, key) => {
+    const rejects = gettables[key].options?.rejects;
+    return rejects ? rejectsNode(node)(rejects) : node;
+  }, tree);
+
+/**
+ * ```haskell
+ * filtersTree :: Tree -> Reader Gettables Tree
+ * ```
+ */
+export const filtersTree: (tree: Tree) => R.Reader<S.Gettables, Tree> = (
+  tree
+) => (gettables: S.Gettables): Tree =>
+  mapObjIndexed((node, key) => {
+    const filters = gettables[key].options?.filters;
+    return filters ? filtersNode(node)(filters) : node;
+  }, tree);
+
+/**
+ * ```haskell
  * mergeTree :: Tree -> Tree
  * ```
  */
@@ -1048,6 +1172,9 @@ export const postProcessTree: (
 ) => R.Reader<S.Gettables, Tree> = pipe(
   mergeTreeFromGettables,
   R.chain(unnestTreeFromGettables),
+  R.chain(rejectsTree),
+  R.chain(filtersTree),
+  R.chain(liftTree),
   R.chain(translateTree)
 );
 
