@@ -6,6 +6,7 @@ import {
   Dictionary,
   has,
   is,
+  isEmpty,
   isNil,
   join,
   keys,
@@ -164,3 +165,11 @@ export const isBoolean = (a: unknown): a is boolean =>
  */
 export const isStringArray = (a: unknown): a is string[] =>
   allPass([isArray, all(isString)])(a);
+
+/**
+ * ```haskell
+ * isNotEmpty :: a -> bool
+ * ```
+ */
+
+export const isNotEmpty: (a: unknown) => boolean = pipe(isEmpty, not);

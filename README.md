@@ -497,7 +497,7 @@ ___
 
 *Inherited from [Pair](#interfaces_types_pairmd).[left](#left)*
 
-Defined in src/Types.ts:20
+Defined in src/Types.ts:21
 
 ___
 
@@ -515,7 +515,7 @@ ___
 
 *Inherited from [Pair](#interfaces_types_pairmd).[right](#right)*
 
-Defined in src/Types.ts:21
+Defined in src/Types.ts:22
 
 ___
 
@@ -2124,7 +2124,7 @@ ___
 
 *Inherited from [Pair](#interfaces_types_pairmd).[left](#left)*
 
-Defined in src/Types.ts:20
+Defined in src/Types.ts:21
 
 ___
 
@@ -2142,7 +2142,7 @@ ___
 
 *Inherited from [Pair](#interfaces_types_pairmd).[right](#right)*
 
-Defined in src/Types.ts:21
+Defined in src/Types.ts:22
 
 ___
 
@@ -2876,7 +2876,7 @@ Defined in src/TextAnnotation.ts:55
 
 • **left**: *T*
 
-Defined in src/Types.ts:20
+Defined in src/Types.ts:21
 
 ___
 
@@ -2884,7 +2884,7 @@ ___
 
 • **right**: *T*
 
-Defined in src/Types.ts:21
+Defined in src/Types.ts:22
 
 
 <a name="interfaces_vertex_index_boundingboxmd"></a>
@@ -8437,6 +8437,7 @@ Name | Type |
 * [isBoolean](#isboolean)
 * [isDictionary](#isdictionary)
 * [isNat](#isnat)
+* [isNotEmpty](#isnotempty)
 * [isNotNil](#isnotnil)
 * [isNumber](#isnumber)
 * [isPair](#ispair)
@@ -8506,6 +8507,12 @@ ___
 ####  isNat
 
 • **isNat**:
+
+___
+
+####  isNotEmpty
+
+• **isNotEmpty**:
 
 ___
 
@@ -11176,6 +11183,7 @@ Name | Type |
 
 #### Variables
 
+* [isNotEmpty](#const-isnotempty)
 * [isNotNil](#const-isnotnil)
 * [toPair](#const-topair)
 
@@ -11201,7 +11209,7 @@ Name | Type |
 
 Ƭ **ArrayPredicate**: *[TypePredicate](#typepredicate)‹T[]›*
 
-Defined in src/Types.ts:26
+Defined in src/Types.ts:27
 
 ___
 
@@ -11209,7 +11217,7 @@ ___
 
 Ƭ **PairPredicate**: *[TypePredicate](#typepredicate)‹[Pair](#interfaces_types_pairmd)‹T››*
 
-Defined in src/Types.ts:28
+Defined in src/Types.ts:29
 
 ___
 
@@ -11217,7 +11225,7 @@ ___
 
 Ƭ **TypePredicate**: *function*
 
-Defined in src/Types.ts:24
+Defined in src/Types.ts:25
 
 ##### Type declaration:
 
@@ -11231,11 +11239,33 @@ Name | Type |
 
 ### Variables
 
+#### `Const` isNotEmpty
+
+• **isNotEmpty**: *function* = pipe(isEmpty, not)
+
+Defined in src/Types.ts:175
+
+```haskell
+isNotEmpty :: a -> bool
+```
+
+##### Type declaration:
+
+▸ (`a`: unknown): *boolean*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+___
+
 #### `Const` isNotNil
 
 • **isNotNil**: *function* = pipe(isNil, not)
 
-Defined in src/Types.ts:106
+Defined in src/Types.ts:107
 
 ```haskell
 isNotNil :: a -> bool
@@ -11260,7 +11290,7 @@ ___
   ([left, right]): Pair<string> => ({ left, right: right ?? '' })
 )
 
-Defined in src/Types.ts:85
+Defined in src/Types.ts:86
 
 ```haskell
 toPair :: String -> Pair String
@@ -11282,7 +11312,7 @@ Name | Type |
 
 ▸ **fromPair**(`__namedParameters`: object): *string*
 
-Defined in src/Types.ts:77
+Defined in src/Types.ts:78
 
 ```haskell
 fromPair :: Pair String -> String
@@ -11305,7 +11335,7 @@ ___
 
 ▸ **isArray**(`a`: unknown): *a is unknown[]*
 
-Defined in src/Types.ts:142
+Defined in src/Types.ts:143
 
 ```haskell
 isArray :: a -> bool
@@ -11325,7 +11355,7 @@ ___
 
 ▸ **isArraySatisfying**<**T**>(`predicate`: [TypePredicate](#typepredicate)‹T›): *[ArrayPredicate](#arraypredicate)‹T›*
 
-Defined in src/Types.ts:35
+Defined in src/Types.ts:36
 
 ```haskell
 isArraySatisfying :: a ->  bool
@@ -11349,7 +11379,7 @@ ___
 
 ▸ **isBoolean**(`a`: unknown): *a is boolean*
 
-Defined in src/Types.ts:157
+Defined in src/Types.ts:158
 
 ```haskell
 isBoolean :: a -> bool
@@ -11369,7 +11399,7 @@ ___
 
 ▸ **isDictionary**(`a`: unknown): *a is Dictionary<unknown>*
 
-Defined in src/Types.ts:149
+Defined in src/Types.ts:150
 
 ```haskell
 isDictionary :: a -> bool
@@ -11389,7 +11419,7 @@ ___
 
 ▸ **isNat**(`a`: unknown): *a is number*
 
-Defined in src/Types.ts:127
+Defined in src/Types.ts:128
 
 ```haskell
 isNat :: a -> bool
@@ -11409,7 +11439,7 @@ ___
 
 ▸ **isNumber**(`a`: unknown): *a is number*
 
-Defined in src/Types.ts:120
+Defined in src/Types.ts:121
 
 ```haskell
 isNumber :: a -> bool
@@ -11429,7 +11459,7 @@ ___
 
 ▸ **isPair**(`a`: unknown): *a is Pair<unknown>*
 
-Defined in src/Types.ts:50
+Defined in src/Types.ts:51
 
 ```haskell
 isPair :: a ->  bool
@@ -11449,7 +11479,7 @@ ___
 
 ▸ **isPairSatisfying**<**T**>(`predicate`: [TypePredicate](#typepredicate)‹T›): *[PairPredicate](#pairpredicate)‹T›*
 
-Defined in src/Types.ts:58
+Defined in src/Types.ts:59
 
 ```haskell
 isPairSatisfying :: a ->  bool
@@ -11473,7 +11503,7 @@ ___
 
 ▸ **isRegExp**(`a`: unknown): *a is RegExp*
 
-Defined in src/Types.ts:113
+Defined in src/Types.ts:114
 
 ```haskell
 isRegExp :: a -> bool
@@ -11493,7 +11523,7 @@ ___
 
 ▸ **isString**(`a`: unknown): *a is string*
 
-Defined in src/Types.ts:135
+Defined in src/Types.ts:136
 
 ```haskell
 isString :: a -> bool
@@ -11513,7 +11543,7 @@ ___
 
 ▸ **isStringArray**(`a`: unknown): *a is string[]*
 
-Defined in src/Types.ts:165
+Defined in src/Types.ts:166
 
 ```haskell
 isStringArray :: a -> bool
@@ -11533,7 +11563,7 @@ ___
 
 ▸ **propSatisfiesIfExists**(`pred`: function, `name`: string): *function*
 
-Defined in src/Types.ts:98
+Defined in src/Types.ts:99
 
 ```haskell
 propSatisfiesIfExists :: (Pred, String) -> Reader a bool
