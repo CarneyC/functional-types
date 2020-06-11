@@ -30,11 +30,13 @@ import {
   allPass,
   any,
   anyPass,
+  append,
   applySpec,
   applyTo,
   assoc,
   assocPath,
   clone,
+  concat,
   defaultTo,
   Dictionary,
   dissoc,
@@ -53,7 +55,7 @@ import {
   isNil,
   keys,
   last,
-  map,
+  map as arrayMap,
   mapObjIndexed,
   mergeAll,
   mergeDeepRight,
@@ -266,12 +268,39 @@ export const isComparable: ComparablePredicate<Leaf> = isComparableSatisfying(
 export const isComparablesByType = (a: unknown): a is ComparablesByType =>
   allPass([
     is(Object),
-    ...map(propSatisfies(isArraySatisfying(isComparable)), [
+    ...arrayMap(propSatisfies(isArraySatisfying(isComparable)), [
       'pdf',
       'json',
       'excel',
     ]),
   ])(a);
+
+/**
+ * ```haskell
+ * map :: (a -> b) -> Reader (Tree a) (Tree b)
+ * ```
+ */
+export const map = <A, B>(predicate: TypePredicate<A>) => (
+  fa: (a: A) => B
+): R.Reader<Tree<A>, Tree<B>> =>
+  mapObjIndexed<Node<A>, Node<B>>(ifElse(predicate, fa, map(predicate)(fa)));
+
+/**
+ * ```haskell
+ * leafs :: Tree -> Leaf[]
+ * ```
+ */
+export const leafs = <T>(predicate: TypePredicate<T>): R.Reader<Tree<T>, T[]> =>
+  pipe(
+    values as R.Reader<Tree<T>, Node<T>[]>,
+    reduce<Node<T>, T[]>((acc, node) => {
+      if (predicate(node)) {
+        return append(node, acc);
+      } else {
+        return concat(acc, leafs(predicate)(node));
+      }
+    }, [])
+  );
 
 /**
  * ```haskell
@@ -292,7 +321,7 @@ const getPathFromDirection: (
  */
 const getPolyFromCell: (cell: D.Cell) => Poly = pipe(
   prop('words'),
-  map(prop('boundingPoly')),
+  arrayMap(prop('boundingPoly')),
   unionOf
 );
 
@@ -748,7 +777,7 @@ export const getBranchOptionsFromGettables: (
   gettables: S.Gettables
 ) => FromBranchOptions = pipe(
   values as R.Reader<S.Gettables, S.Gettable[]>,
-  map(getLeafOptionsFromGettable)
+  arrayMap(getLeafOptionsFromGettable)
 );
 
 /**
@@ -867,8 +896,8 @@ export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
  * ```
  */
 const matchRegExps: (regExps: RegExp[]) => R.Reader<string, boolean> = pipe(
-  map(regExpTest),
-  anyPass
+  arrayMap(regExpTest),
+  ifElse(isEmpty, T, anyPass)
 );
 
 /**
@@ -899,21 +928,20 @@ export const rejectsNode: (node: Node) => R.Reader<S.Filters, Node> = (
   node
 ) => (filters: S.Filters): Node => {
   const { values, keys } = filters;
-  return pipe(
-    unless(
-      isLeaf,
-      pipe(
-        toPairs,
-        reduce<[string, Node], Tree>((acc, [key, child]) => {
-          const regExps = (isLeaf(child) ? values : keys) || [];
-          if (matchRegExps(regExps)(key)) {
-            return acc;
-          } else {
-            const rejectedChild = rejectsNode(child)(filters);
-            return assoc(key, rejectedChild, acc);
-          }
-        }, {})
-      )
+  return unless(
+    isLeaf,
+    pipe(
+      toPairs,
+      reduce<[string, Node], Tree>((acc, [key, child]) => {
+        const regExps = (isLeaf(child) ? values : keys) || [];
+        if (matchRegExps(regExps)(key)) {
+          return acc;
+        } else {
+          const childFilters = { keys: [], values };
+          const rejectedChild = rejectsNode(child)(childFilters);
+          return assoc(key, rejectedChild, acc);
+        }
+      }, {})
     )
   )(node);
 };
@@ -927,21 +955,20 @@ export const filtersNode: (node: Node) => R.Reader<S.Filters, Node> = (
   node
 ) => (filters: S.Filters): Node => {
   const { values, keys } = filters;
-  return pipe(
-    unless(
-      isLeaf,
-      pipe(
-        toPairs,
-        reduce<[string, Node], Tree>((acc, [key, child]) => {
-          const regExps = (isLeaf(child) ? values : keys) || [];
-          if (matchRegExps(regExps)(key)) {
-            const filteredChild = filtersNode(child)(filters);
-            return assoc(key, filteredChild, acc);
-          } else {
-            return acc;
-          }
-        }, {})
-      )
+  return unless(
+    isLeaf,
+    pipe(
+      toPairs,
+      reduce<[string, Node], Tree>((acc, [key, child]) => {
+        const regExps = (isLeaf(child) ? values : keys) || [];
+        if (matchRegExps(regExps)(key)) {
+          const childFilters = { keys: [], values };
+          const filteredChild = filtersNode(child)(childFilters);
+          return assoc(key, filteredChild, acc);
+        } else {
+          return acc;
+        }
+      }, {})
     )
   )(node);
 };
