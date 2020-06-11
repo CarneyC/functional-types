@@ -60,7 +60,6 @@ import {
   mapObjIndexed,
   mergeAll,
   mergeDeepRight,
-  mergeDeepWith,
   not,
   path,
   pathSatisfies,
@@ -1272,7 +1271,18 @@ export const mergeComparables: (
   reduce<
     Comparable | Record<string, unknown>,
     Comparable | Record<string, unknown>
-  >((acc, value) => mergeDeepWith(concat, acc, value), {}),
+  >(
+    (acc, value) =>
+      mergeDeepRight(
+        acc,
+        assoc(
+          'files',
+          concat(acc.files as string[], value.files as string[]),
+          value
+        )
+      ),
+    {}
+  ),
   O.fromPredicate(isComparable),
   O.map(
     evolve({
