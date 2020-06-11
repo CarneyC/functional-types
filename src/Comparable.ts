@@ -1277,7 +1277,10 @@ export const mergeComparables: (
         acc,
         assoc(
           'files',
-          concat(acc.files as string[], value.files as string[]),
+          concat(
+            (acc.files ?? []) as string[],
+            (value.files ?? []) as string[]
+          ),
           value
         )
       ),

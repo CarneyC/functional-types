@@ -4971,7 +4971,7 @@ ___
   unless(isEmpty, makeComparablesWith(applySchema))
 )
 
-Defined in src/Comparable.ts:1336
+Defined in src/Comparable.ts:1339
 
 ```haskell
 makeComparables :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
@@ -4991,7 +4991,10 @@ ___
         acc,
         assoc(
           'files',
-          concat(acc.files as string[], value.files as string[]),
+          concat(
+            (acc.files ?? []) as string[],
+            (value.files ?? []) as string[]
+          ),
           value
         )
       ),
@@ -5547,7 +5550,7 @@ ___
 
 ▸ **makeComparablesWith**(`fa`: function): *function*
 
-Defined in src/Comparable.ts:1301
+Defined in src/Comparable.ts:1304
 
 ```haskell
 makeComparablesWith :: [DocumentAnnotation] -> ReaderIO Schema [Comparable]
