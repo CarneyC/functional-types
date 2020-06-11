@@ -12,6 +12,7 @@ import {
   isArray,
   isArraySatisfying,
   isDictionary,
+  isNotEmpty,
   isNotNil,
   isRegExp,
   isString,
@@ -274,16 +275,6 @@ export const isComparablesByType = (a: unknown): a is ComparablesByType =>
       'excel',
     ]),
   ])(a);
-
-/**
- * ```haskell
- * map :: (a -> b) -> Reader (Tree a) (Tree b)
- * ```
- */
-export const map = <A, B>(predicate: TypePredicate<A>) => (
-  fa: (a: A) => B
-): R.Reader<Tree<A>, Tree<B>> =>
-  mapObjIndexed<Node<A>, Node<B>>(ifElse(predicate, fa, map(predicate)(fa)));
 
 /**
  * ```haskell
@@ -897,7 +888,7 @@ export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
  */
 const matchRegExps: (regExps: RegExp[]) => R.Reader<string, boolean> = pipe(
   arrayMap(regExpTest),
-  ifElse(isEmpty, T, anyPass)
+  anyPass
 );
 
 /**
@@ -934,7 +925,7 @@ export const rejectsNode: (node: Node) => R.Reader<S.Filters, Node> = (
       toPairs,
       reduce<[string, Node], Tree>((acc, [key, child]) => {
         const regExps = (isLeaf(child) ? values : keys) || [];
-        if (matchRegExps(regExps)(key)) {
+        if (isNotEmpty(regExps) && matchRegExps(regExps)(key)) {
           return acc;
         } else {
           const childFilters = { keys: [], values };
@@ -961,7 +952,7 @@ export const filtersNode: (node: Node) => R.Reader<S.Filters, Node> = (
       toPairs,
       reduce<[string, Node], Tree>((acc, [key, child]) => {
         const regExps = (isLeaf(child) ? values : keys) || [];
-        if (matchRegExps(regExps)(key)) {
+        if (isEmpty(regExps) || matchRegExps(regExps)(key)) {
           const childFilters = { keys: [], values };
           const filteredChild = filtersNode(child)(childFilters);
           return assoc(key, filteredChild, acc);
