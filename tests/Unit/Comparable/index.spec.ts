@@ -494,4 +494,33 @@ describe('Comparable', function () {
       });
     });
   });
+
+  describe('#mergeComparables()', function () {
+    it('should return a Comparable containing filenames from both comparables.', function () {
+      const comparableBase = {
+        id: '',
+        created_at: '',
+        updated_at: '',
+        schema_id: 'generic_factsheet_en',
+        files: ['hk_allianz'],
+        attributes: Sample.getFlatComparableTree(),
+      };
+
+      const comparables = [
+        comparableBase,
+        {
+          ...comparableBase,
+          files: ['sg_allianz'],
+        },
+      ];
+
+      const actualComparables = C.mergeComparables(comparables);
+
+      const expectedComparable = {
+        files: ['hk_allianz', 'sg_allianz'],
+      };
+
+      expect(actualComparables).to.be.like({ value: expectedComparable });
+    });
+  });
 });
