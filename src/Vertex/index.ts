@@ -1,3 +1,4 @@
+import { isNumber, propSatisfiesIfExists } from '../Types';
 import * as E from 'fp-ts/lib/Either';
 import { NonEmptyArray } from 'fp-ts/lib/NonEmptyArray';
 import * as O from 'fp-ts/lib/Option';
@@ -86,6 +87,7 @@ export type WithHeaders<A extends BoundingBox> = WithHeaderRow<A> &
 export interface LabeledBoundingBox extends BoundingBox {
   id: string;
   label: string;
+  score?: number;
 }
 
 export interface Corners {
@@ -411,7 +413,12 @@ export const getXs: (lines: Line[]) => number[] = map(getX);
  * ```
  */
 export const isLabeledBoundingBox = (a: unknown): a is LabeledBoundingBox =>
-  allPass([isBoundingBox, propIs(String, 'id'), propIs(String, 'label')])(a);
+  allPass([
+    isBoundingBox,
+    propIs(String, 'id'),
+    propIs(String, 'label'),
+    propSatisfiesIfExists(isNumber, 'score'),
+  ])(a);
 
 /**
  * ```haskell
@@ -423,17 +430,24 @@ export const makeLabeledBoundingBox = (
   label: string,
   poly: Poly,
   ys: number[],
-  xs: number[]
+  xs: number[],
+  score?: number
 ): LabeledBoundingBox => {
   const corners = getCornersFromPoly(poly);
 
-  return {
+  const box = {
     id,
     label,
     boundingPoly: poly,
     rows: makeRows(corners)(ys),
     columns: makeColumns(corners)(xs),
   };
+  return score
+    ? {
+        ...box,
+        score,
+      }
+    : box;
 };
 
 /**
