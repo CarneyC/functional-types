@@ -1338,5 +1338,5 @@ export const makeComparablesWith: <A extends Annotation>(
  */
 export const makeComparables: MakeComparables<D.DocumentAnnotation> = pipe(
   reject(propSatisfies(isEmpty, 'forestByPage')),
-  unless(isEmpty, makeComparablesWith(applySchema))
+  makeComparablesWith(applySchema)
 );
