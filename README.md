@@ -11876,7 +11876,7 @@ Defined in src/Vertex/index.ts:64
   heightOf,
 ])
 
-Defined in src/Vertex/index.ts:615
+Defined in src/Vertex/index.ts:621
 
 ```haskell
 areaOf :: Poly -> Float
@@ -12097,12 +12097,15 @@ ___
 
 #### `Const` heightOf
 
-• **heightOf**: *function* = converge(subtract, [
-  pipe(getBottomLeft, prop('y')),
-  pipe(getTopLeft, prop('y')),
-])
+• **heightOf**: *function* = pipe(
+  converge(subtract, [
+    pipe(getBottomLeft, prop('y')),
+    pipe(getTopLeft, prop('y')),
+  ]),
+  Math.abs
+)
 
-Defined in src/Vertex/index.ts:605
+Defined in src/Vertex/index.ts:608
 
 ```haskell
 heightOf :: Poly -> Float
@@ -12124,7 +12127,7 @@ ___
 
 • **isEmptyPoly**: *function* = pipe(areaOf, gte(0))
 
-Defined in src/Vertex/index.ts:625
+Defined in src/Vertex/index.ts:631
 
 ```haskell
 isEmpty :: Poly -> Bool
@@ -12149,7 +12152,7 @@ ___
   [head, tail]
 )
 
-Defined in src/Vertex/index.ts:715
+Defined in src/Vertex/index.ts:721
 
 ```haskell
 unionOf :: [Poly] -> Poly
@@ -12169,10 +12172,13 @@ ___
 
 #### `Const` widthOf
 
-• **widthOf**: *function* = converge(subtract, [
-  pipe(getTopRight, prop('x')),
-  pipe(getTopLeft, prop('x')),
-])
+• **widthOf**: *function* = pipe(
+  converge(subtract, [
+    pipe(getTopRight, prop('x')),
+    pipe(getTopLeft, prop('x')),
+  ]),
+  Math.abs
+)
 
 Defined in src/Vertex/index.ts:595
 
@@ -12220,7 +12226,7 @@ ___
 
 ▸ **containedBy**(`container`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], `threshold`: number): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:769
+Defined in src/Vertex/index.ts:775
 
 ```haskell
 containedBy :: Poly -> Reader Poly bool
@@ -12241,7 +12247,7 @@ ___
 
 ▸ **contains**(`containee`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], `threshold`: number): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:753
+Defined in src/Vertex/index.ts:759
 
 ```haskell
 contains :: Poly -> Reader Poly bool
@@ -12262,7 +12268,7 @@ ___
 
 ▸ **getChildlessBoundingBoxes**(`boundingBoxes`: [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)[]): *any[]*
 
-Defined in src/Vertex/index.ts:814
+Defined in src/Vertex/index.ts:820
 
 ```haskell
 getChildlessBoundingBoxes :: [BoundingBox] -> [BoundingBox]
@@ -12450,7 +12456,7 @@ ___
 
 ▸ **intersects**(`p0`: [Poly](#poly)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:667
+Defined in src/Vertex/index.ts:673
 
 ```haskell
 intersects :: Poly -> Reader Poly (Option Poly)
@@ -12570,7 +12576,7 @@ ___
 
 ▸ **lengthOf**(`__namedParameters`: [any, any]): *number*
 
-Defined in src/Vertex/index.ts:632
+Defined in src/Vertex/index.ts:638
 
 ```haskell
 lengthOf :: Line -> Float
@@ -12701,7 +12707,7 @@ ___
 
 ▸ **ratioContainedBy**(`p0`: [Poly](#poly)): *function*
 
-Defined in src/Vertex/index.ts:725
+Defined in src/Vertex/index.ts:731
 
 ```haskell
 ratioContainedBy :: Poly -> Reader Poly Float
@@ -12729,7 +12735,7 @@ ___
 
 ▸ **ratioContaining**(`p0`: [Poly](#poly)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:741
+Defined in src/Vertex/index.ts:747
 
 ```haskell
 ratioContaining :: Poly -> Reader Poly Float
@@ -12769,7 +12775,7 @@ ___
 
 ▸ **splitByXs**(`xs`: number[]): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:795
+Defined in src/Vertex/index.ts:801
 
 ```haskell
 splitByXs :: [number] -> Reader Poly [Poly]
@@ -12789,7 +12795,7 @@ ___
 
 ▸ **splitByYs**(`ys`: number[]): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:778
+Defined in src/Vertex/index.ts:784
 
 ```haskell
 splitByYs :: [number] -> Reader Poly [Poly]
@@ -12809,7 +12815,7 @@ ___
 
 ▸ **toPoly**(`__namedParameters`: object): *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:659
+Defined in src/Vertex/index.ts:665
 
 ```haskell
 toPoly :: Rectangle -> Poly
@@ -12834,7 +12840,7 @@ ___
 
 ▸ **toRectangle**(`__namedParameters`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]): *object*
 
-Defined in src/Vertex/index.ts:642
+Defined in src/Vertex/index.ts:648
 
 ```haskell
 toRectangle :: Poly -> Rectangle
@@ -12862,7 +12868,7 @@ ___
 
 ▸ **unions**(`p0`: [Poly](#poly)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:693
+Defined in src/Vertex/index.ts:699
 
 ```haskell
 unions :: Poly -> Reader Poly Poly

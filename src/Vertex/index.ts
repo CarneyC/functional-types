@@ -592,20 +592,26 @@ export const withHeader: <A extends BoundingBox>(
  * widthOf :: Poly -> Float
  * ```
  */
-export const widthOf: (poly: Poly) => number = converge(subtract, [
-  pipe(getTopRight, prop('x')),
-  pipe(getTopLeft, prop('x')),
-]);
+export const widthOf: (poly: Poly) => number = pipe(
+  converge(subtract, [
+    pipe(getTopRight, prop('x')),
+    pipe(getTopLeft, prop('x')),
+  ]),
+  Math.abs
+);
 
 /**
  * ```haskell
  * heightOf :: Poly -> Float
  * ```
  */
-export const heightOf: (poly: Poly) => number = converge(subtract, [
-  pipe(getBottomLeft, prop('y')),
-  pipe(getTopLeft, prop('y')),
-]);
+export const heightOf: (poly: Poly) => number = pipe(
+  converge(subtract, [
+    pipe(getBottomLeft, prop('y')),
+    pipe(getTopLeft, prop('y')),
+  ]),
+  Math.abs
+);
 
 /**
  * ```haskell
