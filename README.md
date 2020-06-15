@@ -9922,7 +9922,7 @@ Defined in src/Serialize/index.ts:25
 
 • **deserializeArray**: *function* = values
 
-Defined in src/Serialize/index.ts:94
+Defined in src/Serialize/index.ts:98
 
 ```haskell
 deserializeArray :: Dictionary A -> [A]
@@ -9952,13 +9952,15 @@ ___
     () => new Error('String is not a serialized RegExp instance.')
   ),
   E.chain(
-    pipe(replace(/^__REGEXP__\/(.*)\/$/, '$1'), (regExpStr: string) =>
-      E.tryCatch((): RegExp => new RegExp(regExpStr), E.toError)
-    )
+    pipe((regExpStr: string) => {
+      const expression = replace(regExpValidator, '$1', regExpStr);
+      const flag = replace(regExpValidator, '$2', regExpStr);
+      return E.tryCatch((): RegExp => new RegExp(expression, flag), E.toError);
+    })
   )
 )
 
-Defined in src/Serialize/index.ts:63
+Defined in src/Serialize/index.ts:65
 
 ```haskell
 deserializeRegExp :: String -> Either RegExp Error
@@ -9983,7 +9985,7 @@ ___
   concat('__REGEXP__')
 )
 
-Defined in src/Serialize/index.ts:45
+Defined in src/Serialize/index.ts:47
 
 ```haskell
 serializeRegExp :: RegExp -> String
@@ -10005,7 +10007,7 @@ Name | Type |
 
 ▸ **deserialize**(`value`: [Deserializable](#deserializable)): *E.Either‹Error, [Serializable](#serializable)›*
 
-Defined in src/Serialize/index.ts:114
+Defined in src/Serialize/index.ts:118
 
 ```haskell
 deserialize :: Deserializable -> Either Serializable Error
@@ -10025,7 +10027,7 @@ ___
 
 ▸ **isRegExp**(`a`: unknown): *a is string*
 
-Defined in src/Serialize/index.ts:55
+Defined in src/Serialize/index.ts:57
 
 ```haskell
 isRegExp :: a -> bool
@@ -10045,7 +10047,7 @@ ___
 
 ▸ **serialize**(`value`: [Serializable](#serializable)): *[Deserializable](#deserializable)*
 
-Defined in src/Serialize/index.ts:101
+Defined in src/Serialize/index.ts:105
 
 ```haskell
 serialize :: Serializable -> Deserializable
@@ -10065,7 +10067,7 @@ ___
 
 ▸ **serializeArray**<**A**>(`array`: A[]): *Dictionary‹A›*
 
-Defined in src/Serialize/index.ts:82
+Defined in src/Serialize/index.ts:86
 
 ```haskell
 serializeArray :: [A] -> Dictionary A

@@ -37,6 +37,8 @@ export type Deserializable =
   | Deserializable[]
   | Dictionary<Deserializable>;
 
+const regExpValidator = /^__REGEXP__\/(.*)\/([igmsuy])*$/;
+
 /**
  * ```haskell
  * serializeRegExp :: RegExp -> String
@@ -53,7 +55,7 @@ export const serializeRegExp: (regExp: RegExp) => string = pipe(
  * ```
  */
 export const isRegExp = (a: unknown): a is string =>
-  allPass([is(String), regExpTest(/^__REGEXP__\/.*\/$/)])(a);
+  allPass([is(String), regExpTest(regExpValidator)])(a);
 
 /**
  * ```haskell
@@ -68,9 +70,11 @@ export const deserializeRegExp: (
     () => new Error('String is not a serialized RegExp instance.')
   ),
   E.chain(
-    pipe(replace(/^__REGEXP__\/(.*)\/$/, '$1'), (regExpStr: string) =>
-      E.tryCatch((): RegExp => new RegExp(regExpStr), E.toError)
-    )
+    pipe((regExpStr: string) => {
+      const expression = replace(regExpValidator, '$1', regExpStr);
+      const flag = replace(regExpValidator, '$2', regExpStr);
+      return E.tryCatch((): RegExp => new RegExp(expression, flag), E.toError);
+    })
   )
 );
 
