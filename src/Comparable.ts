@@ -2,7 +2,7 @@ import { getCurrentISOString } from './DateTime';
 import * as D from './DocumentAnnotation';
 import { isPosition, Position } from './Excel';
 import * as FT from './FileType';
-import { getFileNameFromId } from './Folder';
+import { getFileNameFromId, isReference, Reference } from './Folder';
 import { flip } from './fp-ts/Reader';
 import * as RIO from './fp-ts/ReaderIO';
 import * as S from './Schema';
@@ -88,6 +88,7 @@ export type Mapping = Dictionary<string>;
 export interface Metadata {
   bounding_poly?: Poly;
   excel_position?: Position;
+  json_position?: Reference;
 }
 
 export interface Leaf {
@@ -175,6 +176,7 @@ export const isMetadata = (a: unknown): a is Metadata =>
     is(Object),
     propSatisfiesIfExists(isPoly, 'bounding_poly'),
     propSatisfiesIfExists(isPosition, 'excel_position'),
+    propSatisfiesIfExists(isReference, 'json_position'),
   ])(a);
 
 /**
@@ -354,12 +356,6 @@ export const unnest: (key: string) => R.Reader<Tree, Tree> = (key: string) =>
       >
     )
   );
-
-/**
- * ```haskell
- * splitTable :: Table -> Reader Direction Tree
- * ```
- */
 
 /**
  * ```haskell

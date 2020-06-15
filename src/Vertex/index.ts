@@ -756,7 +756,7 @@ export const ratioContaining: (poly: Poly) => R.Reader<Poly, number> = (
 export const contains: (
   poly: Poly,
   threshold?: number
-) => R.Reader<Poly, boolean> = (containee, threshold = 0.9) => (
+) => R.Reader<Poly, boolean> = (containee, threshold = 0.8) => (
   container: Poly
 ): boolean => {
   const containerRatio = ratioContaining(containee)(container);
@@ -772,7 +772,7 @@ export const contains: (
 export const containedBy: (
   poly: Poly,
   threshold?: number
-) => R.Reader<Poly, boolean> = (container, threshold = 0.9) => (
+) => R.Reader<Poly, boolean> = (container, threshold = 0.8) => (
   containee: Poly
 ): boolean => contains(containee, threshold)(container);
 
