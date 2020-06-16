@@ -5070,9 +5070,9 @@ ___
 
 • **postProcessTree**: *function* = pipe(
   mergeTreeFromGettables,
-  R.chain(unnestTreeFromGettables),
   R.chain(rejectsTree),
   R.chain(filtersTree),
+  R.chain(unnestTreeFromGettables),
   R.chain(translateTree),
   R.chain(liftTree)
 )

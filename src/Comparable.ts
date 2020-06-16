@@ -1185,9 +1185,9 @@ export const postProcessTree: (
   tree: Tree
 ) => R.Reader<S.Gettables, Tree> = pipe(
   mergeTreeFromGettables,
-  R.chain(unnestTreeFromGettables),
   R.chain(rejectsTree),
   R.chain(filtersTree),
+  R.chain(unnestTreeFromGettables),
   R.chain(translateTree),
   R.chain(liftTree)
 );
