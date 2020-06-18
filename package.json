@@ -1,6 +1,6 @@
 {
   "name": "functional-types",
-  "version": "0.2.57",
+  "version": "0.2.58",
   "description": "Functional Types for Entities' functions",
   "main": "lib/index.js",
   "scripts": {
