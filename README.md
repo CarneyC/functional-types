@@ -1273,7 +1273,7 @@ Defined in src/Excel.ts:18
 
 • **folder**: *string*
 
-Defined in src/Folder/index.ts:31
+Defined in src/Folder/index.ts:35
 
 ___
 
@@ -1281,7 +1281,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:30
+Defined in src/Folder/index.ts:34
 
 ___
 
@@ -1289,7 +1289,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:32
+Defined in src/Folder/index.ts:36
 
 ___
 
@@ -1297,7 +1297,7 @@ ___
 
 • **type**: *FT.FileType*
 
-Defined in src/Folder/index.ts:33
+Defined in src/Folder/index.ts:37
 
 
 <a name="interfaces_folder_index_filereferencesmd"></a>
@@ -1325,7 +1325,7 @@ Defined in src/Folder/index.ts:33
 
 • **files**: *string[]*
 
-Defined in src/Folder/index.ts:59
+Defined in src/Folder/index.ts:63
 
 ___
 
@@ -1335,7 +1335,7 @@ ___
 
 *Inherited from [FolderReference](#interfaces_folder_index_folderreferencemd).[folder](#folder)*
 
-Defined in src/Folder/index.ts:55
+Defined in src/Folder/index.ts:59
 
 
 <a name="interfaces_folder_index_foldermd"></a>
@@ -1355,6 +1355,7 @@ Defined in src/Folder/index.ts:55
 * [created_at](#created_at)
 * [id](#id)
 * [name](#name)
+* [tags](#tags)
 * [updated_at](#updated_at)
 
 ### Properties
@@ -1363,7 +1364,7 @@ Defined in src/Folder/index.ts:55
 
 • **created_at**: *string*
 
-Defined in src/Folder/index.ts:25
+Defined in src/Folder/index.ts:29
 
 ___
 
@@ -1371,7 +1372,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:23
+Defined in src/Folder/index.ts:26
 
 ___
 
@@ -1379,7 +1380,15 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:24
+Defined in src/Folder/index.ts:27
+
+___
+
+####  tags
+
+• **tags**: *[Tag](#tag)[]*
+
+Defined in src/Folder/index.ts:28
 
 ___
 
@@ -1387,7 +1396,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Folder/index.ts:26
+Defined in src/Folder/index.ts:30
 
 
 <a name="interfaces_folder_index_folderreferencemd"></a>
@@ -1414,7 +1423,7 @@ Defined in src/Folder/index.ts:26
 
 • **folder**: *string*
 
-Defined in src/Folder/index.ts:55
+Defined in src/Folder/index.ts:59
 
 
 <a name="interfaces_folder_index_metadatamd"></a>
@@ -1449,7 +1458,7 @@ Defined in src/Folder/index.ts:55
 
 • **bucket**: *string*
 
-Defined in src/Folder/index.ts:42
+Defined in src/Folder/index.ts:46
 
 ___
 
@@ -1457,7 +1466,7 @@ ___
 
 • **content_type**: *string*
 
-Defined in src/Folder/index.ts:44
+Defined in src/Folder/index.ts:48
 
 ___
 
@@ -1465,7 +1474,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in src/Folder/index.ts:46
+Defined in src/Folder/index.ts:50
 
 ___
 
@@ -1473,7 +1482,7 @@ ___
 
 • **generation**: *string*
 
-Defined in src/Folder/index.ts:43
+Defined in src/Folder/index.ts:47
 
 ___
 
@@ -1481,7 +1490,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:38
+Defined in src/Folder/index.ts:42
 
 ___
 
@@ -1489,7 +1498,7 @@ ___
 
 • **kind**: *string*
 
-Defined in src/Folder/index.ts:37
+Defined in src/Folder/index.ts:41
 
 ___
 
@@ -1497,7 +1506,7 @@ ___
 
 • **media_link**: *string*
 
-Defined in src/Folder/index.ts:40
+Defined in src/Folder/index.ts:44
 
 ___
 
@@ -1505,7 +1514,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:41
+Defined in src/Folder/index.ts:45
 
 ___
 
@@ -1513,7 +1522,7 @@ ___
 
 • **self_link**: *string*
 
-Defined in src/Folder/index.ts:39
+Defined in src/Folder/index.ts:43
 
 ___
 
@@ -1521,7 +1530,7 @@ ___
 
 • **size**: *string*
 
-Defined in src/Folder/index.ts:45
+Defined in src/Folder/index.ts:49
 
 ___
 
@@ -1529,7 +1538,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Folder/index.ts:47
+Defined in src/Folder/index.ts:51
 
 
 <a name="interfaces_folder_index_referencemd"></a>
@@ -1554,7 +1563,7 @@ Defined in src/Folder/index.ts:47
 
 • **file**: *string*
 
-Defined in src/Folder/index.ts:51
+Defined in src/Folder/index.ts:55
 
 
 <a name="interfaces_label_labelmd"></a>
@@ -7800,6 +7809,7 @@ Defined in src/Folder/Arbitraries.ts:15
 
 * [File](#file)
 * [FilesByType](#filesbytype)
+* [Tag](#tag)
 
 #### Variables
 
@@ -7818,6 +7828,7 @@ Defined in src/Folder/Arbitraries.ts:15
 * [isFolderReference](#const-isfolderreference)
 * [isMetadata](#const-ismetadata)
 * [isReference](#const-isreference)
+* [isTag](#const-istag)
 * [make](#const-make)
 * [makeFolderReference](#const-makefolderreference)
 * [makeReference](#const-makereference)
@@ -7828,7 +7839,7 @@ Defined in src/Folder/Arbitraries.ts:15
 
 Ƭ **File**: *[Attributes](#interfaces_folder_index_attributesmd) & object*
 
-Defined in src/Folder/index.ts:62
+Defined in src/Folder/index.ts:66
 
 ___
 
@@ -7836,7 +7847,15 @@ ___
 
 Ƭ **FilesByType**: *Record‹FT.DocumentType, [File](#file)[]›*
 
-Defined in src/Folder/index.ts:64
+Defined in src/Folder/index.ts:68
+
+___
+
+####  Tag
+
+Ƭ **Tag**: *"offline" | "online" | "singapore" | "hong_kong"*
+
+Defined in src/Folder/index.ts:23
 
 ### Variables
 
@@ -7858,7 +7877,7 @@ Defined in src/Folder/index.ts:64
   })
 )
 
-Defined in src/Folder/index.ts:171
+Defined in src/Folder/index.ts:188
 
 ```haskell
 getAttributesFromName :: String -> Either Attributes Error
@@ -7883,7 +7902,7 @@ ___
   last as R.Reader<string[], string>
 )
 
-Defined in src/Folder/index.ts:244
+Defined in src/Folder/index.ts:261
 
 ```haskell
 getFileNameFromId :: String -> String
@@ -7905,7 +7924,7 @@ ___
 
 • **getFolderFromReference**: *function* = prop('folder')
 
-Defined in src/Folder/index.ts:273
+Defined in src/Folder/index.ts:290
 
 ```haskell
 getFolderFromReference :: FolderReference -> String
@@ -7927,7 +7946,7 @@ Name | Type |
 
 ▸ **fromMetadata**(`metadata`: [Metadata](#interfaces_folder_index_metadatamd)): *Left‹Error› | Right‹object›*
 
-Defined in src/Folder/index.ts:194
+Defined in src/Folder/index.ts:211
 
 ```haskell
 fromMetadata :: Metadata -> Either
@@ -7947,7 +7966,7 @@ ___
 
 ▸ **isFile**(`a`: unknown): *a is File*
 
-Defined in src/Folder/index.ts:144
+Defined in src/Folder/index.ts:161
 
 ```haskell
 isFile :: a -> bool
@@ -7967,7 +7986,7 @@ ___
 
 ▸ **isFileArray**(`a`: unknown): *a is File[]*
 
-Defined in src/Folder/index.ts:152
+Defined in src/Folder/index.ts:169
 
 ```haskell
 isFileArray :: a -> bool
@@ -7987,7 +8006,7 @@ ___
 
 ▸ **isFileReferences**(`a`: unknown): *a is FileReferences*
 
-Defined in src/Folder/index.ts:223
+Defined in src/Folder/index.ts:240
 
 ```haskell
 isFileReferences :: a -> bool
@@ -8007,7 +8026,7 @@ ___
 
 ▸ **isFilesByType**(`a`: unknown): *a is FilesByType*
 
-Defined in src/Folder/index.ts:160
+Defined in src/Folder/index.ts:177
 
 ```haskell
 isFilesByType :: a -> bool
@@ -8027,7 +8046,7 @@ ___
 
 ▸ **isFolder**(`a`: unknown): *a is Folder*
 
-Defined in src/Folder/index.ts:71
+Defined in src/Folder/index.ts:83
 
 ```haskell
 isFolder -> bool
@@ -8047,7 +8066,7 @@ ___
 
 ▸ **isFolderReference**(`a`: unknown): *a is FolderReference*
 
-Defined in src/Folder/index.ts:265
+Defined in src/Folder/index.ts:282
 
 ```haskell
 isFolderReference :: a -> bool
@@ -8067,7 +8086,7 @@ ___
 
 ▸ **isMetadata**(`a`: unknown): *a is Metadata*
 
-Defined in src/Folder/index.ts:121
+Defined in src/Folder/index.ts:138
 
 ```haskell
 isMetadata :: a -> bool
@@ -8087,7 +8106,7 @@ ___
 
 ▸ **isReference**(`a`: unknown): *a is Reference*
 
-Defined in src/Folder/index.ts:215
+Defined in src/Folder/index.ts:232
 
 ```haskell
 isReference :: a -> bool
@@ -8103,14 +8122,34 @@ Name | Type |
 
 ___
 
-#### `Const` make
+#### `Const` isTag
 
-▸ **make**(`name`: string): *(Anonymous function)*
+▸ **isTag**(`a`: unknown): *a is Tag*
 
-Defined in src/Folder/index.ts:85
+Defined in src/Folder/index.ts:75
 
 ```haskell
-makeComparableSchema :: String -> Folder
+isTag -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Tag*
+
+___
+
+#### `Const` make
+
+▸ **make**(`name`: string, `tags`: "offline" | "online" | "singapore" | "hong_kong"[]): *(Anonymous function)*
+
+Defined in src/Folder/index.ts:98
+
+```haskell
+make :: String -> Folder
 ```
 
 **Parameters:**
@@ -8118,6 +8157,7 @@ makeComparableSchema :: String -> Folder
 Name | Type |
 ------ | ------ |
 `name` | string |
+`tags` | "offline" &#124; "online" &#124; "singapore" &#124; "hong_kong"[] |
 
 **Returns:** *(Anonymous function)*
 
@@ -8127,7 +8167,7 @@ ___
 
 ▸ **makeFolderReference**(`folder`: string): *object*
 
-Defined in src/Folder/index.ts:254
+Defined in src/Folder/index.ts:271
 
 ```haskell
 makeFolderReference :: String -> FolderReference
@@ -8149,7 +8189,7 @@ ___
 
 ▸ **makeReference**(`file`: string): *object*
 
-Defined in src/Folder/index.ts:235
+Defined in src/Folder/index.ts:252
 
 ```haskell
 makeReference :: String -> Reference

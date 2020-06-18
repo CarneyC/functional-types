@@ -1,13 +1,14 @@
 import { getCurrentISOString } from '../DateTime';
 import * as FT from '../FileType';
 import { getRandomId } from '../String';
-import { isArray, isString } from '../Types';
+import { isArray, isArraySatisfying, isString } from '../Types';
 import * as E from 'fp-ts/lib/Either';
 import * as IO from 'fp-ts/lib/IO';
 import * as R from 'fp-ts/lib/Reader';
 import {
   all,
   allPass,
+  includes,
   is,
   join,
   last,
@@ -19,9 +20,12 @@ import {
   split,
 } from 'ramda';
 
+export type Tag = 'offline' | 'online' | 'singapore' | 'hong_kong';
+
 export interface Folder {
   id: string;
   name: string;
+  tags: Tag[];
   created_at: string;
   updated_at: string;
 }
@@ -65,6 +69,14 @@ export type FilesByType = Record<FT.DocumentType, File[]>;
 
 /**
  * ```haskell
+ * isTag -> bool
+ * ```
+ */
+export const isTag = (a: unknown): a is Tag =>
+  includes(a, ['offline', 'online', 'singapore', 'hong_kong']);
+
+/**
+ * ```haskell
  * isFolder -> bool
  * ```
  */
@@ -73,20 +85,25 @@ export const isFolder = (a: unknown): a is Folder =>
     is(Object),
     propIs(String, 'id'),
     propIs(String, 'name'),
+    propSatisfies(isArraySatisfying(isTag), 'tags'),
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
   ])(a);
 
 /**
  * ```haskell
- * makeComparableSchema :: String -> Folder
+ * make :: String -> Folder
  * ```
  */
-export const make: (name: string) => IO.IO<Folder> = (name) => (): Folder => {
+export const make: (name: string, tags?: Tag[]) => IO.IO<Folder> = (
+  name,
+  tags
+) => (): Folder => {
   const dateStr = getCurrentISOString();
   return {
     id: getRandomId(),
     name: name,
+    tags: tags ?? [],
     created_at: dateStr,
     updated_at: dateStr,
   };
