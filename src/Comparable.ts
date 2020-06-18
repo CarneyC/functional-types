@@ -113,6 +113,11 @@ export interface Comparable<T = Leaf> {
   updated_at: string;
 }
 
+export type ComparableBase<T = Leaf> = Omit<
+  Comparable<T>,
+  'id' | 'created_at' | 'updated_at'
+>;
+
 export type ComparablesByType<T = Leaf> = Record<
   FT.DocumentType,
   Comparable<T>[]
@@ -164,6 +169,7 @@ export type MakeComparables<A extends Annotation> = (
 ) => RIO.ReaderIO<S.Schema, Comparable[]>;
 
 export type TreePredicate<T> = TypePredicate<Tree<T>>;
+export type ComparableBasePredicate<T> = TypePredicate<ComparableBase<T>>;
 export type ComparablePredicate<T> = TypePredicate<Comparable<T>>;
 
 /**
@@ -230,6 +236,29 @@ export const isTree: TreePredicate<Leaf> = isTreeSatisfying(isLeaf);
 
 /**
  * ```haskell
+ * isComparableBaseSatisfying :: a -> bool
+ * ```
+ */
+export function isComparableBaseSatisfying<T>(
+  predicate: TypePredicate<T>
+): ComparableBasePredicate<T>;
+
+export function isComparableBaseSatisfying(
+  predicate: (a: unknown) => boolean
+): ComparableBasePredicate<unknown> {
+  return allPass([
+    isDictionary,
+    propIs(String, 'schema_id'),
+    propSatisfies(allPass([isArray, all(isString)]), 'files'),
+    propSatisfies(
+      isTreeSatisfying(predicate as TypePredicate<unknown>),
+      'attributes'
+    ),
+  ]) as ComparablePredicate<unknown>;
+}
+
+/**
+ * ```haskell
  * isComparableSatisfying :: a -> bool
  * ```
  */
@@ -241,14 +270,10 @@ export function isComparableSatisfying(
   predicate: (a: unknown) => boolean
 ): ComparablePredicate<unknown> {
   return allPass([
-    isDictionary,
     propIs(String, 'id'),
-    propIs(String, 'schema_id'),
-    propSatisfies(allPass([isArray, all(isString)]), 'files'),
-    propSatisfies(
-      isTreeSatisfying(predicate as TypePredicate<unknown>),
-      'attributes'
-    ),
+    (isComparableBaseSatisfying as (
+      predicate: (a: unknown) => boolean
+    ) => ComparableBasePredicate<unknown>)(predicate),
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
   ]) as ComparablePredicate<unknown>;
