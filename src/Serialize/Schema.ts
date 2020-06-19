@@ -61,6 +61,11 @@ export type Path = PathSegment[];
 
 export type FilePath = [string];
 
+export interface Multiply {
+  pattern: string;
+  scale: number;
+}
+
 export interface GettableOptions {
   merge_type?: MergeType[];
   direction?: Direction;
@@ -71,6 +76,7 @@ export interface GettableOptions {
   rejects?: Filters;
   filters?: Filters;
   end?: string;
+  multiplies?: Multiply[];
 }
 
 export interface Gettable {
@@ -190,6 +196,16 @@ export const isFilePathArray = (a: unknown): a is FilePath[] =>
 
 /**
  * ```haskell
+ * isMultiply :: a -> bool
+ * ```
+ */
+export const isMultiply = (a: unknown): a is Multiply =>
+  anyPass([isDictionary, propIs(String, 'pattern'), propIs(Number, 'scale')])(
+    a
+  );
+
+/**
+ * ```haskell
  * isGettableOptions :: a -> bool
  * ```
  */
@@ -204,6 +220,7 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(isFilters, 'rejects'),
     propSatisfiesIfExists(isFilters, 'filters'),
     propSatisfiesIfExists(S.isRegExp, 'end'),
+    propSatisfiesIfExists(isArraySatisfying(isMultiply), 'multiplies'),
   ])(a);
 
 /**

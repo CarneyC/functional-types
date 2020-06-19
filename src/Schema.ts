@@ -60,6 +60,11 @@ export type FilePath = [RegExp];
 
 export type MergeType = 'header' | 'table' | 'key';
 
+export interface Multiply {
+  pattern: RegExp;
+  scale: number;
+}
+
 export interface GettableOptions {
   merge_type?: MergeType[];
   direction?: Direction;
@@ -70,6 +75,7 @@ export interface GettableOptions {
   rejects?: Filters;
   filters?: Filters;
   end?: RegExp;
+  multiplies?: Multiply[];
 }
 
 export interface Gettable {
@@ -211,6 +217,18 @@ export const isDirection = (a: unknown): a is Direction =>
 
 /**
  * ```haskell
+ * isMultiply :: a -> bool
+ * ```
+ */
+export const isMultiply = (a: unknown): a is Multiply =>
+  anyPass([
+    isDictionary,
+    propSatisfies(isRegExp, 'pattern'),
+    propIs(Number, 'scale'),
+  ])(a);
+
+/**
+ * ```haskell
  * isGettableOptions :: a -> bool
  * ```
  */
@@ -225,6 +243,7 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(isFilters, 'rejects'),
     propSatisfiesIfExists(isFilters, 'filters'),
     propSatisfiesIfExists(isRegExp, 'end'),
+    propSatisfiesIfExists(isArraySatisfying(isMultiply), 'multiplies'),
   ])(a);
 
 /**
