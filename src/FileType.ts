@@ -7,36 +7,72 @@ import {
   map,
   mergeLeft,
   prop,
+  reduce,
   values,
 } from 'ramda';
 
 export type DocumentType = 'pdf' | 'excel' | 'json';
 
+export type LegacyDocumentType = 'ms-excel';
+
+export type ArchiveType = 'zip';
+
 export type ImageType = 'png' | 'jpeg';
 
-export type FileType = DocumentType | ImageType;
+export type FileType =
+  | DocumentType
+  | LegacyDocumentType
+  | ArchiveType
+  | ImageType;
 
 export type DocumentContentType =
   | 'application/pdf'
   | 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
   | 'application/json';
 
+export type LegacyDocumentContentType = 'application/vnd.ms-excel';
+
+export type ArchiveContentType = 'application/zip';
+
 export type ImageContentType = 'image/png' | 'image/jpeg';
 
-export type ContentType = DocumentContentType | ImageContentType;
+export type ContentType =
+  | DocumentContentType
+  | LegacyDocumentContentType
+  | ArchiveContentType
+  | ImageContentType;
 
 type DocumentTypeMappings = {
   [fileType in DocumentType]: DocumentContentType;
+};
+
+type LegacyDocumentTypeMappings = {
+  [fileType in LegacyDocumentType]: LegacyDocumentContentType;
+};
+
+type ArchiveTypeMappings = {
+  [fileType in ArchiveType]: ArchiveContentType;
 };
 
 type ImageTypeMappings = {
   [imageType in ImageType]: ImageContentType;
 };
 
-type FileTypeMappings = DocumentTypeMappings & ImageTypeMappings;
+type FileTypeMappings = DocumentTypeMappings &
+  LegacyDocumentTypeMappings &
+  ArchiveTypeMappings &
+  ImageTypeMappings;
 
 type InvertedDocumentTypeMappings = {
   [contentType in DocumentContentType]: DocumentType;
+};
+
+type InvertedLegacyDocumentTypeMappings = {
+  [contentType in LegacyDocumentContentType]: LegacyDocumentType;
+};
+
+type InvertedArchiveTypeMappings = {
+  [contentType in ArchiveContentType]: ArchiveType;
 };
 
 type InvertedImageTypeMappings = {
@@ -44,6 +80,8 @@ type InvertedImageTypeMappings = {
 };
 
 type InvertedFileTypeMappings = InvertedDocumentTypeMappings &
+  InvertedLegacyDocumentTypeMappings &
+  InvertedArchiveTypeMappings &
   InvertedImageTypeMappings;
 
 /**
@@ -55,6 +93,24 @@ const DocumentTypeToContentType: DocumentTypeMappings = {
   pdf: 'application/pdf',
   excel: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   json: 'application/json',
+};
+
+/**
+ * ```haskell
+ * LegacyDocumentTypeToContentType :: DocumentTypeMappings
+ * ```
+ */
+const LegacyDocumentTypeToContentType: LegacyDocumentTypeMappings = {
+  'ms-excel': 'application/vnd.ms-excel',
+};
+
+/**
+ * ```haskell
+ * ArchiveTypeToContentType :: DocumentTypeMappings
+ * ```
+ */
+const ArchiveTypeToContentType: ArchiveTypeMappings = {
+  zip: 'application/zip',
 };
 
 /**
@@ -72,10 +128,12 @@ const ImageTypeToContentType: ImageTypeMappings = {
  * FileTypeToContentType :: FileTypeMappings
  * ```
  */
-const FileTypeToContentType: FileTypeMappings = mergeLeft(
+const FileTypeToContentType: FileTypeMappings = reduce(mergeLeft, {}, [
   DocumentTypeToContentType,
-  ImageTypeToContentType
-);
+  LegacyDocumentTypeToContentType,
+  ArchiveTypeToContentType,
+  ImageTypeToContentType,
+]) as FileTypeMappings;
 
 /**
  * ```haskell
@@ -85,6 +143,24 @@ const FileTypeToContentType: FileTypeMappings = mergeLeft(
 const ContentTypeToDocumentType: InvertedDocumentTypeMappings = invertObj(
   DocumentTypeToContentType
 ) as InvertedDocumentTypeMappings;
+
+/**
+ * ```haskell
+ * ContentTypeToLegacyDocumentType :: InvertedLegacyDocumentTypeMappings
+ * ```
+ */
+const ContentTypeToLegacyDocumentType: InvertedLegacyDocumentTypeMappings = invertObj(
+  LegacyDocumentTypeToContentType
+) as InvertedLegacyDocumentTypeMappings;
+
+/**
+ * ```haskell
+ * ContentTypeToArchiveType :: InvertedArchiveTypeMappings
+ * ```
+ */
+const ContentTypeToArchiveType: InvertedArchiveTypeMappings = invertObj(
+  ArchiveTypeToContentType
+) as InvertedArchiveTypeMappings;
 
 /**
  * ```haskell
@@ -110,6 +186,21 @@ const ContentTypeToFileType: InvertedFileTypeMappings = invertObj(
  * ```
  */
 export const documentTypes: DocumentType[] = keys(DocumentTypeToContentType);
+/**
+ * ```haskell
+ * legacyDocumentTypes: [LegacyDocumentType]
+ * ```
+ */
+export const legacyDocumentTypes: LegacyDocumentType[] = keys(
+  LegacyDocumentTypeToContentType
+);
+
+/**
+ * ```haskell
+ * archiveTypes: [ArchiveType]
+ * ```
+ */
+export const archiveTypes: ArchiveType[] = keys(ArchiveTypeToContentType);
 
 /**
  * ```haskell
@@ -127,11 +218,36 @@ export const fileTypes: FileType[] = keys(FileTypeToContentType);
 
 /**
  * ```haskell
- * contentTypes: [DocumentContentType]
+ * fileContentTypes: [DocumentContentType]
  * ```
  */
 export const fileContentTypes: DocumentContentType[] = values(
   DocumentTypeToContentType
+);
+
+/**
+ * ```haskell
+ * documentContentTypes: [DocumentContentType]
+ * ```
+ */
+export const documentContentTypes: DocumentContentType[] = fileContentTypes;
+
+/**
+ * ```haskell
+ * legacyDocumentContentTypes: [DocumentContentType]
+ * ```
+ */
+export const legacyDocumentContentTypes: LegacyDocumentContentType[] = values(
+  LegacyDocumentTypeToContentType
+);
+
+/**
+ * ```haskell
+ * archiveContentTypes: [ArchiveContentType]
+ * ```
+ */
+export const archiveContentTypes: ArchiveContentType[] = values(
+  ArchiveTypeToContentType
 );
 
 /**
@@ -160,6 +276,22 @@ export const isDocumentType = (a: unknown): a is DocumentType =>
 
 /**
  * ```haskell
+ * isLegacyDocumentType :: a -> bool
+ * ```
+ */
+export const isLegacyDocumentType = (a: unknown): a is LegacyDocumentType =>
+  anyPass(map(equals)(legacyDocumentTypes))(a);
+
+/**
+ * ```haskell
+ * isArchiveType :: a -> bool
+ * ```
+ */
+export const isArchiveType = (a: unknown): a is ArchiveType =>
+  anyPass(map(equals)(archiveTypes))(a);
+
+/**
+ * ```haskell
  * isImageType :: a -> bool
  * ```
  */
@@ -180,7 +312,25 @@ export const isFileType = (a: unknown): a is ImageType =>
  * ```
  */
 export const isDocumentContentType = (a: unknown): a is DocumentContentType =>
-  anyPass(map(equals)(fileContentTypes))(a);
+  anyPass(map(equals)(documentContentTypes))(a);
+
+/**
+ * ```haskell
+ * isLegacyDocumentContentType :: a -> bool
+ * ```
+ */
+export const isLegacyDocumentContentType = (
+  a: unknown
+): a is LegacyDocumentContentType =>
+  anyPass(map(equals)(legacyDocumentContentTypes))(a);
+
+/**
+ * ```haskell
+ * isArchiveContentType :: a -> bool
+ * ```
+ */
+export const isArchiveContentType = (a: unknown): a is ArchiveContentType =>
+  anyPass(map(equals)(archiveContentTypes))(a);
 
 /**
  * ```haskell
@@ -209,6 +359,24 @@ export const toDocumentContentType: (
 
 /**
  * ```haskell
+ * toLegacyDocumentContentType :: LegacyDocumentType -> LegacyDocumentContentType
+ * ```
+ */
+export const toLegacyDocumentContentType: (
+  fileType: LegacyDocumentType
+) => LegacyDocumentContentType = prop(__, LegacyDocumentTypeToContentType);
+
+/**
+ * ```haskell
+ * toArchiveContentType :: ArchiveType -> ArchiveContentType
+ * ```
+ */
+export const toArchiveContentType: (
+  fileType: ArchiveType
+) => ArchiveContentType = prop(__, ArchiveTypeToContentType);
+
+/**
+ * ```haskell
  * toImageContentType :: DocumentType -> ImageContentType
  * ```
  */
@@ -234,6 +402,24 @@ export const toContentType: (fileType: FileType) => ContentType = prop(
 export const fromDocumentContentType: (
   contentType: DocumentContentType
 ) => DocumentType = prop(__, ContentTypeToDocumentType);
+
+/**
+ * ```haskell
+ * fromLegacyDocumentContentType :: LegacyDocumentContentType -> LegacyDocumentType
+ * ```
+ */
+export const fromLegacyDocumentContentType: (
+  contentType: LegacyDocumentContentType
+) => LegacyDocumentType = prop(__, ContentTypeToLegacyDocumentType);
+
+/**
+ * ```haskell
+ * fromArchiveContentType :: ArchiveContentType -> ArchiveType
+ * ```
+ */
+export const fromArchiveContentType: (
+  contentType: ArchiveContentType
+) => ArchiveType = prop(__, ContentTypeToArchiveType);
 
 /**
  * ```haskell

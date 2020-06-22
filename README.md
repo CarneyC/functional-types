@@ -7382,44 +7382,77 @@ Name | Type |
 
 #### Type aliases
 
+* [ArchiveContentType](#archivecontenttype)
+* [ArchiveType](#archivetype)
 * [ContentType](#contenttype)
 * [DocumentContentType](#documentcontenttype)
 * [DocumentType](#documenttype)
 * [FileType](#filetype)
 * [ImageContentType](#imagecontenttype)
 * [ImageType](#imagetype)
+* [LegacyDocumentContentType](#legacydocumentcontenttype)
+* [LegacyDocumentType](#legacydocumenttype)
 
 #### Variables
 
+* [archiveContentTypes](#const-archivecontenttypes)
+* [archiveTypes](#const-archivetypes)
 * [contentTypes](#const-contenttypes)
+* [documentContentTypes](#const-documentcontenttypes)
 * [documentTypes](#const-documenttypes)
 * [fileContentTypes](#const-filecontenttypes)
 * [fileTypes](#const-filetypes)
+* [fromArchiveContentType](#const-fromarchivecontenttype)
 * [fromContentType](#const-fromcontenttype)
 * [fromDocumentContentType](#const-fromdocumentcontenttype)
 * [fromImageContentType](#const-fromimagecontenttype)
+* [fromLegacyDocumentContentType](#const-fromlegacydocumentcontenttype)
 * [imageContentTypes](#const-imagecontenttypes)
 * [imageTypes](#const-imagetypes)
+* [legacyDocumentContentTypes](#const-legacydocumentcontenttypes)
+* [legacyDocumentTypes](#const-legacydocumenttypes)
+* [toArchiveContentType](#const-toarchivecontenttype)
 * [toContentType](#const-tocontenttype)
 * [toDocumentContentType](#const-todocumentcontenttype)
 * [toImageContentType](#const-toimagecontenttype)
+* [toLegacyDocumentContentType](#const-tolegacydocumentcontenttype)
 
 #### Functions
 
+* [isArchiveContentType](#const-isarchivecontenttype)
+* [isArchiveType](#const-isarchivetype)
 * [isContentType](#const-iscontenttype)
 * [isDocumentContentType](#const-isdocumentcontenttype)
 * [isDocumentType](#const-isdocumenttype)
 * [isFileType](#const-isfiletype)
 * [isImageContentType](#const-isimagecontenttype)
 * [isImageType](#const-isimagetype)
+* [isLegacyDocumentContentType](#const-islegacydocumentcontenttype)
+* [isLegacyDocumentType](#const-islegacydocumenttype)
 
 ### Type aliases
 
+####  ArchiveContentType
+
+Ƭ **ArchiveContentType**: *"application/zip"*
+
+Defined in src/FileType.ts:35
+
+___
+
+####  ArchiveType
+
+Ƭ **ArchiveType**: *"zip"*
+
+Defined in src/FileType.ts:18
+
+___
+
 ####  ContentType
 
-Ƭ **ContentType**: *[DocumentContentType](#documentcontenttype) | [ImageContentType](#imagecontenttype)*
+Ƭ **ContentType**: *[DocumentContentType](#documentcontenttype) | [LegacyDocumentContentType](#legacydocumentcontenttype) | [ArchiveContentType](#archivecontenttype) | [ImageContentType](#imagecontenttype)*
 
-Defined in src/FileType.ts:26
+Defined in src/FileType.ts:39
 
 ___
 
@@ -7427,7 +7460,7 @@ ___
 
 Ƭ **DocumentContentType**: *"application/pdf" | "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" | "application/json"*
 
-Defined in src/FileType.ts:19
+Defined in src/FileType.ts:28
 
 ___
 
@@ -7435,15 +7468,15 @@ ___
 
 Ƭ **DocumentType**: *"pdf" | "excel" | "json"*
 
-Defined in src/FileType.ts:13
+Defined in src/FileType.ts:14
 
 ___
 
 ####  FileType
 
-Ƭ **FileType**: *[DocumentType](#documenttype) | [ImageType](#imagetype)*
+Ƭ **FileType**: *[DocumentType](#documenttype) | [LegacyDocumentType](#legacydocumenttype) | [ArchiveType](#archivetype) | [ImageType](#imagetype)*
 
-Defined in src/FileType.ts:17
+Defined in src/FileType.ts:22
 
 ___
 
@@ -7451,7 +7484,7 @@ ___
 
 Ƭ **ImageContentType**: *"image/png" | "image/jpeg"*
 
-Defined in src/FileType.ts:24
+Defined in src/FileType.ts:37
 
 ___
 
@@ -7459,18 +7492,72 @@ ___
 
 Ƭ **ImageType**: *"png" | "jpeg"*
 
-Defined in src/FileType.ts:15
+Defined in src/FileType.ts:20
+
+___
+
+####  LegacyDocumentContentType
+
+Ƭ **LegacyDocumentContentType**: *"application/vnd.ms-excel"*
+
+Defined in src/FileType.ts:33
+
+___
+
+####  LegacyDocumentType
+
+Ƭ **LegacyDocumentType**: *"ms-excel"*
+
+Defined in src/FileType.ts:16
 
 ### Variables
+
+#### `Const` archiveContentTypes
+
+• **archiveContentTypes**: *[ArchiveContentType](#archivecontenttype)[]* = values(
+  ArchiveTypeToContentType
+)
+
+Defined in src/FileType.ts:249
+
+```haskell
+archiveContentTypes: [ArchiveContentType]
+```
+
+___
+
+#### `Const` archiveTypes
+
+• **archiveTypes**: *[ArchiveType](#archivetype)[]* = keys(ArchiveTypeToContentType)
+
+Defined in src/FileType.ts:203
+
+```haskell
+archiveTypes: [ArchiveType]
+```
+
+___
 
 #### `Const` contentTypes
 
 • **contentTypes**: *[ContentType](#contenttype)[]* = values(FileTypeToContentType)
 
-Defined in src/FileType.ts:151
+Defined in src/FileType.ts:267
 
 ```haskell
 contentTypes: [ContentType]
+```
+
+___
+
+#### `Const` documentContentTypes
+
+• **documentContentTypes**: *[DocumentContentType](#documentcontenttype)[]* = fileContentTypes
+
+Defined in src/FileType.ts:233
+
+```haskell
+documentContentTypes: [DocumentContentType]
 ```
 
 ___
@@ -7479,7 +7566,7 @@ ___
 
 • **documentTypes**: *[DocumentType](#documenttype)[]* = keys(DocumentTypeToContentType)
 
-Defined in src/FileType.ts:112
+Defined in src/FileType.ts:188
 
 ```haskell
 documentTypes: [DocumentType]
@@ -7493,10 +7580,10 @@ ___
   DocumentTypeToContentType
 )
 
-Defined in src/FileType.ts:133
+Defined in src/FileType.ts:224
 
 ```haskell
-contentTypes: [DocumentContentType]
+fileContentTypes: [DocumentContentType]
 ```
 
 ___
@@ -7505,11 +7592,33 @@ ___
 
 • **fileTypes**: *[FileType](#filetype)[]* = keys(FileTypeToContentType)
 
-Defined in src/FileType.ts:126
+Defined in src/FileType.ts:217
 
 ```haskell
 fileTypes: [FileType]
 ```
+
+___
+
+#### `Const` fromArchiveContentType
+
+• **fromArchiveContentType**: *function* = prop(__, ContentTypeToArchiveType)
+
+Defined in src/FileType.ts:420
+
+```haskell
+fromArchiveContentType :: ArchiveContentType -> ArchiveType
+```
+
+##### Type declaration:
+
+▸ (`contentType`: [ArchiveContentType](#archivecontenttype)): *[ArchiveType](#archivetype)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`contentType` | [ArchiveContentType](#archivecontenttype) |
 
 ___
 
@@ -7520,7 +7629,7 @@ ___
   ContentTypeToFileType
 )
 
-Defined in src/FileType.ts:252
+Defined in src/FileType.ts:438
 
 ```haskell
 fromContentType :: ContentType -> FileType
@@ -7542,7 +7651,7 @@ ___
 
 • **fromDocumentContentType**: *function* = prop(__, ContentTypeToDocumentType)
 
-Defined in src/FileType.ts:234
+Defined in src/FileType.ts:402
 
 ```haskell
 fromDocumentContentType :: DocumentContentType -> DocumentType
@@ -7564,7 +7673,7 @@ ___
 
 • **fromImageContentType**: *function* = prop(__, ContentTypeToImageType)
 
-Defined in src/FileType.ts:243
+Defined in src/FileType.ts:429
 
 ```haskell
 fromImageContentType :: DocumentContentType -> DocumentType
@@ -7582,13 +7691,35 @@ Name | Type |
 
 ___
 
+#### `Const` fromLegacyDocumentContentType
+
+• **fromLegacyDocumentContentType**: *function* = prop(__, ContentTypeToLegacyDocumentType)
+
+Defined in src/FileType.ts:411
+
+```haskell
+fromLegacyDocumentContentType :: LegacyDocumentContentType -> LegacyDocumentType
+```
+
+##### Type declaration:
+
+▸ (`contentType`: [LegacyDocumentContentType](#legacydocumentcontenttype)): *[LegacyDocumentType](#legacydocumenttype)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`contentType` | [LegacyDocumentContentType](#legacydocumentcontenttype) |
+
+___
+
 #### `Const` imageContentTypes
 
 • **imageContentTypes**: *[ImageContentType](#imagecontenttype)[]* = values(
   ImageTypeToContentType
 )
 
-Defined in src/FileType.ts:142
+Defined in src/FileType.ts:258
 
 ```haskell
 imageContentTypes: [DocumentContentType]
@@ -7600,11 +7731,61 @@ ___
 
 • **imageTypes**: *[ImageType](#imagetype)[]* = keys(ImageTypeToContentType)
 
-Defined in src/FileType.ts:119
+Defined in src/FileType.ts:210
 
 ```haskell
 imageTypes: [DocumentType]
 ```
+
+___
+
+#### `Const` legacyDocumentContentTypes
+
+• **legacyDocumentContentTypes**: *[LegacyDocumentContentType](#legacydocumentcontenttype)[]* = values(
+  LegacyDocumentTypeToContentType
+)
+
+Defined in src/FileType.ts:240
+
+```haskell
+legacyDocumentContentTypes: [DocumentContentType]
+```
+
+___
+
+#### `Const` legacyDocumentTypes
+
+• **legacyDocumentTypes**: *[LegacyDocumentType](#legacydocumenttype)[]* = keys(
+  LegacyDocumentTypeToContentType
+)
+
+Defined in src/FileType.ts:194
+
+```haskell
+legacyDocumentTypes: [LegacyDocumentType]
+```
+
+___
+
+#### `Const` toArchiveContentType
+
+• **toArchiveContentType**: *function* = prop(__, ArchiveTypeToContentType)
+
+Defined in src/FileType.ts:374
+
+```haskell
+toArchiveContentType :: ArchiveType -> ArchiveContentType
+```
+
+##### Type declaration:
+
+▸ (`fileType`: [ArchiveType](#archivetype)): *[ArchiveContentType](#archivecontenttype)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`fileType` | [ArchiveType](#archivetype) |
 
 ___
 
@@ -7615,7 +7796,7 @@ ___
   FileTypeToContentType
 )
 
-Defined in src/FileType.ts:224
+Defined in src/FileType.ts:392
 
 ```haskell
 toContentType :: FileType -> ContentType
@@ -7637,7 +7818,7 @@ ___
 
 • **toDocumentContentType**: *function* = prop(__, DocumentTypeToContentType)
 
-Defined in src/FileType.ts:206
+Defined in src/FileType.ts:356
 
 ```haskell
 toDocumentContentType :: DocumentType -> DocumentContentType
@@ -7659,7 +7840,7 @@ ___
 
 • **toImageContentType**: *function* = prop(__, ImageTypeToContentType)
 
-Defined in src/FileType.ts:215
+Defined in src/FileType.ts:383
 
 ```haskell
 toImageContentType :: DocumentType -> ImageContentType
@@ -7675,13 +7856,75 @@ Name | Type |
 ------ | ------ |
 `imageType` | [ImageType](#imagetype) |
 
+___
+
+#### `Const` toLegacyDocumentContentType
+
+• **toLegacyDocumentContentType**: *function* = prop(__, LegacyDocumentTypeToContentType)
+
+Defined in src/FileType.ts:365
+
+```haskell
+toLegacyDocumentContentType :: LegacyDocumentType -> LegacyDocumentContentType
+```
+
+##### Type declaration:
+
+▸ (`fileType`: [LegacyDocumentType](#legacydocumenttype)): *[LegacyDocumentContentType](#legacydocumentcontenttype)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`fileType` | [LegacyDocumentType](#legacydocumenttype) |
+
 ### Functions
+
+#### `Const` isArchiveContentType
+
+▸ **isArchiveContentType**(`a`: unknown): *a is ArchiveContentType*
+
+Defined in src/FileType.ts:332
+
+```haskell
+isArchiveContentType :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is ArchiveContentType*
+
+___
+
+#### `Const` isArchiveType
+
+▸ **isArchiveType**(`a`: unknown): *a is ArchiveType*
+
+Defined in src/FileType.ts:290
+
+```haskell
+isArchiveType :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is ArchiveType*
+
+___
 
 #### `Const` isContentType
 
 ▸ **isContentType**(`a`: unknown): *a is ContentType*
 
-Defined in src/FileType.ts:198
+Defined in src/FileType.ts:348
 
 ```haskell
 isContentType :: a -> bool
@@ -7701,7 +7944,7 @@ ___
 
 ▸ **isDocumentContentType**(`a`: unknown): *a is DocumentContentType*
 
-Defined in src/FileType.ts:182
+Defined in src/FileType.ts:314
 
 ```haskell
 isDocumentContentType :: a -> bool
@@ -7721,7 +7964,7 @@ ___
 
 ▸ **isDocumentType**(`a`: unknown): *a is DocumentType*
 
-Defined in src/FileType.ts:158
+Defined in src/FileType.ts:274
 
 ```haskell
 isDocumentType :: a -> bool
@@ -7741,7 +7984,7 @@ ___
 
 ▸ **isFileType**(`a`: unknown): *a is ImageType*
 
-Defined in src/FileType.ts:174
+Defined in src/FileType.ts:306
 
 ```haskell
 isFileType :: a -> bool
@@ -7761,7 +8004,7 @@ ___
 
 ▸ **isImageContentType**(`a`: unknown): *a is ImageContentType*
 
-Defined in src/FileType.ts:190
+Defined in src/FileType.ts:340
 
 ```haskell
 isDocumentContentType :: a -> bool
@@ -7781,7 +8024,7 @@ ___
 
 ▸ **isImageType**(`a`: unknown): *a is ImageType*
 
-Defined in src/FileType.ts:166
+Defined in src/FileType.ts:298
 
 ```haskell
 isImageType :: a -> bool
@@ -7794,6 +8037,46 @@ Name | Type |
 `a` | unknown |
 
 **Returns:** *a is ImageType*
+
+___
+
+#### `Const` isLegacyDocumentContentType
+
+▸ **isLegacyDocumentContentType**(`a`: unknown): *a is LegacyDocumentContentType*
+
+Defined in src/FileType.ts:322
+
+```haskell
+isLegacyDocumentContentType :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is LegacyDocumentContentType*
+
+___
+
+#### `Const` isLegacyDocumentType
+
+▸ **isLegacyDocumentType**(`a`: unknown): *a is LegacyDocumentType*
+
+Defined in src/FileType.ts:282
+
+```haskell
+isLegacyDocumentType :: a -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is LegacyDocumentType*
 
 
 <a name="modules_folder_arbitraries_md"></a>
