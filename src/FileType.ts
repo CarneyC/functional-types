@@ -181,9 +181,12 @@ const ContentTypeToImageType: InvertedImageTypeMappings = invertObj(
  * ContentTypeToFileType :: InvertedFileTypeMappings
  * ```
  */
-const ContentTypeToFileType: InvertedFileTypeMappings = invertObj(
-  FileTypeToContentType
-) as InvertedFileTypeMappings;
+const ContentTypeToFileType: InvertedFileTypeMappings = reduce(mergeLeft, {}, [
+  ContentTypeToDocumentType,
+  ContentTypeToLegacyDocumentType,
+  ContentTypeToArchiveType,
+  ContentTypeToImageType,
+]) as InvertedFileTypeMappings;
 
 /**
  * ```haskell

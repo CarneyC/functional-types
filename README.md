@@ -7519,7 +7519,7 @@ Defined in src/FileType.ts:16
   ContentTypeToArchiveType
 )
 
-Defined in src/FileType.ts:254
+Defined in src/FileType.ts:257
 
 ```haskell
 archiveContentTypes: [ArchiveContentType]
@@ -7531,7 +7531,7 @@ ___
 
 • **archiveTypes**: *[ArchiveType](#archivetype)[]* = keys(ArchiveTypeToContentType)
 
-Defined in src/FileType.ts:208
+Defined in src/FileType.ts:211
 
 ```haskell
 archiveTypes: [ArchiveType]
@@ -7543,7 +7543,7 @@ ___
 
 • **contentTypes**: *[ContentType](#contenttype)[]* = values(FileTypeToContentType)
 
-Defined in src/FileType.ts:272
+Defined in src/FileType.ts:275
 
 ```haskell
 contentTypes: [ContentType]
@@ -7555,7 +7555,7 @@ ___
 
 • **documentContentTypes**: *[DocumentContentType](#documentcontenttype)[]* = fileContentTypes
 
-Defined in src/FileType.ts:238
+Defined in src/FileType.ts:241
 
 ```haskell
 documentContentTypes: [DocumentContentType]
@@ -7567,7 +7567,7 @@ ___
 
 • **documentTypes**: *[DocumentType](#documenttype)[]* = keys(DocumentTypeToContentType)
 
-Defined in src/FileType.ts:193
+Defined in src/FileType.ts:196
 
 ```haskell
 documentTypes: [DocumentType]
@@ -7581,7 +7581,7 @@ ___
   DocumentTypeToContentType
 )
 
-Defined in src/FileType.ts:229
+Defined in src/FileType.ts:232
 
 ```haskell
 fileContentTypes: [DocumentContentType]
@@ -7593,7 +7593,7 @@ ___
 
 • **fileTypes**: *[FileType](#filetype)[]* = keys(FileTypeToContentType)
 
-Defined in src/FileType.ts:222
+Defined in src/FileType.ts:225
 
 ```haskell
 fileTypes: [FileType]
@@ -7605,7 +7605,7 @@ ___
 
 • **fromArchiveContentType**: *function* = prop(__, ContentTypeToArchiveType)
 
-Defined in src/FileType.ts:444
+Defined in src/FileType.ts:447
 
 ```haskell
 fromArchiveContentType :: ArchiveContentType -> ArchiveType
@@ -7630,7 +7630,7 @@ ___
   ContentTypeToFileType
 )
 
-Defined in src/FileType.ts:462
+Defined in src/FileType.ts:465
 
 ```haskell
 fromContentType :: ContentType -> FileType
@@ -7652,7 +7652,7 @@ ___
 
 • **fromDocumentContentType**: *function* = prop(__, ContentTypeToDocumentType)
 
-Defined in src/FileType.ts:426
+Defined in src/FileType.ts:429
 
 ```haskell
 fromDocumentContentType :: DocumentContentType -> DocumentType
@@ -7674,7 +7674,7 @@ ___
 
 • **fromImageContentType**: *function* = prop(__, ContentTypeToImageType)
 
-Defined in src/FileType.ts:453
+Defined in src/FileType.ts:456
 
 ```haskell
 fromImageContentType :: DocumentContentType -> DocumentType
@@ -7696,7 +7696,7 @@ ___
 
 • **fromLegacyDocumentContentType**: *function* = prop(__, ContentTypeToLegacyDocumentType)
 
-Defined in src/FileType.ts:435
+Defined in src/FileType.ts:438
 
 ```haskell
 fromLegacyDocumentContentType :: LegacyDocumentContentType -> LegacyDocumentType
@@ -7720,7 +7720,7 @@ ___
   ImageTypeToContentType
 )
 
-Defined in src/FileType.ts:263
+Defined in src/FileType.ts:266
 
 ```haskell
 imageContentTypes: [DocumentContentType]
@@ -7732,7 +7732,7 @@ ___
 
 • **imageTypes**: *[ImageType](#imagetype)[]* = keys(ImageTypeToContentType)
 
-Defined in src/FileType.ts:215
+Defined in src/FileType.ts:218
 
 ```haskell
 imageTypes: [DocumentType]
@@ -7746,7 +7746,7 @@ ___
   LegacyDocumentTypeToContentType
 )
 
-Defined in src/FileType.ts:245
+Defined in src/FileType.ts:248
 
 ```haskell
 legacyDocumentContentTypes: [DocumentContentType]
@@ -7760,7 +7760,7 @@ ___
   LegacyDocumentTypeToContentType
 )
 
-Defined in src/FileType.ts:199
+Defined in src/FileType.ts:202
 
 ```haskell
 legacyDocumentTypes: [LegacyDocumentType]
@@ -7772,7 +7772,7 @@ ___
 
 • **toArchiveContentType**: *function* = prop(__, ArchiveTypeToContentType)
 
-Defined in src/FileType.ts:384
+Defined in src/FileType.ts:387
 
 ```haskell
 toArchiveContentType :: ArchiveType -> ArchiveContentType
@@ -7797,7 +7797,7 @@ ___
   FileTypeToContentType
 )
 
-Defined in src/FileType.ts:402
+Defined in src/FileType.ts:405
 
 ```haskell
 toContentType :: FileType -> ContentType
@@ -7819,7 +7819,7 @@ ___
 
 • **toDocumentContentType**: *function* = prop(__, DocumentTypeToContentType)
 
-Defined in src/FileType.ts:366
+Defined in src/FileType.ts:369
 
 ```haskell
 toDocumentContentType :: DocumentType -> DocumentContentType
@@ -7841,7 +7841,7 @@ ___
 
 • **toImageContentType**: *function* = prop(__, ImageTypeToContentType)
 
-Defined in src/FileType.ts:393
+Defined in src/FileType.ts:396
 
 ```haskell
 toImageContentType :: DocumentType -> ImageContentType
@@ -7863,7 +7863,7 @@ ___
 
 • **toLegacyDocumentContentType**: *function* = prop(__, LegacyDocumentTypeToContentType)
 
-Defined in src/FileType.ts:375
+Defined in src/FileType.ts:378
 
 ```haskell
 toLegacyDocumentContentType :: LegacyDocumentType -> LegacyDocumentContentType
@@ -7885,7 +7885,7 @@ Name | Type |
 
 ▸ **isArchiveContentType**(`a`: unknown): *a is ArchiveContentType*
 
-Defined in src/FileType.ts:337
+Defined in src/FileType.ts:340
 
 ```haskell
 isArchiveContentType :: a -> bool
@@ -7905,7 +7905,7 @@ ___
 
 ▸ **isArchiveType**(`a`: unknown): *a is ArchiveType*
 
-Defined in src/FileType.ts:295
+Defined in src/FileType.ts:298
 
 ```haskell
 isArchiveType :: a -> bool
@@ -7925,7 +7925,7 @@ ___
 
 ▸ **isContentType**(`a`: unknown): *a is ContentType*
 
-Defined in src/FileType.ts:353
+Defined in src/FileType.ts:356
 
 ```haskell
 isContentType :: a -> bool
@@ -7945,7 +7945,7 @@ ___
 
 ▸ **isDocumentContentType**(`a`: unknown): *a is DocumentContentType*
 
-Defined in src/FileType.ts:319
+Defined in src/FileType.ts:322
 
 ```haskell
 isDocumentContentType :: a -> bool
@@ -7965,7 +7965,7 @@ ___
 
 ▸ **isDocumentType**(`a`: unknown): *a is DocumentType*
 
-Defined in src/FileType.ts:279
+Defined in src/FileType.ts:282
 
 ```haskell
 isDocumentType :: a -> bool
@@ -7985,7 +7985,7 @@ ___
 
 ▸ **isFileType**(`a`: unknown): *a is ImageType*
 
-Defined in src/FileType.ts:311
+Defined in src/FileType.ts:314
 
 ```haskell
 isFileType :: a -> bool
@@ -8005,7 +8005,7 @@ ___
 
 ▸ **isImageContentType**(`a`: unknown): *a is ImageContentType*
 
-Defined in src/FileType.ts:345
+Defined in src/FileType.ts:348
 
 ```haskell
 isDocumentContentType :: a -> bool
@@ -8025,7 +8025,7 @@ ___
 
 ▸ **isImageType**(`a`: unknown): *a is ImageType*
 
-Defined in src/FileType.ts:303
+Defined in src/FileType.ts:306
 
 ```haskell
 isImageType :: a -> bool
@@ -8045,7 +8045,7 @@ ___
 
 ▸ **isLegacyDocumentContentType**(`a`: unknown): *a is LegacyDocumentContentType*
 
-Defined in src/FileType.ts:327
+Defined in src/FileType.ts:330
 
 ```haskell
 isLegacyDocumentContentType :: a -> bool
@@ -8065,7 +8065,7 @@ ___
 
 ▸ **isLegacyDocumentType**(`a`: unknown): *a is LegacyDocumentType*
 
-Defined in src/FileType.ts:287
+Defined in src/FileType.ts:290
 
 ```haskell
 isLegacyDocumentType :: a -> bool
@@ -8085,7 +8085,7 @@ ___
 
 ▸ **toUnionContentType**(`fileType`: "pdf" | "excel" | "json" | "ms-excel" | "zip" | "png" | "jpeg"): *string*
 
-Defined in src/FileType.ts:412
+Defined in src/FileType.ts:415
 
 ```haskell
 toUnionContentType :: FileType -> String
