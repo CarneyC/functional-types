@@ -7429,12 +7429,13 @@ Name | Type |
 * [isImageType](#const-isimagetype)
 * [isLegacyDocumentContentType](#const-islegacydocumentcontenttype)
 * [isLegacyDocumentType](#const-islegacydocumenttype)
+* [toUnionContentType](#const-tounioncontenttype)
 
 ### Type aliases
 
 ####  ArchiveContentType
 
-Ƭ **ArchiveContentType**: *"application/zip"*
+Ƭ **ArchiveContentType**: *"application/zip" | "application/x-zip" | "application/x-zip-compressed"*
 
 Defined in src/FileType.ts:35
 
@@ -7452,7 +7453,7 @@ ___
 
 Ƭ **ContentType**: *[DocumentContentType](#documentcontenttype) | [LegacyDocumentContentType](#legacydocumentcontenttype) | [ArchiveContentType](#archivecontenttype) | [ImageContentType](#imagecontenttype)*
 
-Defined in src/FileType.ts:39
+Defined in src/FileType.ts:42
 
 ___
 
@@ -7484,7 +7485,7 @@ ___
 
 Ƭ **ImageContentType**: *"image/png" | "image/jpeg"*
 
-Defined in src/FileType.ts:37
+Defined in src/FileType.ts:40
 
 ___
 
@@ -7514,11 +7515,11 @@ Defined in src/FileType.ts:16
 
 #### `Const` archiveContentTypes
 
-• **archiveContentTypes**: *[ArchiveContentType](#archivecontenttype)[]* = values(
-  ArchiveTypeToContentType
+• **archiveContentTypes**: *[ArchiveContentType](#archivecontenttype)[]* = keys(
+  ContentTypeToArchiveType
 )
 
-Defined in src/FileType.ts:249
+Defined in src/FileType.ts:254
 
 ```haskell
 archiveContentTypes: [ArchiveContentType]
@@ -7530,7 +7531,7 @@ ___
 
 • **archiveTypes**: *[ArchiveType](#archivetype)[]* = keys(ArchiveTypeToContentType)
 
-Defined in src/FileType.ts:203
+Defined in src/FileType.ts:208
 
 ```haskell
 archiveTypes: [ArchiveType]
@@ -7542,7 +7543,7 @@ ___
 
 • **contentTypes**: *[ContentType](#contenttype)[]* = values(FileTypeToContentType)
 
-Defined in src/FileType.ts:267
+Defined in src/FileType.ts:272
 
 ```haskell
 contentTypes: [ContentType]
@@ -7554,7 +7555,7 @@ ___
 
 • **documentContentTypes**: *[DocumentContentType](#documentcontenttype)[]* = fileContentTypes
 
-Defined in src/FileType.ts:233
+Defined in src/FileType.ts:238
 
 ```haskell
 documentContentTypes: [DocumentContentType]
@@ -7566,7 +7567,7 @@ ___
 
 • **documentTypes**: *[DocumentType](#documenttype)[]* = keys(DocumentTypeToContentType)
 
-Defined in src/FileType.ts:188
+Defined in src/FileType.ts:193
 
 ```haskell
 documentTypes: [DocumentType]
@@ -7580,7 +7581,7 @@ ___
   DocumentTypeToContentType
 )
 
-Defined in src/FileType.ts:224
+Defined in src/FileType.ts:229
 
 ```haskell
 fileContentTypes: [DocumentContentType]
@@ -7592,7 +7593,7 @@ ___
 
 • **fileTypes**: *[FileType](#filetype)[]* = keys(FileTypeToContentType)
 
-Defined in src/FileType.ts:217
+Defined in src/FileType.ts:222
 
 ```haskell
 fileTypes: [FileType]
@@ -7604,7 +7605,7 @@ ___
 
 • **fromArchiveContentType**: *function* = prop(__, ContentTypeToArchiveType)
 
-Defined in src/FileType.ts:420
+Defined in src/FileType.ts:444
 
 ```haskell
 fromArchiveContentType :: ArchiveContentType -> ArchiveType
@@ -7629,7 +7630,7 @@ ___
   ContentTypeToFileType
 )
 
-Defined in src/FileType.ts:438
+Defined in src/FileType.ts:462
 
 ```haskell
 fromContentType :: ContentType -> FileType
@@ -7651,7 +7652,7 @@ ___
 
 • **fromDocumentContentType**: *function* = prop(__, ContentTypeToDocumentType)
 
-Defined in src/FileType.ts:402
+Defined in src/FileType.ts:426
 
 ```haskell
 fromDocumentContentType :: DocumentContentType -> DocumentType
@@ -7673,7 +7674,7 @@ ___
 
 • **fromImageContentType**: *function* = prop(__, ContentTypeToImageType)
 
-Defined in src/FileType.ts:429
+Defined in src/FileType.ts:453
 
 ```haskell
 fromImageContentType :: DocumentContentType -> DocumentType
@@ -7695,7 +7696,7 @@ ___
 
 • **fromLegacyDocumentContentType**: *function* = prop(__, ContentTypeToLegacyDocumentType)
 
-Defined in src/FileType.ts:411
+Defined in src/FileType.ts:435
 
 ```haskell
 fromLegacyDocumentContentType :: LegacyDocumentContentType -> LegacyDocumentType
@@ -7719,7 +7720,7 @@ ___
   ImageTypeToContentType
 )
 
-Defined in src/FileType.ts:258
+Defined in src/FileType.ts:263
 
 ```haskell
 imageContentTypes: [DocumentContentType]
@@ -7731,7 +7732,7 @@ ___
 
 • **imageTypes**: *[ImageType](#imagetype)[]* = keys(ImageTypeToContentType)
 
-Defined in src/FileType.ts:210
+Defined in src/FileType.ts:215
 
 ```haskell
 imageTypes: [DocumentType]
@@ -7745,7 +7746,7 @@ ___
   LegacyDocumentTypeToContentType
 )
 
-Defined in src/FileType.ts:240
+Defined in src/FileType.ts:245
 
 ```haskell
 legacyDocumentContentTypes: [DocumentContentType]
@@ -7759,7 +7760,7 @@ ___
   LegacyDocumentTypeToContentType
 )
 
-Defined in src/FileType.ts:194
+Defined in src/FileType.ts:199
 
 ```haskell
 legacyDocumentTypes: [LegacyDocumentType]
@@ -7771,7 +7772,7 @@ ___
 
 • **toArchiveContentType**: *function* = prop(__, ArchiveTypeToContentType)
 
-Defined in src/FileType.ts:374
+Defined in src/FileType.ts:384
 
 ```haskell
 toArchiveContentType :: ArchiveType -> ArchiveContentType
@@ -7796,7 +7797,7 @@ ___
   FileTypeToContentType
 )
 
-Defined in src/FileType.ts:392
+Defined in src/FileType.ts:402
 
 ```haskell
 toContentType :: FileType -> ContentType
@@ -7818,7 +7819,7 @@ ___
 
 • **toDocumentContentType**: *function* = prop(__, DocumentTypeToContentType)
 
-Defined in src/FileType.ts:356
+Defined in src/FileType.ts:366
 
 ```haskell
 toDocumentContentType :: DocumentType -> DocumentContentType
@@ -7840,7 +7841,7 @@ ___
 
 • **toImageContentType**: *function* = prop(__, ImageTypeToContentType)
 
-Defined in src/FileType.ts:383
+Defined in src/FileType.ts:393
 
 ```haskell
 toImageContentType :: DocumentType -> ImageContentType
@@ -7862,7 +7863,7 @@ ___
 
 • **toLegacyDocumentContentType**: *function* = prop(__, LegacyDocumentTypeToContentType)
 
-Defined in src/FileType.ts:365
+Defined in src/FileType.ts:375
 
 ```haskell
 toLegacyDocumentContentType :: LegacyDocumentType -> LegacyDocumentContentType
@@ -7884,7 +7885,7 @@ Name | Type |
 
 ▸ **isArchiveContentType**(`a`: unknown): *a is ArchiveContentType*
 
-Defined in src/FileType.ts:332
+Defined in src/FileType.ts:337
 
 ```haskell
 isArchiveContentType :: a -> bool
@@ -7904,7 +7905,7 @@ ___
 
 ▸ **isArchiveType**(`a`: unknown): *a is ArchiveType*
 
-Defined in src/FileType.ts:290
+Defined in src/FileType.ts:295
 
 ```haskell
 isArchiveType :: a -> bool
@@ -7924,7 +7925,7 @@ ___
 
 ▸ **isContentType**(`a`: unknown): *a is ContentType*
 
-Defined in src/FileType.ts:348
+Defined in src/FileType.ts:353
 
 ```haskell
 isContentType :: a -> bool
@@ -7944,7 +7945,7 @@ ___
 
 ▸ **isDocumentContentType**(`a`: unknown): *a is DocumentContentType*
 
-Defined in src/FileType.ts:314
+Defined in src/FileType.ts:319
 
 ```haskell
 isDocumentContentType :: a -> bool
@@ -7964,7 +7965,7 @@ ___
 
 ▸ **isDocumentType**(`a`: unknown): *a is DocumentType*
 
-Defined in src/FileType.ts:274
+Defined in src/FileType.ts:279
 
 ```haskell
 isDocumentType :: a -> bool
@@ -7984,7 +7985,7 @@ ___
 
 ▸ **isFileType**(`a`: unknown): *a is ImageType*
 
-Defined in src/FileType.ts:306
+Defined in src/FileType.ts:311
 
 ```haskell
 isFileType :: a -> bool
@@ -8004,7 +8005,7 @@ ___
 
 ▸ **isImageContentType**(`a`: unknown): *a is ImageContentType*
 
-Defined in src/FileType.ts:340
+Defined in src/FileType.ts:345
 
 ```haskell
 isDocumentContentType :: a -> bool
@@ -8024,7 +8025,7 @@ ___
 
 ▸ **isImageType**(`a`: unknown): *a is ImageType*
 
-Defined in src/FileType.ts:298
+Defined in src/FileType.ts:303
 
 ```haskell
 isImageType :: a -> bool
@@ -8044,7 +8045,7 @@ ___
 
 ▸ **isLegacyDocumentContentType**(`a`: unknown): *a is LegacyDocumentContentType*
 
-Defined in src/FileType.ts:322
+Defined in src/FileType.ts:327
 
 ```haskell
 isLegacyDocumentContentType :: a -> bool
@@ -8064,7 +8065,7 @@ ___
 
 ▸ **isLegacyDocumentType**(`a`: unknown): *a is LegacyDocumentType*
 
-Defined in src/FileType.ts:282
+Defined in src/FileType.ts:287
 
 ```haskell
 isLegacyDocumentType :: a -> bool
@@ -8077,6 +8078,26 @@ Name | Type |
 `a` | unknown |
 
 **Returns:** *a is LegacyDocumentType*
+
+___
+
+#### `Const` toUnionContentType
+
+▸ **toUnionContentType**(`fileType`: "pdf" | "excel" | "json" | "ms-excel" | "zip" | "png" | "jpeg"): *string*
+
+Defined in src/FileType.ts:412
+
+```haskell
+toUnionContentType :: FileType -> String
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`fileType` | "pdf" &#124; "excel" &#124; "json" &#124; "ms-excel" &#124; "zip" &#124; "png" &#124; "jpeg" |
+
+**Returns:** *string*
 
 
 <a name="modules_folder_arbitraries_md"></a>

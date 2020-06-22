@@ -32,7 +32,10 @@ export type DocumentContentType =
 
 export type LegacyDocumentContentType = 'application/vnd.ms-excel';
 
-export type ArchiveContentType = 'application/zip';
+export type ArchiveContentType =
+  | 'application/zip'
+  | 'application/x-zip'
+  | 'application/x-zip-compressed';
 
 export type ImageContentType = 'image/png' | 'image/jpeg';
 
@@ -158,9 +161,11 @@ const ContentTypeToLegacyDocumentType: InvertedLegacyDocumentTypeMappings = inve
  * ContentTypeToArchiveType :: InvertedArchiveTypeMappings
  * ```
  */
-const ContentTypeToArchiveType: InvertedArchiveTypeMappings = invertObj(
-  ArchiveTypeToContentType
-) as InvertedArchiveTypeMappings;
+const ContentTypeToArchiveType: InvertedArchiveTypeMappings = {
+  'application/zip': 'zip',
+  'application/x-zip': 'zip',
+  'application/x-zip-compressed': 'zip',
+};
 
 /**
  * ```haskell
@@ -246,8 +251,8 @@ export const legacyDocumentContentTypes: LegacyDocumentContentType[] = values(
  * archiveContentTypes: [ArchiveContentType]
  * ```
  */
-export const archiveContentTypes: ArchiveContentType[] = values(
-  ArchiveTypeToContentType
+export const archiveContentTypes: ArchiveContentType[] = keys(
+  ContentTypeToArchiveType
 );
 
 /**
@@ -346,7 +351,12 @@ export const isImageContentType = (a: unknown): a is ImageContentType =>
  * ```
  */
 export const isContentType = (a: unknown): a is ContentType =>
-  anyPass([isDocumentContentType, isImageContentType])(a);
+  anyPass([
+    isDocumentContentType,
+    isLegacyDocumentContentType,
+    isArchiveContentType,
+    isImageContentType,
+  ])(a);
 
 /**
  * ```haskell
@@ -393,6 +403,20 @@ export const toContentType: (fileType: FileType) => ContentType = prop(
   __,
   FileTypeToContentType
 );
+
+/**
+ * ```haskell
+ * toUnionContentType :: FileType -> String
+ * ```
+ */
+export const toUnionContentType: (fileType: FileType) => string = (
+  fileType
+) => {
+  if (fileType === 'zip') return archiveContentTypes.join(', ');
+  else if (fileType === 'excel' || fileType === 'ms-excel')
+    return [toContentType('excel'), toContentType('ms-excel')].join(', ');
+  return toContentType(fileType);
+};
 
 /**
  * ```haskell
