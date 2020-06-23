@@ -59,9 +59,11 @@ export interface FolderReference {
   folder: string;
 }
 
-export interface FileReferences extends FolderReference {
+export interface FilesReference {
   files: string[];
 }
+
+export type FileReferences = FilesReference & FolderReference;
 
 export type File = Attributes & { metadata: Metadata };
 
@@ -231,6 +233,17 @@ export const fromMetadata: (metadata: Metadata) => E.Either<Error, File> = (
  */
 export const isReference = (a: unknown): a is Reference =>
   allPass([is(Object), propIs(String, 'file')])(a);
+
+/**
+ * ```haskell
+ * isFilesReference :: a -> bool
+ * ```
+ */
+export const isFilesReference = (a: unknown): a is FilesReference =>
+  allPass([
+    is(Object),
+    propSatisfies(allPass([isArray, all(isString)]), 'files'),
+  ])(a);
 
 /**
  * ```haskell
