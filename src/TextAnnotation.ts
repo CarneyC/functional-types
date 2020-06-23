@@ -26,6 +26,7 @@ import {
   propSatisfies,
   reduce,
   replace,
+  tap,
   trim,
   values,
 } from 'ramda';
@@ -93,14 +94,22 @@ export const isBreakType = (a: unknown): a is BreakType =>
  * ```
  */
 export const isWord = (a: unknown): a is Word =>
-  allPass([
-    propIs(String, 'id'),
-    propIs(String, 'paragraph'),
-    propSatisfies(isBreakType, 'breakType'),
-    propSatisfies(isPoly, 'boundingPoly'),
-    propIs(String, 'text'),
-    propIs(Number, 'confidence'),
-  ])(a);
+  (pipe(
+    allPass([
+      propIs(String, 'id'),
+      propIs(String, 'paragraph'),
+      propSatisfies(isBreakType, 'breakType'),
+      propSatisfies(isPoly, 'boundingPoly'),
+      propIs(String, 'text'),
+      propIs(Number, 'confidence'),
+    ]),
+    tap((value) => {
+      if (!value) {
+        const page = a;
+        console.log(page);
+      }
+    })
+  ) as any)(a);
 
 /**
  * ```haskell
@@ -128,7 +137,15 @@ export const isParagraph = (a: unknown): a is Paragraph =>
  * ```
  */
 export const isWordsById = (a: unknown): a is WordsById =>
-  allPass([is(Object), pipe(values, all(isWord))])(a);
+  (pipe(
+    allPass([is(Object), pipe(values, all(isWord))]),
+    tap((value) => {
+      if (!value) {
+        const page = a;
+        console.log(page);
+      }
+    })
+  ) as any)(a);
 
 /**
  * ```haskell

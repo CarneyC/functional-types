@@ -17,10 +17,24 @@ import {
   prop,
   propIs,
   propSatisfies,
+  test as regExpTest,
   split,
+  anyPass,
+  filter,
+  replace,
 } from 'ramda';
 
-export type Tag = 'offline' | 'online' | 'singapore' | 'hong_kong';
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface RelationshipBrand {}
+
+export type Relationship = string & RelationshipBrand; // has:string
+
+export type Tag =
+  | 'offline'
+  | 'online'
+  | 'singapore'
+  | 'hong_kong'
+  | Relationship;
 
 export interface Folder {
   id: string;
@@ -71,11 +85,23 @@ export type FilesByType = Record<FT.DocumentType, File[]>;
 
 /**
  * ```haskell
+ * isRelationship -> bool
+ * ```
+ */
+export const isRelationship = (a: unknown): a is Relationship =>
+  allPass([isString, regExpTest(/^has:\w+$/)])(a);
+
+/**
+ * ```haskell
  * isTag -> bool
  * ```
  */
 export const isTag = (a: unknown): a is Tag =>
-  includes(a, ['offline', 'online', 'singapore', 'hong_kong']);
+  anyPass([
+    (a: unknown): boolean =>
+      includes(a, ['offline', 'online', 'singapore', 'hong_kong']),
+    isRelationship,
+  ])(a);
 
 /**
  * ```haskell
@@ -303,3 +329,22 @@ export const isFolderReference = (a: unknown): a is FolderReference =>
 export const getFolderFromReference: (
   reference: FolderReference
 ) => string = prop('folder');
+
+/**
+ * ```haskell
+ * makeRelationship :: String -> Relationship
+ * ```
+ */
+export const makeRelationship: (target: string) => Relationship = (target) =>
+  `has:${target}` as Relationship;
+
+/**
+ * ```haskell
+ * getRelated :: Folder -> [String]
+ * ```
+ */
+export const getRelated: (folder: Folder) => string[] = pipe(
+  prop('tags'),
+  filter(isRelationship),
+  map(replace(/^has:/, ''))
+);

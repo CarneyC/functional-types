@@ -1308,7 +1308,7 @@ Defined in src/Excel.ts:18
 
 • **folder**: *string*
 
-Defined in src/Folder/index.ts:35
+Defined in src/Folder/index.ts:49
 
 ___
 
@@ -1316,7 +1316,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:34
+Defined in src/Folder/index.ts:48
 
 ___
 
@@ -1324,7 +1324,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:36
+Defined in src/Folder/index.ts:50
 
 ___
 
@@ -1332,7 +1332,7 @@ ___
 
 • **type**: *FT.FileType*
 
-Defined in src/Folder/index.ts:37
+Defined in src/Folder/index.ts:51
 
 
 <a name="interfaces_folder_index_filesreferencemd"></a>
@@ -1357,7 +1357,7 @@ Defined in src/Folder/index.ts:37
 
 • **files**: *string[]*
 
-Defined in src/Folder/index.ts:63
+Defined in src/Folder/index.ts:77
 
 
 <a name="interfaces_folder_index_foldermd"></a>
@@ -1386,7 +1386,7 @@ Defined in src/Folder/index.ts:63
 
 • **created_at**: *string*
 
-Defined in src/Folder/index.ts:29
+Defined in src/Folder/index.ts:43
 
 ___
 
@@ -1394,7 +1394,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:26
+Defined in src/Folder/index.ts:40
 
 ___
 
@@ -1402,7 +1402,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:27
+Defined in src/Folder/index.ts:41
 
 ___
 
@@ -1410,7 +1410,7 @@ ___
 
 • **tags**: *[Tag](#tag)[]*
 
-Defined in src/Folder/index.ts:28
+Defined in src/Folder/index.ts:42
 
 ___
 
@@ -1418,7 +1418,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Folder/index.ts:30
+Defined in src/Folder/index.ts:44
 
 
 <a name="interfaces_folder_index_folderreferencemd"></a>
@@ -1443,7 +1443,7 @@ Defined in src/Folder/index.ts:30
 
 • **folder**: *string*
 
-Defined in src/Folder/index.ts:59
+Defined in src/Folder/index.ts:73
 
 
 <a name="interfaces_folder_index_metadatamd"></a>
@@ -1478,7 +1478,7 @@ Defined in src/Folder/index.ts:59
 
 • **bucket**: *string*
 
-Defined in src/Folder/index.ts:46
+Defined in src/Folder/index.ts:60
 
 ___
 
@@ -1486,7 +1486,7 @@ ___
 
 • **content_type**: *string*
 
-Defined in src/Folder/index.ts:48
+Defined in src/Folder/index.ts:62
 
 ___
 
@@ -1494,7 +1494,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in src/Folder/index.ts:50
+Defined in src/Folder/index.ts:64
 
 ___
 
@@ -1502,7 +1502,7 @@ ___
 
 • **generation**: *string*
 
-Defined in src/Folder/index.ts:47
+Defined in src/Folder/index.ts:61
 
 ___
 
@@ -1510,7 +1510,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:42
+Defined in src/Folder/index.ts:56
 
 ___
 
@@ -1518,7 +1518,7 @@ ___
 
 • **kind**: *string*
 
-Defined in src/Folder/index.ts:41
+Defined in src/Folder/index.ts:55
 
 ___
 
@@ -1526,7 +1526,7 @@ ___
 
 • **media_link**: *string*
 
-Defined in src/Folder/index.ts:44
+Defined in src/Folder/index.ts:58
 
 ___
 
@@ -1534,7 +1534,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:45
+Defined in src/Folder/index.ts:59
 
 ___
 
@@ -1542,7 +1542,7 @@ ___
 
 • **self_link**: *string*
 
-Defined in src/Folder/index.ts:43
+Defined in src/Folder/index.ts:57
 
 ___
 
@@ -1550,7 +1550,7 @@ ___
 
 • **size**: *string*
 
-Defined in src/Folder/index.ts:49
+Defined in src/Folder/index.ts:63
 
 ___
 
@@ -1558,7 +1558,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Folder/index.ts:51
+Defined in src/Folder/index.ts:65
 
 
 <a name="interfaces_folder_index_referencemd"></a>
@@ -1583,7 +1583,7 @@ Defined in src/Folder/index.ts:51
 
 • **file**: *string*
 
-Defined in src/Folder/index.ts:55
+Defined in src/Folder/index.ts:69
 
 
 <a name="interfaces_label_labelmd"></a>
@@ -2784,7 +2784,7 @@ Defined in src/TableAnnotation.ts:37
 
 • **paragraphsById**: *[ParagraphsById](#paragraphsbyid)*
 
-Defined in src/TextAnnotation.ts:71
+Defined in src/TextAnnotation.ts:72
 
 ___
 
@@ -2792,7 +2792,7 @@ ___
 
 • **wordsById**: *[WordsById](#wordsbyid)*
 
-Defined in src/TextAnnotation.ts:70
+Defined in src/TextAnnotation.ts:71
 
 
 <a name="interfaces_textannotation_paragraphmd"></a>
@@ -2819,7 +2819,7 @@ Defined in src/TextAnnotation.ts:70
 
 • **boundingPoly**: *[Poly](#poly)*
 
-Defined in src/TextAnnotation.ts:61
+Defined in src/TextAnnotation.ts:62
 
 ___
 
@@ -2827,7 +2827,7 @@ ___
 
 • **confidence**: *number*
 
-Defined in src/TextAnnotation.ts:62
+Defined in src/TextAnnotation.ts:63
 
 ___
 
@@ -2835,7 +2835,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/TextAnnotation.ts:60
+Defined in src/TextAnnotation.ts:61
 
 
 <a name="interfaces_textannotation_textannotationmd"></a>
@@ -2864,7 +2864,7 @@ Defined in src/TextAnnotation.ts:60
 
 • **created_at**: *string*
 
-Defined in src/TextAnnotation.ts:78
+Defined in src/TextAnnotation.ts:79
 
 ___
 
@@ -2872,7 +2872,7 @@ ___
 
 • **file**: *string*
 
-Defined in src/TextAnnotation.ts:76
+Defined in src/TextAnnotation.ts:77
 
 ___
 
@@ -2880,7 +2880,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/TextAnnotation.ts:75
+Defined in src/TextAnnotation.ts:76
 
 ___
 
@@ -2888,7 +2888,7 @@ ___
 
 • **pages**: *[Page](#interfaces_textannotation_pagemd)[]*
 
-Defined in src/TextAnnotation.ts:77
+Defined in src/TextAnnotation.ts:78
 
 ___
 
@@ -2896,7 +2896,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/TextAnnotation.ts:79
+Defined in src/TextAnnotation.ts:80
 
 
 <a name="interfaces_textannotation_wordmd"></a>
@@ -2926,7 +2926,7 @@ Defined in src/TextAnnotation.ts:79
 
 • **boundingPoly**: *[Poly](#poly)*
 
-Defined in src/TextAnnotation.ts:54
+Defined in src/TextAnnotation.ts:55
 
 ___
 
@@ -2934,7 +2934,7 @@ ___
 
 • **breakType**: *[BreakType](#breaktype)*
 
-Defined in src/TextAnnotation.ts:53
+Defined in src/TextAnnotation.ts:54
 
 ___
 
@@ -2942,7 +2942,7 @@ ___
 
 • **confidence**: *number*
 
-Defined in src/TextAnnotation.ts:56
+Defined in src/TextAnnotation.ts:57
 
 ___
 
@@ -2950,7 +2950,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/TextAnnotation.ts:51
+Defined in src/TextAnnotation.ts:52
 
 ___
 
@@ -2958,7 +2958,7 @@ ___
 
 • **paragraph**: *string*
 
-Defined in src/TextAnnotation.ts:52
+Defined in src/TextAnnotation.ts:53
 
 ___
 
@@ -2966,7 +2966,7 @@ ___
 
 • **text**: *string*
 
-Defined in src/TextAnnotation.ts:55
+Defined in src/TextAnnotation.ts:56
 
 
 <a name="interfaces_types_pairmd"></a>
@@ -8253,6 +8253,7 @@ Defined in src/Folder/Arbitraries.ts:15
 * [File](#file)
 * [FileReferences](#filereferences)
 * [FilesByType](#filesbytype)
+* [Relationship](#relationship)
 * [Tag](#tag)
 
 #### Variables
@@ -8260,6 +8261,7 @@ Defined in src/Folder/Arbitraries.ts:15
 * [getAttributesFromName](#const-getattributesfromname)
 * [getFileNameFromId](#const-getfilenamefromid)
 * [getFolderFromReference](#const-getfolderfromreference)
+* [getRelated](#const-getrelated)
 
 #### Functions
 
@@ -8273,10 +8275,12 @@ Defined in src/Folder/Arbitraries.ts:15
 * [isFolderReference](#const-isfolderreference)
 * [isMetadata](#const-ismetadata)
 * [isReference](#const-isreference)
+* [isRelationship](#const-isrelationship)
 * [isTag](#const-istag)
 * [make](#const-make)
 * [makeFolderReference](#const-makefolderreference)
 * [makeReference](#const-makereference)
+* [makeRelationship](#const-makerelationship)
 
 ### Type aliases
 
@@ -8284,7 +8288,7 @@ Defined in src/Folder/Arbitraries.ts:15
 
 Ƭ **File**: *[Attributes](#interfaces_folder_index_attributesmd) & object*
 
-Defined in src/Folder/index.ts:68
+Defined in src/Folder/index.ts:82
 
 ___
 
@@ -8292,7 +8296,7 @@ ___
 
 Ƭ **FileReferences**: *[FilesReference](#interfaces_folder_index_filesreferencemd) & [FolderReference](#interfaces_folder_index_folderreferencemd)*
 
-Defined in src/Folder/index.ts:66
+Defined in src/Folder/index.ts:80
 
 ___
 
@@ -8300,15 +8304,23 @@ ___
 
 Ƭ **FilesByType**: *Record‹FT.DocumentType, [File](#file)[]›*
 
-Defined in src/Folder/index.ts:70
+Defined in src/Folder/index.ts:84
+
+___
+
+####  Relationship
+
+Ƭ **Relationship**: *string & RelationshipBrand*
+
+Defined in src/Folder/index.ts:30
 
 ___
 
 ####  Tag
 
-Ƭ **Tag**: *"offline" | "online" | "singapore" | "hong_kong"*
+Ƭ **Tag**: *"offline" | "online" | "singapore" | "hong_kong" | [Relationship](#relationship)*
 
-Defined in src/Folder/index.ts:23
+Defined in src/Folder/index.ts:32
 
 ### Variables
 
@@ -8330,7 +8342,7 @@ Defined in src/Folder/index.ts:23
   })
 )
 
-Defined in src/Folder/index.ts:190
+Defined in src/Folder/index.ts:216
 
 ```haskell
 getAttributesFromName :: String -> Either Attributes Error
@@ -8355,7 +8367,7 @@ ___
   last as R.Reader<string[], string>
 )
 
-Defined in src/Folder/index.ts:274
+Defined in src/Folder/index.ts:300
 
 ```haskell
 getFileNameFromId :: String -> String
@@ -8377,7 +8389,7 @@ ___
 
 • **getFolderFromReference**: *function* = prop('folder')
 
-Defined in src/Folder/index.ts:303
+Defined in src/Folder/index.ts:329
 
 ```haskell
 getFolderFromReference :: FolderReference -> String
@@ -8393,13 +8405,39 @@ Name | Type |
 ------ | ------ |
 `reference` | [FolderReference](#interfaces_folder_index_folderreferencemd) |
 
+___
+
+#### `Const` getRelated
+
+• **getRelated**: *function* = pipe(
+  prop('tags'),
+  filter(isRelationship),
+  map(replace(/^has:/, ''))
+)
+
+Defined in src/Folder/index.ts:346
+
+```haskell
+getRelated :: Folder -> [String]
+```
+
+##### Type declaration:
+
+▸ (`folder`: [Folder](#interfaces_folder_index_foldermd)): *string[]*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`folder` | [Folder](#interfaces_folder_index_foldermd) |
+
 ### Functions
 
 #### `Const` fromMetadata
 
 ▸ **fromMetadata**(`metadata`: [Metadata](#interfaces_folder_index_metadatamd)): *Left‹Error› | Right‹object›*
 
-Defined in src/Folder/index.ts:213
+Defined in src/Folder/index.ts:239
 
 ```haskell
 fromMetadata :: Metadata -> Either
@@ -8419,7 +8457,7 @@ ___
 
 ▸ **isFile**(`a`: unknown): *a is File*
 
-Defined in src/Folder/index.ts:163
+Defined in src/Folder/index.ts:189
 
 ```haskell
 isFile :: a -> bool
@@ -8439,7 +8477,7 @@ ___
 
 ▸ **isFileArray**(`a`: unknown): *a is File[]*
 
-Defined in src/Folder/index.ts:171
+Defined in src/Folder/index.ts:197
 
 ```haskell
 isFileArray :: a -> bool
@@ -8459,7 +8497,7 @@ ___
 
 ▸ **isFileReferences**(`a`: unknown): *a is FileReferences*
 
-Defined in src/Folder/index.ts:253
+Defined in src/Folder/index.ts:279
 
 ```haskell
 isFileReferences :: a -> bool
@@ -8479,7 +8517,7 @@ ___
 
 ▸ **isFilesByType**(`a`: unknown): *a is FilesByType*
 
-Defined in src/Folder/index.ts:179
+Defined in src/Folder/index.ts:205
 
 ```haskell
 isFilesByType :: a -> bool
@@ -8499,7 +8537,7 @@ ___
 
 ▸ **isFilesReference**(`a`: unknown): *a is FilesReference*
 
-Defined in src/Folder/index.ts:242
+Defined in src/Folder/index.ts:268
 
 ```haskell
 isFilesReference :: a -> bool
@@ -8519,7 +8557,7 @@ ___
 
 ▸ **isFolder**(`a`: unknown): *a is Folder*
 
-Defined in src/Folder/index.ts:85
+Defined in src/Folder/index.ts:111
 
 ```haskell
 isFolder -> bool
@@ -8539,7 +8577,7 @@ ___
 
 ▸ **isFolderReference**(`a`: unknown): *a is FolderReference*
 
-Defined in src/Folder/index.ts:295
+Defined in src/Folder/index.ts:321
 
 ```haskell
 isFolderReference :: a -> bool
@@ -8559,7 +8597,7 @@ ___
 
 ▸ **isMetadata**(`a`: unknown): *a is Metadata*
 
-Defined in src/Folder/index.ts:140
+Defined in src/Folder/index.ts:166
 
 ```haskell
 isMetadata :: a -> bool
@@ -8579,7 +8617,7 @@ ___
 
 ▸ **isReference**(`a`: unknown): *a is Reference*
 
-Defined in src/Folder/index.ts:234
+Defined in src/Folder/index.ts:260
 
 ```haskell
 isReference :: a -> bool
@@ -8595,11 +8633,31 @@ Name | Type |
 
 ___
 
+#### `Const` isRelationship
+
+▸ **isRelationship**(`a`: unknown): *a is Relationship*
+
+Defined in src/Folder/index.ts:91
+
+```haskell
+isRelationship -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is Relationship*
+
+___
+
 #### `Const` isTag
 
 ▸ **isTag**(`a`: unknown): *a is Tag*
 
-Defined in src/Folder/index.ts:77
+Defined in src/Folder/index.ts:99
 
 ```haskell
 isTag -> bool
@@ -8617,9 +8675,9 @@ ___
 
 #### `Const` make
 
-▸ **make**(`name`: string, `tags`: "offline" | "online" | "singapore" | "hong_kong"[]): *(Anonymous function)*
+▸ **make**(`name`: string, `tags`: "offline" | "online" | "singapore" | "hong_kong" | string & RelationshipBrand[]): *(Anonymous function)*
 
-Defined in src/Folder/index.ts:100
+Defined in src/Folder/index.ts:126
 
 ```haskell
 make :: String -> Folder
@@ -8630,7 +8688,7 @@ make :: String -> Folder
 Name | Type |
 ------ | ------ |
 `name` | string |
-`tags` | "offline" &#124; "online" &#124; "singapore" &#124; "hong_kong"[] |
+`tags` | "offline" &#124; "online" &#124; "singapore" &#124; "hong_kong" &#124; string & RelationshipBrand[] |
 
 **Returns:** *(Anonymous function)*
 
@@ -8640,7 +8698,7 @@ ___
 
 ▸ **makeFolderReference**(`folder`: string): *object*
 
-Defined in src/Folder/index.ts:284
+Defined in src/Folder/index.ts:310
 
 ```haskell
 makeFolderReference :: String -> FolderReference
@@ -8662,7 +8720,7 @@ ___
 
 ▸ **makeReference**(`file`: string): *object*
 
-Defined in src/Folder/index.ts:265
+Defined in src/Folder/index.ts:291
 
 ```haskell
 makeReference :: String -> Reference
@@ -8677,6 +8735,26 @@ Name | Type |
 **Returns:** *object*
 
 * **file**: *string*
+
+___
+
+#### `Const` makeRelationship
+
+▸ **makeRelationship**(`target`: string): *string & RelationshipBrand*
+
+Defined in src/Folder/index.ts:338
+
+```haskell
+makeRelationship :: String -> Relationship
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`target` | string |
+
+**Returns:** *string & RelationshipBrand*
 
 
 <a name="modules_fp_ts_reader_md"></a>
@@ -11408,7 +11486,7 @@ Name | Type |
 
 Ƭ **BreakType**: *"UNKNOWN" | "SPACE" | "SURE_SPACE" | "EOL_SURE_SPACE" | "HYPHEN" | "LINE_BREAK"*
 
-Defined in src/TextAnnotation.ts:33
+Defined in src/TextAnnotation.ts:34
 
 ___
 
@@ -11416,7 +11494,7 @@ ___
 
 Ƭ **ParagraphsById**: *Dictionary‹[Paragraph](#interfaces_textannotation_paragraphmd)›*
 
-Defined in src/TextAnnotation.ts:67
+Defined in src/TextAnnotation.ts:68
 
 ___
 
@@ -11424,7 +11502,7 @@ ___
 
 Ƭ **WordsById**: *Dictionary‹[Word](#interfaces_textannotation_wordmd)›*
 
-Defined in src/TextAnnotation.ts:65
+Defined in src/TextAnnotation.ts:66
 
 ### Variables
 
@@ -11439,7 +11517,7 @@ Defined in src/TextAnnotation.ts:65
   'LINE_BREAK',
 ]
 
-Defined in src/TextAnnotation.ts:41
+Defined in src/TextAnnotation.ts:42
 
 ___
 
@@ -11451,7 +11529,7 @@ ___
   A.array.sequence(IO.io)
 )
 
-Defined in src/TextAnnotation.ts:287
+Defined in src/TextAnnotation.ts:304
 
 ```haskell
 fromAnnotateImageResponse :: AnnotateImageResponse -> IO [Page]
@@ -11483,7 +11561,7 @@ ___
   )
 )
 
-Defined in src/TextAnnotation.ts:270
+Defined in src/TextAnnotation.ts:287
 
 ```haskell
 fromVisionPage :: VisionPage -> IO Page
@@ -11510,7 +11588,7 @@ ___
   O.getOrElse(() => 'UNKNOWN')
 )
 
-Defined in src/TextAnnotation.ts:179
+Defined in src/TextAnnotation.ts:196
 
 ```haskell
 getBreakTypeFromSymbols :: [VisionSymbol] -> DetectedBreak
@@ -11535,7 +11613,7 @@ ___
   breakTypeMappings
 )
 
-Defined in src/TextAnnotation.ts:331
+Defined in src/TextAnnotation.ts:348
 
 ```haskell
 getStringFromBreakType :: BreakType -> String
@@ -11565,7 +11643,7 @@ ___
   trim
 )
 
-Defined in src/TextAnnotation.ts:341
+Defined in src/TextAnnotation.ts:358
 
 ```haskell
 getTextFromWords :: [Word] -> String
@@ -11587,7 +11665,7 @@ Name | Type |
 
 ▸ **fromAnnotateImageRequest**(`request`: [AsyncAnnotateFileRequest](#interfaces_vision_asyncannotatefilerequestmd)): *(Anonymous function)*
 
-Defined in src/TextAnnotation.ts:302
+Defined in src/TextAnnotation.ts:319
 
 ```haskell
 fromAnnotateImageRequest :: AsyncAnnotateFileRequest -> IO [Page]
@@ -11607,7 +11685,7 @@ ___
 
 ▸ **fromVisionParagraph**(`visionParagraph`: [Paragraph](#interfaces_vision_paragraphmd)): *(Anonymous function)*
 
-Defined in src/TextAnnotation.ts:233
+Defined in src/TextAnnotation.ts:250
 
 ```haskell
 fromVisionParagraph :: VisionParagraph -> IO Page
@@ -11627,7 +11705,7 @@ ___
 
 ▸ **fromVisionWord**(`word`: [Word](#interfaces_vision_wordmd)): *(Anonymous function)*
 
-Defined in src/TextAnnotation.ts:214
+Defined in src/TextAnnotation.ts:231
 
 ```haskell
 fromVisionWord :: VisionWord -> Word
@@ -11647,7 +11725,7 @@ ___
 
 ▸ **isBreakType**(`a`: unknown): *a is BreakType*
 
-Defined in src/TextAnnotation.ts:87
+Defined in src/TextAnnotation.ts:88
 
 ```haskell
 isBreakType :: a -> bool
@@ -11667,7 +11745,7 @@ ___
 
 ▸ **isPage**(`a`: unknown): *a is Page*
 
-Defined in src/TextAnnotation.ts:146
+Defined in src/TextAnnotation.ts:163
 
 ```haskell
 isPage :: a -> bool
@@ -11687,7 +11765,7 @@ ___
 
 ▸ **isPages**(`a`: unknown): *a is Page*
 
-Defined in src/TextAnnotation.ts:157
+Defined in src/TextAnnotation.ts:174
 
 ```haskell
 isPages :: a -> bool
@@ -11707,7 +11785,7 @@ ___
 
 ▸ **isParagraph**(`a`: unknown): *a is Paragraph*
 
-Defined in src/TextAnnotation.ts:118
+Defined in src/TextAnnotation.ts:127
 
 ```haskell
 isParagraph :: a -> bool
@@ -11727,7 +11805,7 @@ ___
 
 ▸ **isParagraphsById**(`a`: unknown): *a is ParagraphsById*
 
-Defined in src/TextAnnotation.ts:138
+Defined in src/TextAnnotation.ts:155
 
 ```haskell
 isWordsById :: a -> bool
@@ -11747,7 +11825,7 @@ ___
 
 ▸ **isTextAnnotation**(`a`: unknown): *a is TextAnnotation*
 
-Defined in src/TextAnnotation.ts:165
+Defined in src/TextAnnotation.ts:182
 
 ```haskell
 isTextAnnotation :: a -> bool
@@ -11767,7 +11845,7 @@ ___
 
 ▸ **isWord**(`a`: unknown): *a is Word*
 
-Defined in src/TextAnnotation.ts:95
+Defined in src/TextAnnotation.ts:96
 
 ```haskell
 isWord :: a -> bool
@@ -11787,7 +11865,7 @@ ___
 
 ▸ **isWordArray**(`a`: unknown): *a is Word[]*
 
-Defined in src/TextAnnotation.ts:110
+Defined in src/TextAnnotation.ts:119
 
 ```haskell
 isWordArray :: a -> bool
@@ -11807,7 +11885,7 @@ ___
 
 ▸ **isWordsById**(`a`: unknown): *a is WordsById*
 
-Defined in src/TextAnnotation.ts:130
+Defined in src/TextAnnotation.ts:139
 
 ```haskell
 isWordsById :: a -> bool
