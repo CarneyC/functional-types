@@ -1,7 +1,6 @@
-import { TextAnnotation } from './lib/TextAnnotation';
-import { isDictionary } from './src';
-import { isTableAnnotation, TableAnnotation } from './src/TableAnnotation';
-import { isTextAnnotation } from './src/TextAnnotation';
+import { isDictionary } from './index';
+import { isTableAnnotation, TableAnnotation } from './TableAnnotation';
+import { isTextAnnotation, TextAnnotation } from './TextAnnotation';
 import { allPass, propSatisfies } from 'ramda';
 
 export interface AnnotationPair {

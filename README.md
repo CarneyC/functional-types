@@ -17,6 +17,7 @@
 
 ### Modules
 
+* ["AnnotationPair"](#modules_annotationpair_md)
 * ["Array/Arbitraries"](#modules_array_arbitraries_md)
 * ["Array/index"](#modules_array_index_md)
 * ["Comparable"](#modules_comparable_md)
@@ -49,6 +50,40 @@
 * ["index"](#modules_index_md)
 
 # Interfaces
+
+
+<a name="interfaces_annotationpair_annotationpairmd"></a>
+
+[functional-types](#globalsmd) › ["AnnotationPair"](#modules_annotationpair_md) › [AnnotationPair](#interfaces_annotationpair_annotationpairmd)
+
+## Interface: AnnotationPair
+
+### Hierarchy
+
+* **AnnotationPair**
+
+### Index
+
+#### Properties
+
+* [left](#left)
+* [right](#right)
+
+### Properties
+
+####  left
+
+• **left**: *[TableAnnotation](#interfaces_tableannotation_tableannotationmd)*
+
+Defined in src/AnnotationPair.ts:7
+
+___
+
+####  right
+
+• **right**: *[TextAnnotation](#interfaces_textannotation_textannotationmd)*
+
+Defined in src/AnnotationPair.ts:8
 
 
 <a name="interfaces_comparable_annotationmd"></a>
@@ -4388,6 +4423,39 @@ ___
 Defined in src/Vision.ts:175
 
 # Modules
+
+
+<a name="modules_annotationpair_md"></a>
+
+[functional-types](#globalsmd) › ["AnnotationPair"](#modules_annotationpair_md)
+
+## Module: "AnnotationPair"
+
+### Index
+
+#### Interfaces
+
+* [AnnotationPair](#interfaces_annotationpair_annotationpairmd)
+
+#### Functions
+
+* [isAnnotationPair](#const-isannotationpair)
+
+### Functions
+
+#### `Const` isAnnotationPair
+
+▸ **isAnnotationPair**(`a`: unknown): *a is AnnotationPair*
+
+Defined in src/AnnotationPair.ts:11
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`a` | unknown |
+
+**Returns:** *a is AnnotationPair*
 
 
 <a name="modules_array_arbitraries_md"></a>
