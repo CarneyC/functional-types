@@ -89,7 +89,7 @@ export type FilesByType = Record<FT.DocumentType, File[]>;
  * ```
  */
 export const isRelationship = (a: unknown): a is Relationship =>
-  allPass([isString, regExpTest(/^has:\w+$/)])(a);
+  allPass([isString, regExpTest(/^has:[a-zA-Z0-9-]+$/)])(a);
 
 /**
  * ```haskell
