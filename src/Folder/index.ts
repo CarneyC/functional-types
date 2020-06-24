@@ -1,7 +1,13 @@
 import { getCurrentISOString } from '../DateTime';
 import * as FT from '../FileType';
 import { getRandomId } from '../String';
-import { isArray, isArraySatisfying, isString } from '../Types';
+import {
+  isArray,
+  isArraySatisfying,
+  isNotNil,
+  isString,
+  propSatisfiesIfExists,
+} from '../Types';
 import * as E from 'fp-ts/lib/Either';
 import * as IO from 'fp-ts/lib/IO';
 import * as R from 'fp-ts/lib/Reader';
@@ -22,6 +28,7 @@ import {
   anyPass,
   filter,
   replace,
+  assoc,
 } from 'ramda';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -42,6 +49,7 @@ export interface Folder {
   tags: Tag[];
   created_at: string;
   updated_at: string;
+  deleted_at?: string;
 }
 
 export interface Attributes {
@@ -116,7 +124,16 @@ export const isFolder = (a: unknown): a is Folder =>
     propSatisfies(isArraySatisfying(isTag), 'tags'),
     propIs(String, 'created_at'),
     propIs(String, 'updated_at'),
+    propSatisfiesIfExists(isString, 'deleted_at'),
   ])(a);
+
+/**
+ * ```haskell
+ * isDeleted -> bool
+ * ```
+ */
+export const isDeleted: (folder: Folder) => boolean = (folder) =>
+  isNotNil(folder.deleted_at);
 
 /**
  * ```haskell
@@ -136,6 +153,19 @@ export const make: (name: string, tags?: Tag[]) => IO.IO<Folder> = (
     updated_at: dateStr,
   };
 };
+
+/**
+ * ```haskell
+ * deleteFolder :: Folder -> IO Folder
+ * ```
+ */
+export const deleteFolder: (folder: Folder) => IO.IO<Folder> = (
+  folder
+) => (): Folder => {
+  const dateStr = getCurrentISOString();
+  return assoc('deleted_at', dateStr, folder);
+};
+
 /**
  * ```haskell
  * hasStringProps :: [String] -> Reader a bool

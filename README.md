@@ -1308,7 +1308,7 @@ Defined in src/Excel.ts:18
 
 • **folder**: *string*
 
-Defined in src/Folder/index.ts:49
+Defined in src/Folder/index.ts:57
 
 ___
 
@@ -1316,7 +1316,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:48
+Defined in src/Folder/index.ts:56
 
 ___
 
@@ -1324,7 +1324,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:50
+Defined in src/Folder/index.ts:58
 
 ___
 
@@ -1332,7 +1332,7 @@ ___
 
 • **type**: *FT.FileType*
 
-Defined in src/Folder/index.ts:51
+Defined in src/Folder/index.ts:59
 
 
 <a name="interfaces_folder_index_filesreferencemd"></a>
@@ -1357,7 +1357,7 @@ Defined in src/Folder/index.ts:51
 
 • **files**: *string[]*
 
-Defined in src/Folder/index.ts:77
+Defined in src/Folder/index.ts:85
 
 
 <a name="interfaces_folder_index_foldermd"></a>
@@ -1375,6 +1375,7 @@ Defined in src/Folder/index.ts:77
 #### Properties
 
 * [created_at](#created_at)
+* [deleted_at](#optional-deleted_at)
 * [id](#id)
 * [name](#name)
 * [tags](#tags)
@@ -1386,7 +1387,15 @@ Defined in src/Folder/index.ts:77
 
 • **created_at**: *string*
 
-Defined in src/Folder/index.ts:43
+Defined in src/Folder/index.ts:50
+
+___
+
+#### `Optional` deleted_at
+
+• **deleted_at**? : *string*
+
+Defined in src/Folder/index.ts:52
 
 ___
 
@@ -1394,7 +1403,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:40
+Defined in src/Folder/index.ts:47
 
 ___
 
@@ -1402,7 +1411,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:41
+Defined in src/Folder/index.ts:48
 
 ___
 
@@ -1410,7 +1419,7 @@ ___
 
 • **tags**: *[Tag](#tag)[]*
 
-Defined in src/Folder/index.ts:42
+Defined in src/Folder/index.ts:49
 
 ___
 
@@ -1418,7 +1427,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Folder/index.ts:44
+Defined in src/Folder/index.ts:51
 
 
 <a name="interfaces_folder_index_folderreferencemd"></a>
@@ -1443,7 +1452,7 @@ Defined in src/Folder/index.ts:44
 
 • **folder**: *string*
 
-Defined in src/Folder/index.ts:73
+Defined in src/Folder/index.ts:81
 
 
 <a name="interfaces_folder_index_metadatamd"></a>
@@ -1478,7 +1487,7 @@ Defined in src/Folder/index.ts:73
 
 • **bucket**: *string*
 
-Defined in src/Folder/index.ts:60
+Defined in src/Folder/index.ts:68
 
 ___
 
@@ -1486,7 +1495,7 @@ ___
 
 • **content_type**: *string*
 
-Defined in src/Folder/index.ts:62
+Defined in src/Folder/index.ts:70
 
 ___
 
@@ -1494,7 +1503,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in src/Folder/index.ts:64
+Defined in src/Folder/index.ts:72
 
 ___
 
@@ -1502,7 +1511,7 @@ ___
 
 • **generation**: *string*
 
-Defined in src/Folder/index.ts:61
+Defined in src/Folder/index.ts:69
 
 ___
 
@@ -1510,7 +1519,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Folder/index.ts:56
+Defined in src/Folder/index.ts:64
 
 ___
 
@@ -1518,7 +1527,7 @@ ___
 
 • **kind**: *string*
 
-Defined in src/Folder/index.ts:55
+Defined in src/Folder/index.ts:63
 
 ___
 
@@ -1526,7 +1535,7 @@ ___
 
 • **media_link**: *string*
 
-Defined in src/Folder/index.ts:58
+Defined in src/Folder/index.ts:66
 
 ___
 
@@ -1534,7 +1543,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Folder/index.ts:59
+Defined in src/Folder/index.ts:67
 
 ___
 
@@ -1542,7 +1551,7 @@ ___
 
 • **self_link**: *string*
 
-Defined in src/Folder/index.ts:57
+Defined in src/Folder/index.ts:65
 
 ___
 
@@ -1550,7 +1559,7 @@ ___
 
 • **size**: *string*
 
-Defined in src/Folder/index.ts:63
+Defined in src/Folder/index.ts:71
 
 ___
 
@@ -1558,7 +1567,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Folder/index.ts:65
+Defined in src/Folder/index.ts:73
 
 
 <a name="interfaces_folder_index_referencemd"></a>
@@ -1583,7 +1592,7 @@ Defined in src/Folder/index.ts:65
 
 • **file**: *string*
 
-Defined in src/Folder/index.ts:69
+Defined in src/Folder/index.ts:77
 
 
 <a name="interfaces_label_labelmd"></a>
@@ -8265,7 +8274,9 @@ Defined in src/Folder/Arbitraries.ts:15
 
 #### Functions
 
+* [deleteFolder](#const-deletefolder)
 * [fromMetadata](#const-frommetadata)
+* [isDeleted](#const-isdeleted)
 * [isFile](#const-isfile)
 * [isFileArray](#const-isfilearray)
 * [isFileReferences](#const-isfilereferences)
@@ -8288,7 +8299,7 @@ Defined in src/Folder/Arbitraries.ts:15
 
 Ƭ **File**: *[Attributes](#interfaces_folder_index_attributesmd) & object*
 
-Defined in src/Folder/index.ts:82
+Defined in src/Folder/index.ts:90
 
 ___
 
@@ -8296,7 +8307,7 @@ ___
 
 Ƭ **FileReferences**: *[FilesReference](#interfaces_folder_index_filesreferencemd) & [FolderReference](#interfaces_folder_index_folderreferencemd)*
 
-Defined in src/Folder/index.ts:80
+Defined in src/Folder/index.ts:88
 
 ___
 
@@ -8304,7 +8315,7 @@ ___
 
 Ƭ **FilesByType**: *Record‹FT.DocumentType, [File](#file)[]›*
 
-Defined in src/Folder/index.ts:84
+Defined in src/Folder/index.ts:92
 
 ___
 
@@ -8312,7 +8323,7 @@ ___
 
 Ƭ **Relationship**: *string & RelationshipBrand*
 
-Defined in src/Folder/index.ts:30
+Defined in src/Folder/index.ts:37
 
 ___
 
@@ -8320,7 +8331,7 @@ ___
 
 Ƭ **Tag**: *"offline" | "online" | "singapore" | "hong_kong" | [Relationship](#relationship)*
 
-Defined in src/Folder/index.ts:32
+Defined in src/Folder/index.ts:39
 
 ### Variables
 
@@ -8342,7 +8353,7 @@ Defined in src/Folder/index.ts:32
   })
 )
 
-Defined in src/Folder/index.ts:216
+Defined in src/Folder/index.ts:246
 
 ```haskell
 getAttributesFromName :: String -> Either Attributes Error
@@ -8367,7 +8378,7 @@ ___
   last as R.Reader<string[], string>
 )
 
-Defined in src/Folder/index.ts:300
+Defined in src/Folder/index.ts:330
 
 ```haskell
 getFileNameFromId :: String -> String
@@ -8389,7 +8400,7 @@ ___
 
 • **getFolderFromReference**: *function* = prop('folder')
 
-Defined in src/Folder/index.ts:329
+Defined in src/Folder/index.ts:359
 
 ```haskell
 getFolderFromReference :: FolderReference -> String
@@ -8415,7 +8426,7 @@ ___
   map(replace(/^has:/, ''))
 )
 
-Defined in src/Folder/index.ts:346
+Defined in src/Folder/index.ts:376
 
 ```haskell
 getRelated :: Folder -> [String]
@@ -8433,11 +8444,31 @@ Name | Type |
 
 ### Functions
 
+#### `Const` deleteFolder
+
+▸ **deleteFolder**(`folder`: [Folder](#interfaces_folder_index_foldermd)): *(Anonymous function)*
+
+Defined in src/Folder/index.ts:162
+
+```haskell
+deleteFolder :: Folder -> IO Folder
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`folder` | [Folder](#interfaces_folder_index_foldermd) |
+
+**Returns:** *(Anonymous function)*
+
+___
+
 #### `Const` fromMetadata
 
 ▸ **fromMetadata**(`metadata`: [Metadata](#interfaces_folder_index_metadatamd)): *Left‹Error› | Right‹object›*
 
-Defined in src/Folder/index.ts:239
+Defined in src/Folder/index.ts:269
 
 ```haskell
 fromMetadata :: Metadata -> Either
@@ -8453,11 +8484,31 @@ Name | Type |
 
 ___
 
+#### `Const` isDeleted
+
+▸ **isDeleted**(`folder`: [Folder](#interfaces_folder_index_foldermd)): *boolean*
+
+Defined in src/Folder/index.ts:135
+
+```haskell
+isDeleted -> bool
+```
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`folder` | [Folder](#interfaces_folder_index_foldermd) |
+
+**Returns:** *boolean*
+
+___
+
 #### `Const` isFile
 
 ▸ **isFile**(`a`: unknown): *a is File*
 
-Defined in src/Folder/index.ts:189
+Defined in src/Folder/index.ts:219
 
 ```haskell
 isFile :: a -> bool
@@ -8477,7 +8528,7 @@ ___
 
 ▸ **isFileArray**(`a`: unknown): *a is File[]*
 
-Defined in src/Folder/index.ts:197
+Defined in src/Folder/index.ts:227
 
 ```haskell
 isFileArray :: a -> bool
@@ -8497,7 +8548,7 @@ ___
 
 ▸ **isFileReferences**(`a`: unknown): *a is FileReferences*
 
-Defined in src/Folder/index.ts:279
+Defined in src/Folder/index.ts:309
 
 ```haskell
 isFileReferences :: a -> bool
@@ -8517,7 +8568,7 @@ ___
 
 ▸ **isFilesByType**(`a`: unknown): *a is FilesByType*
 
-Defined in src/Folder/index.ts:205
+Defined in src/Folder/index.ts:235
 
 ```haskell
 isFilesByType :: a -> bool
@@ -8537,7 +8588,7 @@ ___
 
 ▸ **isFilesReference**(`a`: unknown): *a is FilesReference*
 
-Defined in src/Folder/index.ts:268
+Defined in src/Folder/index.ts:298
 
 ```haskell
 isFilesReference :: a -> bool
@@ -8557,7 +8608,7 @@ ___
 
 ▸ **isFolder**(`a`: unknown): *a is Folder*
 
-Defined in src/Folder/index.ts:111
+Defined in src/Folder/index.ts:119
 
 ```haskell
 isFolder -> bool
@@ -8577,7 +8628,7 @@ ___
 
 ▸ **isFolderReference**(`a`: unknown): *a is FolderReference*
 
-Defined in src/Folder/index.ts:321
+Defined in src/Folder/index.ts:351
 
 ```haskell
 isFolderReference :: a -> bool
@@ -8597,7 +8648,7 @@ ___
 
 ▸ **isMetadata**(`a`: unknown): *a is Metadata*
 
-Defined in src/Folder/index.ts:166
+Defined in src/Folder/index.ts:196
 
 ```haskell
 isMetadata :: a -> bool
@@ -8617,7 +8668,7 @@ ___
 
 ▸ **isReference**(`a`: unknown): *a is Reference*
 
-Defined in src/Folder/index.ts:260
+Defined in src/Folder/index.ts:290
 
 ```haskell
 isReference :: a -> bool
@@ -8637,7 +8688,7 @@ ___
 
 ▸ **isRelationship**(`a`: unknown): *a is Relationship*
 
-Defined in src/Folder/index.ts:91
+Defined in src/Folder/index.ts:99
 
 ```haskell
 isRelationship -> bool
@@ -8657,7 +8708,7 @@ ___
 
 ▸ **isTag**(`a`: unknown): *a is Tag*
 
-Defined in src/Folder/index.ts:99
+Defined in src/Folder/index.ts:107
 
 ```haskell
 isTag -> bool
@@ -8677,7 +8728,7 @@ ___
 
 ▸ **make**(`name`: string, `tags`: "offline" | "online" | "singapore" | "hong_kong" | string & RelationshipBrand[]): *(Anonymous function)*
 
-Defined in src/Folder/index.ts:126
+Defined in src/Folder/index.ts:143
 
 ```haskell
 make :: String -> Folder
@@ -8698,7 +8749,7 @@ ___
 
 ▸ **makeFolderReference**(`folder`: string): *object*
 
-Defined in src/Folder/index.ts:310
+Defined in src/Folder/index.ts:340
 
 ```haskell
 makeFolderReference :: String -> FolderReference
@@ -8720,7 +8771,7 @@ ___
 
 ▸ **makeReference**(`file`: string): *object*
 
-Defined in src/Folder/index.ts:291
+Defined in src/Folder/index.ts:321
 
 ```haskell
 makeReference :: String -> Reference
@@ -8742,7 +8793,7 @@ ___
 
 ▸ **makeRelationship**(`target`: string): *string & RelationshipBrand*
 
-Defined in src/Folder/index.ts:338
+Defined in src/Folder/index.ts:368
 
 ```haskell
 makeRelationship :: String -> Relationship
