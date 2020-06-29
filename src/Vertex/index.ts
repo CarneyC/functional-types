@@ -41,6 +41,10 @@ import {
   propEq,
   tail,
   gte,
+  unnest,
+  equals,
+  drop,
+  dropLast,
 } from 'ramda';
 
 export interface Vertex {
@@ -333,32 +337,74 @@ export const getCornersFromPoly: (poly: Poly) => Corners = applySpec({
  * makeRows :: Corners -> Reader [Float] [Line]
  * ```
  */
-const makeRows: (corners: Corners) => R.Reader<number[], Line[]> = ({
-  start,
-  end,
-}: Corners) =>
-  pipe(
-    filter((y) => start.y < y && end.y > y),
+const makeRows: (
+  corners: Corners,
+  threshold?: number
+) => R.Reader<number[], Line[]> = (corners, threshold = 0.005) => (
+  ys: number[]
+): Line[] => {
+  const { start, end } = corners;
+
+  const uniqYs = pipe(
+    filter((y) => start.y < y && end.y > y) as R.Reader<number[], number[]>,
     uniq,
-    sort(subtract),
-    map((y) => makeLine(start.x, y, end.x, y))
-  );
+    sort(subtract)
+  )(ys);
+
+  const filteredYs = pipe(
+    (ys: number[]) => [start.y, ...ys, end.y],
+    aperture(2),
+    filter(([start, end]) => Math.abs(start - end) >= threshold) as R.Reader<
+      number[][],
+      number[][]
+    >,
+    unnest,
+    drop(1),
+    dropLast(1) as R.Reader<number[], number[]>,
+    uniq
+  )(uniqYs);
+
+  return equals(uniqYs, filteredYs)
+    ? map((y) => makeLine(start.x, y, end.x, y), uniqYs)
+    : makeRows(corners, threshold)(filteredYs);
+};
 
 /**
  * ```haskell
  * makeColumns :: Corners -> Reader [Float] [Line]
  * ```
  */
-const makeColumns: (corners: Corners) => R.Reader<number[], Line[]> = ({
-  start,
-  end,
-}: Corners) =>
-  pipe(
-    filter((x) => start.x < x && end.x > x),
+const makeColumns: (
+  corners: Corners,
+  threshold?: number
+) => R.Reader<number[], Line[]> = (corners: Corners, threshold = 0.005) => (
+  xs: number[]
+): Line[] => {
+  const { start, end } = corners;
+
+  const uniqXs = pipe(
+    filter((x) => start.x < x && end.x > x) as R.Reader<number[], number[]>,
     uniq,
-    sort(subtract),
-    map((x) => makeLine(x, start.y, x, end.y))
-  );
+    sort(subtract)
+  )(xs);
+
+  const filteredXs = pipe(
+    (xs: number[]) => [start.x, ...xs, end.x],
+    aperture(2),
+    filter(([start, end]) => Math.abs(start - end) >= threshold) as R.Reader<
+      number[][],
+      number[][]
+    >,
+    unnest,
+    drop(1),
+    dropLast(1) as R.Reader<number[], number[]>,
+    uniq
+  )(uniqXs);
+
+  return equals(uniqXs, filteredXs)
+    ? map((x) => makeLine(x, start.y, x, end.y), uniqXs)
+    : makeColumns(corners, threshold)(filteredXs);
+};
 
 /**
  * ```haskell

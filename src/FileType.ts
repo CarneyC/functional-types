@@ -312,7 +312,9 @@ export const isImageType = (a: unknown): a is ImageType =>
  * ```
  */
 export const isFileType = (a: unknown): a is ImageType =>
-  anyPass([isDocumentType, isImageType])(a);
+  anyPass([isDocumentType, isLegacyDocumentType, isArchiveType, isImageType])(
+    a
+  );
 
 /**
  * ```haskell

@@ -2275,7 +2275,7 @@ Defined in src/Serialize/ComparableSchema.ts:14
 
 • **keys**? : *string[]*
 
-Defined in src/Serialize/Schema.ts:44
+Defined in src/Serialize/Schema.ts:45
 
 ___
 
@@ -2283,7 +2283,7 @@ ___
 
 • **values**? : *string[]*
 
-Defined in src/Serialize/Schema.ts:45
+Defined in src/Serialize/Schema.ts:46
 
 
 <a name="interfaces_serialize_schema_gettablemd"></a>
@@ -2310,7 +2310,7 @@ Defined in src/Serialize/Schema.ts:45
 
 • **attribute**: *[Path](#path)*
 
-Defined in src/Serialize/Schema.ts:85
+Defined in src/Serialize/Schema.ts:86
 
 ___
 
@@ -2318,7 +2318,7 @@ ___
 
 • **file**: *[FilePath](#filepath)*
 
-Defined in src/Serialize/Schema.ts:84
+Defined in src/Serialize/Schema.ts:85
 
 ___
 
@@ -2326,7 +2326,7 @@ ___
 
 • **options**? : *[GettableOptions](#interfaces_serialize_schema_gettableoptionsmd)*
 
-Defined in src/Serialize/Schema.ts:86
+Defined in src/Serialize/Schema.ts:87
 
 
 <a name="interfaces_serialize_schema_gettableoptionsmd"></a>
@@ -2361,7 +2361,7 @@ Defined in src/Serialize/Schema.ts:86
 
 • **direction**? : *[Direction](#direction)*
 
-Defined in src/Serialize/Schema.ts:71
+Defined in src/Serialize/Schema.ts:72
 
 ___
 
@@ -2369,7 +2369,7 @@ ___
 
 • **dividend**? : *boolean*
 
-Defined in src/Serialize/Schema.ts:80
+Defined in src/Serialize/Schema.ts:81
 
 ___
 
@@ -2377,7 +2377,7 @@ ___
 
 • **end**? : *string*
 
-Defined in src/Serialize/Schema.ts:78
+Defined in src/Serialize/Schema.ts:79
 
 ___
 
@@ -2385,7 +2385,7 @@ ___
 
 • **filters**? : *[Filters](#interfaces_serialize_schema_filtersmd)*
 
-Defined in src/Serialize/Schema.ts:77
+Defined in src/Serialize/Schema.ts:78
 
 ___
 
@@ -2393,7 +2393,7 @@ ___
 
 • **key**? : *string*
 
-Defined in src/Serialize/Schema.ts:72
+Defined in src/Serialize/Schema.ts:73
 
 ___
 
@@ -2401,7 +2401,7 @@ ___
 
 • **lifts**? : *string[]*
 
-Defined in src/Serialize/Schema.ts:75
+Defined in src/Serialize/Schema.ts:76
 
 ___
 
@@ -2409,7 +2409,7 @@ ___
 
 • **merge_type**? : *[MergeType](#mergetype)[]*
 
-Defined in src/Serialize/Schema.ts:70
+Defined in src/Serialize/Schema.ts:71
 
 ___
 
@@ -2417,7 +2417,7 @@ ___
 
 • **multiplies**? : *[Multiply](#interfaces_serialize_schema_multiplymd)[]*
 
-Defined in src/Serialize/Schema.ts:79
+Defined in src/Serialize/Schema.ts:80
 
 ___
 
@@ -2425,7 +2425,7 @@ ___
 
 • **rejects**? : *[Filters](#interfaces_serialize_schema_filtersmd)*
 
-Defined in src/Serialize/Schema.ts:76
+Defined in src/Serialize/Schema.ts:77
 
 ___
 
@@ -2433,7 +2433,7 @@ ___
 
 • **replacements**? : *[Replacements](#interfaces_serialize_schema_replacementsmd)*
 
-Defined in src/Serialize/Schema.ts:73
+Defined in src/Serialize/Schema.ts:74
 
 ___
 
@@ -2441,7 +2441,7 @@ ___
 
 • **unnest**? : *number*
 
-Defined in src/Serialize/Schema.ts:74
+Defined in src/Serialize/Schema.ts:75
 
 
 <a name="interfaces_serialize_schema_multiplymd"></a>
@@ -2467,7 +2467,7 @@ Defined in src/Serialize/Schema.ts:74
 
 • **pattern**: *string*
 
-Defined in src/Serialize/Schema.ts:65
+Defined in src/Serialize/Schema.ts:66
 
 ___
 
@@ -2475,7 +2475,7 @@ ___
 
 • **scale**: *number*
 
-Defined in src/Serialize/Schema.ts:66
+Defined in src/Serialize/Schema.ts:67
 
 
 <a name="interfaces_serialize_schema_predicatemd"></a>
@@ -2501,7 +2501,7 @@ Defined in src/Serialize/Schema.ts:66
 
 • **properties**? : *[Property](#interfaces_serialize_schema_propertymd)[]*
 
-Defined in src/Serialize/Schema.ts:55
+Defined in src/Serialize/Schema.ts:56
 
 ___
 
@@ -2509,7 +2509,7 @@ ___
 
 • **value**: *string*
 
-Defined in src/Serialize/Schema.ts:54
+Defined in src/Serialize/Schema.ts:55
 
 
 <a name="interfaces_serialize_schema_propertymd"></a>
@@ -2535,7 +2535,7 @@ Defined in src/Serialize/Schema.ts:54
 
 • **pattern**: *string*
 
-Defined in src/Serialize/Schema.ts:50
+Defined in src/Serialize/Schema.ts:51
 
 ___
 
@@ -2543,7 +2543,7 @@ ___
 
 • **property**: *string*
 
-Defined in src/Serialize/Schema.ts:49
+Defined in src/Serialize/Schema.ts:50
 
 
 <a name="interfaces_serialize_schema_replacementmd"></a>
@@ -2569,7 +2569,7 @@ Defined in src/Serialize/Schema.ts:49
 
 • **pattern**: *string*
 
-Defined in src/Serialize/Schema.ts:34
+Defined in src/Serialize/Schema.ts:35
 
 ___
 
@@ -2577,7 +2577,7 @@ ___
 
 • **value**: *string*
 
-Defined in src/Serialize/Schema.ts:35
+Defined in src/Serialize/Schema.ts:36
 
 
 <a name="interfaces_serialize_schema_replacementsmd"></a>
@@ -2603,7 +2603,7 @@ Defined in src/Serialize/Schema.ts:35
 
 • **keys**? : *[Replacement](#interfaces_serialize_schema_replacementmd)[]*
 
-Defined in src/Serialize/Schema.ts:39
+Defined in src/Serialize/Schema.ts:40
 
 ___
 
@@ -2611,7 +2611,7 @@ ___
 
 • **values**? : *[Replacement](#interfaces_serialize_schema_replacementmd)[]*
 
-Defined in src/Serialize/Schema.ts:40
+Defined in src/Serialize/Schema.ts:41
 
 
 <a name="interfaces_serialize_schema_schemamd"></a>
@@ -2643,7 +2643,7 @@ Defined in src/Serialize/Schema.ts:40
 
 • **created_at**: *string*
 
-Defined in src/Serialize/Schema.ts:102
+Defined in src/Serialize/Schema.ts:103
 
 ___
 
@@ -2651,7 +2651,7 @@ ___
 
 • **file_type**: *[DocumentType](#documenttype)*
 
-Defined in src/Serialize/Schema.ts:100
+Defined in src/Serialize/Schema.ts:101
 
 ___
 
@@ -2659,7 +2659,7 @@ ___
 
 • **files**: *[FilePath](#filepath)[]*
 
-Defined in src/Serialize/Schema.ts:99
+Defined in src/Serialize/Schema.ts:100
 
 ___
 
@@ -2667,7 +2667,7 @@ ___
 
 • **gettables**: *[Gettables](#gettables)*
 
-Defined in src/Serialize/Schema.ts:98
+Defined in src/Serialize/Schema.ts:99
 
 ___
 
@@ -2675,7 +2675,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Serialize/Schema.ts:96
+Defined in src/Serialize/Schema.ts:97
 
 ___
 
@@ -2683,7 +2683,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Serialize/Schema.ts:97
+Defined in src/Serialize/Schema.ts:98
 
 ___
 
@@ -2691,7 +2691,7 @@ ___
 
 • **options**? : *[SchemaOptions](#interfaces_serialize_schema_schemaoptionsmd)*
 
-Defined in src/Serialize/Schema.ts:101
+Defined in src/Serialize/Schema.ts:102
 
 ___
 
@@ -2699,7 +2699,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Serialize/Schema.ts:103
+Defined in src/Serialize/Schema.ts:104
 
 
 <a name="interfaces_serialize_schema_schemaoptionsmd"></a>
@@ -2724,7 +2724,7 @@ Defined in src/Serialize/Schema.ts:103
 
 • **merge**? : *boolean*
 
-Defined in src/Serialize/Schema.ts:92
+Defined in src/Serialize/Schema.ts:93
 
 
 <a name="interfaces_tableannotation_tableannotationmd"></a>
@@ -3064,7 +3064,7 @@ Defined in src/Types.ts:22
 
 • **boundingPoly**: *[Poly](#poly)*
 
-Defined in src/Vertex/index.ts:59
+Defined in src/Vertex/index.ts:63
 
 ___
 
@@ -3072,7 +3072,7 @@ ___
 
 • **columns**: *[Line](#line)[]*
 
-Defined in src/Vertex/index.ts:61
+Defined in src/Vertex/index.ts:65
 
 ___
 
@@ -3080,7 +3080,7 @@ ___
 
 • **rows**: *[Line](#line)[]*
 
-Defined in src/Vertex/index.ts:60
+Defined in src/Vertex/index.ts:64
 
 
 <a name="interfaces_vertex_index_cornersmd"></a>
@@ -3106,7 +3106,7 @@ Defined in src/Vertex/index.ts:60
 
 • **end**: *[Vertex](#interfaces_vertex_index_vertexmd)*
 
-Defined in src/Vertex/index.ts:95
+Defined in src/Vertex/index.ts:99
 
 ___
 
@@ -3114,7 +3114,7 @@ ___
 
 • **start**: *[Vertex](#interfaces_vertex_index_vertexmd)*
 
-Defined in src/Vertex/index.ts:94
+Defined in src/Vertex/index.ts:98
 
 
 <a name="interfaces_vertex_index_labeledboundingboxmd"></a>
@@ -3148,7 +3148,7 @@ Defined in src/Vertex/index.ts:94
 
 *Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[boundingPoly](#boundingpoly)*
 
-Defined in src/Vertex/index.ts:59
+Defined in src/Vertex/index.ts:63
 
 ___
 
@@ -3158,7 +3158,7 @@ ___
 
 *Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[columns](#columns)*
 
-Defined in src/Vertex/index.ts:61
+Defined in src/Vertex/index.ts:65
 
 ___
 
@@ -3166,7 +3166,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Vertex/index.ts:88
+Defined in src/Vertex/index.ts:92
 
 ___
 
@@ -3174,7 +3174,7 @@ ___
 
 • **label**: *string*
 
-Defined in src/Vertex/index.ts:89
+Defined in src/Vertex/index.ts:93
 
 ___
 
@@ -3184,7 +3184,7 @@ ___
 
 *Inherited from [BoundingBox](#interfaces_vertex_index_boundingboxmd).[rows](#rows)*
 
-Defined in src/Vertex/index.ts:60
+Defined in src/Vertex/index.ts:64
 
 ___
 
@@ -3192,7 +3192,7 @@ ___
 
 • **score**? : *number*
 
-Defined in src/Vertex/index.ts:90
+Defined in src/Vertex/index.ts:94
 
 
 <a name="interfaces_vertex_index_rectanglemd"></a>
@@ -3220,7 +3220,7 @@ Defined in src/Vertex/index.ts:90
 
 • **x0**: *number*
 
-Defined in src/Vertex/index.ts:99
+Defined in src/Vertex/index.ts:103
 
 ___
 
@@ -3228,7 +3228,7 @@ ___
 
 • **x1**: *number*
 
-Defined in src/Vertex/index.ts:101
+Defined in src/Vertex/index.ts:105
 
 ___
 
@@ -3236,7 +3236,7 @@ ___
 
 • **y0**: *number*
 
-Defined in src/Vertex/index.ts:100
+Defined in src/Vertex/index.ts:104
 
 ___
 
@@ -3244,7 +3244,7 @@ ___
 
 • **y1**: *number*
 
-Defined in src/Vertex/index.ts:102
+Defined in src/Vertex/index.ts:106
 
 
 <a name="interfaces_vertex_index_vertexmd"></a>
@@ -3270,7 +3270,7 @@ Defined in src/Vertex/index.ts:102
 
 • **x**: *number*
 
-Defined in src/Vertex/index.ts:47
+Defined in src/Vertex/index.ts:51
 
 ___
 
@@ -3278,7 +3278,7 @@ ___
 
 • **y**: *number*
 
-Defined in src/Vertex/index.ts:48
+Defined in src/Vertex/index.ts:52
 
 
 <a name="interfaces_vision_annotateimagerequestmd"></a>
@@ -7685,7 +7685,7 @@ ___
 
 • **fromArchiveContentType**: *function* = prop(__, ContentTypeToArchiveType)
 
-Defined in src/FileType.ts:447
+Defined in src/FileType.ts:449
 
 ```haskell
 fromArchiveContentType :: ArchiveContentType -> ArchiveType
@@ -7710,7 +7710,7 @@ ___
   ContentTypeToFileType
 )
 
-Defined in src/FileType.ts:465
+Defined in src/FileType.ts:467
 
 ```haskell
 fromContentType :: ContentType -> FileType
@@ -7732,7 +7732,7 @@ ___
 
 • **fromDocumentContentType**: *function* = prop(__, ContentTypeToDocumentType)
 
-Defined in src/FileType.ts:429
+Defined in src/FileType.ts:431
 
 ```haskell
 fromDocumentContentType :: DocumentContentType -> DocumentType
@@ -7754,7 +7754,7 @@ ___
 
 • **fromImageContentType**: *function* = prop(__, ContentTypeToImageType)
 
-Defined in src/FileType.ts:456
+Defined in src/FileType.ts:458
 
 ```haskell
 fromImageContentType :: DocumentContentType -> DocumentType
@@ -7776,7 +7776,7 @@ ___
 
 • **fromLegacyDocumentContentType**: *function* = prop(__, ContentTypeToLegacyDocumentType)
 
-Defined in src/FileType.ts:438
+Defined in src/FileType.ts:440
 
 ```haskell
 fromLegacyDocumentContentType :: LegacyDocumentContentType -> LegacyDocumentType
@@ -7852,7 +7852,7 @@ ___
 
 • **toArchiveContentType**: *function* = prop(__, ArchiveTypeToContentType)
 
-Defined in src/FileType.ts:387
+Defined in src/FileType.ts:389
 
 ```haskell
 toArchiveContentType :: ArchiveType -> ArchiveContentType
@@ -7877,7 +7877,7 @@ ___
   FileTypeToContentType
 )
 
-Defined in src/FileType.ts:405
+Defined in src/FileType.ts:407
 
 ```haskell
 toContentType :: FileType -> ContentType
@@ -7899,7 +7899,7 @@ ___
 
 • **toDocumentContentType**: *function* = prop(__, DocumentTypeToContentType)
 
-Defined in src/FileType.ts:369
+Defined in src/FileType.ts:371
 
 ```haskell
 toDocumentContentType :: DocumentType -> DocumentContentType
@@ -7921,7 +7921,7 @@ ___
 
 • **toImageContentType**: *function* = prop(__, ImageTypeToContentType)
 
-Defined in src/FileType.ts:396
+Defined in src/FileType.ts:398
 
 ```haskell
 toImageContentType :: DocumentType -> ImageContentType
@@ -7943,7 +7943,7 @@ ___
 
 • **toLegacyDocumentContentType**: *function* = prop(__, LegacyDocumentTypeToContentType)
 
-Defined in src/FileType.ts:378
+Defined in src/FileType.ts:380
 
 ```haskell
 toLegacyDocumentContentType :: LegacyDocumentType -> LegacyDocumentContentType
@@ -7965,7 +7965,7 @@ Name | Type |
 
 ▸ **isArchiveContentType**(`a`: unknown): *a is ArchiveContentType*
 
-Defined in src/FileType.ts:340
+Defined in src/FileType.ts:342
 
 ```haskell
 isArchiveContentType :: a -> bool
@@ -8005,7 +8005,7 @@ ___
 
 ▸ **isContentType**(`a`: unknown): *a is ContentType*
 
-Defined in src/FileType.ts:356
+Defined in src/FileType.ts:358
 
 ```haskell
 isContentType :: a -> bool
@@ -8025,7 +8025,7 @@ ___
 
 ▸ **isDocumentContentType**(`a`: unknown): *a is DocumentContentType*
 
-Defined in src/FileType.ts:322
+Defined in src/FileType.ts:324
 
 ```haskell
 isDocumentContentType :: a -> bool
@@ -8085,7 +8085,7 @@ ___
 
 ▸ **isImageContentType**(`a`: unknown): *a is ImageContentType*
 
-Defined in src/FileType.ts:348
+Defined in src/FileType.ts:350
 
 ```haskell
 isDocumentContentType :: a -> bool
@@ -8125,7 +8125,7 @@ ___
 
 ▸ **isLegacyDocumentContentType**(`a`: unknown): *a is LegacyDocumentContentType*
 
-Defined in src/FileType.ts:330
+Defined in src/FileType.ts:332
 
 ```haskell
 isLegacyDocumentContentType :: a -> bool
@@ -8165,7 +8165,7 @@ ___
 
 ▸ **toUnionContentType**(`fileType`: "pdf" | "excel" | "json" | "ms-excel" | "zip" | "png" | "jpeg"): *string*
 
-Defined in src/FileType.ts:415
+Defined in src/FileType.ts:417
 
 ```haskell
 toUnionContentType :: FileType -> String
@@ -10866,7 +10866,7 @@ Name | Type |
 
 Ƭ **FilePath**: *[string]*
 
-Defined in src/Serialize/Schema.ts:62
+Defined in src/Serialize/Schema.ts:63
 
 ___
 
@@ -10874,7 +10874,7 @@ ___
 
 Ƭ **Gettables**: *Dictionary‹[Gettable](#interfaces_serialize_schema_gettablemd)›*
 
-Defined in src/Serialize/Schema.ts:89
+Defined in src/Serialize/Schema.ts:90
 
 ___
 
@@ -10882,7 +10882,7 @@ ___
 
 Ƭ **Path**: *[PathSegment](#pathsegment)[]*
 
-Defined in src/Serialize/Schema.ts:60
+Defined in src/Serialize/Schema.ts:61
 
 ___
 
@@ -10890,7 +10890,7 @@ ___
 
 Ƭ **PathSegment**: *string | [Predicate](#interfaces_serialize_schema_predicatemd)*
 
-Defined in src/Serialize/Schema.ts:58
+Defined in src/Serialize/Schema.ts:59
 
 ___
 
@@ -10898,7 +10898,7 @@ ___
 
 Ƭ **SchemaBase**: *Omit‹[Schema](#interfaces_serialize_schema_schemamd), "created_at" | "updated_at"›*
 
-Defined in src/Serialize/Schema.ts:106
+Defined in src/Serialize/Schema.ts:107
 
 ### Functions
 
@@ -10906,7 +10906,7 @@ Defined in src/Serialize/Schema.ts:106
 
 ▸ **deserialize**(`deserializable`: [SchemaBase](#schemabase)): *E.Either‹Error, Deserialized.SchemaBase›*
 
-Defined in src/Serialize/Schema.ts:297
+Defined in src/Serialize/Schema.ts:298
 
 ```haskell
 deserialize :: Schema -> SerializableSchema
@@ -10922,7 +10922,7 @@ Name | Type |
 
 ▸ **deserialize**(`deserializable`: [Schema](#interfaces_serialize_schema_schemamd)): *E.Either‹Error, [Schema](#interfaces_schema_schemamd)›*
 
-Defined in src/Serialize/Schema.ts:301
+Defined in src/Serialize/Schema.ts:302
 
 **Parameters:**
 
@@ -10938,7 +10938,7 @@ ___
 
 ▸ **isFilePath**(`a`: unknown): *a is FilePath*
 
-Defined in src/Serialize/Schema.ts:187
+Defined in src/Serialize/Schema.ts:188
 
 ```haskell
 isFilePath :: a -> bool
@@ -10958,7 +10958,7 @@ ___
 
 ▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
 
-Defined in src/Serialize/Schema.ts:195
+Defined in src/Serialize/Schema.ts:196
 
 ```haskell
 isFilePathArray :: a -> bool
@@ -10978,7 +10978,7 @@ ___
 
 ▸ **isFilters**(`a`: unknown): *a is Filters*
 
-Defined in src/Serialize/Schema.ts:137
+Defined in src/Serialize/Schema.ts:138
 
 ```haskell
 isFilters :: a -> bool
@@ -10998,7 +10998,7 @@ ___
 
 ▸ **isGettable**(`a`: unknown): *a is Gettable*
 
-Defined in src/Serialize/Schema.ts:233
+Defined in src/Serialize/Schema.ts:234
 
 ```haskell
 isGettable :: a -> bool
@@ -11018,7 +11018,7 @@ ___
 
 ▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
 
-Defined in src/Serialize/Schema.ts:213
+Defined in src/Serialize/Schema.ts:214
 
 ```haskell
 isGettableOptions :: a -> bool
@@ -11038,7 +11038,7 @@ ___
 
 ▸ **isGettables**(`a`: unknown): *a is Gettables*
 
-Defined in src/Serialize/Schema.ts:245
+Defined in src/Serialize/Schema.ts:246
 
 ```haskell
 isGettables :: a -> bool
@@ -11058,7 +11058,7 @@ ___
 
 ▸ **isMultiply**(`a`: unknown): *a is Multiply*
 
-Defined in src/Serialize/Schema.ts:203
+Defined in src/Serialize/Schema.ts:204
 
 ```haskell
 isMultiply :: a -> bool
@@ -11078,7 +11078,7 @@ ___
 
 ▸ **isPath**(`a`: unknown): *a is Path*
 
-Defined in src/Serialize/Schema.ts:179
+Defined in src/Serialize/Schema.ts:180
 
 ```haskell
 isPath :: a -> bool
@@ -11098,7 +11098,7 @@ ___
 
 ▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
 
-Defined in src/Serialize/Schema.ts:171
+Defined in src/Serialize/Schema.ts:172
 
 ```haskell
 isPathSegment :: a -> bool
@@ -11118,7 +11118,7 @@ ___
 
 ▸ **isPredicate**(`a`: unknown): *a is Predicate*
 
-Defined in src/Serialize/Schema.ts:159
+Defined in src/Serialize/Schema.ts:160
 
 ```haskell
 isPredicate :: a -> bool
@@ -11138,7 +11138,7 @@ ___
 
 ▸ **isProperty**(`a`: unknown): *a is Property*
 
-Defined in src/Serialize/Schema.ts:149
+Defined in src/Serialize/Schema.ts:150
 
 ```haskell
 isProperty :: a -> bool
@@ -11158,7 +11158,7 @@ ___
 
 ▸ **isReplacement**(`a`: unknown): *a is Replacement*
 
-Defined in src/Serialize/Schema.ts:113
+Defined in src/Serialize/Schema.ts:114
 
 ```haskell
 isReplacement :: a -> bool
@@ -11178,7 +11178,7 @@ ___
 
 ▸ **isReplacements**(`a`: unknown): *a is Replacements*
 
-Defined in src/Serialize/Schema.ts:125
+Defined in src/Serialize/Schema.ts:126
 
 ```haskell
 isReplacements :: a -> bool
@@ -11198,7 +11198,7 @@ ___
 
 ▸ **isSchema**(`a`: unknown): *a is Schema*
 
-Defined in src/Serialize/Schema.ts:269
+Defined in src/Serialize/Schema.ts:270
 
 ```haskell
 isSchema :: a -> bool
@@ -11218,7 +11218,7 @@ ___
 
 ▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
 
-Defined in src/Serialize/Schema.ts:253
+Defined in src/Serialize/Schema.ts:254
 
 ```haskell
 isSchemaBase :: a -> bool
@@ -11238,7 +11238,7 @@ ___
 
 ▸ **serialize**(`serializable`: [Schema](#interfaces_schema_schemamd)): *[Schema](#interfaces_serialize_schema_schemamd)*
 
-Defined in src/Serialize/Schema.ts:281
+Defined in src/Serialize/Schema.ts:282
 
 ```haskell
 serialize :: SerializableSchema -> Schema
@@ -11254,7 +11254,7 @@ Name | Type |
 
 ▸ **serialize**(`serializable`: Deserialized.SchemaBase): *[SchemaBase](#schemabase)*
 
-Defined in src/Serialize/Schema.ts:282
+Defined in src/Serialize/Schema.ts:283
 
 **Parameters:**
 
@@ -12565,7 +12565,7 @@ Defined in src/Vertex/Arbitraries.ts:50
 
 Ƭ **Line**: *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:51
+Defined in src/Vertex/index.ts:55
 
 ___
 
@@ -12573,7 +12573,7 @@ ___
 
 Ƭ **Poly**: *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:56
+Defined in src/Vertex/index.ts:60
 
 [TopLeft, TopRight, BottomLeft, BottomRight]
 
@@ -12583,7 +12583,7 @@ ___
 
 Ƭ **WithColumns**: *A & object*
 
-Defined in src/Vertex/index.ts:68
+Defined in src/Vertex/index.ts:72
 
 ___
 
@@ -12591,7 +12591,7 @@ ___
 
 Ƭ **WithHeader**: *[WithHeaderRow](#withheaderrow)‹A› | [WithHeaderColumn](#withheadercolumn)‹A›*
 
-Defined in src/Vertex/index.ts:80
+Defined in src/Vertex/index.ts:84
 
 ___
 
@@ -12599,7 +12599,7 @@ ___
 
 Ƭ **WithHeaderColumn**: *A & object*
 
-Defined in src/Vertex/index.ts:76
+Defined in src/Vertex/index.ts:80
 
 ___
 
@@ -12607,7 +12607,7 @@ ___
 
 Ƭ **WithHeaderRow**: *A & object*
 
-Defined in src/Vertex/index.ts:72
+Defined in src/Vertex/index.ts:76
 
 ___
 
@@ -12615,7 +12615,7 @@ ___
 
 Ƭ **WithHeaders**: *[WithHeaderRow](#withheaderrow)‹A› & [WithHeaderColumn](#withheadercolumn)‹A›*
 
-Defined in src/Vertex/index.ts:84
+Defined in src/Vertex/index.ts:88
 
 ___
 
@@ -12623,7 +12623,7 @@ ___
 
 Ƭ **WithRows**: *A & object*
 
-Defined in src/Vertex/index.ts:64
+Defined in src/Vertex/index.ts:68
 
 ### Variables
 
@@ -12634,7 +12634,7 @@ Defined in src/Vertex/index.ts:64
   heightOf,
 ])
 
-Defined in src/Vertex/index.ts:621
+Defined in src/Vertex/index.ts:667
 
 ```haskell
 areaOf :: Poly -> Float
@@ -12656,7 +12656,7 @@ ___
 
 • **getBottomLeft**: *function* = nth(2)
 
-Defined in src/Vertex/index.ts:489
+Defined in src/Vertex/index.ts:535
 
 ```haskell
 getBottomLeft :: Poly -> Vertex
@@ -12678,7 +12678,7 @@ ___
 
 • **getBottomRight**: *function* = nth(3)
 
-Defined in src/Vertex/index.ts:496
+Defined in src/Vertex/index.ts:542
 
 ```haskell
 getBottomRight :: Poly -> Vertex
@@ -12703,7 +12703,7 @@ ___
   end: last,
 }) as R.Reader<Poly, Corners>
 
-Defined in src/Vertex/index.ts:326
+Defined in src/Vertex/index.ts:330
 
 ```haskell
 getCornersFromPoly :: Poly -> Corners
@@ -12725,7 +12725,7 @@ ___
 
 • **getTopLeft**: *function* = nth(0)
 
-Defined in src/Vertex/index.ts:475
+Defined in src/Vertex/index.ts:521
 
 ```haskell
 getTopLeft :: Poly -> Vertex
@@ -12747,7 +12747,7 @@ ___
 
 • **getTopRight**: *function* = nth(1)
 
-Defined in src/Vertex/index.ts:482
+Defined in src/Vertex/index.ts:528
 
 ```haskell
 getTopRight :: Poly -> Vertex
@@ -12769,7 +12769,7 @@ ___
 
 • **getX**: *function* = pipe(head, prop<'x', number>('x'))
 
-Defined in src/Vertex/index.ts:394
+Defined in src/Vertex/index.ts:440
 
 ```haskell
 getX :: Line -> Float
@@ -12791,7 +12791,7 @@ ___
 
 • **getXs**: *function* = map(getX)
 
-Defined in src/Vertex/index.ts:408
+Defined in src/Vertex/index.ts:454
 
 ```haskell
 getXs :: [Line] -> [Float]
@@ -12813,7 +12813,7 @@ ___
 
 • **getY**: *function* = pipe(head, prop<'y', number>('y'))
 
-Defined in src/Vertex/index.ts:387
+Defined in src/Vertex/index.ts:433
 
 ```haskell
 getY :: Line -> Float
@@ -12835,7 +12835,7 @@ ___
 
 • **getYs**: *function* = map(getY)
 
-Defined in src/Vertex/index.ts:401
+Defined in src/Vertex/index.ts:447
 
 ```haskell
 getYs :: [Line] -> [Float]
@@ -12863,7 +12863,7 @@ ___
   Math.abs
 )
 
-Defined in src/Vertex/index.ts:608
+Defined in src/Vertex/index.ts:654
 
 ```haskell
 heightOf :: Poly -> Float
@@ -12885,7 +12885,7 @@ ___
 
 • **isEmptyPoly**: *function* = pipe(areaOf, gte(0))
 
-Defined in src/Vertex/index.ts:631
+Defined in src/Vertex/index.ts:677
 
 ```haskell
 isEmpty :: Poly -> Bool
@@ -12910,7 +12910,7 @@ ___
   [head, tail]
 )
 
-Defined in src/Vertex/index.ts:721
+Defined in src/Vertex/index.ts:767
 
 ```haskell
 unionOf :: [Poly] -> Poly
@@ -12938,7 +12938,7 @@ ___
   Math.abs
 )
 
-Defined in src/Vertex/index.ts:595
+Defined in src/Vertex/index.ts:641
 
 ```haskell
 widthOf :: Poly -> Float
@@ -12960,7 +12960,7 @@ Name | Type |
 
 ▸ **append**<**A**>(`boundingBox`: A): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:458
+Defined in src/Vertex/index.ts:504
 
 ```haskell
 append :: BoundingBox -> ([Float], [Float]) -> BoundingBox
@@ -12984,7 +12984,7 @@ ___
 
 ▸ **containedBy**(`container`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], `threshold`: number): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:775
+Defined in src/Vertex/index.ts:821
 
 ```haskell
 containedBy :: Poly -> Reader Poly bool
@@ -13005,7 +13005,7 @@ ___
 
 ▸ **contains**(`containee`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)], `threshold`: number): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:759
+Defined in src/Vertex/index.ts:805
 
 ```haskell
 contains :: Poly -> Reader Poly bool
@@ -13026,7 +13026,7 @@ ___
 
 ▸ **getChildlessBoundingBoxes**(`boundingBoxes`: [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)[]): *any[]*
 
-Defined in src/Vertex/index.ts:820
+Defined in src/Vertex/index.ts:866
 
 ```haskell
 getChildlessBoundingBoxes :: [BoundingBox] -> [BoundingBox]
@@ -13046,7 +13046,7 @@ ___
 
 ▸ **hasColumns**<**A**>(`a`: A): *a is WithColumns<A>*
 
-Defined in src/Vertex/index.ts:178
+Defined in src/Vertex/index.ts:182
 
 ```haskell
 hasColumns :: a -> bool
@@ -13070,7 +13070,7 @@ ___
 
 ▸ **hasHeader**<**A**>(`a`: A): *a is WithHeader<A>*
 
-Defined in src/Vertex/index.ts:213
+Defined in src/Vertex/index.ts:217
 
 ```haskell
 hasHeader :: a -> bool
@@ -13094,7 +13094,7 @@ ___
 
 ▸ **hasHeaderColumn**<**A**>(`a`: A): *a is WithHeaderColumn<A>*
 
-Defined in src/Vertex/index.ts:204
+Defined in src/Vertex/index.ts:208
 
 ```haskell
 hasHeaderColumn :: a -> bool
@@ -13118,7 +13118,7 @@ ___
 
 ▸ **hasHeaderRow**<**A**>(`a`: A): *a is WithHeaderRow<A>*
 
-Defined in src/Vertex/index.ts:195
+Defined in src/Vertex/index.ts:199
 
 ```haskell
 hasHeaderRow :: a -> bool
@@ -13142,7 +13142,7 @@ ___
 
 ▸ **hasHeaders**<**A**>(`a`: A): *a is WithHeaders<A>*
 
-Defined in src/Vertex/index.ts:221
+Defined in src/Vertex/index.ts:225
 
 ```haskell
 hasHeaders :: a -> bool
@@ -13166,7 +13166,7 @@ ___
 
 ▸ **hasRows**<**A**>(`a`: A): *a is WithRows<A>*
 
-Defined in src/Vertex/index.ts:170
+Defined in src/Vertex/index.ts:174
 
 ```haskell
 hasRows :: a -> bool
@@ -13190,7 +13190,7 @@ ___
 
 ▸ **hasRowsOrColumns**<**A**>(`a`: A): *a is WithRows<A> | WithColumns<A>*
 
-Defined in src/Vertex/index.ts:186
+Defined in src/Vertex/index.ts:190
 
 ```haskell
 hasRowsOrColumns :: a -> bool
@@ -13214,7 +13214,7 @@ ___
 
 ▸ **intersects**(`p0`: [Poly](#poly)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:673
+Defined in src/Vertex/index.ts:719
 
 ```haskell
 intersects :: Poly -> Reader Poly (Option Poly)
@@ -13234,7 +13234,7 @@ ___
 
 ▸ **isBoundingBox**(`a`: unknown): *a is BoundingBox*
 
-Defined in src/Vertex/index.ts:158
+Defined in src/Vertex/index.ts:162
 
 ```haskell
 isBoundingBox :: a -> bool
@@ -13254,7 +13254,7 @@ ___
 
 ▸ **isLabeledBoundingBox**(`a`: unknown): *a is LabeledBoundingBox*
 
-Defined in src/Vertex/index.ts:415
+Defined in src/Vertex/index.ts:461
 
 ```haskell
 isLabeledBoundingBox :: a -> bool
@@ -13274,7 +13274,7 @@ ___
 
 ▸ **isLine**(`a`: unknown): *a is Line*
 
-Defined in src/Vertex/index.ts:118
+Defined in src/Vertex/index.ts:122
 
 ```haskell
 isLine :: a -> bool
@@ -13294,7 +13294,7 @@ ___
 
 ▸ **isPoly**(`a`: unknown): *a is Poly*
 
-Defined in src/Vertex/index.ts:130
+Defined in src/Vertex/index.ts:134
 
 ```haskell
 isPoly :: a -> bool
@@ -13314,7 +13314,7 @@ ___
 
 ▸ **isVertex**(`a`: unknown): *a is Vertex*
 
-Defined in src/Vertex/index.ts:110
+Defined in src/Vertex/index.ts:114
 
 ```haskell
 isVertex :: a -> bool
@@ -13334,7 +13334,7 @@ ___
 
 ▸ **lengthOf**(`__namedParameters`: [any, any]): *number*
 
-Defined in src/Vertex/index.ts:638
+Defined in src/Vertex/index.ts:684
 
 ```haskell
 lengthOf :: Line -> Float
@@ -13354,7 +13354,7 @@ ___
 
 ▸ **makeBoundingBox**(`poly`: [Poly](#poly), `ys`: number[], `xs`: number[]): *[BoundingBox](#interfaces_vertex_index_boundingboxmd)*
 
-Defined in src/Vertex/index.ts:368
+Defined in src/Vertex/index.ts:414
 
 ```haskell
 makeBoundingBox :: (Poly, [Float], [Float]) -> BoundingBox
@@ -13376,7 +13376,7 @@ ___
 
 ▸ **makeLabeledBoundingBox**(`id`: string, `label`: string, `poly`: [Poly](#poly), `ys`: number[], `xs`: number[], `score?`: number): *[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
 
-Defined in src/Vertex/index.ts:428
+Defined in src/Vertex/index.ts:474
 
 ```haskell
 makeLabeledBoundingBox :: (String, String, Poly, [Float], [Float]) -> LabeledBoundingBox
@@ -13401,7 +13401,7 @@ ___
 
 ▸ **makeLine**(`x0`: number, `y0`: number, `x1`: number, `y1`: number): *[Line](#line)*
 
-Defined in src/Vertex/index.ts:236
+Defined in src/Vertex/index.ts:240
 
 ```haskell
 makeVertex :: (Float, Float, Float, Float) -> Line
@@ -13424,7 +13424,7 @@ ___
 
 ▸ **makePoly**(...`coords`: [number, number, number, number]): *[Poly](#poly)*
 
-Defined in src/Vertex/index.ts:301
+Defined in src/Vertex/index.ts:305
 
 ```haskell
 makePoly :: (Float, Float, Float, Float) -> Poly
@@ -13444,7 +13444,7 @@ ___
 
 ▸ **makeVertex**(`x`: number, `y`: number): *[Vertex](#interfaces_vertex_index_vertexmd)*
 
-Defined in src/Vertex/index.ts:229
+Defined in src/Vertex/index.ts:233
 
 ```haskell
 makeVertex :: (Float, Float) -> Vertex
@@ -13465,7 +13465,7 @@ ___
 
 ▸ **ratioContainedBy**(`p0`: [Poly](#poly)): *function*
 
-Defined in src/Vertex/index.ts:731
+Defined in src/Vertex/index.ts:777
 
 ```haskell
 ratioContainedBy :: Poly -> Reader Poly Float
@@ -13493,7 +13493,7 @@ ___
 
 ▸ **ratioContaining**(`p0`: [Poly](#poly)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:747
+Defined in src/Vertex/index.ts:793
 
 ```haskell
 ratioContaining :: Poly -> Reader Poly Float
@@ -13513,7 +13513,7 @@ ___
 
 ▸ **sortPoly**(`__namedParameters`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]): *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:313
+Defined in src/Vertex/index.ts:317
 
 ```haskell
 sortPoly :: Poly -> Poly
@@ -13533,7 +13533,7 @@ ___
 
 ▸ **splitByXs**(`xs`: number[]): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:801
+Defined in src/Vertex/index.ts:847
 
 ```haskell
 splitByXs :: [number] -> Reader Poly [Poly]
@@ -13553,7 +13553,7 @@ ___
 
 ▸ **splitByYs**(`ys`: number[]): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:784
+Defined in src/Vertex/index.ts:830
 
 ```haskell
 splitByYs :: [number] -> Reader Poly [Poly]
@@ -13573,7 +13573,7 @@ ___
 
 ▸ **toPoly**(`__namedParameters`: object): *[[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]*
 
-Defined in src/Vertex/index.ts:665
+Defined in src/Vertex/index.ts:711
 
 ```haskell
 toPoly :: Rectangle -> Poly
@@ -13598,7 +13598,7 @@ ___
 
 ▸ **toRectangle**(`__namedParameters`: [[Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd), [Vertex](#interfaces_vertex_index_vertexmd)]): *object*
 
-Defined in src/Vertex/index.ts:648
+Defined in src/Vertex/index.ts:694
 
 ```haskell
 toRectangle :: Poly -> Rectangle
@@ -13626,7 +13626,7 @@ ___
 
 ▸ **unions**(`p0`: [Poly](#poly)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:699
+Defined in src/Vertex/index.ts:745
 
 ```haskell
 unions :: Poly -> Reader Poly Poly
@@ -13646,7 +13646,7 @@ ___
 
 ▸ **withHeader**(`vertex`: [Vertex](#interfaces_vertex_index_vertexmd)): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:580
+Defined in src/Vertex/index.ts:626
 
 ```haskell
 withHeader :: Vertex -> ReaderEither BoundingBox (WithHeader BoundingBox) BoundingBox
@@ -13666,7 +13666,7 @@ ___
 
 ▸ **withHeaderColumn**(`x`: number): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:543
+Defined in src/Vertex/index.ts:589
 
 ```haskell
 withHeaderColumn :: Float -> ReaderEither BoundingBox BoundingBox (WithHeaderColumn BoundingBox)
@@ -13686,7 +13686,7 @@ ___
 
 ▸ **withHeaderRow**(`y`: number): *(Anonymous function)*
 
-Defined in src/Vertex/index.ts:505
+Defined in src/Vertex/index.ts:551
 
 ```haskell
 withHeaderRow :: Float -> ReaderEither BoundingBox BoundingBox (WithHeaderRow BoundingBox)
