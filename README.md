@@ -2753,7 +2753,7 @@ Defined in src/Serialize/Schema.ts:93
 
 • **boundingBoxesByPage**: *[BoundingBoxesByPage](#boundingboxesbypage)*
 
-Defined in src/TableAnnotation.ts:35
+Defined in src/TableAnnotation.ts:34
 
 ___
 
@@ -2761,7 +2761,7 @@ ___
 
 • **created_at**: *string*
 
-Defined in src/TableAnnotation.ts:36
+Defined in src/TableAnnotation.ts:35
 
 ___
 
@@ -2769,7 +2769,7 @@ ___
 
 • **file**: *string*
 
-Defined in src/TableAnnotation.ts:34
+Defined in src/TableAnnotation.ts:33
 
 ___
 
@@ -2777,7 +2777,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/TableAnnotation.ts:33
+Defined in src/TableAnnotation.ts:32
 
 ___
 
@@ -2785,7 +2785,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/TableAnnotation.ts:37
+Defined in src/TableAnnotation.ts:36
 
 
 <a name="interfaces_textannotation_pagemd"></a>
@@ -11306,6 +11306,7 @@ getRandomId: IO String
 
 #### Type aliases
 
+* [BoundingBox](#boundingbox)
 * [BoundingBoxes](#boundingboxes)
 * [BoundingBoxesByPage](#boundingboxesbypage)
 * [TableAnnotationBase](#tableannotationbase)
@@ -11325,11 +11326,19 @@ getRandomId: IO String
 
 ### Type aliases
 
-####  BoundingBoxes
+####  BoundingBox
 
-Ƭ **BoundingBoxes**: *Dictionary‹[WithHeader](#withheader)‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)› | [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)›*
+Ƭ **BoundingBox**: *[WithHeader](#withheader)‹[LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)› | [LabeledBoundingBox](#interfaces_vertex_index_labeledboundingboxmd)*
 
 Defined in src/TableAnnotation.ts:26
+
+___
+
+####  BoundingBoxes
+
+Ƭ **BoundingBoxes**: *Dictionary‹[BoundingBox](#boundingbox)›*
+
+Defined in src/TableAnnotation.ts:27
 
 ___
 
@@ -11337,7 +11346,7 @@ ___
 
 Ƭ **BoundingBoxesByPage**: *[BoundingBoxes](#boundingboxes)[]*
 
-Defined in src/TableAnnotation.ts:30
+Defined in src/TableAnnotation.ts:29
 
 ___
 
@@ -11345,7 +11354,7 @@ ___
 
 Ƭ **TableAnnotationBase**: *Pick‹[TableAnnotation](#interfaces_tableannotation_tableannotationmd), "file" | "boundingBoxesByPage"›*
 
-Defined in src/TableAnnotation.ts:40
+Defined in src/TableAnnotation.ts:39
 
 ### Variables
 
@@ -11355,7 +11364,7 @@ Defined in src/TableAnnotation.ts:40
   boundingBoxesByPage: map(reject(propSatisfies(isEmptyPoly, 'boundingPoly'))),
 }) as <A extends TableAnnotationBase>(annotations: A) => A
 
-Defined in src/TableAnnotation.ts:105
+Defined in src/TableAnnotation.ts:104
 
 ```haskell
 rejectsEmptyBoundingBoxes :: TableAnnotationBase -> TableAnnotationBase
@@ -11384,7 +11393,7 @@ ___
   {}
 )
 
-Defined in src/TableAnnotation.ts:94
+Defined in src/TableAnnotation.ts:93
 
 ```haskell
 toBoundingBoxes :: [BoundingBox] -> BoundingBoxes
@@ -11406,7 +11415,7 @@ Name | Type |
 
 ▸ **isBoundingBoxes**(`a`: unknown): *a is BoundingBoxes*
 
-Defined in src/TableAnnotation.ts:50
+Defined in src/TableAnnotation.ts:49
 
 ```haskell
 isBoundingBoxes :: a -> bool
@@ -11426,7 +11435,7 @@ ___
 
 ▸ **isBoundingBoxesByPage**(`a`: unknown): *a is BoundingBoxesByPage*
 
-Defined in src/TableAnnotation.ts:61
+Defined in src/TableAnnotation.ts:60
 
 ```haskell
 isBoundingBoxesByPage :: a -> bool
@@ -11446,7 +11455,7 @@ ___
 
 ▸ **isTableAnnotation**(`a`: unknown): *a is TableAnnotation*
 
-Defined in src/TableAnnotation.ts:81
+Defined in src/TableAnnotation.ts:80
 
 ```haskell
 isTableAnnotation :: a -> bool
@@ -11466,7 +11475,7 @@ ___
 
 ▸ **isTableAnnotationBase**(`a`: unknown): *a is TableAnnotationBase*
 
-Defined in src/TableAnnotation.ts:69
+Defined in src/TableAnnotation.ts:68
 
 ```haskell
 isTableAnnotationBase :: a -> bool
@@ -11486,7 +11495,7 @@ ___
 
 ▸ **make**(`__namedParameters`: object): *(Anonymous function)*
 
-Defined in src/TableAnnotation.ts:118
+Defined in src/TableAnnotation.ts:117
 
 ```haskell
 makeComparableSchema :: TableAnnotationBase -> IO TableAnnotation

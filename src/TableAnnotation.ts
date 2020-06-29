@@ -23,9 +23,8 @@ import {
   values,
 } from 'ramda';
 
-export type BoundingBoxes = Dictionary<
-  WithHeader<LabeledBoundingBox> | LabeledBoundingBox
->;
+export type BoundingBox = WithHeader<LabeledBoundingBox> | LabeledBoundingBox;
+export type BoundingBoxes = Dictionary<BoundingBox>;
 
 export type BoundingBoxesByPage = BoundingBoxes[];
 
