@@ -11,6 +11,7 @@ import * as Deserialized from '../Schema';
 import {
   isArray,
   isArraySatisfying,
+  isBoolean,
   isDictionary,
   isNat,
   isNotNil,
@@ -77,6 +78,7 @@ export interface GettableOptions {
   filters?: Filters;
   end?: string;
   multiplies?: Multiply[];
+  dividend?: boolean;
 }
 
 export interface Gettable {
@@ -221,6 +223,7 @@ export const isGettableOptions = (a: unknown): a is GettableOptions =>
     propSatisfiesIfExists(isFilters, 'filters'),
     propSatisfiesIfExists(S.isRegExp, 'end'),
     propSatisfiesIfExists(isArraySatisfying(isMultiply), 'multiplies'),
+    propSatisfiesIfExists(isBoolean, 'dividend'),
   ])(a);
 
 /**

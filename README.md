@@ -1724,7 +1724,7 @@ Defined in src/Response.ts:21
 
 • **keys**? : *RegExp[]*
 
-Defined in src/Schema.ts:41
+Defined in src/Schema.ts:42
 
 ___
 
@@ -1732,7 +1732,7 @@ ___
 
 • **values**? : *RegExp[]*
 
-Defined in src/Schema.ts:42
+Defined in src/Schema.ts:43
 
 
 <a name="interfaces_schema_gettablemd"></a>
@@ -1759,7 +1759,7 @@ Defined in src/Schema.ts:42
 
 • **attribute**: *[Path](#path)*
 
-Defined in src/Schema.ts:83
+Defined in src/Schema.ts:85
 
 ___
 
@@ -1767,7 +1767,7 @@ ___
 
 • **file**: *[FilePath](#filepath)*
 
-Defined in src/Schema.ts:82
+Defined in src/Schema.ts:84
 
 ___
 
@@ -1775,7 +1775,7 @@ ___
 
 • **options**? : *[GettableOptions](#interfaces_schema_gettableoptionsmd)*
 
-Defined in src/Schema.ts:84
+Defined in src/Schema.ts:86
 
 
 <a name="interfaces_schema_gettableoptionsmd"></a>
@@ -1793,6 +1793,7 @@ Defined in src/Schema.ts:84
 #### Properties
 
 * [direction](#optional-direction)
+* [dividend](#optional-dividend)
 * [end](#optional-end)
 * [filters](#optional-filters)
 * [key](#optional-key)
@@ -1809,7 +1810,15 @@ Defined in src/Schema.ts:84
 
 • **direction**? : *[Direction](#direction)*
 
-Defined in src/Schema.ts:70
+Defined in src/Schema.ts:71
+
+___
+
+#### `Optional` dividend
+
+• **dividend**? : *boolean*
+
+Defined in src/Schema.ts:80
 
 ___
 
@@ -1817,7 +1826,7 @@ ___
 
 • **end**? : *RegExp*
 
-Defined in src/Schema.ts:77
+Defined in src/Schema.ts:78
 
 ___
 
@@ -1825,7 +1834,7 @@ ___
 
 • **filters**? : *[Filters](#interfaces_schema_filtersmd)*
 
-Defined in src/Schema.ts:76
+Defined in src/Schema.ts:77
 
 ___
 
@@ -1833,7 +1842,7 @@ ___
 
 • **key**? : *RegExp*
 
-Defined in src/Schema.ts:71
+Defined in src/Schema.ts:72
 
 ___
 
@@ -1841,7 +1850,7 @@ ___
 
 • **lifts**? : *RegExp[]*
 
-Defined in src/Schema.ts:74
+Defined in src/Schema.ts:75
 
 ___
 
@@ -1849,7 +1858,7 @@ ___
 
 • **merge_type**? : *[MergeType](#mergetype)[]*
 
-Defined in src/Schema.ts:69
+Defined in src/Schema.ts:70
 
 ___
 
@@ -1857,7 +1866,7 @@ ___
 
 • **multiplies**? : *[Multiply](#interfaces_schema_multiplymd)[]*
 
-Defined in src/Schema.ts:78
+Defined in src/Schema.ts:79
 
 ___
 
@@ -1865,7 +1874,7 @@ ___
 
 • **rejects**? : *[Filters](#interfaces_schema_filtersmd)*
 
-Defined in src/Schema.ts:75
+Defined in src/Schema.ts:76
 
 ___
 
@@ -1873,7 +1882,7 @@ ___
 
 • **replacements**? : *[Replacements](#interfaces_schema_replacementsmd)*
 
-Defined in src/Schema.ts:72
+Defined in src/Schema.ts:73
 
 ___
 
@@ -1881,7 +1890,7 @@ ___
 
 • **unnest**? : *number*
 
-Defined in src/Schema.ts:73
+Defined in src/Schema.ts:74
 
 
 <a name="interfaces_schema_multiplymd"></a>
@@ -1907,7 +1916,7 @@ Defined in src/Schema.ts:73
 
 • **pattern**: *RegExp*
 
-Defined in src/Schema.ts:64
+Defined in src/Schema.ts:65
 
 ___
 
@@ -1915,7 +1924,7 @@ ___
 
 • **scale**: *number*
 
-Defined in src/Schema.ts:65
+Defined in src/Schema.ts:66
 
 
 <a name="interfaces_schema_predicatemd"></a>
@@ -1941,7 +1950,7 @@ Defined in src/Schema.ts:65
 
 • **properties**? : *[Property](#interfaces_schema_propertymd)[]*
 
-Defined in src/Schema.ts:52
+Defined in src/Schema.ts:53
 
 ___
 
@@ -1949,7 +1958,7 @@ ___
 
 • **value**: *RegExp*
 
-Defined in src/Schema.ts:51
+Defined in src/Schema.ts:52
 
 
 <a name="interfaces_schema_propertymd"></a>
@@ -1975,7 +1984,7 @@ Defined in src/Schema.ts:51
 
 • **pattern**: *RegExp*
 
-Defined in src/Schema.ts:47
+Defined in src/Schema.ts:48
 
 ___
 
@@ -1983,7 +1992,7 @@ ___
 
 • **property**: *string*
 
-Defined in src/Schema.ts:46
+Defined in src/Schema.ts:47
 
 
 <a name="interfaces_schema_replacementmd"></a>
@@ -2009,7 +2018,7 @@ Defined in src/Schema.ts:46
 
 • **pattern**: *RegExp*
 
-Defined in src/Schema.ts:31
+Defined in src/Schema.ts:32
 
 ___
 
@@ -2017,7 +2026,7 @@ ___
 
 • **value**: *string*
 
-Defined in src/Schema.ts:32
+Defined in src/Schema.ts:33
 
 
 <a name="interfaces_schema_replacementsmd"></a>
@@ -2043,7 +2052,7 @@ Defined in src/Schema.ts:32
 
 • **keys**? : *[Replacement](#interfaces_schema_replacementmd)[]*
 
-Defined in src/Schema.ts:36
+Defined in src/Schema.ts:37
 
 ___
 
@@ -2051,7 +2060,7 @@ ___
 
 • **values**? : *[Replacement](#interfaces_schema_replacementmd)[]*
 
-Defined in src/Schema.ts:37
+Defined in src/Schema.ts:38
 
 
 <a name="interfaces_schema_schemamd"></a>
@@ -2083,7 +2092,7 @@ Defined in src/Schema.ts:37
 
 • **created_at**: *string*
 
-Defined in src/Schema.ts:100
+Defined in src/Schema.ts:102
 
 ___
 
@@ -2091,7 +2100,7 @@ ___
 
 • **file_type**: *[DocumentType](#documenttype)*
 
-Defined in src/Schema.ts:98
+Defined in src/Schema.ts:100
 
 ___
 
@@ -2099,7 +2108,7 @@ ___
 
 • **files**: *[FilePath](#filepath)[]*
 
-Defined in src/Schema.ts:97
+Defined in src/Schema.ts:99
 
 ___
 
@@ -2107,7 +2116,7 @@ ___
 
 • **gettables**: *[Gettables](#gettables)*
 
-Defined in src/Schema.ts:96
+Defined in src/Schema.ts:98
 
 ___
 
@@ -2115,7 +2124,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Schema.ts:94
+Defined in src/Schema.ts:96
 
 ___
 
@@ -2123,7 +2132,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Schema.ts:95
+Defined in src/Schema.ts:97
 
 ___
 
@@ -2131,7 +2140,7 @@ ___
 
 • **options**? : *[SchemaOptions](#interfaces_schema_schemaoptionsmd)*
 
-Defined in src/Schema.ts:99
+Defined in src/Schema.ts:101
 
 ___
 
@@ -2139,7 +2148,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Schema.ts:101
+Defined in src/Schema.ts:103
 
 
 <a name="interfaces_schema_schemaoptionsmd"></a>
@@ -2164,7 +2173,7 @@ Defined in src/Schema.ts:101
 
 • **merge**? : *boolean*
 
-Defined in src/Schema.ts:90
+Defined in src/Schema.ts:92
 
 
 <a name="interfaces_serialize_comparableschema_comparableschemamd"></a>
@@ -2301,7 +2310,7 @@ Defined in src/Serialize/Schema.ts:45
 
 • **attribute**: *[Path](#path)*
 
-Defined in src/Serialize/Schema.ts:84
+Defined in src/Serialize/Schema.ts:85
 
 ___
 
@@ -2309,7 +2318,7 @@ ___
 
 • **file**: *[FilePath](#filepath)*
 
-Defined in src/Serialize/Schema.ts:83
+Defined in src/Serialize/Schema.ts:84
 
 ___
 
@@ -2317,7 +2326,7 @@ ___
 
 • **options**? : *[GettableOptions](#interfaces_serialize_schema_gettableoptionsmd)*
 
-Defined in src/Serialize/Schema.ts:85
+Defined in src/Serialize/Schema.ts:86
 
 
 <a name="interfaces_serialize_schema_gettableoptionsmd"></a>
@@ -2335,6 +2344,7 @@ Defined in src/Serialize/Schema.ts:85
 #### Properties
 
 * [direction](#optional-direction)
+* [dividend](#optional-dividend)
 * [end](#optional-end)
 * [filters](#optional-filters)
 * [key](#optional-key)
@@ -2352,6 +2362,14 @@ Defined in src/Serialize/Schema.ts:85
 • **direction**? : *[Direction](#direction)*
 
 Defined in src/Serialize/Schema.ts:71
+
+___
+
+#### `Optional` dividend
+
+• **dividend**? : *boolean*
+
+Defined in src/Serialize/Schema.ts:80
 
 ___
 
@@ -2625,7 +2643,7 @@ Defined in src/Serialize/Schema.ts:40
 
 • **created_at**: *string*
 
-Defined in src/Serialize/Schema.ts:101
+Defined in src/Serialize/Schema.ts:102
 
 ___
 
@@ -2633,7 +2651,7 @@ ___
 
 • **file_type**: *[DocumentType](#documenttype)*
 
-Defined in src/Serialize/Schema.ts:99
+Defined in src/Serialize/Schema.ts:100
 
 ___
 
@@ -2641,7 +2659,7 @@ ___
 
 • **files**: *[FilePath](#filepath)[]*
 
-Defined in src/Serialize/Schema.ts:98
+Defined in src/Serialize/Schema.ts:99
 
 ___
 
@@ -2649,7 +2667,7 @@ ___
 
 • **gettables**: *[Gettables](#gettables)*
 
-Defined in src/Serialize/Schema.ts:97
+Defined in src/Serialize/Schema.ts:98
 
 ___
 
@@ -2657,7 +2675,7 @@ ___
 
 • **id**: *string*
 
-Defined in src/Serialize/Schema.ts:95
+Defined in src/Serialize/Schema.ts:96
 
 ___
 
@@ -2665,7 +2683,7 @@ ___
 
 • **name**: *string*
 
-Defined in src/Serialize/Schema.ts:96
+Defined in src/Serialize/Schema.ts:97
 
 ___
 
@@ -2673,7 +2691,7 @@ ___
 
 • **options**? : *[SchemaOptions](#interfaces_serialize_schema_schemaoptionsmd)*
 
-Defined in src/Serialize/Schema.ts:100
+Defined in src/Serialize/Schema.ts:101
 
 ___
 
@@ -2681,7 +2699,7 @@ ___
 
 • **updated_at**: *string*
 
-Defined in src/Serialize/Schema.ts:102
+Defined in src/Serialize/Schema.ts:103
 
 
 <a name="interfaces_serialize_schema_schemaoptionsmd"></a>
@@ -2706,7 +2724,7 @@ Defined in src/Serialize/Schema.ts:102
 
 • **merge**? : *boolean*
 
-Defined in src/Serialize/Schema.ts:91
+Defined in src/Serialize/Schema.ts:92
 
 
 <a name="interfaces_tableannotation_tableannotationmd"></a>
@@ -9938,7 +9956,7 @@ Name | Type |
 
 Ƭ **FilePath**: *[RegExp]*
 
-Defined in src/Schema.ts:59
+Defined in src/Schema.ts:60
 
 ___
 
@@ -9946,7 +9964,7 @@ ___
 
 Ƭ **Gettables**: *Dictionary‹[Gettable](#interfaces_schema_gettablemd)›*
 
-Defined in src/Schema.ts:87
+Defined in src/Schema.ts:89
 
 ___
 
@@ -9954,7 +9972,7 @@ ___
 
 Ƭ **MergeType**: *"header" | "table" | "key"*
 
-Defined in src/Schema.ts:61
+Defined in src/Schema.ts:62
 
 ___
 
@@ -9962,7 +9980,7 @@ ___
 
 Ƭ **Path**: *[PathSegment](#pathsegment)[]*
 
-Defined in src/Schema.ts:57
+Defined in src/Schema.ts:58
 
 ___
 
@@ -9970,7 +9988,7 @@ ___
 
 Ƭ **PathSegment**: *RegExp | [Predicate](#interfaces_schema_predicatemd)*
 
-Defined in src/Schema.ts:55
+Defined in src/Schema.ts:56
 
 ___
 
@@ -9978,7 +9996,7 @@ ___
 
 Ƭ **SchemaBase**: *Omit‹[Schema](#interfaces_schema_schemamd), "created_at" | "updated_at"›*
 
-Defined in src/Schema.ts:104
+Defined in src/Schema.ts:106
 
 ### Functions
 
@@ -9986,7 +10004,7 @@ Defined in src/Schema.ts:104
 
 ▸ **isDirection**(`a`: unknown): *a is Direction*
 
-Defined in src/Schema.ts:215
+Defined in src/Schema.ts:217
 
 ```haskell
 isDirection :: a -> bool
@@ -10006,7 +10024,7 @@ ___
 
 ▸ **isFilePath**(`a`: unknown): *a is FilePath*
 
-Defined in src/Schema.ts:183
+Defined in src/Schema.ts:185
 
 ```haskell
 isFilePath :: a -> bool
@@ -10026,7 +10044,7 @@ ___
 
 ▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
 
-Defined in src/Schema.ts:191
+Defined in src/Schema.ts:193
 
 ```haskell
 isFilePathArray :: a -> bool
@@ -10046,7 +10064,7 @@ ___
 
 ▸ **isFilters**(`a`: unknown): *a is Filters*
 
-Defined in src/Schema.ts:135
+Defined in src/Schema.ts:137
 
 ```haskell
 isFilters :: a -> bool
@@ -10066,7 +10084,7 @@ ___
 
 ▸ **isGettable**(`a`: unknown): *a is Gettable*
 
-Defined in src/Schema.ts:254
+Defined in src/Schema.ts:257
 
 ```haskell
 isGettable :: a -> bool
@@ -10086,7 +10104,7 @@ ___
 
 ▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
 
-Defined in src/Schema.ts:235
+Defined in src/Schema.ts:237
 
 ```haskell
 isGettableOptions :: a -> bool
@@ -10106,7 +10124,7 @@ ___
 
 ▸ **isGettables**(`a`: unknown): *a is Gettables*
 
-Defined in src/Schema.ts:266
+Defined in src/Schema.ts:269
 
 ```haskell
 isGettables :: a -> bool
@@ -10126,7 +10144,7 @@ ___
 
 ▸ **isMergeType**(`a`: unknown): *a is MergeType*
 
-Defined in src/Schema.ts:199
+Defined in src/Schema.ts:201
 
 ```haskell
 isMergeType :: a -> bool
@@ -10146,7 +10164,7 @@ ___
 
 ▸ **isMergeTypeArray**(`a`: unknown): *a is MergeType[]*
 
-Defined in src/Schema.ts:207
+Defined in src/Schema.ts:209
 
 ```haskell
 isMergeTypeArray :: a -> bool
@@ -10166,7 +10184,7 @@ ___
 
 ▸ **isMultiply**(`a`: unknown): *a is Multiply*
 
-Defined in src/Schema.ts:223
+Defined in src/Schema.ts:225
 
 ```haskell
 isMultiply :: a -> bool
@@ -10186,7 +10204,7 @@ ___
 
 ▸ **isPath**(`a`: unknown): *a is Path*
 
-Defined in src/Schema.ts:175
+Defined in src/Schema.ts:177
 
 ```haskell
 isPath :: a -> bool
@@ -10206,7 +10224,7 @@ ___
 
 ▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
 
-Defined in src/Schema.ts:167
+Defined in src/Schema.ts:169
 
 ```haskell
 isPathSegment :: a -> bool
@@ -10226,7 +10244,7 @@ ___
 
 ▸ **isPredicate**(`a`: unknown): *a is Predicate*
 
-Defined in src/Schema.ts:155
+Defined in src/Schema.ts:157
 
 ```haskell
 isPredicate :: a -> bool
@@ -10246,7 +10264,7 @@ ___
 
 ▸ **isProperty**(`a`: unknown): *a is Property*
 
-Defined in src/Schema.ts:147
+Defined in src/Schema.ts:149
 
 ```haskell
 isProperty :: a -> bool
@@ -10266,7 +10284,7 @@ ___
 
 ▸ **isReplacement**(`a`: unknown): *a is Replacement*
 
-Defined in src/Schema.ts:111
+Defined in src/Schema.ts:113
 
 ```haskell
 isReplacement :: a -> bool
@@ -10286,7 +10304,7 @@ ___
 
 ▸ **isReplacements**(`a`: unknown): *a is Replacements*
 
-Defined in src/Schema.ts:123
+Defined in src/Schema.ts:125
 
 ```haskell
 isReplacements :: a -> bool
@@ -10306,7 +10324,7 @@ ___
 
 ▸ **isSchema**(`a`: unknown): *a is Schema*
 
-Defined in src/Schema.ts:298
+Defined in src/Schema.ts:301
 
 ```haskell
 isSchema :: a -> bool
@@ -10326,7 +10344,7 @@ ___
 
 ▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
 
-Defined in src/Schema.ts:282
+Defined in src/Schema.ts:285
 
 ```haskell
 isSchemaBase :: a -> bool
@@ -10346,7 +10364,7 @@ ___
 
 ▸ **isSchemaOptions**(`a`: unknown): *a is SchemaOptions*
 
-Defined in src/Schema.ts:274
+Defined in src/Schema.ts:277
 
 ```haskell
 isSchemaOptions :: a -> bool
@@ -10366,7 +10384,7 @@ ___
 
 ▸ **makeSchema**(`schemaBase`: [SchemaBase](#schemabase)): *(Anonymous function)*
 
-Defined in src/Schema.ts:310
+Defined in src/Schema.ts:313
 
 ```haskell
 makeSchema :: SchemaBase -> IO Schema
@@ -10856,7 +10874,7 @@ ___
 
 Ƭ **Gettables**: *Dictionary‹[Gettable](#interfaces_serialize_schema_gettablemd)›*
 
-Defined in src/Serialize/Schema.ts:88
+Defined in src/Serialize/Schema.ts:89
 
 ___
 
@@ -10880,7 +10898,7 @@ ___
 
 Ƭ **SchemaBase**: *Omit‹[Schema](#interfaces_serialize_schema_schemamd), "created_at" | "updated_at"›*
 
-Defined in src/Serialize/Schema.ts:105
+Defined in src/Serialize/Schema.ts:106
 
 ### Functions
 
@@ -10888,7 +10906,7 @@ Defined in src/Serialize/Schema.ts:105
 
 ▸ **deserialize**(`deserializable`: [SchemaBase](#schemabase)): *E.Either‹Error, Deserialized.SchemaBase›*
 
-Defined in src/Serialize/Schema.ts:295
+Defined in src/Serialize/Schema.ts:297
 
 ```haskell
 deserialize :: Schema -> SerializableSchema
@@ -10904,7 +10922,7 @@ Name | Type |
 
 ▸ **deserialize**(`deserializable`: [Schema](#interfaces_serialize_schema_schemamd)): *E.Either‹Error, [Schema](#interfaces_schema_schemamd)›*
 
-Defined in src/Serialize/Schema.ts:299
+Defined in src/Serialize/Schema.ts:301
 
 **Parameters:**
 
@@ -10920,7 +10938,7 @@ ___
 
 ▸ **isFilePath**(`a`: unknown): *a is FilePath*
 
-Defined in src/Serialize/Schema.ts:186
+Defined in src/Serialize/Schema.ts:187
 
 ```haskell
 isFilePath :: a -> bool
@@ -10940,7 +10958,7 @@ ___
 
 ▸ **isFilePathArray**(`a`: unknown): *a is FilePath[]*
 
-Defined in src/Serialize/Schema.ts:194
+Defined in src/Serialize/Schema.ts:195
 
 ```haskell
 isFilePathArray :: a -> bool
@@ -10960,7 +10978,7 @@ ___
 
 ▸ **isFilters**(`a`: unknown): *a is Filters*
 
-Defined in src/Serialize/Schema.ts:136
+Defined in src/Serialize/Schema.ts:137
 
 ```haskell
 isFilters :: a -> bool
@@ -10980,7 +10998,7 @@ ___
 
 ▸ **isGettable**(`a`: unknown): *a is Gettable*
 
-Defined in src/Serialize/Schema.ts:231
+Defined in src/Serialize/Schema.ts:233
 
 ```haskell
 isGettable :: a -> bool
@@ -11000,7 +11018,7 @@ ___
 
 ▸ **isGettableOptions**(`a`: unknown): *a is GettableOptions*
 
-Defined in src/Serialize/Schema.ts:212
+Defined in src/Serialize/Schema.ts:213
 
 ```haskell
 isGettableOptions :: a -> bool
@@ -11020,7 +11038,7 @@ ___
 
 ▸ **isGettables**(`a`: unknown): *a is Gettables*
 
-Defined in src/Serialize/Schema.ts:243
+Defined in src/Serialize/Schema.ts:245
 
 ```haskell
 isGettables :: a -> bool
@@ -11040,7 +11058,7 @@ ___
 
 ▸ **isMultiply**(`a`: unknown): *a is Multiply*
 
-Defined in src/Serialize/Schema.ts:202
+Defined in src/Serialize/Schema.ts:203
 
 ```haskell
 isMultiply :: a -> bool
@@ -11060,7 +11078,7 @@ ___
 
 ▸ **isPath**(`a`: unknown): *a is Path*
 
-Defined in src/Serialize/Schema.ts:178
+Defined in src/Serialize/Schema.ts:179
 
 ```haskell
 isPath :: a -> bool
@@ -11080,7 +11098,7 @@ ___
 
 ▸ **isPathSegment**(`a`: unknown): *a is PathSegment*
 
-Defined in src/Serialize/Schema.ts:170
+Defined in src/Serialize/Schema.ts:171
 
 ```haskell
 isPathSegment :: a -> bool
@@ -11100,7 +11118,7 @@ ___
 
 ▸ **isPredicate**(`a`: unknown): *a is Predicate*
 
-Defined in src/Serialize/Schema.ts:158
+Defined in src/Serialize/Schema.ts:159
 
 ```haskell
 isPredicate :: a -> bool
@@ -11120,7 +11138,7 @@ ___
 
 ▸ **isProperty**(`a`: unknown): *a is Property*
 
-Defined in src/Serialize/Schema.ts:148
+Defined in src/Serialize/Schema.ts:149
 
 ```haskell
 isProperty :: a -> bool
@@ -11140,7 +11158,7 @@ ___
 
 ▸ **isReplacement**(`a`: unknown): *a is Replacement*
 
-Defined in src/Serialize/Schema.ts:112
+Defined in src/Serialize/Schema.ts:113
 
 ```haskell
 isReplacement :: a -> bool
@@ -11160,7 +11178,7 @@ ___
 
 ▸ **isReplacements**(`a`: unknown): *a is Replacements*
 
-Defined in src/Serialize/Schema.ts:124
+Defined in src/Serialize/Schema.ts:125
 
 ```haskell
 isReplacements :: a -> bool
@@ -11180,7 +11198,7 @@ ___
 
 ▸ **isSchema**(`a`: unknown): *a is Schema*
 
-Defined in src/Serialize/Schema.ts:267
+Defined in src/Serialize/Schema.ts:269
 
 ```haskell
 isSchema :: a -> bool
@@ -11200,7 +11218,7 @@ ___
 
 ▸ **isSchemaBase**(`a`: unknown): *a is SchemaBase*
 
-Defined in src/Serialize/Schema.ts:251
+Defined in src/Serialize/Schema.ts:253
 
 ```haskell
 isSchemaBase :: a -> bool
@@ -11220,7 +11238,7 @@ ___
 
 ▸ **serialize**(`serializable`: [Schema](#interfaces_schema_schemamd)): *[Schema](#interfaces_serialize_schema_schemamd)*
 
-Defined in src/Serialize/Schema.ts:279
+Defined in src/Serialize/Schema.ts:281
 
 ```haskell
 serialize :: SerializableSchema -> Schema
@@ -11236,7 +11254,7 @@ Name | Type |
 
 ▸ **serialize**(`serializable`: Deserialized.SchemaBase): *[SchemaBase](#schemabase)*
 
-Defined in src/Serialize/Schema.ts:280
+Defined in src/Serialize/Schema.ts:282
 
 **Parameters:**
 
