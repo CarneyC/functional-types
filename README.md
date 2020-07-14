@@ -6301,7 +6301,7 @@ ___
 
 ####  Severity
 
-Ƭ **Severity**: *"error" | "warning"*
+Ƭ **Severity**: *"error" | "info" | "warning"*
 
 Defined in src/Comparison.ts:13
 

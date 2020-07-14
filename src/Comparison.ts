@@ -10,7 +10,7 @@ import {
 } from './Types';
 import { allPass, anyPass, flip, includes, propIs, propSatisfies } from 'ramda';
 
-export type Severity = 'error' | 'warning';
+export type Severity = 'error' | 'info' | 'warning';
 
 export interface Leaf {
   label: string;
