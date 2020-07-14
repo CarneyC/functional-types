@@ -38,7 +38,7 @@ export interface Comparison
  * ```
  */
 export const isSeverity = (a: unknown): a is Severity =>
-  allPass([isString, flip(includes)(['error', 'warning'])])(a);
+  allPass([isString, flip(includes)(['error', 'info', 'warning'])])(a);
 
 /**
  * ```haskell
