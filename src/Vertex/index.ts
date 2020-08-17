@@ -869,6 +869,8 @@ export const getChildlessBoundingBoxes: (
       reject(
         allPass([
           pipe(propEq('id', boundingBox.id), not),
+          propSatisfies(isEmpty, 'rows'),
+          propSatisfies(isEmpty, 'columns'),
           propSatisfies(contains(boundingBox.boundingPoly), 'boundingPoly'),
         ]),
         acc
