@@ -887,11 +887,9 @@ export const translateLeafValue: (
 ) => R.Reader<S.Replacements, Leaf> = (leaf) => (
   replacements: S.Replacements
 ): Leaf => {
-  // console.log(leaf);
-  // console.log(replacements.leaf_values);
   return {
     ...leaf,
-    value: applyReplacement(leaf.value)(replacements.leaf_values),
+    value: applyReplacement(leaf.value)(replacements.leaf_values || []),
   };
 };
 
