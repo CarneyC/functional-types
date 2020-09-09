@@ -879,7 +879,25 @@ const applyReplacement: (value: string) => R.Reader<S.Replacement[], string> = (
 
 /**
  * ```haskell
- * translateNode :: Node -> Reader Path Node
+ * translateLeafValue :: Leaf -> Reader Replacements Leaf
+ * ```
+ */
+export const translateLeafValue: (
+  leaf: Leaf
+) => R.Reader<S.Replacements, Leaf> = (leaf) => (
+  replacements: S.Replacements
+): Leaf => {
+  // console.log(leaf);
+  // console.log(replacements.leaf_values);
+  return {
+    ...leaf,
+    value: applyReplacement(leaf.value)(replacements.leaf_values),
+  };
+};
+
+/**
+ * ```haskell
+ * translateNode :: Node -> Reader Replacements Node
  * ```
  */
 export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
@@ -894,7 +912,9 @@ export const translateNode: (node: Node) => R.Reader<S.Replacements, Node> = (
         reduce<[string, Node], Tree>((acc, [key, child]) => {
           const replaceList = (isLeaf(child) ? values : keys) || [];
           const translatedKey = applyReplacement(key)(replaceList);
-          const translatedChild = translateNode(child)(replacements);
+          const translatedChild = translateNode(
+            isLeaf(child) ? translateLeafValue(child)(replacements) : child
+          )(replacements);
           return assoc(translatedKey, translatedChild, acc);
         }, {})
       )

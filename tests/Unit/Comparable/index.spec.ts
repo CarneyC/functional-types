@@ -346,6 +346,9 @@ describe('Comparable', function () {
           '5_years': {
             value: '13.23',
           },
+          '2008': {
+            value: '-6.68',
+          },
         },
       };
 

@@ -23,6 +23,12 @@ export const replacements: Replacements = {
       value: '$1_year$2',
     },
   ],
+  leaf_values: [
+    {
+      pattern: /^(-?\d+\.\d{2})\d+$/,
+      value: '$1',
+    },
+  ],
 };
 
 export const gettable: Gettable = {

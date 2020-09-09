@@ -36,6 +36,7 @@ export interface Replacement {
 export interface Replacements {
   keys?: Replacement[];
   values?: Replacement[];
+  leaf_values?: Replacement[];
 }
 
 export interface Filters {
@@ -127,6 +128,10 @@ export const isReplacements = (a: unknown): a is Replacements =>
     isDictionary,
     propSatisfiesIfExists(allPass([isArray, all(isReplacement)]), 'keys'),
     propSatisfiesIfExists(allPass([isArray, all(isReplacement)]), 'values'),
+    propSatisfiesIfExists(
+      allPass([isArray, all(isReplacement)]),
+      'leaf_values'
+    ),
   ])(a);
 
 /**
