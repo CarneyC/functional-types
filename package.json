@@ -63,7 +63,7 @@
     "husky": "^4.2.5",
     "json-schema": "^0.2.5",
     "lint-staged": "^10.2.4",
-    "mocha": "^7.1.2",
+    "mocha": "^10.1.0",
     "prettier": "^2.0.5",
     "showdown": "^1.9.1",
     "shx": "^0.3.2",
